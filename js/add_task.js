@@ -1,4 +1,6 @@
 let allTasks = [];
+const STORAGE_TOKEN = 'QFOSCYPA967P352YSSOENCUXGKA464XWSUTNI5NT';
+const STORAGE_URL = 'https://remote-storage.developerakademie.org/item';
 
 function addTask() {
     let title = document.getElementById('title').value;
@@ -28,4 +30,23 @@ function addTask() {
 function loadAllTasks() {
     let allTasksAsString = localStorage.getItem('allTasks');
     allTasks = JSON.parse(allTasksAsString) || [];
+}
+
+function checkBoxClicked(id) {
+    let checkbox = document.getElementById(id);
+    if (checkbox.checked) {
+        console.log(checkbox.value);
+        
+    }
+}
+
+async function setItem(key, value) {
+    const payload = { key, value, token: STORAGE_TOKEN };
+    return fetch(STORAGE_URL, { method: 'POST', body: JSON.stringify(payload)})
+    .then(res => res.json());
+}
+
+async function getItem(key) {
+    const url = `${STORAGE_URL}?key=${key}&token=${STORAGE_TOKEN}`;
+    return fetch(url).then(res => res.json());
 }

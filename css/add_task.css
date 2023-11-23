@@ -41,7 +41,7 @@ section {
 }
 .sections {
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
 }
 .leftSection {
     display: flex;
@@ -51,7 +51,27 @@ section {
 .border {
     width: 1px;
     background-color: #DEDFDF;
+    margin-left: 80px;
+    margin-right: 80px;
 
+}
+#prio {
+    display: flex;
+    justify-content: space-between;
+}
+.prio {
+    margin: 4px;
+    border: 1px solid #DEDFDF;
+}
+.prio label span {
+    display: block;
+    padding: 8px;
+}
+.prio label input {
+    display: none;
+}
+.prio input:checked + span {
+    border: 1px solid black;
 }
 .bottomSection {
     display: flex;
