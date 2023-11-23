@@ -1,0 +1,54 @@
+body {
+    margin: 0 auto;
+    width: 1440px;
+}
+header {
+    position: sticky;
+    top: 0;
+    left: 232px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 1208px;
+    height: 96px;
+    background-color: white;
+    box-shadow: -2px 0 8px 0 rgba(0, 0, 0, 0.2);
+}
+.navBar {
+    position: sticky;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 232px;
+    height: 1024px;
+    
+    background-color: #2A3647;
+}
+.navLogo {
+    width: 100px;
+}
+section {
+    position: absolute;
+    top: 0;
+    left: 232px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+}
+.sections {
+    display: flex;
+    justify-content: space-around;
+}
+.leftSection {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+.bottomSection {
+    display: flex;
+    justify-content: space-between;
+}

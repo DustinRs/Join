@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/add_task.css" />
+    <script src="/js/add_task.js"></script>
+  </head>
+  <body onload="loadAllTasks()">
+    
+    
+
+    </div>
+    <div class="navBar">
+        <img class="navLogo" src="/assets/img/dNavLogo.png" alt="">
+        <div>
+        <a href=""><img src="" alt="">Summary</a>
+        <a href=""><img src="" alt="">Add Task</a>
+        <a href=""><img src="" alt="">Board</a>
+        <a href=""><img src="" alt="">Contacts</a>
+        </div>
+        <div>
+            Link<a href=""></a>
+            Link<a href=""></a>
+        </div>
+    <section>
+        <header>
+        <p>Kanban Project Management Tool</p>
+        <div>
+            img<img src="" alt="">
+            img<img src="" alt="">
+        </div>
+    </header>
+      <h1>Add Task</h1>
+        <div class="sections">
+      <div class="leftSection">
+        <p>Title*</p>
+        <input id="title" required type="text" />
+
+        <p>Description</p>
+        <textarea id="description" cols="30" rows="10"></textarea>
+
+        <p>Assigned to</p>
+        <label>
+        <select id="assign" >
+          <option value="" disabled selected>Select contacts to assign</option>
+          <option value="">René</option>
+          <option value="">Simon</option>
+          <option value="">Dustin</option>
+        </select>
+        </label>
+      </div>
+
+      <div>|</div>
+
+      <div class="rightSection">
+        <p>Due date*</p>
+        <input id="date" required type="date" />
+
+        <p>Prio</p>
+        <div id="prio">
+            <label for="urgent">Urgent</label>
+          <input id="urgent" type="checkbox" value="Urgent">
+          <input id="medium" type="checkbox" value="Medium">
+          <input id="low" type="checkbox" value="Low">
+        </div>
+
+        <p>Category*</p>
+        <select required name="" id="category">
+          <option value="" disabled selected>Select contacts to assign</option>
+          <option value="To Do">To Do</option>
+          <option value="In Progress">In Progress</option>
+          <option value="Await Feedback">Await Feedback</option>
+          <option value="Done">Done</option>
+        </select>
+
+        <p>Subtasks</p>
+        <input id="subTask" type="text" /> <button>+</button>
+      </div>
+      </div>
+      <div class="bottomSection">
+      <p>*This field is required</p>
+      <div>
+        <button>Clear <img src="" alt="" /></button>
+        <button onclick="addTask()">Create Task <img src="" alt="" /></button>
+      </div>
+    </div>
+    </section>
+    
+  </body>
+</html>
