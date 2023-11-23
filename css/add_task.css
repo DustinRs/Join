@@ -48,6 +48,11 @@ section {
     flex-direction: column;
     justify-content: flex-start;
 }
+.border {
+    width: 1px;
+    background-color: #DEDFDF;
+
+}
 .bottomSection {
     display: flex;
     justify-content: space-between;
