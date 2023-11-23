@@ -7,8 +7,6 @@ function addTask() {
     let prio = document.getElementById('urgent').value;
     let category = document.getElementById('category').value;
     let subTask = document.getElementById('subTask').value;
-
-
     let task = {
         'title': title,
         'description': description,
@@ -17,17 +15,17 @@ function addTask() {
         'category': category,
         'subTask': subTask
     };
-console.log(task);
+    console.log(task);
     allTasks.push(task);
 
-    
+
 
     let allTasksAsString = JSON.stringify(allTasks);
     localStorage.setItem('allTasks', allTasksAsString);
-    
+
 }
 
 function loadAllTasks() {
     let allTasksAsString = localStorage.getItem('allTasks');
-    allTasks = JSON.parse(allTasksAsString);
+    allTasks = JSON.parse(allTasksAsString) || [];
 }
