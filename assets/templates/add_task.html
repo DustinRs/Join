@@ -11,76 +11,88 @@
     
     
 
-    </div>
+    
     <div class="navBar">
         <img class="navLogo" src="/assets/img/NavLogo.png" alt="">
-        <div>
-        <a href=""><img src="" alt="">Summary</a>
-        <a href=""><img src="" alt="">Add Task</a>
-        <a href=""><img src="" alt="">Board</a>
-        <a href=""><img src="" alt="">Contacts</a>
+        <div class="navLinks">
+        <div class="navLinkImg">
+          <a href="">
+          <img src="/assets/img/nav-summary.png" alt=""></a><span>Summary</span>
         </div>
-        <div>
-            Link<a href=""></a>
-            Link<a href=""></a>
+        <div class="navLinkImg"> 
+          <a href="">
+          <img src="/assets/img/nav-add-task.png" alt=""> </a><span>Add Task</span>
+        </div>
+        <div class="navLinkImg">
+          <a href="">
+          <img src="/assets/img/nav-board.png" alt=""> </a><span>Board</span>
+        </div>
+        <div class="navLinkImg">
+          <a href="">
+          <img src="/assets/img/nav-contacts.png" alt=""> </a><span>Contacts</span>
+        </div>
+        </div>
+        <div class="navBottom">
+            <a class="navLinksBot" href="">Privacy Policy</a>
+            <a class="navLinksBot" href="">Legal notice</a>
         </div>
     <section>
         <header>
-        <p>Kanban Project Management Tool</p>
-        <div>
-            img<img src="" alt="">
-            img<img src="" alt="">
+        <p class="pHeader">Kanban Project Management Tool</p>
+        <div class="imgsHeader">
+            <img src="/assets/img/help.png" alt="">
+            <img src="/assets/img/UserProfile.png" alt="">
         </div>
     </header>
-      <h1>Add Task</h1>
+      <h1 class="title">Add Task</h1>
         <div class="sections">
       <div class="leftSection">
-        <p>Title*</p>
+        <p>Title<span class="span">*</span></p>
         <input id="title" required type="text" placeholder="Enter a title" />
 
         <p>Description</p>
         <textarea id="description" placeholder="Enter a Description" cols="30" rows="10"></textarea>
 
         <p>Assigned to</p>
-        <label>
+        <div>
         <select id="assign" >
           <option value="" disabled selected>Select contacts to assign</option>
           <option value="">René</option>
           <option value="">Simon</option>
           <option value="">Dustin</option>
         </select>
-        </label>
+        </div>
       </div>
 
       <div class="border"></div>
 
       <div class="rightSection">
-        <p>Due date*</p>
+        <p>Due date<span class="span">*</span></p>
         <input id="date" required type="date" />
 
         <p>Prio</p>
         <div id="prio">
-            <div class="prio Urgent">
-                <label>
-                    <input id="urgent" type="checkbox" value="Urgent" onclick="checkBoxClicked('urgent')">
-                    <span>Urgent <img src="/assets/img/urgent-priority.png" alt=""></span>
-                </label>
-            </div>
-            <div class="prio Medium">
-                <label>
-                    <input id="medium" type="checkbox" value="Medium" onclick="checkBoxClicked('medium')">
-                    <span>Medium <img src="/assets/img/medium-priority.png" alt=""></span>
-                </label>
-            </div>
-            <div class="prio Low">
-                <label>
-                    <input id="low" type="checkbox" value="Low" onclick="checkBoxClicked('low')">
-                    <span>Low <img src="/assets/img/low-priority.png" alt=""></span>
-                </label>
-            </div>
-        </div>
+          <div class="prio Urgent">
+              <label>
+                  <input id="urgent" type="checkbox" value="Urgent" onclick="checkBoxClicked('urgent')">
+                  <span>Urgent <img class="prioImgs" src="/assets/img/urgent-priority.png" alt=""></span>
+              </label>
+          </div>
+          <div class="prio Medium">
+              <label>
+                  <input id="medium" type="checkbox" value="Medium" onclick="checkBoxClicked('medium')">
+                  <span>Medium <img class="prioImgs" src="/assets/img/medium-priority.png" alt=""></span>
+              </label>
+          </div>
+          <div class="prio Low">
+              <label>
+                  <input id="low" type="checkbox" value="Low" onclick="checkBoxClicked('low')">
+                  <span>Low <img class="prioImgs" src="/assets/img/low-priority.png" alt=""></span>
+              </label>
+          </div>
+      </div>
 
-        <p>Category*</p>
+        <p>Category<span class="span">*</span></p>
         <select required name="" id="category">
           <option value="" disabled selected>Select contacts to assign</option>
           <option value="To Do">To Do</option>
@@ -90,14 +102,14 @@
         </select>
 
         <p>Subtasks</p>
-        <input id="subTask" type="text" placeholder="Add new subtask" /> <button>+</button>
+        <input id="subTask" type="text" placeholder="Add new subtask" /> 
       </div>
       </div>
       <div class="bottomSection">
-      <p>*This field is required</p>
+      <p ><span class="span">*</span>This field is required</p>
       <div>
-        <button>Clear <img src="" alt="" /></button>
-        <button onclick="addTask()">Create Task <img src="" alt="" /></button>
+        <button class="clearButton">Clear <img src="/assets/img/btn-x.png" alt="" /></button>
+        <button class="createTaskButton" onclick="addTask()">Create Task <img src="/assets/img/checkbtn-checkmark.png" alt="" /></button>
       </div>
     </div>
     </section>
