@@ -40,19 +40,6 @@ body {
     animation: startScreen 1s ease 1s 1 forwards;
 }
 
-#start-logo {
-    /* width: 280px; */
-    visibility: visible;
-
-}
-
-/* #start-logo {
-    position: absolute;
-    inset: 0;
-    width: 101px;
-    visibility: visible;
-} */
-
 #sign-up {
     font-family: 'Inter', sans-serif;
     font-size: 24px;
@@ -204,7 +191,7 @@ body {
     width: 24px;
 }
 
-#login-form{
+#login-btn-container{
     position: relative;
     left: 0;
     right: 0;
