@@ -26,24 +26,28 @@
     <main id="login-main">
         <div id="login-container">
             <div id="login-title-container">
-                <div id="login-title">Log in</div>
+                <div id="login-title">Sign up</div>
                 <div id="login-underline"></div>
             </div>
             <form onsubmit="return false">
                 <div id="login-input-container">
                     <div class="login-input-fields">
-                        <input class="login-input" id="login-mail" type="email" required placeholder="Email">
+                        <input class="login-input" id="username" name="username" type="text" required placeholder="Name">
+                        <img class="input-img" src="assets/img/person.png" alt="person">
+                    </div>
+                    <div class="login-input-fields">
+                        <input class="login-input" id="sign-up_mail" type="email" required placeholder="Email">
                         <img class="input-img" src="assets/img/mail.png" alt="mail">
                     </div>
                     <div class="login-input-fields">
-                        <input class="login-input" id="login-password" type="password" min="8" required placeholder="Password" 
+                        <input class="login-input" id="create_password" type="text" min="8" required placeholder="Password" 
                         pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$"
-                        title="Bitter verwende mindestens eine Zahl und ein Sonderzeichen.">
+                        title="Bitte verwende Groß- und Kleinbuchstaben, sowie ein Sonderzeichen und eine Nummern">
                         <img class="input-img" src="assets/img/lock.png" alt="lock">
                     </div>
-                    <div id="log-in-check" class="d-flex">
-                        <input type="checkbox">
-                        <div>Remember me</div>
+                    <div class="login-input-fields">
+                        <input class="login-input" id="confirm_password" type="password" placeholder="Password Conformation">
+                        <img class="input-img" src="assets/img/lock.png" alt="lock">
                     </div>
                 </div>
                 <div>
