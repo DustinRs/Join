@@ -2,8 +2,9 @@ let allTasks = [];
 const STORAGE_TOKEN = "QFOSCYPA967P352YSSOENCUXGKA464XWSUTNI5NT";
 const STORAGE_URL = "https://remote-storage.developerakademie.org/item";
 let prioArray = [];
+let key = 'allTasks';
 
-function addTask() {
+async function addTask() {
   let title = document.getElementById("title").value;
   let description = document.getElementById("description").value;
   let date = document.getElementById("date").value;
@@ -21,8 +22,10 @@ function addTask() {
   console.log(task);
   allTasks.push(task);
 
-  let allTasksAsString = JSON.stringify(allTasks);
+  let allTasksAsString = JSON.stringify(allTasks); 
   localStorage.setItem("allTasks", allTasksAsString);
+
+  setItem(key, allTasks);
 }
 
 function loadAllTasks() {
