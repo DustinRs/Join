@@ -14,8 +14,8 @@ async function getItem(key) {
     return fetch(url).then(res => res.json());
 }
 
-let password = document.getElementById("create_password")
-  , confirm_password = document.getElementById("confirm_password");
+let password = document.getElementById("create_password");
+let confirm_password = document.getElementById("confirm_password");
 
 function validatePassword(){
   if(password.value != confirm_password.value) {

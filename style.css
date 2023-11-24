@@ -107,6 +107,17 @@ body {
     padding: 48px 115px;
 }
 
+#signup-container {
+    position: absolute;
+    background-color: white;
+    border-radius: 30px;
+    height: 670px;
+    width: 760px;
+    margin: auto;
+    inset: 0;
+    padding: 48px 115px;
+}
+
 #login-underline {
     height: 0;
 }
@@ -154,21 +165,15 @@ body {
 
 }
 
-/* #login-mail {
-    border: none;
-    width: 90%;
-    font-size: 20px;
-    font-weight: 400;
-    line-height: 24px;
-
-    &:focus {
-        outline: none;
-    }
-
-    &::placeholder{
-        opacity: .25;
-    }
-} */
+#policy-check{
+    position: relative;
+    left: 0;
+    right: 0;
+    margin: auto;
+    justify-content: center;
+    margin-bottom: 32px;
+    gap:16px
+}
 
 .login-input{
     border: none;
@@ -199,6 +204,28 @@ body {
     display: flex;
     justify-content: space-between;
     width: 60%;
+}
+
+#signup-btn-container{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+}
+
+#signup-btn{
+    border-radius: 8px;
+    display: flex;
+    background-color: #2A3647;
+    color:white;
+    font-size: 21px;
+    font-weight: 700;
+    padding: 8px 24px;
+    align-items:center;
+    &:hover {
+        background-color: var(--blue);
+        box-shadow: 0px 4px 2px 0px rgba(0, 0, 0, 0.2);
+    }
 }
 
 #log-in-check{
