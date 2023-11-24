@@ -7,16 +7,16 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="css/fonts.css">
     <script src="script.js"></script>
+    <link rel="shortcut icon" type="image/x-icon" href="assets/img/join-logo.png">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <title>Join</title>
 </head>
 
 <body>
+    <div id="logo-container"></div>
     <header>
-        <div id="header-container" class="d-flex justify-content-between">
-            <img id="start-logo" src="assets/img/join-logo.png" alt="">
-
+        <div id="header-container" class="d-flex justify-content-end">
             <div id="sign-up">
                 <span id="sign-up-text">Not a Join user?</span>
                 <button id="sign-up-btn" class="btn">Sign up</button>
@@ -38,16 +38,25 @@
                     <input id="login-password" type="password" required placeholder="Password">
                     <img class="input-img" src="assets/img/lock.png" alt="lock">
                 </div>
-                       
+                <div id="log-in-check" class="d-flex">
+                    <input type="checkbox"> 
+                    <div>Remember me</div>
+                </div>
             </div>
-            <div><form id="login-form" submit="#">
-                <button id="login-btn" class="btn">
-                    Log in
-                </button>
-                <button id="guest-login-btn" class="btn">
-                    Guest Log in
-                </button>
-            </form>           </div>
+            <div>
+
+                <div id="login-btn-container">
+                    <form id="login-form" submit="#">
+                        <button id="login-btn" class="btn">
+                            Log in
+                        </button>
+                        <button id="guest-login-btn" class="btn">
+                            Guest Log in
+                        </button>
+                    </form>
+                    
+                </div>
+            </div>
         </div>
     </main>
     <footer>
