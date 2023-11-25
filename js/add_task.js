@@ -2,7 +2,13 @@ let allTasks = [];
 const STORAGE_TOKEN = "QFOSCYPA967P352YSSOENCUXGKA464XWSUTNI5NT";
 const STORAGE_URL = "https://remote-storage.developerakademie.org/item";
 let prioArray = [];
-let key = 'allTasks';
+let key = "allTasks";
+
+function init() {
+  loadAllTasks();
+  checkInputs();
+  setupInputListeners();
+}
 
 async function addTask() {
   let title = document.getElementById("title").value;
@@ -22,7 +28,7 @@ async function addTask() {
   console.log(task);
   allTasks.push(task);
 
-  let allTasksAsString = JSON.stringify(allTasks); 
+  let allTasksAsString = JSON.stringify(allTasks);
   localStorage.setItem("allTasks", allTasksAsString);
 
   setItem(key, allTasks);
@@ -44,6 +50,36 @@ async function setItem(key, value) {
 async function getItem(key) {
   const url = `${STORAGE_URL}?key=${key}&token=${STORAGE_TOKEN}`;
   return fetch(url).then((res) => res.json());
+}
+
+function checkInputs() {
+  let title = document.getElementById("title").value;
+  let description = document.getElementById("description").value;
+  let date = document.getElementById("date").value;
+  let category = document.getElementById("category").value;
+
+  let button = document.querySelector(".createTaskButton");
+
+  if (title && description && date && category) {
+    button.removeAttribute("disabled");
+  } else {
+    button.setAttribute("disabled", "true");
+  }
+}
+
+function setupInputListeners() {
+  const inputIds = ["title", "description", "date", "category"];
+
+  inputIds.forEach((id) => {
+    const input = document.getElementById(id);
+
+    if (input) {
+      console.log(`Element with ID ${id}:`, input);
+      input.addEventListener("input", checkInputs);
+    } else {
+      console.error(`Element with ID ${id} not found.`);
+    }
+  });
 }
 
 function checkBoxClicked(priority) {

@@ -208,6 +208,10 @@ section {
     cursor: pointer;
     background-color: #29ABE2;
 }
+.createTaskButton:disabled {
+    background-color: lightgray;
+    cursor: not-allowed;
+}
 .clearButton {
     background-color: #F6F7F8;
     color: #091931;

@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="/css/add_task.css" />
     <script src="/js/add_task.js"></script>
   </head>
-  <body onload="getItem(key);loadAllTasks();">
+  <body onload="getItem(key);init();">
     
     
 
@@ -48,10 +48,10 @@
         <div class="sections">
       <div class="leftSection">
         <p>Title<span class="span">*</span></p>
-        <input id="title" required type="text" placeholder="Enter a title" />
+        <input id="title" type="text" placeholder="Enter a title" required/>
 
         <p>Description</p>
-        <textarea id="description" placeholder="Enter a Description" cols="30" rows="10"></textarea>
+        <textarea id="description" placeholder="Enter a Description" cols="30" rows="10" required></textarea>
 
         <p>Assigned to</p>
         <div class="selectContainer">
@@ -69,7 +69,7 @@
 
       <div class="rightSection">
         <p>Due date<span class="span">*</span></p>
-        <input id="date" required type="date" />
+        <input id="date" type="date" required/>
 
         <p>Prio</p>
         <div id="prio">
@@ -96,7 +96,7 @@
         <p>Category<span class="span">*</span></p>
         
         <div class="selectContainer">
-          <select required class="select-box" id="category" >
+          <select  class="select-box" id="category" required>
             <option value="" style="display: none;">Select contacts to assign</option>
             <option value="To Do">To Do</option>
             <option value="In Progress">In Progress</option>
