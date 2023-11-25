@@ -1,0 +1,211 @@
+body {
+    margin: 0;
+    width: 1440px;
+    font-family: 'Inter', sans-serif;
+    font-size: 20px;
+    background-color: #F6F7F8;
+}
+input {
+    font-family: 'Inter', sans-serif;
+    max-width: 440px;
+    height: 48px;
+    border-radius: 10px;
+    width: 100%;
+    border: 1px solid #DEDFDF;
+    font-size: 20px;
+    padding-left: 16px;
+}
+textarea {
+    font-family: 'Inter', sans-serif;
+    font-size: 20px;
+    border: 1px solid #DEDFDF;
+    border-radius: 10px;
+    min-width: 440px;
+    max-width: 440px;
+    padding-left: 16px;
+    padding-top: 12px;
+}
+select {
+    min-width: 440px;
+    max-width: 440px;
+    height: 48px;
+    border: 1px solid #DEDFDF;
+    border-radius: 10px;
+    font-size: 20px;
+    padding-left: 16px;
+}
+p {
+    margin-bottom: 8px;
+}
+a {
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+}
+header {
+    position: sticky;
+    top: 0;
+    left: 232px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 1208px;
+    height: 96px;
+    background-color: white;
+    box-shadow: -2px 0 8px 0 rgba(0, 0, 0, 0.2);
+}
+.pHeader {
+    font-size: 20px;
+    margin-left: 100px;
+    margin-bottom: 16px;
+}
+.imgsHeader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 40px;
+    gap: 20px;
+}
+.navBar {
+    position: sticky;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 232px;
+    height: 1024px;
+    background-color: #2A3647;
+    padding-top: 64px;
+    padding-bottom: 64px;
+    font-size: 16px;
+}
+.navLogo {
+    
+    width: 100px;
+}
+.navLinks {
+    display: flex;
+    flex-direction: column;
+    width: 232px;
+    height: 229px;
+    gap: 15px;
+    margin-bottom: 200px;
+}
+.navLinkImg {
+    width: 232px;
+    height: 46px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    color: white;
+}
+.navLinkImg:hover {
+    cursor: pointer;
+    background-color: #091931;
+}
+.navBottom {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+.navLinksBot:hover {
+    color: #29ABE2;
+}
+section {
+    position: absolute;
+    top: 0;
+    left: 232px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+}
+.sections-drag {
+    display: flex;
+    flex-wrap: wrap;
+    width: auto;
+    height: auto;
+    margin-left: 56px;
+}
+.drag-area {
+    height: 200px;
+    background-color: rgba(0, 0, 0, 0.1);
+    border: 1px dashed black;
+    margin-bottom: 50px;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    min-width: 64px;
+    height: auto;
+}
+
+.drag-area-highlight {
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+.todo {
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px;
+}
+
+.headline {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1477px;
+    padding-top: 82px;
+    padding-bottom: 99px;
+}
+.inputAndButton {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.buttonAdd {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 21px 13px 21px;
+    background-color: #2A3647;
+    color: white;
+    border-radius: 10px;
+    font-size: 21px;
+    font-weight: 700;
+    margin-left: 35px;
+}
+
+.content {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1477px;
+    padding-bottom: 99px;
+}
+.buttonAdd {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 21px 13px 21px;
+    background-color: #2A3647;
+    color: white;
+    border-radius: 10px;
+    font-size: 21px;
+    font-weight: 700;
+    margin-left: 35px;
+}
+.buttonAdd:hover {
+    cursor: pointer;
+    background-color: #29ABE2;
+    box-shadow: 0px 4px 9px -1px rgba(0, 0, 0, 0.4);
+}
+h1 {
+    display: block;
+    font-size: 61px;
+    font-weight: 700;
+}

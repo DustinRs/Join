@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Board</title>
+    <link rel="stylesheet" href="/css/board.css" />
+    <script src="/js/move_tasks.js"></script>
+</head>
+
+<body onload="updateHTML()">
+
+
+
+
+    <div class="navBar">
+        <img class="navLogo" src="/assets/img/NavLogo.png" alt="">
+        <div class="navLinks">
+            <div class="navLinkImg">
+                <a href="">
+                    <img src="/assets/img/nav-summary.png" alt=""></a><span>Summary</span>
+            </div>
+            <div class="navLinkImg">
+                <a href="">
+                    <img src="/assets/img/nav-add-task.png" alt=""> </a><span>Add Task</span>
+            </div>
+            <div class="navLinkImg">
+                <a href="">
+                    <img src="/assets/img/nav-board.png" alt=""> </a><span>Board</span>
+            </div>
+            <div class="navLinkImg">
+                <a href="">
+                    <img src="/assets/img/nav-contacts.png" alt=""> </a><span>Contacts</span>
+            </div>
+        </div>
+        <div class="navBottom">
+            <a class="navLinksBot" href="">Privacy Policy</a>
+            <a class="navLinksBot" href="">Legal notice</a>
+        </div>
+        <section>
+            <header>
+                <p class="pHeader">Kanban Project Management Tool</p>
+                <div class="imgsHeader">
+                    <img src="/assets/img/help.png" alt="">
+                    <img src="/assets/img/UserProfile.png" alt="">
+                </div>
+            </header>
+            <div class="sections-drag">
+                <div class="headline">
+                    <h1>Board</h1>
+                    <div class="inputAndButton">
+                        <div class="input">
+                            <input type="text" placeholder="Find Task">
+                        </div>
+                        <div class="buttonAdd">Add Task
+                            <img src="/assets/img/board-plus.png" alt="">
+                        </div>
+                    </div>
+                </div>
+                <div class="content">
+                    <div class="drag-area" id="open" ondrop="moveTo('open')" ondragleave="removeHighlight('open')"
+                        ondragover="allowDrop(event); highlight('open')">
+                    </div>
+                    <div class="drag-area" id="in-progress" ondrop="moveTo('in-progress')"
+                        ondragleave="removeHighlight('in-progress')"
+                        ondragover="allowDrop(event); highlight('in-progress')"></div>
+                    <div class="drag-area" id="closed" ondrop="moveTo('closed')" ondragleave="removeHighlight('closed')"
+                        ondragover="allowDrop(event); highlight('closed')"></div>
+                </div>
+            </div>
+
+        </section>
+    </div>
+
+</body>
+
+</html>
