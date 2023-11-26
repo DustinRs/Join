@@ -1,7 +1,9 @@
 <head>
     <link rel="stylesheet" href="/css/add_task.css">
+    <link rel="stylesheet" href="/css/contacts.css">
+    <script src="/js/add_contact.js"></script>
 </head>
-<body>
+<body onload="init()">
 
     <div class="navBar">
         <img class="navLogo" src="/assets/img/NavLogo.png" alt="">
@@ -35,11 +37,42 @@
             <img src="/assets/img/UserProfile.png" alt="">
         </div>
     </header>
-    <div id="contacts">
-        Kontakte
-    </div>
-      <h1 class="title">Contacts</h1>
+    <div class="contactSection">
+    <div class="contactsDiv">
+        <div class="contactButtonDiv">
+            <button onclick="addNewContact()" class="contactButton">
+                <span>Add new contact</span><img src="/assets/img/person_add.png" alt="">
+            </button>
+        </div>
+        <div class="scrollDiv" id="register">
+            
+        </div>
 
+    </div>
+    <div class="popUpUserProfile">
+    <div class="headlineDiv">
+        <div class="headLine">
+        <h1 class="h1">Contacts</h1>
+        <div class="blueLine"></div>
+        <span class="spanContact">Better with a team</span>
+        </div>
+    </div>
+
+    <div id="userProfile" class="userProfile">
+        <div>
+            <div class="topProfile">
+            <img src="/assets/img/UserProfileHuge.png" alt="">
+            <div class="nameProfile"><h2>Dustin Rohrschneider</h2><Button>Edit</Button><Button>Delete</Button></div>
+            </div>
+            <p>Contact Information</p>
+            <p><b>Email</b></p>
+            <a class="profileLink" href="">email</a>
+            <p><b>Phone</b></p>
+            <p>12312141512</p>
+        </div>
+    </div>
+    </div>
+    </div>
     </section>
     
   </body>

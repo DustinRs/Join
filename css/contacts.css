@@ -1,0 +1,135 @@
+.contactSection {
+    display: flex;
+}
+.contactsDiv {
+    width: 456px;
+    min-height: 928px;
+    background-color: white;
+    padding: 32px 24px 32px 24px;
+}
+.contactButtonDiv {
+    display: flex;
+    justify-content: center;
+}
+.contactButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    background-color: #2A3647;
+    width: 80%;
+    height: 56px;
+    border-radius: 10px;
+    padding: 12 0 12 0;
+    font-size: 21px;
+    color: white;
+    border: unset;
+}
+.contactButton:hover {
+    cursor: pointer;
+    background-color: #29ABE2;
+}
+.scrollDiv {
+    width: 100%;
+    height: 928px;
+    overflow: auto;
+}
+.registerLineDiv {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 8 0 8 0;
+}
+.register {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 352px;
+    height: 58px;
+    padding: 17px 36px 17px 36px;
+    font-size: 20px;
+}
+.registerLine {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 352;
+    border: 1px solid #D1D1D1;
+}
+.contact {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 352px;
+    height: 78px;
+    padding: 15px 24px 15px 24px;
+}
+.contact:hover {
+    cursor: pointer;
+    background-color: lightgray;
+    border-radius: 10px;
+}
+.userProfileImg {
+    padding: 24px;
+    border-radius: 48px;
+    background-color: rgb(214, 13, 13);
+    color: white;
+}
+.nameLinkDiv {
+    display: flex;
+    flex-direction: column;
+}
+.emailLinks {
+    color: #007CEE;
+}
+.headlineDiv {
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    margin-bottom: 32px;
+    margin-top: 84px;
+    margin-left: 84px;
+}
+.h1 {
+   font-size: 61px;
+    font-weight: 700; 
+}
+.blueLine {
+    border: 3px solid #29ABE2;
+    border-radius: 10px;
+    height: 59px;
+}
+.headLine {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+.spanContact {
+    font-size: 27px;
+}
+.userProfile {
+    display: flex;
+    min-width: 461px;
+    height: 364px;
+    gap: 21px;
+    margin-left: 84px;
+}
+.topProfile {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 51px;
+}
+h2 {
+    font-size: 47px;
+    font-weight: 500;
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+.nameProfile {
+    gap: 8px;
+}
+.profileLink {
+    color: #29ABE2;
+}
