@@ -1,7 +1,8 @@
 :root {
-    --blue: #29ABE2
+    --blue: #29ABE2;
+    --outline-active: #74C5E8;
+    --outline-error:#FF6073;
 }
-
 
 #header-container {
     margin: 48px 9.6% 0 5.5%;
@@ -155,14 +156,48 @@ body {
     width: 85%;
 }
 
+.login-input-fields:has(input:focus){
+    animation: fade-border 0.2s ease 0s 1 forwards;
+}
+
+.login-input-fields input:focus+#lock{
+    animation: change-icon 0.1s ease 0s 1 forwards;
+}
+
+@keyframes change-icon {
+    0%{
+        opacity: 1;
+    }
+
+    50%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+        content: url("assets/img/visibility_off.png");
+    }
+    
+}
+
+
+@keyframes fade-border {
+    from{
+        border: 2px solid rgba(0,0,0,0.15);
+    }
+
+    to{
+        border: 2px solid var(--outline-active)
+    }
+}
+
+
 .login-input-fields {
     margin: 32px 0;
     display: flex;
     justify-content: space-between;
     padding: 12px 21px;
-    border: 1px solid rgba(0,0,0,0.15);
+    border: 2px solid rgba(0,0,0,0.15);
     border-radius: 10px;
-
 }
 
 #policy-check{
@@ -183,7 +218,7 @@ body {
     font-weight: 400;
 
     &:focus {
-        outline: none;
+        outline:none;
     }
 
     &::placeholder{
@@ -197,13 +232,14 @@ body {
 }
 
 #login-btn-container{
-    position: relative;
+    position: absolute;
     left: 0;
     right: 0;
-    margin:0 auto;
+    margin: 0 auto;
     display: flex;
     justify-content: space-between;
-    width: 60%;
+    width: 43%;
+    bottom: 105px;
 }
 
 #signup-btn-container{
@@ -229,9 +265,8 @@ body {
 }
 
 #log-in-check{
-    position: relative;
+    position: absolute;
     left:11%;
-    margin: 32px 0
 }
 
 #log-in-check>input{

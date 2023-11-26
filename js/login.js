@@ -27,3 +27,8 @@ function validatePassword(){
 
 password.onchange = validatePassword;
 confirm_password.onkeyup = validatePassword;
+
+function showPassword(){
+  let input = document.getElementById('login-password');
+  let eye = document.getElementById('lock');
+}
