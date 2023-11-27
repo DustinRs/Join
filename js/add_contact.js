@@ -111,9 +111,14 @@ function renderContacts(letter) {
 
   for (let i = 0; i < contacts.length; i++) {
     const contact = contacts[i];
-    let text = contacts[i].firstName.slice(0,1)+contacts[i].name.slice(0,1);
-    container.innerHTML += `
-        <div id="${contact["name"]}" onclick="openProfile(${contact["name"]})" class="contact">
+    let fullName = contact["firstName"] + " " + contact["name"];
+    let initials =
+      contacts[i].firstName.slice(0, 1) + contacts[i].name.slice(0, 1);
+    let initial = contacts[i].firstName.slice(0, 1);
+
+    if (letter === initial) {
+      container.innerHTML += `
+        <div id="${fullName}" onclick="openProfile('${fullName}', '${contact["email"]}', '${contact["phoneNumber"]}')" class="contact">
         
         <div>
             <span id="${initials}" class="initials">${initials}</span>
