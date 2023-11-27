@@ -20,14 +20,14 @@ main.innerHTML+=/*html*/`
                 <img class="input-img" src="assets/img/mail.png" alt="mail">
             </div>
             <div class="login-input-fields">
-                <input class="login-input" id="create_password" type="text" min="8" required placeholder="Password"
-                    pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$"
+                <input class="login-input" id="create_password" type="password" min="8" required placeholder="Password"
+                    pattern="^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$"
                     title="Bitte verwende Groß- und Kleinbuchstaben, sowie ein Sonderzeichen und eine Nummern">
                 <img class="input-img" src="assets/img/lock.png" alt="lock">
             </div>
             <div class="login-input-fields">
                 <input class="login-input" id="confirm_password" type="password" placeholder="Password Conformation">
-                <img class="input-img" src="assets/img/lock.png" alt="lock">
+                <img id="lock" class="input-img" src="assets/img/lock.png" alt="lock">
             </div>
         </div>
         <div>
@@ -42,4 +42,20 @@ main.innerHTML+=/*html*/`
             </div>
         </div>
     </form>
-</div>`}
+</div>`;
+
+let password = document.getElementById("create_password");
+let confirm_password = document.getElementById("confirm_password");
+
+function validatePassword(){
+  if(password.value != confirm_password.value) {
+    confirm_password.setCustomValidity("Passwords Don't Match");
+  } else {
+    // alert("funktioniert")
+    confirm_password.setCustomValidity('');
+  }
+}
+
+password.onchange = validatePassword;
+confirm_password.onkeyup = validatePassword;
+};

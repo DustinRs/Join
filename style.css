@@ -156,11 +156,15 @@ body {
     width: 85%;
 }
 
+#password-container{
+    z-index: 2;
+}
+
 .login-input-fields:has(input:focus){
     animation: fade-border 0.2s ease 0s 1 forwards;
 }
 
-.login-input-fields input:focus+#lock{
+/* .login-input-fields input:focus+#lock{
     animation: change-icon 0.1s ease 0s 1 forwards;
 }
 
@@ -177,7 +181,7 @@ body {
         content: url("assets/img/visibility_off.png");
     }
     
-}
+} */
 
 
 @keyframes fade-border {
