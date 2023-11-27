@@ -63,17 +63,25 @@
     width: 352px;
     height: 78px;
     padding: 15px 24px 15px 24px;
+    gap: 12px;
 }
 .contact:hover {
     cursor: pointer;
     background-color: lightgray;
     border-radius: 10px;
 }
-.userProfileImg {
-    padding: 24px;
-    border-radius: 48px;
-    background-color: rgb(214, 13, 13);
+.initials {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 42px;
+    height: 41px;
+    font-size: 12px;
+    border-radius: 45px;
     color: white;
+}
+.fullName {
+    font-size: 20px;
 }
 .nameLinkDiv {
     display: flex;
@@ -88,7 +96,7 @@
     align-items: start;
     margin-bottom: 32px;
     margin-top: 84px;
-    margin-left: 84px;
+    margin-left: 60px;
 }
 .h1 {
    font-size: 61px;
@@ -110,26 +118,133 @@
 }
 .userProfile {
     display: flex;
-    min-width: 461px;
+    width: 461px;
     height: 364px;
     gap: 21px;
-    margin-left: 84px;
+    margin-left: 60px;
 }
+
 .topProfile {
     display: flex;
     justify-content: flex-start;
     align-items: center;
     gap: 51px;
+    padding-top: 12px;
+    padding-bottom: 12px;
 }
 h2 {
     font-size: 47px;
     font-weight: 500;
     margin-top: 8px;
     margin-bottom: 8px;
+    min-width: max-content;
 }
 .nameProfile {
     gap: 8px;
 }
 .profileLink {
     color: #29ABE2;
+}
+.backgroundColor {
+    border-radius: 10px;
+    background-color: #2A3647 !important;
+    color: white;
+}
+.addContactPopUp {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.2);
+    width: 1440px;
+    height: 1152px;
+    z-index: 9999;
+}
+.addContact {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 1212px;
+    height: 592px;
+    border-radius: 30px;
+}
+.logoContact {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 467px;
+    height: 100%;
+    color: white;
+    background-color: #2A3647;
+    border-radius: 30px 0 0 30px;
+    font-size: 27px;
+}
+.contactFormular {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 745px;
+    height: 592px;
+    background-color: white;
+    border-radius: 0 30px 30px 0;
+    gap: 50px;
+}
+.imgUserContact {
+    
+}
+.inputsContact {
+    width: 422px;
+    height: 215px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    
+}
+.divButtonsContact {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-top: 20px;
+    gap: 4px;
+}
+.closePopUp {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: -105px;
+    left: 441px;
+    background-color: white;
+    border: unset;
+    width: 24px;
+    height: 24px;
+}
+.closePopUp:hover {
+    cursor: pointer;
+    background-color: #D1D1D1;
+    border-radius: 12px;
+}
+.d-none {
+    display: none;
+}
+.test {
+    display: block;
+    color: black;
+}
+.textContact {
+    display: flex;
+    flex-direction: column;
+}
+.imgContact {
+    width: 55px;
+    
+}
+.lineContact {
+    margin-top: 12px;
+    width: 90px;
+    border: 2px solid #29ABE2;
+    border-radius: 10px;
+}
+.h2Contact {
+    font-size: 61px;
 }

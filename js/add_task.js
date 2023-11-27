@@ -28,16 +28,9 @@ async function addTask() {
   console.log(task);
   allTasks.push(task);
 
-  let allTasksAsString = JSON.stringify(allTasks);
-  localStorage.setItem("allTasks", allTasksAsString);
-
   setItem(key, allTasks);
 }
 
-function loadAllTasks() {
-  let allTasksAsString = localStorage.getItem("allTasks");
-  allTasks = JSON.parse(allTasksAsString) || [];
-}
 
 async function setItem(key, value) {
   const payload = { key, value, token: STORAGE_TOKEN };
