@@ -151,8 +151,9 @@ function hideUnusedLetters() {
 
 function openProfile(name, mail, number) {
   let userProfile = document.getElementById("userProfile");
+  userProfile.innerHTML='';
 
-  if (!userProfile.innerHTML.trim()) {
+ 
     userProfile.innerHTML = `<div>
     <div class="topProfile">
     <img src="/assets/img/UserProfileHuge.png" alt="">
@@ -165,10 +166,7 @@ function openProfile(name, mail, number) {
     <p>${number}</p>
   </div>`;
     setContactBackgroundColor(name);
-  } else {
-    userProfile.innerHTML = "";
-    setContactBackgroundColor(name);
-  }
+  
 }
 
 let previousContactName = null;
