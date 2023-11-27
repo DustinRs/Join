@@ -1,38 +1,69 @@
+const STORAGE_TOKEN = "QFOSCYPA967P352YSSOENCUXGKA464XWSUTNI5NT";
+const STORAGE_URL = "https://remote-storage.developerakademie.org/item";
+let key = "Contacts";
+
 let contacts = [
   {
-    name: "Simon Golenia",
+    firstName: "Simon",
+    name: "Golenia",
     email: "test@123.de",
-    profileImg: "SG",
-    phoneNumber: '012345',
+    phoneNumber: "012345",
   },
   {
-    name: "René Heller",
+    firstName: "René",
+    name: "Heller",
     email: "test@123.de",
-    profileImg: "RH",
-    phoneNumber: '0123456',
+    phoneNumber: "0123456",
   },
   {
+    firstName: "Dustin",
     name: "Rohrschneider",
-    firstName:"Dustin",
     email: "test@123.de",
-    profileImg: "DR",
-    phoneNumber: '01234567',
+    phoneNumber: "01234567",
   },
 ];
 
-let letters = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
+let letters = [
+  "A",
+  "B",
+  "C",
+  "D",
+  "E",
+  "F",
+  "G",
+  "H",
+  "I",
+  "J",
+  "K",
+  "L",
+  "M",
+  "N",
+  "O",
+  "P",
+  "Q",
+  "R",
+  "S",
+  "T",
+  "U",
+  "V",
+  "W",
+  "X",
+  "Y",
+  "Z",
+];
 
-function init() {
-    renderRegister();
+async function init() {
+  getItem(key);
+  renderRegister();
 }
 
 function renderRegister() {
-    let register = document.getElementById('register');
-    register.innerHTML = '';
+  let register = document.getElementById("register");
+  register.innerHTML = "";
 
-    for (let i = 0; i < letters.length; i++) {
-        const letter = letters[i];
-        register.innerHTML += `<div class="register">
+  for (let i = 0; i < letters.length; i++) {
+    const letter = letters[i];
+    register.innerHTML += `<div class="register">
         <span>${letter}</span>
         
     </div>
@@ -44,11 +75,9 @@ function renderRegister() {
     <div id="${letter}">
 
     </div>`;
-    
+
     renderContacts(`${letter}`);
-    
-    }
-    
+  }
 }
 
 function renderContacts(letter) {
@@ -57,23 +86,27 @@ function renderContacts(letter) {
 
   for (let i = 0; i < contacts.length; i++) {
     const contact = contacts[i];
-    let text = contacts[i].firstName.slice(0,1)+contacts[i].name.slice(0,1);
+    let fullName = contact["firstName"] + " " + contact["name"];
+    let initials =
+      contacts[i].firstName.slice(0, 1) + contacts[i].name.slice(0, 1);
     container.innerHTML += `
-        <div id="${contact["name"]}" onclick="openProfile('${contact["name"]}', '${contact["email"]}', '${contact["phoneNumber"]}')" class="contact">
+        <div id="${fullName}" onclick="openProfile('${fullName}', '${contact["email"]}', '${contact["phoneNumber"]}')" class="contact">
         
         <div>
-            <span class="userProfileImg">${text}</span>
+            <span class="userProfileImg">${initials}</span>
         </div>
         <div class="nameLinkDiv">
-            <span>${contact["name"]}</span>
+            <span>${fullName}</span>
             <a class="emailLinks" href="#">${contact["email"]}</a>
         </div>
     </div>`;
   }
 }
 
-function openProfile(name, mail, number){
-    let userProfile = document.getElementById('userProfile');
+function openProfile(name, mail, number) {
+  let userProfile = document.getElementById("userProfile");
+
+  if (!userProfile.innerHTML.trim()) {
     userProfile.innerHTML = `<div>
     <div class="topProfile">
     <img src="/assets/img/UserProfileHuge.png" alt="">
@@ -84,7 +117,70 @@ function openProfile(name, mail, number){
     <a class="profileLink" href="">${mail}</a>
     <p><b>Phone</b></p>
     <p>${number}</p>
-</div>`;
+  </div>`;
+    setContactBackgroundColor(name);
+  } else {
+    userProfile.innerHTML = "";
+    setContactBackgroundColor(name);
+  }
+}
 
-    
+let previousContactName = null;
+
+function setContactBackgroundColor(name) {
+  let contactName = document.getElementById(name);
+
+  if (previousContactName && previousContactName !== contactName) {
+    previousContactName.classList.remove("backgroundColor");
+  }
+
+  if (!contactName.classList.contains("backgroundColor")) {
+    contactName.classList.add("backgroundColor");
+    previousContactName = contactName;
+  } else {
+    contactName.classList.remove("backgroundColor");
+    previousContactName = null;
+  }
+}
+
+function openPopUpAddContact() {
+  document.getElementById('addContactPopUp').classList.remove('d-none');
+}
+
+function closePopUpAddContact() {
+  document.getElementById('addContactPopUp').classList.add('d-none');
+}
+
+async function createContact() {
+  let fullName = document.getElementById('profileName').value;
+  let email = document.getElementById('profileEmail').value;
+  let number = document.getElementById('profileNumber').value;
+
+  let firstName = fullName.split(' ').slice(0, -1).join(' ');
+  let name = fullName.split(' ').slice(-1).join(' ');
+
+  let contact = {
+    firstName: firstName,
+    name: name,
+    email: email,
+    phoneNumber: number,
+  };
+
+  contacts.push(contact);
+  setItem(key, contacts);
+  init();
+
+}
+
+async function setItem(key, value) {
+  const payload = { key, value, token: STORAGE_TOKEN };
+  return fetch(STORAGE_URL, {
+    method: "POST",
+    body: JSON.stringify(payload),
+  }).then((res) => res.json());
+}
+
+async function getItem(key) {
+  const url = `${STORAGE_URL}?key=${key}&token=${STORAGE_TOKEN}`;
+  return fetch(url).then((res) => res.json());
 }
