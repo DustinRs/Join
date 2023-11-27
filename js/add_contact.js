@@ -56,15 +56,16 @@ function renderContacts(letter) {
 
   for (let i = 0; i < contacts.length; i++) {
     const contact = contacts[i];
-    let text = contacts[i].firstName.slice(0,1)+contacts[i].name.slice(0,1);
+    let name = contacts[i].firstName +" "+contacts[i].name
+    let text = contacts[i].firstName.slice(0,1)+contacts[i].name.slice(0,1);//schneidet den ersten Buchstaben des jeweiligen Namen aus und fügt ihn zusammen
     container.innerHTML += `
-        <div id="${contact["name"]}" onclick="openProfile(${contact["name"]})" class="contact">
+        <div id="${name}" onclick="openProfile(${contact["name"]})" class="contact">
         
         <div>
             <span class="userProfileImg">${text}</span>
         </div>
         <div class="nameLinkDiv">
-            <span>${contact["name"]}</span>
+            <span>${name}</span>
             <a class="emailLinks" href="#">${contact["email"]}</a>
         </div>
     </div>`;
