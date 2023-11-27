@@ -7,26 +7,28 @@
     <div id="addContactPopUp" class="addContactPopUp d-none">
         <div class="addContact">
             <div class="logoContact">
-                <img src="/assets/img/join-logo-white.png" alt="">
-                <h2>Add contact</h2>
+                <div class="textContact">
+                <img class="imgContact" src="/assets/img/logoSmall.png" alt="">
+                <h2 class="h2Contact"><b>Add contact</b></h2>
                 <span>Tasks are better with a team!</span>
-                <div>strich</div>
+                <div class="lineContact"></div>
+                </div>
             </div>
             <div class="contactFormular">
                 <div>
-                    <img src="/assets/img/UserProfileHuge.png" alt="">
+                    <img class="imgUserContact" src="/assets/img/UserProfileHuge.png" alt="">
                     
                 </div>
-                <div>
-                    <button class="closePopUp" onclick="closePopUpAddContact()">X</button>
-                    <div>
+                <div >
+                    <button class="closePopUp" onclick="closePopUpAddContact()"><img src="/assets/img/btn-x.png" alt=""></button>
+                    <div class="inputsContact">
                         <input id="profileName" type="text" placeholder="Name">
                         <input id="profileEmail" type="email" placeholder="Email">
                         <input id="profileNumber" type="number" placeholder="Phone">
                     </div>
-                    <div>
-                        <button>Cancel</button>
-                        <button onclick="createContact()">Create Contact</button>
+                    <div class="divButtonsContact">
+                        <button class="clearButton">Cancel <img src="/assets/img/btn-x.png" alt=""></button>
+                        <button class="createTaskButton" onclick="createContact()">Create Contact <img src="/assets/img/checkbtn-checkmark.png" alt=""></button>
                     </div>
                     
                 </div>
