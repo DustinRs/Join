@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="css/fonts.css">
-    <script src="js/login.js" defer></script>
+    <script src="js/login.js"></script>
     <script src="render/renderSignup.js"></script>
     <link rel="shortcut icon" type="image/x-icon" href="assets/img/join-logo.png">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -14,7 +14,7 @@
     <title>Join</title>
 </head>
 
-<body>
+<body onload="init()">
     <div id="logo-container"></div>
     <header>
         <div id="header-container" class="d-flex justify-content-end">
@@ -37,11 +37,11 @@
                         <img class="input-img" src="assets/img/mail.png" alt="mail">
                     </div>
                     <div id="password-container" class="login-input-fields">
-                        <input class="login-input" id="login-password" type="password" min="8" required
+                        <input class="login-input password" id="login-password" type="password" min="8" required
                             placeholder="Password"
-                            pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$"
+                            pattern="^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$"
                             title="Bitter verwende mindestens eine Zahl und ein Sonderzeichen.">
-                        <img id="lock"  class="input-img" src="assets/img/lock.png" alt="lock">
+                        <div id="lock-container"><img  class="lock input-img" src="assets/img/lock.png" alt="lock"></div>
                     </div>
                     <div id="log-in-check" class="d-flex">
                         <input type="checkbox">

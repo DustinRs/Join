@@ -156,52 +156,43 @@ body {
     width: 85%;
 }
 
-#password-container{
-    z-index: 2;
-}
+.lock-container{
+    display: flex;
+    height: 40px;
+    width:40px;
+    margin: -7px -6px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
 
-.login-input-fields:has(input:focus){
-    animation: fade-border 0.2s ease 0s 1 forwards;
-}
-
-/* .login-input-fields input:focus+#lock{
-    animation: change-icon 0.1s ease 0s 1 forwards;
-}
-
-@keyframes change-icon {
-    0%{
-        opacity: 1;
-    }
-
-    50%{
-        opacity: 0;
-    }
-    100%{
-        opacity: 1;
-        content: url("assets/img/visibility_off.png");
-    }
-    
-} */
-
-
-@keyframes fade-border {
-    from{
-        border: 2px solid rgba(0,0,0,0.15);
-    }
-
-    to{
-        border: 2px solid var(--outline-active)
+    &:hover{
+        cursor: pointer;
+        background-color: rgba(0, 0, 0, 0.103);    
     }
 }
-
 
 .login-input-fields {
     margin: 32px 0;
     display: flex;
     justify-content: space-between;
     padding: 12px 21px;
-    border: 2px solid rgba(0,0,0,0.15);
+    border: 3px solid rgba(0,0,0,0.15);
     border-radius: 10px;
+}
+
+
+.login-input-fields:has(input:focus){
+    animation: fade-border 0.2s ease 0s 1 forwards;
+}
+
+@keyframes fade-border {
+    from{
+        border: 3px solid rgba(0,0,0,0.15);
+    }
+
+    to{
+        border: 3px solid var(--outline-active)
+    }
 }
 
 #policy-check{

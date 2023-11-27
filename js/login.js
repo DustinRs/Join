@@ -14,101 +14,64 @@ async function getItem(key) {
   return fetch(url).then(res => res.json());
 }
 
+
 function init() {
   setEventListener()
 }
 
+
 function setEventListener() {
   let body = document.querySelector('body')
-  let input = document.getElementById('login-password');
-  let eye = document.getElementById('lock');
-
+  let input = document.getElementsByClassName('password');
+  let eye = document.getElementsByClassName('lock');
+  for (let i = 0; i < input.length; i++) {
+    input[i].addEventListener('click', changeLock())
+    eye[i].addEventListener('click', changeEye)
+  }
   body.addEventListener('click', restoreLock)
-  eye.addEventListener('click',changeEye)
-  input.addEventListener('click', changeLock);
 }
 
-setEventListener();
 
 function changeLock() {
-  let eye = document.getElementById('lock');
-  let input = document.getElementById('login-password');
-
-  input.addEventListener('click', e => {
-    if (e.target == input && e.target != eye && !eye.src.includes('visibility.png')) {
-      eye.src = 'assets/img/visibility_off.png';
-    }
-  });
+  let eye = document.getElementsByClassName('lock');
+  let input = document.getElementsByClassName('password');
+  let container = document.getElementById('lock-container');
+  for (let i = 0; i < input.length; i++) {
+    input[i].addEventListener('click', e => {
+      if (e.target == input[i] && e.target != eye[i] && !eye[i].src.includes('visibility.png')) {
+        eye[i].src = 'assets/img/visibility_off.png';
+        container.classList.add('lock-container')
+      }
+    });
+  }
 }
+
 
 function restoreLock() {
   let body = document.querySelector('body')
-  let input = document.getElementById('login-password');
-  let eye = document.getElementById('lock');
-
+  let input = document.getElementsByClassName('password');
+  let eye = document.getElementsByClassName('lock');
+  let container = document.getElementById('lock-container')
+  for(let i = 0; i< input.length; i++){
   body.addEventListener('click', event => {
-    if (event.target != input && event.target != eye && input.value == "") {
-      eye.src = 'assets/img/lock.png'
+    if (event.target != input[i] && event.target != eye[i] && input[i].value == "") {
+      eye[i].src = 'assets/img/lock.png';
+      container.classList.remove('lock-container')
     }
-  })
+  })}
 }
 
 
-// function checkVisibility() {
-//   let eye = document.getElementById('lock');
-//   if (eye.src == 'assets/img/visibility_off.png') {
-//     return showPassword()
-//   }else{
-//    return hidePassword()
-//   }
-// }
-
-// function changeEye() {
-//   let eye = document.getElementById('lock');
-//   let input = document.getElementById('login-password');
-
-//   eye.addEventListener('click', e => {
-//     if (e.target == eye && eye.src == 'assets/img/visibility_off.png') {
-//       input.setAttribute('type', 'text');
-//       eye.src = 'assets/img/visibility.png';
-//       e.stopPropagation()
-//     } else if (e.target == eye && eye.src == 'assets/img/visibility.png') {
-//       input.setAttribute('type', 'password');
-//       eye.src == 'assets/img/visibility_off.png';
-//       e.stopPropagation()
-//     }
-//   })
-// }
-
-// function showPassword() {
-//   let eye = document.getElementById('lock');
-//   eye.addEventListener('click', e => {
-//     input.setAttribute('type', 'text');
-//     eye.src = 'assets/img/visibility.png';
-//     e.stopPropagation()
-//   })
-// }
-
-// function hidePassword(){
-//   let eye = document.getElementById('lock');
-//   eye.addEventListener('click', e => {
-//     input.setAttribute('type', 'password');
-//       eye.src == 'assets/img/visibility_off.png';
-//       e.stopPropagation()
-//   })
-// }
-
 function changeEye(event) {
-  let eye = document.getElementById('lock');
-  let input = document.getElementById('login-password');
-
-  if (eye.src.includes('visibility_off.png')) {
-    input.setAttribute('type', 'text');
-    eye.src = 'assets/img/visibility.png';
-  } else {
-    input.setAttribute('type', 'password');
-    eye.src = 'assets/img/visibility_off.png';
-  }
-
+  let eye = document.getElementsByClassName('lock');
+  let input = document.getElementsByClassName('password');
+  for(let i = 0; i<input.length; i++){
+  if (event.target == eye[i] && eye[i].src.includes('visibility_off.png')) {
+    input[i].setAttribute('type', 'text');
+    eye[i].src = 'assets/img/visibility.png';
+  } else if(event.target == eye[i] && eye[i].src.includes('visibility.png')){
+    input[i].setAttribute('type', 'password');
+    eye[i].src = 'assets/img/visibility_off.png';
+  }}
   event.stopPropagation();
 }
