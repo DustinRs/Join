@@ -110,7 +110,7 @@
 }
 .userProfile {
     display: flex;
-    min-width: 461px;
+    width: 461px;
     height: 364px;
     gap: 21px;
     margin-left: 84px;

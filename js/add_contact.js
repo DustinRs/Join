@@ -1,18 +1,21 @@
 let contacts = [
   {
     name: "Simon Golenia",
-    email: "test@123.de",
+    email: "test@1.de",
     profileImg: "SG",
+    phoneNumber: '012345',
   },
   {
     name: "René Heller",
-    email: "test@123.de",
+    email: "test@12.de",
     profileImg: "RH",
+    phoneNumber: '0123456',
   },
   {
     name: "Dustin Rohrschneider",
     email: "test@123.de",
     profileImg: "DR",
+    phoneNumber: '01234567',
   },
 ];
 
@@ -54,7 +57,7 @@ function renderContacts(letter) {
   for (let i = 0; i < contacts.length; i++) {
     const contact = contacts[i];
     container.innerHTML += `
-        <div id="${contact["name"]}" onclick="openProfile(${contact["name"]})" class="contact">
+        <div id="${contact["name"]}" onclick="openProfile('${contact["name"]}', '${contact["email"]}', '${contact["phoneNumber"]}')" class="contact">
         
         <div>
             <span class="userProfileImg">${contact["profileImg"]}</span>
@@ -67,6 +70,19 @@ function renderContacts(letter) {
   }
 }
 
-function openProfile(name){
+function openProfile(name, mail, number){
+    let userProfile = document.getElementById('userProfile');
+    userProfile.innerHTML = `<div>
+    <div class="topProfile">
+    <img src="/assets/img/UserProfileHuge.png" alt="">
+    <div class="nameProfile"><h2>${name}</h2><Button>Edit</Button><Button>Delete</Button></div>
+    </div>
+    <p>Contact Information</p>
+    <p><b>Email</b></p>
+    <a class="profileLink" href="">${mail}</a>
+    <p><b>Phone</b></p>
+    <p>${number}</p>
+</div>`;
+
     
 }
