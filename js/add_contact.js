@@ -93,14 +93,16 @@ function renderContacts(letter) {
         <div id="${fullName}" onclick="openProfile('${fullName}', '${contact["email"]}', '${contact["phoneNumber"]}')" class="contact">
         
         <div>
-            <span class="userProfileImg">${initials}</span>
+            <span id="${initials}" class="initials">${initials}</span>
         </div>
         <div class="nameLinkDiv">
             <span>${fullName}</span>
             <a class="emailLinks" href="#">${contact["email"]}</a>
         </div>
     </div>`;
+    getRandomColor(`${initials}`);
   }
+  
 }
 
 function openProfile(name, mail, number) {
@@ -183,4 +185,17 @@ async function setItem(key, value) {
 async function getItem(key) {
   const url = `${STORAGE_URL}?key=${key}&token=${STORAGE_TOKEN}`;
   return fetch(url).then((res) => res.json());
+}
+
+
+function randomColor() {
+  let colors = ["#FF7A00", "#9327FF", "#6E52FF", "#FC71FF", "#FFBB2B", "#1FD7C1",'#462F8A', '#FF4646', '#00BEE8'];
+  let randomIndex = Math.floor(Math.random() * colors.length);
+  return colors[randomIndex];
+}
+
+function getRandomColor(id) {
+  let divName = document.getElementById(`${id}`);
+  let Color = randomColor();
+  divName.style.backgroundColor = Color;
 }
