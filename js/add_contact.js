@@ -1,18 +1,19 @@
 let contacts = [
   {
     name: "Simon Golenia",
-    email: "test@1.de",
+    email: "test@123.de",
     profileImg: "SG",
     phoneNumber: '012345',
   },
   {
     name: "René Heller",
-    email: "test@12.de",
+    email: "test@123.de",
     profileImg: "RH",
     phoneNumber: '0123456',
   },
   {
-    name: "Dustin Rohrschneider",
+    name: "Rohrschneider",
+    firstName:"Dustin",
     email: "test@123.de",
     profileImg: "DR",
     phoneNumber: '01234567',
@@ -56,11 +57,12 @@ function renderContacts(letter) {
 
   for (let i = 0; i < contacts.length; i++) {
     const contact = contacts[i];
+    let text = contacts[i].firstName.slice(0,1)+contacts[i].name.slice(0,1);
     container.innerHTML += `
         <div id="${contact["name"]}" onclick="openProfile('${contact["name"]}', '${contact["email"]}', '${contact["phoneNumber"]}')" class="contact">
         
         <div>
-            <span class="userProfileImg">${contact["profileImg"]}</span>
+            <span class="userProfileImg">${text}</span>
         </div>
         <div class="nameLinkDiv">
             <span>${contact["name"]}</span>
