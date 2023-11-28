@@ -21,7 +21,7 @@ function renderSignup() {
             </div>
             <div class="login-input-fields">
                 <input class="login-input password" id="create_password" type="password" min="8" required placeholder="Password"
-                    pattern="^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$"
+                    pattern="^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*\\-]).{8,}$"
                     title="Bitte verwende Groß- und Kleinbuchstaben, sowie ein Sonderzeichen und eine Nummern">
                     <div id="lock-container"><img class="input-img lock" src="assets/img/lock.png" alt="lock"></div>
             </div>
