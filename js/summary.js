@@ -85,7 +85,9 @@ async function getItem(key) {
  fetch(url)
  .then((res) => res.json())
  .then(json=>{
-  return allTasks=json.data.value;
+  let arr=json.data.value;
+  allTasks = JSON.parse(arr)
+  return allTasks
  });
 }
 
