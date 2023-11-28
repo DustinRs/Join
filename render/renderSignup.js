@@ -36,7 +36,7 @@ function renderSignup() {
                 <div>I accept the <span><a href="#">Privacy Policy</a></span></div>
             </div>
             <div id="signup-btn-container">
-                <button id="signup-btn" class="btn" type="submit">
+                <button id="signup-btn" class="btn" type="submit" disabled=true onclick="signUp()">
                     Sign up
                 </button>
             </div>
@@ -47,25 +47,3 @@ function renderSignup() {
 addEventHandler()
     
 };
-
-function addEventHandler(){
-    let password = document.getElementById("create_password");
-    let confirm_password = document.getElementById("confirm_password");
-
-    function validatePassword() {
-        let div = document.getElementsByClassName("login-input-fields");
-        for(let i = 2; i< div.length; i++){
-        if (password.value != confirm_password.value) {
-            confirm_password.setCustomValidity("Passwords Don't Match"),
-            div[i].style.border= "3px solid red"
-        } else if(confirm_password.value.length>0){
-            // alert("funktioniert")
-            div[i].style.border= "3px solid green"
-            confirm_password.setCustomValidity('');
-        }}
-    }
-
-    password.oninput = validatePassword;
-    confirm_password.oninput = validatePassword;
-    init()
-}
