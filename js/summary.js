@@ -3,6 +3,7 @@ const STORAGE_URL = "https://remote-storage.developerakademie.org/item";
 
 let allTasks = [
 <<<<<<< HEAD
+<<<<<<< HEAD
   {
     title: "apfel",
     description: "description",
@@ -52,6 +53,8 @@ let allTasks = [
     subTask: "subTask",
   }
 =======
+=======
+>>>>>>> a839c7aa0e24d349e1c843cb3edfcfafde74d99c
   // {
   //   title: "apfel",
   //   description: "description",
@@ -100,11 +103,15 @@ let allTasks = [
   //   category: "done",
   //   subTask: "subTask",
   // }
+<<<<<<< HEAD
+>>>>>>> a839c7aa0e24d349e1c843cb3edfcfafde74d99c
+=======
 >>>>>>> a839c7aa0e24d349e1c843cb3edfcfafde74d99c
 ];
 let key = "notes";
 
 async function init() {
+<<<<<<< HEAD
 <<<<<<< HEAD
   await getItem(key)
   renderNotes();
@@ -130,6 +137,12 @@ function renderNotes() {
   renderNotes();
 }
 
+=======
+  getItem(key);
+  renderNotes();
+}
+
+>>>>>>> a839c7aa0e24d349e1c843cb3edfcfafde74d99c
  async function todoFilter(){
   let arr = allTasks.filter((e)=>e["category"] == "done");
   return arr.length
@@ -149,12 +162,16 @@ function renderNotes() {
     <div id="taskInBoard" class="grid-item"></div>
     <div id="taskInProgress" class="grid-item"></div>
     <div id="awaitingFeedback" class="grid-item"></div>
+<<<<<<< HEAD
+>>>>>>> a839c7aa0e24d349e1c843cb3edfcfafde74d99c
+=======
 >>>>>>> a839c7aa0e24d349e1c843cb3edfcfafde74d99c
   </div>`;
 }
 
 async function getItem(key) {
   const url = `${STORAGE_URL}?key=${key}&token=${STORAGE_TOKEN}`;
+<<<<<<< HEAD
 <<<<<<< HEAD
   fetch(url).then((res) => res.json());
   fetch(url)
@@ -163,6 +180,8 @@ async function getItem(key) {
       return allTasks = json.data.value;
     });
 =======
+=======
+>>>>>>> a839c7aa0e24d349e1c843cb3edfcfafde74d99c
  fetch(url)
  .then((res) => res.json())
  .then(json=>{
@@ -170,6 +189,9 @@ async function getItem(key) {
   allTasks = JSON.parse(arr)
   return allTasks
  });
+<<<<<<< HEAD
+>>>>>>> a839c7aa0e24d349e1c843cb3edfcfafde74d99c
+=======
 >>>>>>> a839c7aa0e24d349e1c843cb3edfcfafde74d99c
 }
 
