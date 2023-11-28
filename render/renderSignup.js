@@ -44,12 +44,17 @@ function renderSignup() {
     </form>
 </div>`;
 
+addEventHandler()
+    
+};
+
+function addEventHandler(){
     let password = document.getElementById("create_password");
     let confirm_password = document.getElementById("confirm_password");
 
     function validatePassword() {
         let div = document.getElementsByClassName("login-input-fields");
-        for(let i = 3; i< div.length; i++){
+        for(let i = 2; i< div.length; i++){
         if (password.value != confirm_password.value) {
             confirm_password.setCustomValidity("Passwords Don't Match"),
             div[i].style.border= "3px solid red"
@@ -60,7 +65,7 @@ function renderSignup() {
         }}
     }
 
-    password.onchange = validatePassword();
-    confirm_password.onkeyup = validatePassword();
+    password.oninput = validatePassword;
+    confirm_password.oninput = validatePassword;
     init()
-};
+}
