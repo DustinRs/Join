@@ -53,13 +53,14 @@ let allTasks = [
 ];
 let key = "notes";
 
-function init() {
+async function init() {
+  getItem(key);
   renderNotes();
 }
 
-function todoFilter(){
+ async function todoFilter(){
   let arr = allTasks.filter((e)=>e["category"] == "done");
-  console.log(arr)
+  return arr.length
 }
 
 function renderNotes() {
@@ -67,7 +68,7 @@ function renderNotes() {
     
     container.innerHTML = `<div class="grid-container1">
     <div id="To-Do" class="grid-item"></div>
-    <div id="Done" class="grid-item"></div>
+    <div id="Done" class="grid-item">${todoFilter()}</div>
   </div>
   <div class="grid-container2">
     <div id="urgent" class="grid-item"></div>
