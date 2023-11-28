@@ -80,10 +80,6 @@ function renderNotes() {
     <div id="taskInBoard" class="grid-item"></div>
     <div id="taskInProgress" class="grid-item"></div>
     <div id="awaitingFeedback" class="grid-item"></div>
-<<<<<<< HEAD
->>>>>>> a839c7aa0e24d349e1c843cb3edfcfafde74d99c
-=======
->>>>>>> a839c7aa0e24d349e1c843cb3edfcfafde74d99c
   </div>`;
 }
 
