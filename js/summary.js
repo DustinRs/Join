@@ -54,21 +54,20 @@ let allTasks = [
 let key = "notes";
 
 async function init() {
-  getItem(key);
+  await getItem(key);
   renderNotes();
 }
 
- async function todoFilter(){
-  let arr = allTasks.filter((e)=>e["category"] == "done");
-  return arr.length
-}
 
 function renderNotes() {
-    let container = document.querySelector('main');
+    let toDo = allTasks.filter((e) => e["category"] == "toDo");
+  let done = allTasks.filter((e) => e["category"] == "done");
+  let container = document.querySelector('main');
+
     
     container.innerHTML = `<div class="grid-container1">
-    <div id="To-Do" class="grid-item"></div>
-    <div id="Done" class="grid-item">${todoFilter()}</div>
+    <div id="To-Do" class="grid-item">${toDo.length}</div>
+    <div id="Done" class="grid-item">${done.length}</div>
   </div>
   <div class="grid-container2">
     <div id="urgent" class="grid-item"></div>
@@ -83,14 +82,16 @@ function renderNotes() {
 
 async function getItem(key) {
   const url = `${STORAGE_URL}?key=${key}&token=${STORAGE_TOKEN}`;
- fetch(url)
+ await fetch(url)
  .then((res) => res.json())
  .then(json=>{
   let arr=json.data.value;
   allTasks = JSON.parse(arr)
   return allTasks
  });
+
 }
+
 
 async function setItem(key, value) {
   const payload = { key, value, token: STORAGE_TOKEN };
