@@ -2,54 +2,54 @@ const STORAGE_TOKEN = "QFOSCYPA967P352YSSOENCUXGKA464XWSUTNI5NT";
 const STORAGE_URL = "https://remote-storage.developerakademie.org/item";
 
 let allTasks = [
-  // {
-  //   title: "apfel",
-  //   description: "description",
-  //   date: "date",
-  //   prio: "low",
-  //   category: "in progress",
-  //   subTask: "subTask",
-  // },
-  // {
-  //   title: "banana",
-  //   description: "description",
-  //   date: "date",
-  //   prio: "low",
-  //   category: "toDo",
-  //   subTask: "subTask",
-  // },
-  // {
-  //   title: "citrus",
-  //   description: "description",
-  //   date: "date",
-  //   prio: "medium",
-  //   category: "await feedback",
-  //   subTask: "subTask",
-  // },
-  // {
-  //   title: "dattel",
-  //   description: "description",
-  //   date: "date",
-  //   prio: "urgent",
-  //   category: "done",
-  //   subTask: "subTask",
-  // },
-  // {
-  //   title: "eimer",
-  //   description: "description",
-  //   date: "date",
-  //   prio: "prio",
-  //   category: "done",
-  //   subTask: "subTask",
-  // },
-  // {
-  //   title: "fussball",
-  //   description: "description",
-  //   date: "date",
-  //   prio: "urgent",
-  //   category: "done",
-  //   subTask: "subTask",
-  // }
+  {
+    title: "apfel",
+    description: "description",
+    date: "date",
+    prio: "low",
+    category: "in progress",
+    subTask: "subTask",
+  },
+  {
+    title: "banana",
+    description: "description",
+    date: "date",
+    prio: "low",
+    category: "toDo",
+    subTask: "subTask",
+  },
+  {
+    title: "citrus",
+    description: "description",
+    date: "date",
+    prio: "medium",
+    category: "await feedback",
+    subTask: "subTask",
+  },
+  {
+    title: "dattel",
+    description: "description",
+    date: "date",
+    prio: "urgent",
+    category: "done",
+    subTask: "subTask",
+  },
+  {
+    title: "eimer",
+    description: "description",
+    date: "date",
+    prio: "prio",
+    category: "done",
+    subTask: "subTask",
+  },
+  {
+    title: "fussball",
+    description: "description",
+    date: "date",
+    prio: "urgent",
+    category: "done",
+    subTask: "subTask",
+  }
 ];
 let key = "notes";
 
@@ -58,6 +58,10 @@ async function init() {
   renderNotes();
 }
 
+ async function todoFilter(){
+  let arr = allTasks.filter((e)=>e["category"] == "done");
+  return arr.length
+}
 
 function renderNotes() {
     let toDo = allTasks.filter((e) => e["category"] == "toDo");
@@ -76,8 +80,11 @@ function renderNotes() {
     <div id="taskInBoard" class="grid-item"></div>
     <div id="taskInProgress" class="grid-item"></div>
     <div id="awaitingFeedback" class="grid-item"></div>
+<<<<<<< HEAD
+>>>>>>> a839c7aa0e24d349e1c843cb3edfcfafde74d99c
+=======
+>>>>>>> a839c7aa0e24d349e1c843cb3edfcfafde74d99c
   </div>`;
-
 }
 
 async function getItem(key) {
