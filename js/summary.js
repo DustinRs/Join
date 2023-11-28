@@ -1,45 +1,14 @@
-let allTasks = [
-    {
-        title: title,
-        description: description,
-        date: date,
-        prio: prio,
-        category: category,
-        subTask: subTask,
-      },
-      {
-        title: title,
-        description: description,
-        date: date,
-        prio: prio,
-        category: category,
-        subTask: subTask,
-      },
-      {
-        title: title,
-        description: description,
-        date: date,
-        prio: prio,
-        category: category,
-        subTask: subTask,
-      },
-      {
-        title: title,
-        description: description,
-        date: date,
-        prio: prio,
-        category: category,
-        subTask: subTask,
-      },
-];
+const STORAGE_TOKEN = "QFOSCYPA967P352YSSOENCUXGKA464XWSUTNI5NT";
+const STORAGE_URL = "https://remote-storage.developerakademie.org/item";
 
-
-
+let allTasks = [];
+let key = "notes";
 
 function init() {
-    renderNotes();
+  renderNotes();
 }
 
+/*
 function renderNotes() {
     let container = document.querySelector('main');
     
@@ -56,4 +25,17 @@ function renderNotes() {
     <div id="awaitingFeedback" class="grid-item">${awaitingFeedback.length}</div>
   </div>`;
 
+}
+*/
+async function getItem(key) {
+  const url = `${STORAGE_URL}?key=${key}&token=${STORAGE_TOKEN}`;
+  return fetch(url).then((res) => res.json());
+}
+
+async function setItem(key, value) {
+  const payload = { key, value, token: STORAGE_TOKEN };
+  return fetch(STORAGE_URL, {
+    method: "POST",
+    body: JSON.stringify(payload),
+  }).then((res) => res.json());
 }
