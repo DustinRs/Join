@@ -157,5 +157,6 @@ function createAccount(name,mail,password){
     mail: mail,
     password: password
   }
-  users.push(user)
+
+  setItem(mail, user)
 }
