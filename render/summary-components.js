@@ -1,3 +1,15 @@
+function renderH1() {
+    return /*html*/`
+
+<h1 class="title">Join 360</h1>
+      <main>
+        
+    
+      </main>
+  `
+}
+
+
 function gridContainer() {
     return /*html*/`
 

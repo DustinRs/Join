@@ -3,99 +3,13 @@
     <link rel="stylesheet" href="/css/contacts.css">
     <link rel="stylesheet" href="/css/fonts.css">
     <script src="/js/add_contact.js"></script>
+    <script src="/render/navbar-component.js"></script>
+    <script src="/render/header-component.js"></script>
+    <script src="/render/contact-component.js"></script>
     <link rel="shortcut icon" type="image/x-icon" href="/assets/img/join-logo.png">
 </head>
 <body onload="init()">
-    <div id="addContactPopUp" class="addContactPopUp d-none">
-        <div class="addContact">
-            <div class="logoContact">
-                <div class="textContact">
-                <img class="imgContact" src="/assets/img/logoSmall.png" alt="">
-                <h2 class="h2Contact"><b>Add contact</b></h2>
-                <span>Tasks are better with a team!</span>
-                <div class="lineContact"></div>
-                </div>
-            </div>
-            <div class="contactFormular">
-                <div>
-                    <img class="imgUserContact" src="/assets/img/UserProfileHuge.png" alt="">
-                    
-                </div>
-                <div >
-                    <button class="closePopUp" onclick="closePopUpAddContact()"><img src="/assets/img/btn-x.png" alt=""></button>
-                    <div class="inputsContact">
-                        <input id="profileName" type="text" placeholder="Name">
-                        <input id="profileEmail" type="email" placeholder="Email">
-                        <input id="profileNumber" type="number" placeholder="Phone">
-                    </div>
-                    <div class="divButtonsContact">
-                        <button class="clearButton">Cancel <img src="/assets/img/btn-x.png" alt=""></button>
-                        <button class="createTaskButton" onclick="createContact()">Create Contact <img src="/assets/img/checkbtn-checkmark.png" alt=""></button>
-                    </div>
-                    
-                </div>
-                
-            </div>
-            </div>
-    </div>
-    <div class="navBar">
-        <img class="navLogo" src="/assets/img/NavLogo.png" alt="">
-        <div class="navLinks">
-        <div class="navLinkImg">
-          <a href="./summary.html" target="blank" >
-          <img src="/assets/img/nav-summary.png" alt=""></a><span>Summary</span>
-        </div>
-        <div class="navLinkImg"> 
-          <a href="./add_task.html" target="blank" >
-          <img src="/assets/img/nav-add-task.png" alt=""> </a><span>Add Task</span>
-        </div>
-        <div class="navLinkImg">
-          <a href="./board.html" target="blank" >
-          <img src="/assets/img/nav-board.png" alt=""> </a><span>Board</span>
-        </div>
-        <div class="navLinkImg">
-          <a href="./contacts.html" target="blank" >
-          <img src="/assets/img/nav-contacts.png" alt=""> </a><span>Contacts</span>
-        </div>
-        </div>
-        <div class="navBottom">
-            <a class="navLinksBot" href="">Privacy Policy</a>
-            <a class="navLinksBot" href="">Legal notice</a>
-        </div>
-    <section>
-        <header>
-        <p class="pHeader">Kanban Project Management Tool</p>
-        <div class="imgsHeader">
-            <img src="/assets/img/help.png" alt="">
-            <img src="/assets/img/UserProfile.png" alt="">
-        </div>
-    </header>
-    <div class="contactSection">
-    <div class="contactsDiv">
-        <div class="contactButtonDiv">
-            <button onclick="openPopUpAddContact()" class="contactButton">
-                <span>Add new contact</span><img src="/assets/img/person_add.png" alt="">
-            </button>
-        </div>
-        <div class="scrollDiv" id="register">
-            
-        </div>
-
-    </div>
-    <div class="popUpUserProfile">
-    <div class="headlineDiv">
-        <div class="headLine">
-        <h1 class="h1">Contacts</h1>
-        <div class="blueLine"></div>
-        <span class="spanContact">Better with a team</span>
-        </div>
-    </div>
-
-    <div id="userProfile" class="userProfile">
-        
-    </div>
-    </div>
-    </div>
-    </section>
+    
+    
     
   </body>

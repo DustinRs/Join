@@ -35,8 +35,18 @@ let letters = [
 
 async function init() {
   await getItem(key);
+  renderContactPage();
   renderRegister();
   hideUnusedLetters();
+}
+
+function renderContactPage() {
+  let body = document.querySelector('body');
+  body.innerHTML = renderContactPopUp();
+  body.innerHTML += renderNavBar();
+  let section = document.querySelector('section');
+  section.innerHTML = renderHeader();
+  section.innerHTML += renderContactSection();
 }
 
 function renderRegister() {

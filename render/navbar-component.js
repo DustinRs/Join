@@ -25,18 +25,7 @@ function renderNavBar(){
             <a class="navLinksBot" href="">Legal notice</a>
         </div>
     <section>
-        <header>
-        <p class="pHeader">Kanban Project Management Tool</p>
-        <div class="imgsHeader">
-            <img src="/assets/img/help.png" alt="">
-            <img src="/assets/img/UserProfile.png" alt="">
-        </div>
-    </header>
-      <h1 class="title">Join 360</h1>
-      <main>
         
-    
-      </main>
     </section>
     `
 }
