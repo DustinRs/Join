@@ -4,7 +4,8 @@ const STORAGE_URL = "https://remote-storage.developerakademie.org/item";
 let prioArray = [];
 let key = "allTasks";
 
-function init() {
+async function init() {
+  await getItem(key);
   loadAllTasks();
   checkInputs();
   setupInputListeners();
@@ -42,7 +43,14 @@ async function setItem(key, value) {
 
 async function getItem(key) {
   const url = `${STORAGE_URL}?key=${key}&token=${STORAGE_TOKEN}`;
-  return fetch(url).then((res) => res.json());
+ await fetch(url)
+ .then((res) => res.json())
+ .then(json=>{
+  let arr=json.data.value;
+  allTasks = JSON.parse(arr)
+  return allTasks
+ });
+
 }
 
 function checkInputs() {

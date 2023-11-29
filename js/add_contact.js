@@ -2,50 +2,7 @@ const STORAGE_TOKEN = "QFOSCYPA967P352YSSOENCUXGKA464XWSUTNI5NT";
 const STORAGE_URL = "https://remote-storage.developerakademie.org/item";
 let key = "Contacts";
 
-let contacts = [
-  {
-    firstName: "Simon",
-    name: "Golenia",
-    email: "test@123.de",
-    phoneNumber: "012345",
-  },
-  {
-    firstName: "René",
-    name: "Heller",
-    email: "test@123.de",
-    phoneNumber: "0123456",
-  },
-  {
-    firstName: "Dustin",
-    name: "Rohrschneider",
-    email: "test@123.de",
-    phoneNumber: "01234567",
-  },
-  {
-    firstName: "Albert",
-    name: " Müller",
-    email: "test@123.de",
-    phoneNumber: "01234567",
-  },
-  {
-    firstName: "Gerd",
-    name: " Müller",
-    email: "test@123.de",
-    phoneNumber: "01234567",
-  },
-  {
-    firstName: "Thomas",
-    name: " Müller",
-    email: "test@123.de",
-    phoneNumber: "01234567",
-  },
-  {
-    firstName: "Herbert",
-    name: " Müller",
-    email: "test@123.de",
-    phoneNumber: "01234567",
-  },
-];
+let contacts = [];
 
 let letters = [
   "A",
@@ -77,7 +34,7 @@ let letters = [
 ];
 
 async function init() {
-  getItem(key);
+  await getItem(key);
   renderRegister();
   hideUnusedLetters();
 }
@@ -225,7 +182,14 @@ async function setItem(key, value) {
 
 async function getItem(key) {
   const url = `${STORAGE_URL}?key=${key}&token=${STORAGE_TOKEN}`;
-  return fetch(url).then((res) => res.json());
+ await fetch(url)
+ .then((res) => res.json())
+ .then(json=>{
+  let arr=json.data.value;
+  contacts = JSON.parse(arr)
+  return contacts
+ });
+
 }
 
 function randomColor() {
