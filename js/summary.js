@@ -1,74 +1,28 @@
 const STORAGE_TOKEN = "QFOSCYPA967P352YSSOENCUXGKA464XWSUTNI5NT";
 const STORAGE_URL = "https://remote-storage.developerakademie.org/item";
 
-let allTasks = [
-  // {
-  //   title: "apfel",
-  //   description: "description",
-  //   date: "date",
-  //   prio: "low",
-  //   category: "in progress",
-  //   subTask: "subTask",
-  // },
-  // {
-  //   title: "banana",
-  //   description: "description",
-  //   date: "date",
-  //   prio: "low",
-  //   category: "toDo",
-  //   subTask: "subTask",
-  // },
-  // {
-  //   title: "citrus",
-  //   description: "description",
-  //   date: "date",
-  //   prio: "medium",
-  //   category: "await feedback",
-  //   subTask: "subTask",
-  // },
-  // {
-  //   title: "dattel",
-  //   description: "description",
-  //   date: "date",
-  //   prio: "urgent",
-  //   category: "done",
-  //   subTask: "subTask",
-  // },
-  // {
-  //   title: "eimer",
-  //   description: "description",
-  //   date: "date",
-  //   prio: "prio",
-  //   category: "done",
-  //   subTask: "subTask",
-  // },
-  // {
-  //   title: "fussball",
-  //   description: "description",
-  //   date: "date",
-  //   prio: "urgent",
-  //   category: "done",
-  //   subTask: "subTask",
-  // }
-];
+let toDo=[];
+let allTasks = [];
 let key = "notes";
 
 async function init() {
-  getItem(key);
+ await getItem(key);
   renderNotes();
 }
 
- async function todoFilter(){
-  let arr = allTasks.filter((e)=>e["category"] == "done");
-  return arr.length
+ function todoFilter(){
+  toDo.push(allTasks.filter((e)=>e.category == "done"));
+  console.log(toDo)
+  return toDo
 }
 
-function renderNotes() {
+ function renderNotes() {
+     todoFilter();
     let container = document.querySelector('main');
     
     container.innerHTML = `<div class="grid-container1">
     <div id="To-Do" class="grid-item"></div>
-    <div id="Done" class="grid-item">${todoFilter()}</div>
+    <div id="Done" class="grid-item">${toDo[0].length}</div>
   </div>
   <div class="grid-container2">
     <div id="urgent" class="grid-item"></div>
@@ -83,7 +37,7 @@ function renderNotes() {
 
 async function getItem(key) {
   const url = `${STORAGE_URL}?key=${key}&token=${STORAGE_TOKEN}`;
- fetch(url)
+ await fetch(url)
  .then((res) => res.json())
  .then(json=>{
   let arr=json.data.value;
