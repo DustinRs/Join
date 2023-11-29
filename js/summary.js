@@ -1,86 +1,56 @@
 const STORAGE_TOKEN = "QFOSCYPA967P352YSSOENCUXGKA464XWSUTNI5NT";
 const STORAGE_URL = "https://remote-storage.developerakademie.org/item";
 
-let allTasks = [
-  {
-    title: "apfel",
-    description: "description",
-    date: "date",
-    prio: "low",
-    category: "in progress",
-    subTask: "subTask",
-  },
-  {
-    title: "banana",
-    description: "description",
-    date: "date",
-    prio: "low",
-    category: "toDo",
-    subTask: "subTask",
-  },
-  {
-    title: "citrus",
-    description: "description",
-    date: "date",
-    prio: "medium",
-    category: "await feedback",
-    subTask: "subTask",
-  },
-  {
-    title: "dattel",
-    description: "description",
-    date: "date",
-    prio: "urgent",
-    category: "done",
-    subTask: "subTask",
-  },
-  {
-    title: "eimer",
-    description: "description",
-    date: "date",
-    prio: "prio",
-    category: "done",
-    subTask: "subTask",
-  },
-  {
-    title: "fussball",
-    description: "description",
-    date: "date",
-    prio: "urgent",
-    category: "done",
-    subTask: "subTask",
-  }
-];
-let key = "notes";
+let allTasks = [];
+let toDo = [];
+let done = [];
+let inProgress = [];
+let awaitFeedback = [];
+let urgent = [];
+let key = "allTasks";
 
 async function init() {
   await getItem(key);
   renderNotes();
 }
 
- async function todoFilter(){
-  let arr = allTasks.filter((e)=>e["category"] == "done");
-  return arr.length
+ async function categoryFilter(){
+  toDo.push(allTasks.filter((e)=>e["category"] == "To Do"));
+  done.push(allTasks.filter((e)=>e["category"] == "Done"));
+  inProgress.push(allTasks.filter((e)=>e["category"] == "In Progress"));
+  awaitFeedback.push(allTasks.filter((e)=>e["category"] == "Await Feedback"));
+  return toDo, done, inProgress, awaitFeedback;
 }
+async function prioFilter(){
+    urgent.push(allTasks.filter((e) => e["prio"] == "urgent"));
+    console.log(allTasks);
+    return urgent;
+    
+  }
 
 function renderNotes() {
-    let toDo = allTasks.filter((e) => e["category"] == "toDo");
-  let done = allTasks.filter((e) => e["category"] == "done");
+    categoryFilter();
+    prioFilter();
+
   let container = document.querySelector('main');
 
-    
     container.innerHTML = `<div class="grid-container1">
-    <div id="To-Do" class="grid-item">${toDo.length}</div>
-    <div id="Done" class="grid-item">${done.length}</div>
+    <div id="To-Do" class="grid-item"><img src="/assets/img/pen-frame.png" alt=""><div><h1>${toDo[0].length}</h1><span>To do</span></div></div>
+    <div id="Done" class="grid-item"><img src="/assets/img/checkmark-frame.png" alt=""><div><h1>${done[0].length}</h1> <span>Done</span></div></div>
   </div>
   <div class="grid-container2">
-    <div id="urgent" class="grid-item"></div>
-  </div>
+    <div id="urgent" class="grid-item"><div class="displayFlex"><img src="/assets/img/arrow-up.png" alt=""><div><h1>${urgent[0].length}</h1><span>Urgent</span></div></div><div class="lineUrgent"></div>
+    <div class="deadline">
+      <span><b>Datum</b></span>
+      <span>Upcoming Deadline</span>
+    </div>
+  </div></div>
   <div class="grid-container3">
-    <div id="taskInBoard" class="grid-item"></div>
-    <div id="taskInProgress" class="grid-item"></div>
-    <div id="awaitingFeedback" class="grid-item"></div>
-  </div>`;
+    <div id="taskInBoard" class="grid-item deadline"><h1>${allTasks.length}</h1><span>Tasks in <br>Board</span></div>
+    <div id="taskInProgress" class="grid-item deadline"><h1>${inProgress[0].length}</h1><span>Tasks in <br>Progress</span></div>
+    <div id="awaitingFeedback" class="grid-item deadline"><h1>${awaitFeedback[0].length}</h1><span>Awaiting <br>Feedback</span></div>
+    </div>
+  `;
 }
 
 async function getItem(key) {
@@ -93,13 +63,4 @@ async function getItem(key) {
   return allTasks
  });
 
-}
-
-
-async function setItem(key, value) {
-  const payload = { key, value, token: STORAGE_TOKEN };
-  return fetch(STORAGE_URL, {
-    method: "POST",
-    body: JSON.stringify(payload),
-  }).then((res) => res.json());
 }
