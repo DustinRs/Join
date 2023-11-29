@@ -202,12 +202,14 @@ function createAccount(name, mail, password) {
 
 function logIn(){
   let match=matchingPassword();
+  console.log(match[0].name)
   let mail = document.getElementById('login-mail');
   let password = document.getElementById('login-password');
   if(match==[]){
     return alert("Es ist kein Konto mit dieser Email-Adresse registriert.")
   }else if(mail.value === match[0].mail && password.value === match[0].password){
-   alert("Geiler Typ biste!")
+   alert("Geiler Typ biste!");
+   logUser(match[0].name)
    location.replace('./assets/templates/summary.html')
   }else{
     alert("Passwort und mail stimmen nicht überein")

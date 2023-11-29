@@ -7,10 +7,13 @@ let done = [];
 let inProgress = [];
 let awaitFeedback = [];
 let urgent = [];
-let key = "allTasks";
+let activeUser;
+const sessionKey = "activeUser"
+const remoteKey = "allTasks";
 
 async function init() {
-  await getItem(key);
+  await getItem(remoteKey);
+  getUser(sessionKey);
   renderNotes();
 }
 
@@ -36,8 +39,8 @@ function renderNotes() {
   container.innerHTML = gridContainer();
 }
 
-async function getItem(key) {
-  const url = `${STORAGE_URL}?key=${key}&token=${STORAGE_TOKEN}`;
+async function getItem(remoteKey) {
+  const url = `${STORAGE_URL}?key=${remoteKey}&token=${STORAGE_TOKEN}`;
   await fetch(url)
     .then((res) => res.json())
     .then(json => {
@@ -46,4 +49,8 @@ async function getItem(key) {
       return allTasks
     });
 
+}
+
+function getUser(sessionKey) {
+  return activeUser = sessionStorage.getItem(sessionKey)
 }
