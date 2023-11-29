@@ -16,12 +16,15 @@ async function setItem(key, value) {
 async function getItem(key) {
   const url = `${STORAGE_URL}?key=${key}&token=${STORAGE_TOKEN}`;
   await fetch(url)
-  .then(res=>{if(!res.ok){alert("Fehler beim Laden der Kontakte")
-    }else{return res = res.json()}
-  }).then(json=>{data=json
-    userList = JSON.parse(data.data.value)
-    console.log(userList)
-  });
+    .then(res => {
+      if (!res.ok) {
+        alert("Fehler beim Laden der Kontakte")
+      } else { return res = res.json() }
+    }).then(json => {
+      data = json
+      userList = JSON.parse(data.data.value)
+      console.log(userList)
+    });
 }
 
 
@@ -50,13 +53,13 @@ function changeLock() {
   let input = document.getElementsByClassName('password');
   let container = document.getElementById('lock-container');
   for (let i = 0; i < input.length; i++) {
-      input[i].addEventListener('click', e => {
+    input[i].addEventListener('click', e => {
       if (e.target == input[i] && e.target != eye[i] && !eye[i].src.includes('visibility.png')) {
         eye[i].src = 'assets/img/visibility_off.png';
         container.classList.add('lock-container')
       };
     });
-    }
+  }
 }
 
 
@@ -132,7 +135,7 @@ function addLogInHandler() {
   let name = document.getElementById('login-mail');
   let password = document.getElementById('login-password');
   function validateLogIn() {
-    if(name.value.length>0 && password.value.length>7){
+    if (name.value.length > 0 && password.value.length > 7) {
       enableLogIn()
     }
   }
@@ -158,7 +161,38 @@ function signUp() {
   let name = document.getElementById('username').value;
   let mail = document.getElementById('sign-up_mail').value;
   let password = document.getElementById('create_password').value;
-  createAccount(name, mail, password)
+  if (findExistingAccount(mail)) {
+    return alert("Account bereits registriert")
+  } else { createAccount(name, mail, password) }
+}
+
+
+function findExistingAccount(mail) {
+  for (let i = 0; i < userList.length; i++) {
+    if (userList[i].hasOwnProperty[mail]) {
+      return true
+    }
+  }
+}
+
+
+/**
+ * passes the name to differMultipleNames() for proping and deviding;
+ * finalle creates new object and pushes into the users-array
+ * 
+ * @param {String} name -input-value
+ * @param {*String} mail -input-value--> plain input-value
+ * @param {*String} password -input-value--> plain input-value
+ */
+function createAccount(name, mail, password) {
+  mail = {
+    name: differMultipleNames(name),
+    mail: mail,
+    password: password
+  }
+  userList.push(mail)
+  setItem(key, userList)
+  return alert(`Email-Adresse :${mail.mail} erfolgreich registriert`)
 }
 
 
@@ -181,42 +215,29 @@ function differMultipleNames(name) {
 
 
 
+
 /**
- * passes the name to differMultipleNames() for proping and deviding;
- * finalle creates new object and pushes into the users-array
+ * Validates if an user with corresponding mail exists and compares typed password
  * 
- * @param {String} name -input-value
- * @param {*String} mail -input-value--> plain input-value
- * @param {*String} password -input-value--> plain input-value
+ * @returns no such mail registered yet
  */
-function createAccount(name, mail, password) {
-  const user = {
-    name: differMultipleNames(name),
-    mail: mail,
-    password: password
-  }
-  userList.push(user)
-  setItem(key, userList)
-}
-
-
-function logIn(){
-  let match=matchingPassword();
+function logIn() {
+  let match = matchingPassword();
   console.log(match[0].name)
   let mail = document.getElementById('login-mail');
   let password = document.getElementById('login-password');
-  if(match==[]){
+  if (match == []) {
     return alert("Es ist kein Konto mit dieser Email-Adresse registriert.")
-  }else if(mail.value === match[0].mail && password.value === match[0].password){
-   alert("Geiler Typ biste!");
-   logUser(match[0].name)
-   location.replace('./assets/templates/summary.html')
-  }else{
+  } else if (mail.value === match[0].mail && password.value === match[0].password) {
+    alert("Geiler Typ biste!");
+    logUser(match[0].name)
+    location.replace('./assets/templates/summary.html')
+  } else {
     alert("Passwort und mail stimmen nicht überein")
   }
 }
 
-function matchingPassword(){
+function matchingPassword() {
   let mail = document.getElementById('login-mail');
-  return userList.filter((e)=>e.mail === mail.value)
+  return userList.filter((e) => e.mail === mail.value)
 }
