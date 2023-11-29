@@ -26,10 +26,11 @@ main{
     display: flex;
     justify-content: center;
     flex-direction: column;
-    gap: 24px;
+    gap: 34px;
     font-weight: 900;
     font-size: 58px;
     margin-left: 15%;
+    margin-top: -4%;
 }
 
 .grid-container1{
@@ -104,7 +105,7 @@ span {
     font-weight: 500;
     color:var(--dark);
     opacity: 0;
-    animation: greet 1s ease 0s 1 forwards;
+    animation: greet 1s ease 0.5s 1 forwards;
 }
 
 #greet-user{
@@ -112,7 +113,7 @@ span {
     font-weight: 700;
     color:var(--blue);
     opacity: 0;
-    animation: greet 1s ease 1s 1 forwards;
+    animation: greet 1s ease 1.5s 1 forwards;
 }
 
 @keyframes greet{
