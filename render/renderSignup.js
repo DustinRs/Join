@@ -47,7 +47,8 @@ function renderSignup() {
         </div>
     </form>
 </div>`;
-    setEventListener()
+    setEventListener();
+    addSignUpHandler()
 };
 
 
