@@ -37,6 +37,7 @@ function renderNotes() {
 
   let container = document.querySelector('main');
   container.innerHTML = gridContainer();
+  container.innerHTML += greeting(activeUser)
 }
 
 async function getItem(remoteKey) {
