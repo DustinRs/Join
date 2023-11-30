@@ -36,12 +36,11 @@ function renderNotes() {
   prioFilter();
   let body = document.querySelector('body');
   body.innerHTML = renderNavBar();
-  let section = document.querySelector('section');
-  section.innerHTML = renderHeader();
-  section.innerHTML += renderH1();
-  let container = document.querySelector('main');
-  container.innerHTML = gridContainer();
-  container.innerHTML += greeting(activeUser)
+  body.innerHTML += renderHeader();
+  let main = document.querySelector('main');
+  main.innerHTML = gridContainer();
+  let grid = document.getElementById('grid')
+  grid.innerHTML += greeting(activeUser)
 }
 
 async function getItem(remoteKey) {
