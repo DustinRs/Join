@@ -43,6 +43,7 @@ async function init() {
 function renderContactPage() {
   let body = document.querySelector('body');
   body.innerHTML = renderContactPopUp();
+  body.innerHTML += renderEditPopUp();
   body.innerHTML += renderNavBar();
   let section = document.querySelector('section');
   section.innerHTML = renderHeader();
@@ -120,11 +121,10 @@ function openProfile(name, mail, number) {
   let userProfile = document.getElementById("userProfile");
   userProfile.innerHTML='';
 
- 
     userProfile.innerHTML = `<div>
     <div class="topProfile">
     <img src="/assets/img/UserProfileHuge.png" alt="">
-    <div class="nameProfile"><h2>${name}</h2><Button>Edit</Button><Button>Delete</Button></div>
+    <div class="nameProfile"><h2>${name}</h2><div class="buttonsPopUp"><Button onclick="editProfile('${name}', '${mail}', '${number}')" class="buttonPopUp"><img src="/assets/img/edit.png" alt=""> Edit</Button><Button class="buttonPopUp"><img src="/assets/img/delete.png" alt=""> Delete</Button></div></div>
     </div>
     <p>Contact Information</p>
     <p><b>Email</b></p>
@@ -135,6 +135,63 @@ function openProfile(name, mail, number) {
     setContactBackgroundColor(name);
   
 }
+
+
+function editProfile(name, mail, number) {
+  openPopUpEditContact();
+  document.getElementById("editName").value = name;
+  document.getElementById("editEmail").value = mail;
+  document.getElementById("editNumber").value = number;
+  
+}
+
+function openPopUpEditContact() {
+  document.getElementById("editContactPopUp").classList.remove("d-none");
+}
+
+function closePopUpEditContact() {
+  document.getElementById("editContactPopUp").classList.add("d-none");
+}
+
+async function saveContact() {
+  
+  let fullName = document.getElementById("editName").value;
+  let email = document.getElementById("editEmail").value;
+  let number = document.getElementById("editNumber").value;
+
+  let firstName = fullName.split(" ").slice(0, -1).join(" ");
+  let name = fullName.split(" ").slice(-1).join(" ");
+  
+  let contact = {
+    firstName: firstName,
+    name: name,
+    email: email,
+    phoneNumber: number,
+  };
+  
+  deleteContact(firstName, name, email, number);
+  contacts.push(contact);
+  setItem(key, contacts);
+  init();
+}
+
+function deleteContact(firstName, name, email, number) {
+  let contactToDelete = {
+    firstName: firstName,
+    name: name,
+    email: email,
+    phoneNumber: number,
+  };
+
+  let indexToDelete = contacts.findIndex(contact =>
+    contact.firstName === contactToDelete.firstName || contact.name === contactToDelete.name
+  );
+
+  if (indexToDelete !== -1) {
+    contacts.splice(indexToDelete, 1);
+  }
+}
+
 
 let previousContactName = null;
 
