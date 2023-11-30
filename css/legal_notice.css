@@ -1,0 +1,32 @@
+.colorJoin {
+    color: #29ABE2;
+}
+.scrollHelp {
+    margin-left: 84px;
+    margin-right: 84px;
+    overflow: auto;
+    height: 928px;
+}
+.scrollHelp::-webkit-scrollbar {
+    display: none;
+  }
+.scrollHelp img {
+    position: relative;
+    top: -56px;
+    left: 1002px;
+}
+.scrollHelp img:hover {
+    cursor: pointer;
+}
+
+.titleH1 {
+    font-size: 61px;
+    font-weight: 700;
+    margin-bottom: 0;
+}
+h2 {
+    margin-bottom: 0;
+}
+.scrollHelp p {
+    margin-top: 0;
+}

@@ -21,8 +21,8 @@ function renderNavBar(){
         </div>
         </div>
         <div class="navBottom">
-            <a class="navLinksBot" href="">Privacy Policy</a>
-            <a class="navLinksBot" href="">Legal notice</a>
+            <a class="navLinksBot" href="/assets/templates/privacy_policy.html">Privacy Policy</a>
+            <a class="navLinksBot" href="/assets/templates/legal_notice.html">Legal notice</a>
         </div>
     <section>
         

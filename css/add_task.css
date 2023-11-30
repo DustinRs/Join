@@ -66,6 +66,16 @@ header {
     margin-right: 40px;
     gap: 20px;
 }
+.helpIcon:hover {
+    cursor: pointer;
+  -webkit-transform: scale(1.2);
+  transform: scale(1.2);
+  -webkit-transition: 0.3s ease-in-out;
+  transition: 0.3s ease-in-out;
+}
+.profileImg:hover {
+    cursor: pointer;
+}
 .navBar {
     position: sticky;
     top: 0;

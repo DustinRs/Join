@@ -4,8 +4,8 @@ function renderHeader() {
         <header>
         <p class="pHeader">Kanban Project Management Tool</p>
         <div class="imgsHeader">
-            <img src="/assets/img/help.png" alt="">
-            <img src="/assets/img/UserProfile.png" alt="">
+            <a href="/assets/templates/help.html"><img class="helpIcon" src="/assets/img/help.png" alt=""></a>
+            <img class="profileImg" src="/assets/img/UserProfile.png" alt="">
         </div>
     </header>
       
