@@ -100,6 +100,12 @@ header {
     gap: 15px;
     color: white;
 }
+.navLinkImg a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
 .linkImg {
     width: 30px;
     height: 30px;
