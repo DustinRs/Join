@@ -1,3 +1,39 @@
+ function init(){
+    renderComponents();
+    updateHTML()
+}
+
+function renderComponents(){
+    let body = document.querySelector('body')
+    body.innerHTML=renderNavBar();
+    body.innerHTML+=renderHeader();
+    document.querySelector('main').innerHTML=/*html*/`
+    <div class="sections-drag">
+                <div class="headline">
+                    <h1>Board</h1>
+                    <div class="inputAndButton">
+                        <div class="input">
+                            <input type="text" placeholder="Find Task">
+                        </div>
+                        <div class="buttonAdd">Add Task
+                            <img src="/assets/img/board-plus.png" alt="">
+                        </div>
+                    </div>
+                </div>
+                <div class="content">
+                    <div class="drag-area" id="open" ondrop="moveTo('open')" ondragleave="removeHighlight('open')"
+                        ondragover="allowDrop(event); highlight('open')">
+                    </div>
+                    <div class="drag-area" id="in-progress" ondrop="moveTo('in-progress')"
+                        ondragleave="removeHighlight('in-progress')"
+                        ondragover="allowDrop(event); highlight('in-progress')"></div>
+                    <div class="drag-area" id="closed" ondrop="moveTo('closed')" ondragleave="removeHighlight('closed')"
+                        ondragover="allowDrop(event); highlight('closed')"></div>
+                </div>
+            </div>
+    `
+}
+
 let todos = [{
     'id': 0,
     'title': 'Putzen',

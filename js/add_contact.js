@@ -41,12 +41,13 @@ async function init() {
 }
 
 function renderContactPage() {
+  let section = document.createElement('section');
   let body = document.querySelector('body');
   body.innerHTML = renderContactPopUp();
   body.innerHTML += renderEditPopUp();
   body.innerHTML += renderNavBar();
-  let section = document.querySelector('section');
-  section.innerHTML = renderHeader();
+  body.innerHTML += renderHeader();
+  document.querySelector('main').append(section);
   section.innerHTML += renderContactSection();
 }
 

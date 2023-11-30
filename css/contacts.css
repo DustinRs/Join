@@ -1,11 +1,38 @@
+main{
+    position: relative;
+    left: 14%;
+    width: 86%;
+    height: 92vh;
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+}
+
+section{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+}
+
 .contactSection {
     display: flex;
+    height: 100%;
 }
 .contactsDiv {
     width: 456px;
-    min-height: 800px;
+    /* min-height: 800px; */
     background-color: white;
     padding: 0px 24px 0px 24px;
+    /* border-radius: 10px; */
+    /* margin-left: 20px; */
+    height: 100%;
+    z-index: 2;
+    box-shadow: 2px 7px 16px 1px rgba(0,0,0,0.2);
 }
 .contactButtonDiv {
     display: flex;

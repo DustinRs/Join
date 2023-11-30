@@ -1,7 +1,7 @@
 function init() {
     let body = document.querySelector('body');
     body.innerHTML = renderNavBar();
-    let section = document.querySelector('section');
-    section.innerHTML = renderHeader();
-    section.innerHTML += renderPrivacyPolicy();
+    body.innerHTML += renderHeader();
+    let main = document.querySelector('main');
+    main.innerHTML += renderPrivacyPolicy();
 }

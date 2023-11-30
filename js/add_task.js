@@ -7,17 +7,18 @@ let key = "allTasks";
 async function init() {
   await getItem(key);
   renderAddTaskPage()
-  loadAllTasks();
   checkInputs();
   setupInputListeners();
 }
 
 function renderAddTaskPage() {
   let body = document.querySelector('body');
+  let taskContainer = document.createElement('div')
+  taskContainer.id='task-container'
   body.innerHTML = renderNavBar();
-  let section = document.querySelector('section');
-  section.innerHTML = renderHeader();
-  section.innerHTML += renderAddTaskSections();
+  body.innerHTML+= renderHeader();
+  document.querySelector('main').append(taskContainer);
+  taskContainer.innerHTML=renderAddTaskSections()
 }
 
 async function addTask() {

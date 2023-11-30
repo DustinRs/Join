@@ -5,76 +5,17 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Board</title>
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="/css/nav-header.css">
     <link rel="stylesheet" href="/css/board.css" />
     <link rel="stylesheet" href="/css/fonts.css">
-    <link rel="stylesheet" href="/css/add_task.css">
     <script src="/js/move_tasks.js"></script>
+    <script src="/render/navbar-component.js"></script>
+    <script src="/render/header-component.js"></script>
     <link rel="shortcut icon" type="image/x-icon" href="/assets/img/join-logo.png">
 </head>
 
-<body onload="updateHTML()">
-
-
-
-
-    <div class="navBar">
-        <img class="navLogo" src="/assets/img/NavLogo.png" alt="">
-        <div class="navLinks">
-            <div class="navLinkImg">
-                <a href="/assets/templates/summary.html">
-                    <img class="linkImg" src="/assets/img/nav-summary.png" alt=""><span>Summary</span></a>
-            </div>
-            <div class="navLinkImg">
-                <a href="/assets/templates/add_task.html">
-                    <img class="linkImg" src="/assets/img/nav-add-task.png" alt=""> <span>Add Task</span></a>
-            </div>
-            <div class="navLinkImg">
-                <a href="/assets/templates/board.html">
-                    <img class="linkImg" src="/assets/img/nav-board.png" alt=""> <span>Board</span></a>
-            </div>
-            <div class="navLinkImg">
-                <a href="/assets/templates/contacts.html">
-                    <img class="linkImg" src="/assets/img/nav-contacts.png" alt=""><span>Contacts</span> </a>
-            </div>
-        </div>
-        <div class="navBottom">
-            <a class="navLinksBot" href="">Privacy Policy</a>
-            <a class="navLinksBot" href="">Legal notice</a>
-        </div>
-        <section>
-            <header>
-                <p class="pHeader">Kanban Project Management Tool</p>
-                <div class="imgsHeader">
-                    <img src="/assets/img/help.png" alt="">
-                    <img src="/assets/img/UserProfile.png" alt="">
-                </div>
-            </header>
-            <div class="sections-drag">
-                <div class="headline">
-                    <h1>Board</h1>
-                    <div class="inputAndButton">
-                        <div class="input">
-                            <input type="text" placeholder="Find Task">
-                        </div>
-                        <div class="buttonAdd">Add Task
-                            <img src="/assets/img/board-plus.png" alt="">
-                        </div>
-                    </div>
-                </div>
-                <div class="content">
-                    <div class="drag-area" id="open" ondrop="moveTo('open')" ondragleave="removeHighlight('open')"
-                        ondragover="allowDrop(event); highlight('open')">
-                    </div>
-                    <div class="drag-area" id="in-progress" ondrop="moveTo('in-progress')"
-                        ondragleave="removeHighlight('in-progress')"
-                        ondragover="allowDrop(event); highlight('in-progress')"></div>
-                    <div class="drag-area" id="closed" ondrop="moveTo('closed')" ondragleave="removeHighlight('closed')"
-                        ondragover="allowDrop(event); highlight('closed')"></div>
-                </div>
-            </div>
-
-        </section>
-    </div>
+<body onload="init()">
 
 </body>
 

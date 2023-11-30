@@ -24,8 +24,5 @@ function renderNavBar() {
             <a class="navLinksBot" href="/assets/templates/privacy_policy.html">Privacy Policy</a>
             <a class="navLinksBot" href="/assets/templates/legal_notice.html">Legal notice</a>
         </div>
-    <section>
-        
-    </section>
     `;
 }

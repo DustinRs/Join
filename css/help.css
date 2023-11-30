@@ -1,3 +1,14 @@
+main{
+    position: relative;
+    left: 14%;
+    width: 86%;
+    max-width: 1240px;
+    height: 92vh;
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+}
+
 .colorJoin {
     color: #29ABE2;
 }
