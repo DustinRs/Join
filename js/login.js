@@ -27,6 +27,11 @@ async function getItem(key) {
 }
 
 
+/**
+ * Initializes the application.
+ *
+ * @return {Promise<void>} A promise that resolves when initialization is complete.
+ */
 async function init() {
   setEventListener();
   addLogInHandler();
@@ -34,6 +39,12 @@ async function init() {
 }
 
 
+/**
+ * Sets event listeners for password input fields and lock icons.
+ *
+ * @param {type} None - No parameters required.
+ * @return {type} None - No return value.
+ */
 function setEventListener() {
   let body = document.querySelector('body')
   let input = document.getElementsByClassName('password');
@@ -47,6 +58,12 @@ function setEventListener() {
 
 
 
+/**
+ * A function that changes the lock visibility based on user interaction.
+ *
+ * @param {type} None
+ * @return {type} None
+ */
 function changeLock() {
   let eye = document.getElementsByClassName('lock');
   let input = document.getElementsByClassName('password');
@@ -63,6 +80,12 @@ function changeLock() {
 
 
 
+/**
+ * Restores the lock functionality when the body is clicked.
+ *
+ * @param {type} event - the click event object
+ * @return {undefined} This function does not return a value
+ */
 function restoreLock() {
   let body = document.querySelector('body');
   let input = document.getElementsByClassName('password');
@@ -80,6 +103,12 @@ function restoreLock() {
 
 
 
+/**
+ * Toggles the visibility of password fields based on the state of the eye icon clicked.
+ *
+ * @param {Event} event - The event object that triggered the function.
+ * @return {void} This function does not return a value.
+ */
 function changeEye(event) {
   let eye = document.getElementsByClassName('lock');
   let input = document.getElementsByClassName('password');
@@ -96,8 +125,12 @@ function changeEye(event) {
 }
 
 
+
 /**
- * validates matching passwords
+ * Adds a sign-up handler to the page.
+ *
+ * @param {void} None - No parameters are needed.
+ * @return {void} No return value.
  */
 function addSignUpHandler() {
   let password = document.getElementById("create_password");
@@ -120,6 +153,13 @@ function addSignUpHandler() {
 }
 
 
+/**
+ * Enables the sign-up button if both the username and email input fields have a value.
+ *
+ * @param {string} username - The ID of the username input field.
+ * @param {string} email - The ID of the email input field.
+ * @param {string} button - The ID of the sign-up button.
+ */
 function enableSignUp() {
   let name = document.getElementById('username');
   let mail = document.getElementById('sign-up_mail');
@@ -130,9 +170,21 @@ function enableSignUp() {
 }
 
 
+/**
+ * Adds a log in handler to the login form.
+ *
+ * @param {type} paramName - description of parameter
+ * @return {type} description of return value
+ */
 function addLogInHandler() {
   let name = document.getElementById('login-mail');
   let password = document.getElementById('login-password');
+  /**
+   * Validates the log in by checking if the name and password meet the required criteria.
+   *
+   * @param {string} name - The name input value.
+   * @param {string} password - The password input value.
+   */
   function validateLogIn() {
     if (name.value.length > 0 && password.value.length > 7) {
       enableLogIn()
@@ -143,6 +195,13 @@ function addLogInHandler() {
 }
 
 
+/**
+ * Enables the login button if both the email and password fields are filled.
+ *
+ * @param {HTMLElement} name - The element representing the email field.
+ * @param {HTMLElement} password - The element representing the password field.
+ * @param {HTMLElement} button - The element representing the login button.
+ */
 function enableLogIn() {
   let name = document.getElementById('login-mail');
   let password = document.getElementById('login-password');
@@ -153,8 +212,14 @@ function enableLogIn() {
 }
 
 
+
 /**
- * takes the value and proceed to account-construction
+ * Sign up a new user.
+ *
+ * @param {string} name - The name of the user.
+ * @param {string} mail - The email address of the user.
+ * @param {string} password - The password for the user account.
+ * @return {void} This function does not return anything.
  */
 function signUp() {
   let name = document.getElementById('username').value;
@@ -166,6 +231,12 @@ function signUp() {
 }
 
 
+/**
+ * Finds an existing account based on the given email.
+ *
+ * @param {string} mail - The email to search for.
+ * @return {boolean} Returns true if an existing account is found, false otherwise.
+ */
 function findExistingAccount(mail) {
   console.log(mail)
   for (let i = 0; i < userList.length; i++) {
@@ -176,13 +247,14 @@ function findExistingAccount(mail) {
 }
 
 
+
+
 /**
- * passes the name to differMultipleNames() for proping and deviding;
- * finalle creates new object and pushes into the users-array
- * 
- * @param {String} name -input-value
- * @param {*String} mail -input-value--> plain input-value
- * @param {*String} password -input-value--> plain input-value
+ * Creates a new user account with the provided name, email, and password.
+ *
+ * @param {string} name - The name of the user.
+ * @param {string} mail - The email of the user.
+ * @param {string} password - The password of the user.
  */
 function createAccount(name, mail, password) {
   let initials=createInitials(name)
@@ -195,9 +267,16 @@ function createAccount(name, mail, password) {
   }
   userList.push(user)
   setItem(key, userList)
-  return alert(`Email-Adresse :${user.mail} erfolgreich registriert`)
+  alert(`Email-Adresse :${user.mail} erfolgreich registriert`)
 }
 
+
+/**
+ * Generates the initials from a given name.
+ *
+ * @param {string} name - The name to generate the initials from.
+ * @return {string} The initials generated from the name.
+ */
 function createInitials(name) {
   let item = differMultipleNames(name)
   let initials
@@ -208,6 +287,12 @@ function createInitials(name) {
     }    
 }
 
+/**
+ * Generates a random color from a predefined list of colors.
+ *
+ * @return {string} The randomly generated color.
+ */
+
 function randomColor() {
   let colors = ["#FF7A00","#FF5EB3","#6E52FF","#9327FF","#00BEE8","#1FD7C1","#FF745E",
   "#FFA35E","#FC71FF","#FFC701","#0038FF","#C3FF2B","#FFE62B","#FF4646","#FFBB2B"];
@@ -216,11 +301,12 @@ function randomColor() {
 }
 
 
+
 /**
- * devides a eventually whole typed name into first- and last name
- * 
- * @param {String} name - as the input-value from username
- * @returns a seperated name if the last name as well as the first name was provided
+ * Splits a name string into first name and last name.
+ *
+ * @param {string} name - The name string to be split.
+ * @return {object} - An object containing the first name and last name.
  */
 function differMultipleNames(name) {
   let nameArr = name.split(' ');
@@ -235,9 +321,9 @@ function differMultipleNames(name) {
 
 
 /**
- * Validates if an user with corresponding mail exists and compares typed password
- * 
- * @returns no such mail registered yet
+ * Logs in the user by validating the email and password entered.
+ *
+ * @return {undefined} Displays alert messages or redirects to another page.
  */
 function logIn() {
   let match = matchingPassword();
@@ -255,6 +341,12 @@ function logIn() {
   }
 }
 
+
+/**
+ * This function filters the `userList` array to find objects with a `mail` property that matches the value of the `login-mail` element in the DOM.
+ *
+ * @return {Array} An array of objects that have a `mail` property matching the value of the `login-mail` element.
+ */
 function matchingPassword() {
   let mail = document.getElementById('login-mail');
   console.log(mail)
