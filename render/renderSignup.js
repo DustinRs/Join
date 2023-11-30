@@ -1,4 +1,3 @@
-
 function renderSignup() {
     let main = document.getElementById('login-main');
     let header = document.getElementById('sign-up');
@@ -58,7 +57,6 @@ function renderLogin() {
     let header = document.getElementById('sign-up');
     header.classList.remove('d-none')
 
-    // removeListener();
     main.innerHTML = '';
     main.innerHTML +=/*html*/`
         <div id="login-container">
@@ -95,5 +93,6 @@ function renderLogin() {
             </form>
         </div>`;
        setEventListener();
-       addLogInHandler()
+       addLogInHandler();
+       getItem(key)
 }

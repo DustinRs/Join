@@ -3,6 +3,7 @@
     --outline-active: #74C5E8;
     --outline-error:#FF6073;
     font-family: 'Inter', sans-serif;
+    font-size: 16px;
 }
 
 #header-container {
@@ -18,7 +19,6 @@ header, main, footer{
 body {
     margin: 0!important;
     background-color: #F5F5F5!important;
-    font-family: 'Inter', sans-serif;
     height: 96vh;
     width: 100vw;
 }
@@ -326,4 +326,36 @@ body {
         box-shadow: 0px 4px 2px 0px rgba(0, 0, 0, 0.2);
         border: 3px solid var(--blue);
     }
+}
+
+.d-none{
+    display: none;
+}
+
+#german>h1{
+    font-size: 64px;
+    font-weight: 700;
+}
+
+#german>h2{
+    font-size: 27px;
+    font-weight: 700;
+}
+
+#german{
+    padding: 5%
+}
+
+#english>h1{
+    font-size: 64px;
+    font-weight: 700;
+}
+
+#english>h2{
+    font-size: 27px;
+    font-weight: 700;
+}
+
+#english{
+    padding: 5%
 }

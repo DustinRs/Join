@@ -1,7 +1,6 @@
 let userList;
 let data;
 const key = "userList";
-
 const STORAGE_TOKEN = 'QFOSCYPA967P352YSSOENCUXGKA464XWSUTNI5NT';
 const STORAGE_URL = 'https://remote-storage.developerakademie.org/item';
 
@@ -162,14 +161,15 @@ function signUp() {
   let mail = document.getElementById('sign-up_mail').value;
   let password = document.getElementById('create_password').value;
   if (findExistingAccount(mail)) {
-    return alert("Account bereits registriert")
+    return alert("Email-Adresse bereits registriert")
   } else { createAccount(name, mail, password) }
 }
 
 
 function findExistingAccount(mail) {
+  console.log(mail)
   for (let i = 0; i < userList.length; i++) {
-    if (userList[i].hasOwnProperty[mail]) {
+    if (userList[i].mail === mail) {
       return true
     }
   }
@@ -185,14 +185,34 @@ function findExistingAccount(mail) {
  * @param {*String} password -input-value--> plain input-value
  */
 function createAccount(name, mail, password) {
-  mail = {
-    name: differMultipleNames(name),
+  let initials=createInitials(name)
+  const user = {
+    name:name,
     mail: mail,
-    password: password
+    password: password,
+    color:randomColor(),
+    initials: initials.toUpperCase()
   }
-  userList.push(mail)
+  userList.push(user)
   setItem(key, userList)
-  return alert(`Email-Adresse :${mail.mail} erfolgreich registriert`)
+  return alert(`Email-Adresse :${user.mail} erfolgreich registriert`)
+}
+
+function createInitials(name) {
+  let item = differMultipleNames(name)
+  let initials
+    if(item.firstName){
+      return initials =item.firstName.slice(0, 1) + item.lastName.slice(0, 1);
+    }else{
+      return initials=item.slice(0,1)
+    }    
+}
+
+function randomColor() {
+  let colors = ["#FF7A00","#FF5EB3","#6E52FF","#9327FF","#00BEE8","#1FD7C1","#FF745E",
+  "#FFA35E","#FC71FF","#FFC701","#0038FF","#C3FF2B","#FFE62B","#FF4646","#FFBB2B"];
+  let randomIndex = Math.floor(Math.random() * colors.length);
+  return colors[randomIndex];
 }
 
 
@@ -212,8 +232,6 @@ function differMultipleNames(name) {
   };
   return name
 }
-
-
 
 
 /**
@@ -239,5 +257,7 @@ function logIn() {
 
 function matchingPassword() {
   let mail = document.getElementById('login-mail');
+  console.log(mail)
   return userList.filter((e) => e.mail === mail.value)
-}
+};
+
