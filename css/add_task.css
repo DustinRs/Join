@@ -40,7 +40,7 @@ p {
 a {
     text-decoration: none;
     color: white;
-    font-size: 16px;
+    font-size: 20px;
 }
 header {
     position: sticky;
@@ -99,6 +99,10 @@ header {
     align-items: center;
     gap: 15px;
     color: white;
+}
+.linkImg {
+    width: 30px;
+    height: 30px;
 }
 .navLinkImg:hover {
     cursor: pointer;

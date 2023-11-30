@@ -4,20 +4,20 @@ function renderNavBar(){
         <img class="navLogo" src="/assets/img/NavLogo.png" alt="">
         <div class="navLinks">
         <div class="navLinkImg">
-          <a href="">
-          <img src="/assets/img/nav-summary.png" alt=""></a><span>Summary</span>
+          <a href="/assets/templates/summary.html">
+          <img class="linkImg" src="/assets/img/nav-summary.png" alt=""><span>Summary</span></a>
         </div>
         <div class="navLinkImg"> 
-          <a href="">
-          <img src="/assets/img/nav-add-task.png" alt=""> </a><span>Add Task</span>
+          <a href="/assets/templates/add_task.html">
+          <img class="linkImg" src="/assets/img/nav-add-task.png" alt=""><span>Add Task</span></a>
         </div>
         <div class="navLinkImg">
-          <a href="">
-          <img src="/assets/img/nav-board.png" alt=""> </a><span>Board</span>
+          <a href="/assets/templates/board.html">
+          <img class="linkImg" src="/assets/img/nav-board.png" alt=""><span>Board</span></a>
         </div>
         <div class="navLinkImg">
-          <a href="">
-          <img src="/assets/img/nav-contacts.png" alt=""> </a><span>Contacts</span>
+          <a href="/assets/templates/contacts.html">
+          <img class="linkImg" src="/assets/img/nav-contacts.png" alt=""><span>Contacts</span></a>
         </div>
         </div>
         <div class="navBottom">
