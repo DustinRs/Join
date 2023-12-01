@@ -6,24 +6,33 @@ const STORAGE_URL = 'https://remote-storage.developerakademie.org/item';
 
 
 async function setItem(key, value) {
+  // Create a payload object with the key, value, and STORAGE_TOKEN
   const payload = { key, value, token: STORAGE_TOKEN };
-  return fetch(STORAGE_URL, { method: 'POST', body: JSON.stringify(payload) })
-    .then(res => res.json());
+
+  // Make a POST request to STORAGE_URL with the payload as the request body
+  const response = await fetch(STORAGE_URL, {
+    method: 'POST',
+    body: JSON.stringify(payload)
+  });
+
+  // Parse the response as JSON and return the result
+  return await response.json();
 }
 
 
 async function getItem(key) {
   const url = `${STORAGE_URL}?key=${key}&token=${STORAGE_TOKEN}`;
-  await fetch(url)
-    .then(res => {
-      if (!res.ok) {
-        alert("Fehler beim Laden der Kontakte")
-      } else { return res = res.json() }
-    }).then(json => {
-      data = json
-      userList = JSON.parse(data.data.value)
-      console.log(userList)
-    });
+  try {
+    const response = await fetch(url);
+    if (!response.ok) {
+      throw new Error("Fehler beim Laden der Kontakte");
+    }
+    const data = await response.json();
+    const userList = JSON.parse(data.data.value);
+    console.log(userList);
+  } catch (error) {
+    console.error(error);
+  }
 }
 
 
