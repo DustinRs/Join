@@ -26,3 +26,17 @@ function renderNavBar() {
         </div>
     `;
 }
+
+
+function renderEmptyNavBar(){
+  return /*html*/ `
+    <div class="navBar">
+        <img class="navLogo" src="/assets/img/NavLogo.png" alt="">
+        <div class="navLinks">
+        </div>
+        <div class="navBottom">
+            <a class="navLinksBot" href="/assets/templates/privacy_policy.html">Privacy Policy</a>
+            <a class="navLinksBot" href="/assets/templates/legal_notice.html">Legal notice</a>
+        </div>
+    `;
+}

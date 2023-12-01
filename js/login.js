@@ -28,7 +28,7 @@ async function getItem(key) {
       throw new Error("Fehler beim Laden der Kontakte");
     }
     const data = await response.json();
-    const userList = JSON.parse(data.data.value);
+    userList = JSON.parse(data.data.value);
     console.log(userList);
   } catch (error) {
     console.error(error);
@@ -212,14 +212,30 @@ function addLogInHandler() {
  * @param {HTMLElement} button - The element representing the login button.
  */
 function enableLogIn() {
-  let name = document.getElementById('login-mail');
-  let password = document.getElementById('login-password');
-  let button = document.getElementById('login-btn')
-  if (name.value !== 0 && password.value !== 0) {
+  const name = document.getElementById('login-mail');
+  const checkbox = document.getElementById("check");
+  const password = document.getElementById('login-password');
+  const button = document.getElementById('login-btn')
+  if (name.value !== 0 && password.value !== 0 && checkbox.checked) {
     button.disabled = false
   }
 }
 
+
+function checkboxClick() {
+  let checkbox = document.getElementById("check");
+  let img = document.getElementById("checkbox");
+  if (checkbox.checked) {
+    checkbox.checked=false;
+    img.src='/assets/img/checkbox.png'; 
+    img.style="";
+  } else if(!checkbox.checked) {
+    checkbox.checked = true;
+    img.src='/assets/img/checked-box.png';
+    img.style='width: 20px; height: 20px;transform:translate(5px,5px);margin-right:12px';
+    enableLogIn()
+  }
+}
 
 
 /**

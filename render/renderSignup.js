@@ -36,7 +36,7 @@ function renderSignup() {
         <div>
             <div id="policy-check" class="d-flex">
                 <input type="checkbox">
-                <div>I accept the <span><a href="#">Privacy Policy</a></span></div>
+                <div>I accept the <span><a href="/assets/templates/privacy_policy_signUp.html" target="_blank">Privacy Policy</a></span></div>
             </div>
             <div id="signup-btn-container">
                 <button id="signup-btn" class="btn" type="submit" disabled=true onclick="signUp()">
