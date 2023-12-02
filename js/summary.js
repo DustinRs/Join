@@ -49,6 +49,11 @@ async function getItem(remoteKey) {
     .then((res) => res.json())
     .then(json => {
       let arr = json.data.value;
+      if(typeof JSON.parse(arr) === "object"){
+        allTasks.push(JSON.parse(arr))
+      }else if(typeof JSON.parse(arr) === 'array'){
+        allTasks = JSON.parse(arr)
+      }
       allTasks = JSON.parse(arr)
       return allTasks
     });
