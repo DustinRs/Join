@@ -359,3 +359,24 @@ input[type="checkbox"]{
     }
 }
 
+#sign-label{
+    width:200px;
+    margin-left: -14px;
+    font-size: 16px;
+}
+
+span>a{
+    text-decoration: none;
+    color:var(--blue);
+    &:hover{
+        font-weight: 500;
+        color:var(--blue);
+        text-decoration: underline;
+    }
+}
+
+#stroke{
+    height: 16px;
+    width: 0;
+    border:1px solid rgba(0, 0, 0, 0.1);
+}

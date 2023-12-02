@@ -12,7 +12,7 @@ function renderSignup() {
         </div>
         <div id="login-underline"></div>
     </div>
-    <form onsubmit="return false">
+    <form onsubmit="signUp();return false">
         <div id="login-input-container">
             <div class="login-input-fields">
                 <input class="login-input" id="username" name="username" type="text" required placeholder="Name">
@@ -35,11 +35,20 @@ function renderSignup() {
         </div>
         <div>
             <div id="policy-check" class="d-flex">
-                <input type="checkbox">
-                <div>I accept the <span><a href="/assets/templates/privacy_policy_signUp.html" target="_blank">Privacy Policy</a></span></div>
+                <input type="checkbox" id="check" required>
+                <img id="checkbox" src="assets/img/checkbox.png" onclick="checkboxClick(), formValidation()" alt="checkbox">
+                <label class="label" for="check" id="sign-label">
+                    <div id="stroke">
+                    </div>
+                    &nbsp;accept the&nbsp;
+                    <span>
+                        <a href="/assets/templates/privacy_policy_signUp.html" target="_blank">Privacy Policy
+                        </a>
+                    </span>
+                </label>
             </div>
             <div id="signup-btn-container">
-                <button id="signup-btn" class="btn" type="submit" disabled=true onclick="signUp()">
+                <button id="signup-btn" class="btn" type="submit" disabled=true>
                     Sign up
                 </button>
             </div>
@@ -52,7 +61,7 @@ function renderSignup() {
 
 
 function renderLogin() {
-    
+
     let main = document.getElementById('login-main');
     let header = document.getElementById('sign-up');
     header.classList.remove('d-none')
@@ -73,17 +82,18 @@ function renderLogin() {
                     <div id="password-container" class="login-input-fields">
                         <input class="login-input password" id="login-password" type="password" min="8" required
                             placeholder="Password"
-                            pattern="^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*\\-]).{8,}$"
+                            pattern="^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*\-]).{8,}$"
                             title="Bitter verwende mindestens eine Zahl und ein Sonderzeichen.">
                         <div id="lock-container"><img  class="lock input-img" src="assets/img/lock.png" alt="lock"></div>
                     </div>
                     <div id="log-in-check" class="d-flex">
-                        <input type="checkbox">
-                        <div>Remember me</div>
+                        <input type="checkbox" id="check">
+                        <img id="checkbox" src="assets/img/checkbox.png" onclick="checkboxClick()" alt="checkbox">
+                        <label class="label" for="check">Remember me</label>
                     </div>
                 </div>
                 <div id="login-btn-container">
-                    <button id="login-btn" class="btn" disabled="true">
+                    <button id="login-btn" class="btn" disabled="true" onclick="logIn()">
                         Log in
                     </button>
                     <button id="guest-login-btn" class="btn">
@@ -92,7 +102,7 @@ function renderLogin() {
                 </div>
             </form>
         </div>`;
-       setEventListener();
-       addLogInHandler();
-       getItem(key)
+    setEventListener();
+    addLogInHandler();
+    getItem(key)
 }

@@ -149,16 +149,27 @@ function addSignUpHandler() {
     for (let i = 2; i < div.length; i++) {
       if (password.value != confirm_password.value) {
         confirm_password.setCustomValidity("Passwords Don't Match"),
-          div[i].style.border = "3px solid red"
+          div[i].style.border = "3px solid red";
+          disableSignUp();
+          return false
       } else if (confirm_password.value.length > 0) {
         div[i].style.border = "3px solid green"
         confirm_password.setCustomValidity('');
-        enableSignUp()
+        enableSignUp();
+        return true
       }
     }
   }
   password.oninput = validatePassword;
   confirm_password.oninput = validatePassword;
+}
+
+function formValidation(){
+  if(addSignUpHandler){
+     enableSignUp()
+  }else{
+    disableSignUp()
+  }
 }
 
 
@@ -172,10 +183,16 @@ function addSignUpHandler() {
 function enableSignUp() {
   let name = document.getElementById('username');
   let mail = document.getElementById('sign-up_mail');
-  let button = document.getElementById('signup-btn')
-  if (name.value !== 0 && mail.value !== 0) {
+  let button = document.getElementById('signup-btn');
+  let checkbox = document.getElementById('check')
+  if (name.value !== 0 && mail.value !== 0 && checkbox.checked) {
     button.disabled = false
   }
+}
+
+function disableSignUp(){
+  let button = document.getElementById('signup-btn');
+  button.disabled = true
 }
 
 
@@ -213,10 +230,9 @@ function addLogInHandler() {
  */
 function enableLogIn() {
   const name = document.getElementById('login-mail');
-  const checkbox = document.getElementById("check");
   const password = document.getElementById('login-password');
   const button = document.getElementById('login-btn')
-  if (name.value !== 0 && password.value !== 0 && checkbox.checked) {
+  if (name.value !== 0 && password.value !== 0) {
     button.disabled = false
   }
 }
@@ -225,15 +241,36 @@ function enableLogIn() {
 function checkboxClick() {
   let checkbox = document.getElementById("check");
   let img = document.getElementById("checkbox");
-  if (checkbox.checked) {
-    checkbox.checked=false;
-    img.src='/assets/img/checkbox.png'; 
-    img.style="";
-  } else if(!checkbox.checked) {
-    checkbox.checked = true;
-    img.src='/assets/img/checked-box.png';
-    img.style='width: 20px; height: 20px;transform:translate(5px,5px);margin-right:12px';
-    enableLogIn()
+  if(document.getElementById('signup-container')!=null){
+    signUpCheckBox(checkbox, img)
+  }else if(document.getElementById('login-container')!=null){
+    loginCheckBox(checkbox, img)
+  }
+}
+
+function loginCheckBox(box, img){
+  if (box.checked) {
+    box.checked = false;
+    img.src = '/assets/img/checkbox.png';
+    img.style = "";
+  } else if (!box.checked) {
+    box.checked = true;
+    img.src = '/assets/img/checked-box.png';
+    img.style = 'width: 20px; height: 20px;transform:translate(5px,5px);margin-right:12px';
+  }
+}
+
+
+function signUpCheckBox(box, img){
+  if (box.checked) {
+    box.checked = false;
+    img.src = '/assets/img/checkbox.png';
+    img.style = "";
+    disableSignUp()
+  } else if (!box.checked) {
+    box.checked = true;
+    img.src = '/assets/img/checked-box.png';
+    img.style = 'width: 20px; height: 20px;transform:translate(5px,5px);margin-right:12px';
   }
 }
 
@@ -282,12 +319,12 @@ function findExistingAccount(mail) {
  * @param {string} password - The password of the user.
  */
 function createAccount(name, mail, password) {
-  let initials=createInitials(name)
+  let initials = createInitials(name)
   const user = {
-    name:name,
+    name: name,
     mail: mail,
     password: password,
-    color:randomColor(),
+    color: randomColor(),
     initials: initials.toUpperCase()
   }
   userList.push(user)
@@ -305,11 +342,11 @@ function createAccount(name, mail, password) {
 function createInitials(name) {
   let item = differMultipleNames(name)
   let initials
-    if(item.firstName){
-      return initials =item.firstName.slice(0, 1) + item.lastName.slice(0, 1);
-    }else{
-      return initials=item.slice(0,1)
-    }    
+  if (item.firstName) {
+    return initials = item.firstName.slice(0, 1) + item.lastName.slice(0, 1);
+  } else {
+    return initials = item.slice(0, 1)
+  }
 }
 
 /**
@@ -319,8 +356,8 @@ function createInitials(name) {
  */
 
 function randomColor() {
-  let colors = ["#FF7A00","#FF5EB3","#6E52FF","#9327FF","#00BEE8","#1FD7C1","#FF745E",
-  "#FFA35E","#FC71FF","#FFC701","#0038FF","#C3FF2B","#FFE62B","#FF4646","#FFBB2B"];
+  let colors = ["#FF7A00", "#FF5EB3", "#6E52FF", "#9327FF", "#00BEE8", "#1FD7C1", "#FF745E",
+    "#FFA35E", "#FC71FF", "#FFC701", "#0038FF", "#C3FF2B", "#FFE62B", "#FF4646", "#FFBB2B"];
   let randomIndex = Math.floor(Math.random() * colors.length);
   return colors[randomIndex];
 }
