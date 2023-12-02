@@ -26,11 +26,11 @@ function renderSignup() {
                 <input class="login-input password" id="create_password" type="password" min="8" required placeholder="Password"
                     pattern="^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*\\-]).{8,}$"
                     title="Bitte verwende Groß- und Kleinbuchstaben, sowie ein Sonderzeichen und eine Nummern">
-                    <div id="lock-container"><img class="input-img lock" src="assets/img/lock.png" alt="lock"></div>
+                    <div class="eye-container"><img class="input-img lock" src="assets/img/lock.png" alt="lock"></div>
             </div>
             <div class="login-input-fields">
                 <input class="login-input password" id="confirm_password" type="password" placeholder="Password Conformation">
-                <div id="lock-container"><img class="input-img lock" src="assets/img/lock.png" alt="lock"></div>
+                <div class="eye-container"><img class="input-img lock" src="assets/img/lock.png" alt="lock"></div>
             </div>
         </div>
         <div>
@@ -84,7 +84,7 @@ function renderLogin() {
                             placeholder="Password"
                             pattern="^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*\-]).{8,}$"
                             title="Bitter verwende mindestens eine Zahl und ein Sonderzeichen.">
-                        <div id="lock-container"><img  class="lock input-img" src="assets/img/lock.png" alt="lock"></div>
+                        <div class="eye-container"><img  class="lock input-img" src="assets/img/lock.png" alt="lock"></div>
                     </div>
                     <div id="log-in-check" class="d-flex">
                         <input type="checkbox" id="check">
