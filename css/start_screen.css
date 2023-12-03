@@ -7,6 +7,7 @@
     --checked-box:url("/assets/img/checked-box.png");
     font-family: 'Inter', sans-serif;
     font-size: 16px;
+    overflow: hidden;
 }
 
 #header-container {
@@ -26,7 +27,7 @@ body {
     width: 100vw;
 }
 
-#logo-container{
+.logo-container{
     z-index: 1;
     display: flex;
     justify-content: center;
@@ -43,6 +44,15 @@ body {
     background-size: cover;
     visibility: visible;
     animation: startScreen 1s ease 1s 1 forwards;
+}
+
+.logo-render{
+    top:120px;
+    width: 101px;
+    height: 124px;
+    right: 82%;
+    bottom: 82%;
+    animation: none;
 }
 
 #sign-up {
@@ -69,7 +79,7 @@ body {
     }
 
     to{
-        top:120px forwards;
+        top:120px;
         width: 101px;
         height: 124px;
         right: 82%;
@@ -379,4 +389,51 @@ span>a{
     height: 16px;
     width: 0;
     border:1px solid rgba(0, 0, 0, 0.1);
+}
+
+#pop-up{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    width: 340px;
+    height: 6rem;
+    border: none;
+    border-radius: 8px;
+    display: flex;
+    background-color: #2A3647;
+    color: white;
+    font-size: 21px;
+    font-weight: 700;
+    padding: 8px 24px;
+    justify-content: center;
+    align-items: center;
+    transform: translateY(100%);
+    animation: up .5s ease 0.5s 1 forwards;
+
+}
+
+.pop-up_animation{
+    animation: up .5s ease 0.5s 1 forwards;
+}
+
+@keyframes up {
+    from{
+        transform: translateY(100%);
+    }
+
+    to{
+        transform: translateY(-880%);
+    }
+}
+
+#overlay{
+    height: 100vh;
+    width: 100vw;
+    position: absolute;
+    inset:0;
+    margin:auto;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 3;
 }

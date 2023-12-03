@@ -1,3 +1,5 @@
+let success = "You signed in succsessfully";
+
 /**
  * Adds a sign-up handler to the page.
  *
@@ -125,7 +127,19 @@ function createAccount(name, mail, password) {
   }
   userList.push(user)
   setItem(key, userList)
-  alert(`Email-Adresse :${user.mail} erfolgreich registriert`)
+  popUp(success)
+  setTimeout(() => {
+    location.replace('/index.html')
+  }, 2000)
+}
+
+
+function popUp(text) {
+  let popUp = document.getElementById('pop-up');
+  let overlay = document.getElementById('overlay')
+  popUp.innerHTML = text;
+  overlay.classList.remove('d-none')
+  // popUp.classList.add('pop-up_animation')
 }
 
 

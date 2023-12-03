@@ -54,7 +54,12 @@ function renderSignup() {
             </div>
         </div>
     </form>
-</div>`;
+    </div>
+    <div id="overlay" class="d-none">
+        <div id="pop-up">
+        </div>     
+    </div>
+        `;
     setEventListener();
     addSignUpHandler()
 };
@@ -101,7 +106,8 @@ function renderLogin() {
                     </button>
                 </div>
             </form>
-        </div>`;
+        </div>
+        `;
     setEventListener();
     addLogInHandler();
     getItem(key)

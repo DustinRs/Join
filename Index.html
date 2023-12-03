@@ -17,7 +17,7 @@
 </head>
 
 <body onload="init()">
-    <div id="logo-container"></div>
+    <div id="logo" class="logo-container"></div>
     <header>
         <div id="header-container" class="d-flex justify-content-end">
             <div id="sign-up">
@@ -32,7 +32,7 @@
                 <div id="login-title">Log in</div>
                 <div id="login-underline"></div>
             </div>
-            <form onsubmit="return false">
+            <form onsubmit="logIn();return false">
                 <div id="login-input-container">
                     <div class="login-input-fields">
                         <input class="login-input" id="login-mail" type="email" required placeholder="Email">
@@ -52,10 +52,10 @@
                     </div>
                 </div>
                 <div id="login-btn-container">
-                    <button id="login-btn" class="btn" disabled="true" onclick="logIn()">
+                    <button id="login-btn" class="btn" disabled="true" type="submit">
                         Log in
                     </button>
-                    <button id="guest-login-btn" class="btn">
+                    <button id="guest-login-btn" class="btn" onclick="guestLogIn()">
                         Guest Log in
                     </button>
                 </div>

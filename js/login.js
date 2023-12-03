@@ -44,7 +44,16 @@ async function getItem(key) {
 async function init() {
   setEventListener();
   addLogInHandler();
-  await getItem(key)
+  await getItem(key);
+  disableAnimation();
+}
+
+
+function disableAnimation(){
+  let div = document.getElementById('logo');
+  setTimeout(() => {
+    div.classList.add('logo-render')
+  }, 2000)
 }
 
 
@@ -212,10 +221,15 @@ function logIn() {
   if (match == []) {
     return alert("Es ist kein Konto mit dieser Email-Adresse registriert.")
   } else if (mail.value === match[0].mail && password.value === match[0].password) {
-    alert("Geiler Typ biste!");
     logUser(match[0].name)
     location.replace('./assets/templates/summary.html')
   } else {
     alert("Passwort und mail stimmen nicht überein")
   }
+}
+
+
+function guestLogIn() {
+  logUser('Dear Guest')
+  location.replace('./assets/templates/summary.html')
 }
