@@ -14,7 +14,7 @@ function renderHeader(user) {
             <a class="menu-option" href="/assets/templates/privacy_policy.html">
                 Privacy Policy
             </a>
-            <a class="menu-option" href="../index.html">
+            <a class="menu-option" href="http://127.0.0.1:5500/index.html">
                 Log out
             </a>
         </div>
