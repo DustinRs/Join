@@ -29,7 +29,7 @@ let letters = [
 ];
 
 async function init() {
-  await getItem(contactKey);
+  await getContacts(contactKey);
   renderContactPage();
   renderRegister();
   hideUnusedLetters();
@@ -167,7 +167,7 @@ async function saveContact() {
   
   deleteContact(firstName, name, email, number);
   contacts.push(contact);
-  setItem(contactKey, contacts);
+  setContacts(contactKey, contacts);
   init();
 }
 
@@ -231,29 +231,10 @@ async function createContact() {
   };
 
   contacts.push(contact);
-  setItem(contactKey, contacts);
+  setContacts(contactKey, contacts);
   init();
 }
 
-async function setItem(key, value) {
-  const payload = { key, value, token: STORAGE_TOKEN };
-  return fetch(STORAGE_URL, {
-    method: "POST",
-    body: JSON.stringify(payload),
-  }).then((res) => res.json());
-}
-
-async function getItem(key) {
-  const url = `${STORAGE_URL}?key=${key}&token=${STORAGE_TOKEN}`;
- await fetch(url)
- .then((res) => res.json())
- .then(json=>{
-  let arr=json.data.value;
-  contacts = JSON.parse(arr)
-  return contacts
- });
-
-}
 
 function randomColor() {
   let colors = [

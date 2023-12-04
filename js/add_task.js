@@ -2,7 +2,7 @@ let allTasks = [];
 let prioArray = [];
 
 async function init() {
-  await getItem(tasksKey);
+  await getAllTasks(tasksKey);
   renderAddTaskPage()
   checkInputs();
   setupInputListeners();
@@ -36,29 +36,9 @@ async function addTask() {
   console.log(task);
   allTasks.push(task);
 
-  setItem(tasksKey, allTasks);
+  setAllTasks(tasksKey, allTasks);
 }
 
-
-async function setItem(key, value) {
-  const payload = { key, value, token: STORAGE_TOKEN };
-  return fetch(STORAGE_URL, {
-    method: "POST",
-    body: JSON.stringify(payload),
-  }).then((res) => res.json());
-}
-
-async function getItem(key) {
-  const url = `${STORAGE_URL}?key=${key}&token=${STORAGE_TOKEN}`;
- await fetch(url)
- .then((res) => res.json())
- .then(json=>{
-  let arr=json.data.value;
-  allTasks.push(JSON.parse(arr))
-  return allTasks
- });
-
-}
 
 function checkInputs() {
   let title = document.getElementById("title").value;

@@ -11,7 +11,7 @@ const wrongPass ="Email-Adresse oder Passwort stimmen nicht überein";
 async function init() {
   setEventListener();
   addLogInHandler();
-  await getItem(userKey);
+  await getUserList(userKey);
   disableAnimation();
 }
 

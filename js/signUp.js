@@ -126,7 +126,7 @@ function createAccount(name, mail, password) {
     initials: initials.toUpperCase()
   }
   userList.push(user)
-  setItem(key, userList)
+  setUserList(key, userList)
   popUpSignUp(success)
   setTimeout(() => {
     renderLogin()

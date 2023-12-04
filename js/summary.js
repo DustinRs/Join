@@ -1,19 +1,13 @@
-
-const STORAGE_TOKEN = "QFOSCYPA967P352YSSOENCUXGKA464XWSUTNI5NT";
-const STORAGE_URL = "https://remote-storage.developerakademie.org/item";
-
 let allTasks = [];
 let toDo = [];
 let done = [];
 let inProgress = [];
 let awaitFeedback = [];
 let urgent = [];
-let activeUser;
-const sessionKey = "activeUser"
-const remoteKey = "allTasks";
+
 
 async function init() {
-  await getItem(remoteKey);
+  await getAllTasks(remoteKey);
   getUser(sessionKey);
   renderNotes()
 }
@@ -33,7 +27,7 @@ async function prioFilter() {
 }
 
  function renderNotes() {
-   categoryFilter();
+  categoryFilter();
   prioFilter();
   let body = document.querySelector('body');
   body.innerHTML = renderNavBar();
@@ -44,18 +38,6 @@ async function prioFilter() {
   grid.innerHTML += greeting(activeUser)
 }
 
-async function getItem(key) {
-  const url = `${STORAGE_URL}?key=${key}&token=${STORAGE_TOKEN}`;
- await fetch(url)
- .then((res) => res.json())
- .then(json=>{
-  let arr=json.data.value;
-  let parsedArr = JSON.parse(arr);
-  Array.isArray(parsedArr) ? allTasks.push([...parsedArr]):allTasks.push(parsedArr);
-  return allTasks
- });
-
-}
 
 function getUser(sessionKey) {
   return activeUser = sessionStorage.getItem(sessionKey)
