@@ -1,9 +1,4 @@
-const STORAGE_TOKEN = "QFOSCYPA967P352YSSOENCUXGKA464XWSUTNI5NT";
-const STORAGE_URL = "https://remote-storage.developerakademie.org/item";
-let key = "Contacts";
-
 let contacts = [];
-
 let letters = [
   "A",
   "B",
@@ -34,7 +29,7 @@ let letters = [
 ];
 
 async function init() {
-  await getItem(key);
+  await getItem(contactKey);
   renderContactPage();
   renderRegister();
   hideUnusedLetters();
@@ -172,7 +167,7 @@ async function saveContact() {
   
   deleteContact(firstName, name, email, number);
   contacts.push(contact);
-  setItem(key, contacts);
+  setItem(contactKey, contacts);
   init();
 }
 
@@ -236,7 +231,7 @@ async function createContact() {
   };
 
   contacts.push(contact);
-  setItem(key, contacts);
+  setItem(contactKey, contacts);
   init();
 }
 
