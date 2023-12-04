@@ -2,6 +2,7 @@ let activeUser;
 let userList;
 const userKey = "userList";
 const contactKey = "Contacts";
+const tasksKey = "allTasks";
 const STORAGE_TOKEN = 'QFOSCYPA967P352YSSOENCUXGKA464XWSUTNI5NT';
 const STORAGE_URL = 'https://remote-storage.developerakademie.org/item';
 

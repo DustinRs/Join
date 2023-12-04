@@ -1,11 +1,8 @@
 let allTasks = [];
-const STORAGE_TOKEN = "QFOSCYPA967P352YSSOENCUXGKA464XWSUTNI5NT";
-const STORAGE_URL = "https://remote-storage.developerakademie.org/item";
 let prioArray = [];
-let key = "allTasks";
 
 async function init() {
-  await getItem(key);
+  await getItem(tasksKey);
   renderAddTaskPage()
   checkInputs();
   setupInputListeners();
@@ -39,7 +36,7 @@ async function addTask() {
   console.log(task);
   allTasks.push(task);
 
-  setItem(key, allTasks);
+  setItem(tasksKey, allTasks);
 }
 
 
