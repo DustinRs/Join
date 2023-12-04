@@ -5,7 +5,7 @@ function renderHeader() {
         <div class="imgsHeader">
             <a href="/assets/templates/help.html">
                 <img class="helpIcon" src="/assets/img/help.png" alt=""></a>
-            <img class="profileImg" src="/assets/img/UserProfile.png" alt="">
+            <div id="profile-icon"></div>
         </div>
     </header> 
     <main>
@@ -26,3 +26,4 @@ function renderDefaultHeader(){
     </main>
     ` 
 }
+

@@ -107,6 +107,11 @@ header {
     transition: 0.3s ease-in-out;
 }
 
-.profileImg:hover {
+#profile-icon {
+    width: 56px;
+    height: 56px;
+}
+
+#profile-icon:hover {
     cursor: pointer;
 }
