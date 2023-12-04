@@ -1,7 +1,8 @@
 function init() {
+    getUser(sessionKey);
     let body = document.querySelector('body');
     body.innerHTML = renderNavBar();
-    body.innerHTML += renderHeader();
+    body.innerHTML += renderHeader(activeUser);
     let main = document.querySelector('main');
     main.innerHTML += renderPrivacyPolicy();
 }

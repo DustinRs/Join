@@ -161,7 +161,6 @@ function popUp(text, width) {
  */
 function createInitials(name) {
   let item = differMultipleNames(name)
-  let initials
   if (item.firstName) {
     return initials = item.firstName.slice(0, 1) + item.lastName.slice(0, 1);
   } else {

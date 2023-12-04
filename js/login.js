@@ -188,6 +188,8 @@ function logIn() {
     return popUp(noAcc,575)
   } else if (mail.value === match[0].mail && password.value === match[0].password) {
     logUser(JSON.stringify(match))
+    console.log(match)
+    console.log(JSON.stringify(match))
     location.replace('./assets/templates/summary.html')
   } else {
     popUp(wrongPass,567)
@@ -196,7 +198,7 @@ function logIn() {
 
 
 function guestLogIn() {
-  logUser('Dear Guest')
+  logUser(JSON.stringify(guest))
   location.replace('./assets/templates/summary.html')
 }
 
@@ -210,5 +212,6 @@ function guestLogIn() {
 function matchingPassword() {
   let mail = document.getElementById('login-mail');
   return userList.filter((e) => e.mail === mail.value)
+
 };
 

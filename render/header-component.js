@@ -5,7 +5,18 @@ function renderHeader(user) {
         <div class="imgsHeader">
             <a href="/assets/templates/help.html">
                 <img class="helpIcon" src="/assets/img/help.png" alt=""></a>
-            <div id="profile-icon">${user[0].initials}</div>
+            <div id="profile-icon" onclick="openMenu()">${user[0].initials}</div>
+        </div>
+        <div id="icon-menu" class="d-none">
+            <a class="menu-option" href="/assets/templates/legal_notice.html">
+                Legal Notice
+            </a>
+            <a class="menu-option" href="/assets/templates/privacy_policy.html">
+                Privacy Policy
+            </a>
+            <a class="menu-option" href="../index.html">
+                Log out
+            </a>
         </div>
     </header> 
     <main>
