@@ -39,7 +39,7 @@ function renderContactSection(){
     return/*html*/`
     <div class="contactSection">
     <div class="contactsDiv">
-        <div class="contactButtonDiv">
+        <div id="addNewContact" class="contactButtonDiv">
             <button onclick="openPopUpAddContact()" class="contactButton">
                 <span>Add new contact</span><img src="/assets/img/person_add.png" alt="">
             </button>

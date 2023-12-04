@@ -1,4 +1,5 @@
 let activeUser;
+let contacts = [];
 let userList;
 let userData;
 let guest = [{

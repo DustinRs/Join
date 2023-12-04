@@ -3,10 +3,12 @@ let prioArray = [];
 
 async function init() {
   await getAllTasks(tasksKey);
+  await getContacts(contactKey);
   getUser(sessionKey);
   renderAddTaskPage(activeUser)
   checkInputs();
   setupInputListeners();
+  addAssignees()
 }
 
 function renderAddTaskPage(activeUser) {
@@ -34,10 +36,7 @@ async function addTask() {
     category: category,
     subTask: subTask,
   };
-  console.log(task);
   allTasks.push(task);
-  console.log(allTasks)
-
   setAllTasks(tasksKey, allTasks);
 }
 
@@ -160,4 +159,17 @@ function checkImageExists(url, callback) {
 function getPrioValue(){
   let arr = prioArray.slice(-1)
   return arr[0]
+}
+
+
+function addAssignees(){
+  let box = document.getElementById('assign')
+  for(let i = 0; i < contacts.length; i++){
+    let name = contacts[i].firstName
+    if(name!== ''){
+      box.innerHTML+=/*html*/`
+        <option value="${name}">${name}</option>
+      `
+    }
+  }
 }

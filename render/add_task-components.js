@@ -13,9 +13,9 @@ function renderAddTaskSections(){
         <div class="selectContainer">
         <select class="select-box" id="assign" >
           <option value="" style="display: none;">Select contacts to assign</option>
-          <option value="">René</option>
+          <!-- <option value="">René</option>
           <option value="">Simon</option>
-          <option value="">Dustin</option>
+          <option value="">Dustin</option> -->
         </select>
         <div class="divIcon"><i><img src="/assets/img/arrow_drop_down.png" alt=""></i></div>
         </div>

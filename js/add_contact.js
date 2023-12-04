@@ -1,4 +1,3 @@
-let contacts = [];
 let letters = [
   "A",
   "B",
@@ -34,6 +33,7 @@ async function init() {
   renderContactPage(activeUser);
   renderRegister();
   hideUnusedLetters();
+  calcHeight()
 }
 
 function renderContactPage(activeUser) {
@@ -257,4 +257,13 @@ function getRandomColor(id) {
   let divName = document.getElementById(`${id}`);
   let Color = randomColor();
   divName.style.backgroundColor = Color;
+}
+
+
+function calcHeight(){
+  let header=document.querySelector('header');
+  let btn = document.getElementById('addNewContact')
+  let register = document.getElementById('register');
+  let height = window.innerHeight - header.offsetHeight - btn.offsetHeight;
+  register.style.height = height - 90 + 'px';
 }
