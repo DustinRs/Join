@@ -30,18 +30,19 @@ let letters = [
 
 async function init() {
   await getContacts(contactKey);
-  renderContactPage();
+  getUser(sessionKey);
+  renderContactPage(activeUser);
   renderRegister();
   hideUnusedLetters();
 }
 
-function renderContactPage() {
+function renderContactPage(activeUser) {
   let section = document.createElement('section');
   let body = document.querySelector('body');
   body.innerHTML = renderContactPopUp();
   body.innerHTML += renderEditPopUp();
   body.innerHTML += renderNavBar();
-  body.innerHTML += renderHeader();
+  body.innerHTML += renderHeader(activeUser);
   document.querySelector('main').append(section);
   section.innerHTML += renderContactSection();
 }

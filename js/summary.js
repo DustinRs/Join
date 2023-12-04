@@ -9,7 +9,7 @@ let urgent = [];
 async function init() {
   await getAllTasks(remoteKey);
   getUser(sessionKey);
-  renderNotes()
+  renderNotes(activeUser)
 }
 
 async function categoryFilter() {
@@ -26,12 +26,12 @@ async function prioFilter() {
 
 }
 
- function renderNotes() {
+ function renderNotes(activeUser) {
   categoryFilter();
   prioFilter();
   let body = document.querySelector('body');
   body.innerHTML = renderNavBar();
-  body.innerHTML += renderHeader();
+  body.innerHTML += renderHeader(activeUser);
   let main = document.querySelector('main');
   main.innerHTML = gridContainer();
   let grid = document.getElementById('grid')
@@ -39,6 +39,3 @@ async function prioFilter() {
 }
 
 
-function getUser(sessionKey) {
-  return activeUser = sessionStorage.getItem(sessionKey)
-}

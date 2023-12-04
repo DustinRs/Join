@@ -187,7 +187,7 @@ function logIn() {
   if (match.length === 0) {
     return popUp(noAcc,575)
   } else if (mail.value === match[0].mail && password.value === match[0].password) {
-    logUser(match[0].name)
+    logUser(JSON.stringify(match))
     location.replace('./assets/templates/summary.html')
   } else {
     popUp(wrongPass,567)

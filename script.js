@@ -1,5 +1,6 @@
 let activeUser;
 let userList;
+let userData;
 const userKey = "userList";
 const contactKey = "Contacts";
 const tasksKey = "allTasks";
@@ -18,6 +19,13 @@ function logUser(name) {
         return sessionStorage.setItem("activeUser", activeUser)
     }
 }
+
+
+function getUser(sessionKey) {
+  userData = sessionStorage.getItem(sessionKey)
+  activeUser=JSON.parse(userData)
+  return activeUser
+  }
 
 
 async function setUserList(key, value) {
@@ -94,3 +102,4 @@ async function getContacts(key) {
  });
 
 }
+

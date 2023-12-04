@@ -3,17 +3,18 @@ let prioArray = [];
 
 async function init() {
   await getAllTasks(tasksKey);
-  renderAddTaskPage()
+  getUser(sessionKey);
+  renderAddTaskPage(activeUser)
   checkInputs();
   setupInputListeners();
 }
 
-function renderAddTaskPage() {
+function renderAddTaskPage(activeUser) {
   let body = document.querySelector('body');
   let taskContainer = document.createElement('div')
   taskContainer.id='task-container'
   body.innerHTML = renderNavBar();
-  body.innerHTML+= renderHeader();
+  body.innerHTML+= renderHeader(activeUser);
   document.querySelector('main').append(taskContainer);
   taskContainer.innerHTML=renderAddTaskSections()
 }

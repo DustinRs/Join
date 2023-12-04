@@ -1,12 +1,13 @@
  function init(){
-    renderComponents();
+    getUser(sessionKey)
+    renderComponents(activeUser);
     updateHTML()
 }
 
-function renderComponents(){
+function renderComponents(activeUser){
     let body = document.querySelector('body')
     body.innerHTML=renderNavBar();
-    body.innerHTML+=renderHeader();
+    body.innerHTML+=renderHeader(activeUser);
     document.querySelector('main').innerHTML=/*html*/`
     <div class="sections-drag">
                 <div class="headline">
