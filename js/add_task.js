@@ -23,7 +23,7 @@ async function addTask() {
   let title = document.getElementById("title").value;
   let description = document.getElementById("description").value;
   let date = document.getElementById("date").value;
-  let prio = prioArray;
+  let prio = getPrioValue();
   let category = document.getElementById("category").value;
   let subTask = document.getElementById("subTask").value;
   let task = {
@@ -36,6 +36,7 @@ async function addTask() {
   };
   console.log(task);
   allTasks.push(task);
+  console.log(allTasks)
 
   setAllTasks(tasksKey, allTasks);
 }
@@ -153,4 +154,10 @@ function checkImageExists(url, callback) {
     callback(false);
   };
   img.src = url;
+}
+
+
+function getPrioValue(){
+  let arr = prioArray.slice(-1)
+  return arr[0]
 }

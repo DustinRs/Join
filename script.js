@@ -28,7 +28,6 @@ function logUser(name) {
 function getUser(sessionKey) {
   userData = sessionStorage.getItem(sessionKey)
   activeUser = JSON.parse(userData)
-  console.log(activeUser)
   return activeUser
 }
 
@@ -69,7 +68,7 @@ async function getAllTasks(key) {
     .then(json => {
       let arr = json.data.value;
       let parsedArr = JSON.parse(arr);
-      Array.isArray(parsedArr) ? allTasks.push([...parsedArr]) : allTasks.push(parsedArr);
+      Array.isArray(parsedArr) ? allTasks= parsedArr : allTasks.push(parsedArr);
       return allTasks
     });
 

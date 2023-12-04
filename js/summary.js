@@ -13,22 +13,17 @@ async function init() {
 }
 
 async function categoryFilter() {
-  toDo.push(allTasks.filter((e) => e["category"] == "To Do"));
-  done.push(allTasks.filter((e) => e["category"] == "Done"));
-  inProgress.push(allTasks.filter((e) => e["category"] == "In Progress"));
-  awaitFeedback.push(allTasks.filter((e) => e["category"] == "Await Feedback"));
-  return toDo, done, inProgress, awaitFeedback;
-}
-async function prioFilter() {
-  urgent.push(allTasks.filter((e) => e["prio"] == "urgent"));
-  console.log(allTasks);
-  return urgent;
-
+  clearSubArrays(toDo, done, inProgress, awaitFeedback, urgent);
+  hasContent(toDo, "category", "To Do")
+  hasContent(done, "category", "Done")
+  hasContent(inProgress, "category", "In Progress")
+  hasContent(awaitFeedback, "category", "Await Feedback")
+  hasContent(urgent, "prio", "urgent")
 }
 
- function renderNotes(activeUser) {
+
+function renderNotes(activeUser) {
   categoryFilter();
-  prioFilter();
   let body = document.querySelector('body');
   body.innerHTML = renderNavBar();
   body.innerHTML += renderHeader(activeUser);
@@ -39,3 +34,14 @@ async function prioFilter() {
 }
 
 
+function hasContent(categoryArray, property, string) {
+  let arr = allTasks.filter((e) => e[property] == string)
+  if (arr.length!=0) {
+    categoryArray.splice(0, categoryArray.length, ...arr);
+    return categoryArray
+  }
+}
+
+function clearSubArrays(...array) {
+  return array.length = 0
+}
