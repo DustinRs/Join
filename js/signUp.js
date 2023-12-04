@@ -1,4 +1,6 @@
-let success = "You signed in succsessfully";
+const success = "You signed in succsessfully";
+const existingMail = "Your email is already in use";
+
 
 /**
  * Adds a sign-up handler to the page.
@@ -15,13 +17,11 @@ function addSignUpHandler() {
       if (password.value != confirm_password.value) {
         confirm_password.setCustomValidity("Passwords Don't Match"),
           div[i].style.border = "3px solid red";
-          disableSignUp();
-          return false
+        disableSignUp(); return false
       } else if (confirm_password.value.length > 0) {
         div[i].style.border = "3px solid green"
         confirm_password.setCustomValidity('');
-        enableSignUp();
-        return true
+        enableSignUp(); return true
       }
     }
   }
@@ -29,10 +29,10 @@ function addSignUpHandler() {
   confirm_password.oninput = validatePassword;
 }
 
-function formValidation(){
-  if(addSignUpHandler){
-     enableSignUp()
-  }else{
+function formValidation() {
+  if (addSignUpHandler) {
+    enableSignUp()
+  } else {
     disableSignUp()
   }
 }
@@ -55,13 +55,13 @@ function enableSignUp() {
   }
 }
 
-function disableSignUp(){
+function disableSignUp() {
   let button = document.getElementById('signup-btn');
   button.disabled = true
 }
 
 
-function signUpCheckBox(box, img){
+function signUpCheckBox(box, img) {
   if (box.checked) {
     box.checked = false;
     img.src = '/assets/img/checkbox.png';
@@ -88,7 +88,7 @@ function signUp() {
   let mail = document.getElementById('sign-up_mail').value;
   let password = document.getElementById('create_password').value;
   if (findExistingAccount(mail)) {
-    return alert("Email-Adresse bereits registriert")
+    return popUp(existingMail, 373)
   } else { createAccount(name, mail, password) }
 }
 
@@ -127,19 +127,29 @@ function createAccount(name, mail, password) {
   }
   userList.push(user)
   setItem(key, userList)
-  popUp(success)
+  popUpSignUp(success)
   setTimeout(() => {
-    location.replace('/index.html')
+    renderLogin()
   }, 2000)
 }
 
 
-function popUp(text) {
+function popUpSignUp(text) {
   let popUp = document.getElementById('pop-up');
   let overlay = document.getElementById('overlay')
   popUp.innerHTML = text;
   overlay.classList.remove('d-none')
-  // popUp.classList.add('pop-up_animation')
+}
+
+function popUp(text, width) {
+  let popUp = document.getElementById('info-text');
+  let container = document.getElementById('info');
+  popUp.innerHTML = text;
+  container.style.width = width + "px";
+  container.style.transform = "translateY(0%)";
+  setTimeout(() => {
+    container.style.transform = "translateY(-105%)";
+  }, 2000)
 }
 
 
@@ -190,16 +200,3 @@ function differMultipleNames(name) {
   };
   return name
 }
-
-
-/**
- * This function filters the `userList` array to find objects with a `mail` property that matches the value of the `login-mail` element in the DOM.
- *
- * @return {Array} An array of objects that have a `mail` property matching the value of the `login-mail` element.
- */
-function matchingPassword() {
-  let mail = document.getElementById('login-mail');
-  console.log(mail)
-  return userList.filter((e) => e.mail === mail.value)
-};
-

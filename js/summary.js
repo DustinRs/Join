@@ -1,3 +1,4 @@
+
 const STORAGE_TOKEN = "QFOSCYPA967P352YSSOENCUXGKA464XWSUTNI5NT";
 const STORAGE_URL = "https://remote-storage.developerakademie.org/item";
 
@@ -14,7 +15,7 @@ const remoteKey = "allTasks";
 async function init() {
   await getItem(remoteKey);
   getUser(sessionKey);
-  renderNotes();
+  renderNotes()
 }
 
 async function categoryFilter() {
@@ -31,8 +32,8 @@ async function prioFilter() {
 
 }
 
-function renderNotes() {
-  categoryFilter();
+ function renderNotes() {
+   categoryFilter();
   prioFilter();
   let body = document.querySelector('body');
   body.innerHTML = renderNavBar();
@@ -43,20 +44,16 @@ function renderNotes() {
   grid.innerHTML += greeting(activeUser)
 }
 
-async function getItem(remoteKey) {
-  const url = `${STORAGE_URL}?key=${remoteKey}&token=${STORAGE_TOKEN}`;
-  await fetch(url)
-    .then((res) => res.json())
-    .then(json => {
-      let arr = json.data.value;
-      if(typeof JSON.parse(arr) === "object"){
-        allTasks.push(JSON.parse(arr))
-      }else if(typeof JSON.parse(arr) === 'array'){
-        allTasks = JSON.parse(arr)
-      }
-      allTasks = JSON.parse(arr)
-      return allTasks
-    });
+async function getItem(key) {
+  const url = `${STORAGE_URL}?key=${key}&token=${STORAGE_TOKEN}`;
+ await fetch(url)
+ .then((res) => res.json())
+ .then(json=>{
+  let arr=json.data.value;
+  let parsedArr = JSON.parse(arr);
+  Array.isArray(parsedArr) ? allTasks.push([...parsedArr]):allTasks.push(parsedArr);
+  return allTasks
+ });
 
 }
 

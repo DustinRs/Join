@@ -1,9 +1,11 @@
 let userList;
+let userX = "timmy"
 let data;
+const noAcc="Es ist kein Konto mit dieser Email-Adresse registriert."
+const wrongPass ="Email-Adresse oder Passwort stimmen nicht überein";
 const key = "userList";
 const STORAGE_TOKEN = 'QFOSCYPA967P352YSSOENCUXGKA464XWSUTNI5NT';
 const STORAGE_URL = 'https://remote-storage.developerakademie.org/item';
-
 
 async function setItem(key, value) {
   // Create a payload object with the key, value, and STORAGE_TOKEN
@@ -28,7 +30,7 @@ async function getItem(key) {
       throw new Error("Fehler beim Laden der Kontakte");
     }
     const data = await response.json();
-    userList = JSON.parse(data.data.value);
+    userList = JSON.parse(data.data.value)||[];
     console.log(userList);
   } catch (error) {
     console.error(error);
@@ -215,16 +217,15 @@ function loginCheckBox(box, img){
  */
 function logIn() {
   let match = matchingPassword();
-  console.log(match[0].name)
   let mail = document.getElementById('login-mail');
   let password = document.getElementById('login-password');
-  if (match == []) {
-    return alert("Es ist kein Konto mit dieser Email-Adresse registriert.")
+  if (match.length === 0) {
+    return popUp(noAcc,575)
   } else if (mail.value === match[0].mail && password.value === match[0].password) {
     logUser(match[0].name)
     location.replace('./assets/templates/summary.html')
   } else {
-    alert("Passwort und mail stimmen nicht überein")
+    popUp(wrongPass,567)
   }
 }
 
@@ -233,3 +234,17 @@ function guestLogIn() {
   logUser('Dear Guest')
   location.replace('./assets/templates/summary.html')
 }
+
+
+
+/**
+ * This function filters the `userList` array to find objects with a `mail` property that matches the value of the `login-mail` element in the DOM.
+ *
+ * @return {Array} An array of objects that have a `mail` property matching the value of the `login-mail` element.
+ */
+function matchingPassword() {
+  let mail = document.getElementById('login-mail');
+  console.log(mail)
+  return userList.filter((e) => e.mail === mail.value)
+};
+

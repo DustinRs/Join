@@ -58,3 +58,34 @@ body {
     width: 76%;
     max-width: 1240px;
 }
+
+.arrow{
+    position: relative;
+}
+
+.arrow>a{
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    height: 46px;
+    width: 39px;
+}
+
+.arrow>a>img{
+    position: absolute;
+    height: 40px;
+    width: 39px;
+    inset: 0;
+    margin: auto;
+}
+
+.scroll-help{
+    padding: 5%;
+    padding-top:0;
+    position: relative;
+    left: 14%;
+    width: 76%;
+    max-width: 1240px;
+}

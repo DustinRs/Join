@@ -9,8 +9,8 @@ function init() {
 
 function initSignUp(){
     let body = document.querySelector('body');
-    body.innerHTML = renderEmptyNavBar();
-    body.innerHTML += renderHeader();
+    body.innerHTML = renderPrivacyNavBar();
+    body.innerHTML += renderDefaultHeader();
     let main = document.querySelector('main');
     main.innerHTML += renderPrivacyPolicy();
 }
