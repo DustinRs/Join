@@ -35,6 +35,7 @@ async function addTask() {
     prio: prio,
     status: status,
     subTask: subTask,
+    id:""
   };
   allTasks.push(task);
   setAllTasks(tasksKey, allTasks);

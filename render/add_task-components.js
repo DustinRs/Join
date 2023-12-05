@@ -52,10 +52,10 @@ function renderAddTaskSections(){
         <div class="selectContainer">
           <select  class="select-box" id="status" required>
             <option value="" style="display: none;">Select contacts to assign</option>
-            <option value="to-do">To-Do</option>
-            <option value="in-progress">In-Progress</option>
-            <option value="await-feedback">Await-Feedback</option>
-            <option value="done">Done</option>
+            <option value="To-Do">To-Do</option>
+            <option value="In-Progress">In-Progress</option>
+            <option value="Await-Feedback">Await-Feedback</option>
+            <option value="Done">Done</option>
           </select>
           <div class="divIcon"><i><img src="/assets/img/arrow_drop_down.png" alt=""></i></div>
           </div>

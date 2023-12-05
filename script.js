@@ -2,6 +2,10 @@ let activeUser;
 let contacts = [];
 let userList;
 let userData;
+let todoArr=[];
+let awaitArr=[];
+let doneArr=[];
+let progressArr=[]
 let guest = [{
   name: "Dear Guest",
   initials: "G"
@@ -13,6 +17,7 @@ const sessionKey = "activeUser"
 const remoteKey = "allTasks";
 const STORAGE_TOKEN = 'QFOSCYPA967P352YSSOENCUXGKA464XWSUTNI5NT';
 const STORAGE_URL = 'https://remote-storage.developerakademie.org/item';
+
 
 
 function logUser(name) {
