@@ -38,28 +38,28 @@ function renderComponents(activeUser){
 let todos = [{
     'id': 0,
     'title': 'Putzen',
-    'category': 'open'
+    'status': 'open'
 }, {
     'id': 1,
     'title': 'Kochen',
-    'category': 'in-progress'
+    'status': 'in-progress'
 }, {
     'id': 2,
     'title': 'Einkaufen',
-    'category': 'closed'
+    'status': 'closed'
 },
 {
     'id': 3,
     'title': 'Putzen',
-    'category': 'open'
+    'status': 'open'
 }, {
     'id': 4,
     'title': 'Kochen',
-    'category': 'in-progress'
+    'status': 'in-progress'
 }, {
     'id': 5,
     'title': 'Einkaufen',
-    'category': 'closed'
+    'status': 'closed'
 }];
 
 let headlines = [
@@ -77,21 +77,21 @@ let headlines = [
 let currentDraggedElement;
 
 function updateHTML() {
-    let open = todos.filter(t => t['category'] == 'open');
+    let open = todos.filter(t => t['status'] == 'open');
     document.getElementById('open').innerHTML = '';
     for (let index = 0; index < open.length; index++) {
         const element = open[index];
         document.getElementById('open').innerHTML += generateTodoHTML(element);
     }
 
-    let in_progress = todos.filter(t => t['category'] == 'in-progress');
+    let in_progress = todos.filter(t => t['status'] == 'in-progress');
     document.getElementById('in-progress').innerHTML = '';
     for (let index = 0; index < in_progress.length; index++) {
         const element = in_progress[index];
         document.getElementById('in-progress').innerHTML += generateTodoHTML(element);
     }
 
-    let closed = todos.filter(t => t['category'] == 'closed');
+    let closed = todos.filter(t => t['status'] == 'closed');
     document.getElementById('closed').innerHTML = '';
     for (let index = 0; index < closed.length; index++) {
         const element = closed[index];
@@ -113,8 +113,8 @@ function allowDrop(ev) {
     ev.preventDefault();
 }
 
-function moveTo(category) {
-    todos[currentDraggedElement]['category'] = category;
+function moveTo(status) {
+    todos[currentDraggedElement]['status'] = status;
     updateHTML();
 }
 

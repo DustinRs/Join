@@ -12,18 +12,18 @@ async function init() {
   renderNotes(activeUser)
 }
 
-async function categoryFilter() {
+async function statusFilter() {
   clearSubArrays(toDo, done, inProgress, awaitFeedback, urgent);
-  hasContent(toDo, "category", "To Do")
-  hasContent(done, "category", "Done")
-  hasContent(inProgress, "category", "In Progress")
-  hasContent(awaitFeedback, "category", "Await Feedback")
+  hasContent(toDo, "status", "To Do")
+  hasContent(done, "status", "Done")
+  hasContent(inProgress, "status", "In Progress")
+  hasContent(awaitFeedback, "status", "Await Feedback")
   hasContent(urgent, "prio", "urgent")
 }
 
 
 function renderNotes(activeUser) {
-  categoryFilter();
+  statusFilter();
   let body = document.querySelector('body');
   body.innerHTML = renderNavBar();
   body.innerHTML += renderHeader(activeUser);
@@ -34,11 +34,11 @@ function renderNotes(activeUser) {
 }
 
 
-function hasContent(categoryArray, property, string) {
+function hasContent(statusArray, property, string) {
   let arr = allTasks.filter((e) => e[property] == string)
   if (arr.length!=0) {
-    categoryArray.splice(0, categoryArray.length, ...arr);
-    return categoryArray
+    statusArray.splice(0, statusArray.length, ...arr);
+    return statusArray
   }
 }
 
