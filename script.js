@@ -1,5 +1,6 @@
 let activeUser;
 let contacts = [];
+let allTasks = [];
 let userList;
 let userData;
 let todoArr=[];

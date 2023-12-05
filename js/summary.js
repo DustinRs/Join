@@ -1,4 +1,3 @@
-let allTasks = [];
 let toDo = [];
 let done = [];
 let inProgress = [];

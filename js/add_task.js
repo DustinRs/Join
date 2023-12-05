@@ -1,4 +1,3 @@
-let allTasks = [];
 let prioArray = [];
 
 async function init() {
@@ -35,7 +34,7 @@ async function addTask() {
     prio: prio,
     status: status,
     subTask: subTask,
-    id:""
+    id:Date.now()
   };
   allTasks.push(task);
   setAllTasks(tasksKey, allTasks);
