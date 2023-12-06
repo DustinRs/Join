@@ -13,10 +13,10 @@ async function init() {
 
 async function statusFilter() {
   clearSubArrays(toDo, done, inProgress, awaitFeedback, urgent);
-  hasContent(toDo, "status", "To Do")
+  hasContent(toDo, "status", "To-Do")
   hasContent(done, "status", "Done")
-  hasContent(inProgress, "status", "In Progress")
-  hasContent(awaitFeedback, "status", "Await Feedback")
+  hasContent(inProgress, "status", "In-Progress")
+  hasContent(awaitFeedback, "status", "Await-Feedback")
   hasContent(urgent, "prio", "urgent")
 }
 

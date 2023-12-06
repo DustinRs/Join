@@ -25,14 +25,15 @@ async function addTask() {
   let description = document.getElementById("description").value;
   let date = document.getElementById("date").value;
   let prio = getPrioValue();
-  let status = document.getElementById("status").value;
+  let category = document.getElementById("category").value;
   let subTask = document.getElementById("subTask").value;
   let task = {
     title: title,
     description: description,
     date: date,
     prio: prio,
-    status: status,
+    category: category,
+    status:"To-Do",
     subTask: subTask,
     id:Date.now()
   };
@@ -45,11 +46,11 @@ function checkInputs() {
   let title = document.getElementById("title").value;
   let description = document.getElementById("description").value;
   let date = document.getElementById("date").value;
-  let status = document.getElementById("status").value;
+  let category = document.getElementById("category").value;
 
   let button = document.querySelector(".createTaskButton");
 
-  if (title && description && date && status) {
+  if (title && description && date && category) {
     button.removeAttribute("disabled");
   } else {
     button.setAttribute("disabled", "true");
@@ -57,7 +58,7 @@ function checkInputs() {
 }
 
 function setupInputListeners() {
-  const inputIds = ["title", "description", "date", "status"];
+  const inputIds = ["title", "description", "date", "category"];
 
   inputIds.forEach((id) => {
     const input = document.getElementById(id);

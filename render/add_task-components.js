@@ -50,12 +50,10 @@ function renderAddTaskSections(){
         <p>Category<span class="span">*</span></p>
         
         <div class="selectContainer">
-          <select  class="select-box" id="status" required>
-            <option value="" style="display: none;">Select contacts to assign</option>
-            <option value="To-Do">To-Do</option>
-            <option value="In-Progress">In-Progress</option>
-            <option value="Await-Feedback">Await-Feedback</option>
-            <option value="Done">Done</option>
+          <select  class="select-box" id="category" required>
+            <option value="" style="display: none;">Select task category</option>
+            <option value="technical-task">Technical Task</option>
+            <option value="user-story">User Story</option>
           </select>
           <div class="divIcon"><i><img src="/assets/img/arrow_drop_down.png" alt=""></i></div>
           </div>
@@ -75,3 +73,5 @@ function renderAddTaskSections(){
     </div>
     `
 }
+
+//überall status suchen

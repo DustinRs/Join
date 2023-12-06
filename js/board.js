@@ -103,7 +103,10 @@ async function moveTo(status, parentArr) {
 
     if (draggedTask) {
         draggedTask.status = status;
-        return updateHTML();
+        draggedTask.id = Date.now();
+        sortArray();
+        setAllTasks(tasksKey, allTasks);
+        updateHTML();
     }
 }
 
@@ -119,6 +122,6 @@ function removeHighlight(id) {
 //arr.sort((a,b) => a-b);
 
 
-function sortArray(array){
-    return array.sort((a,b)=>a.id-b.id)
+function sortArray(){
+    return allTasks.sort((a,b)=>a.id-b.id)
 }
