@@ -6,10 +6,12 @@ async function init() {
 }
 
 function renderComponents(activeUser) {
-    let body = document.querySelector('body')
-    body.innerHTML = renderNavBar();
-    body.innerHTML += renderHeader(activeUser);
-    document.querySelector('main').innerHTML =/*html*/`
+    let nav = document.querySelector('nav');
+    let header = document.querySelector('header');
+    let main = document.querySelector('main');
+    nav.innerHTML = renderNavBar();
+    header.innerHTML += renderHeader(activeUser);
+    main.innerHTML =/*html*/`
     <div class="sections-drag">
                 <div class="headline">
                     <h1>Board</h1>
@@ -63,21 +65,21 @@ let headlines = [
 
 let currentDraggedElement;
 
-function taskFilter(arr,string, parentArr){
-    let statusArr = arr.filter(e=>e.status == string);
-    document.getElementById(string).innerHTML='';
-    for(let i = 0; i<statusArr.length; i++){
+function taskFilter(arr, string, parentArr) {
+    let statusArr = arr.filter(e => e.status == string);
+    document.getElementById(string).innerHTML = '';
+    for (let i = 0; i < statusArr.length; i++) {
         const element = statusArr[i];
-        document.getElementById(string).innerHTML+=generateTodoHTML(element)
+        document.getElementById(string).innerHTML += generateTodoHTML(element)
     }
-    return parentArr=statusArr
+    return parentArr = statusArr
 }
 
 function updateHTML() {
-    taskFilter(allTasks,"To-Do", todoArr);
-    taskFilter(allTasks,"In-Progress",progressArr)
-    taskFilter(allTasks,"Await-Feedback", awaitArr);
-    taskFilter(allTasks,"Done", doneArr);
+    taskFilter(allTasks, "To-Do", todoArr);
+    taskFilter(allTasks, "In-Progress", progressArr)
+    taskFilter(allTasks, "Await-Feedback", awaitArr);
+    taskFilter(allTasks, "Done", doneArr);
 
 }
 
@@ -86,12 +88,26 @@ function startDragging(id) {
 }
 
 function generateTodoHTML(element) {
+    let category = convertCategory(element);
     return /*html*/`
     <div id=${element.id} draggable="true" ondragstart="startDragging(${element.id})" class="todo">
-        <div class="drag-headline">${element.status}</div>
-        <div class="todo-content">${element.title}</div>
+        <div class="${element.category}">${category}</div>
+        <h5 class="drag-headline">${element.title}</h5>
+        <div class="todo-content">${element.description}</div>
+        
+        <div id="sub${element.id}" class="progress-container">
+            <div class="progress">
+                <div class="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+            <div class="subtask-content">
+                <!-- <div>${element.subTaskCounter}</div>
+                <div>/${element.subTask.length}</div> -->
+                <div>Subtasks</div>
+            </div>
+        </div>
     </div>
     `
+    // hideBar(element)
 }
 
 function allowDrop(ev) {
@@ -119,9 +135,25 @@ function removeHighlight(id) {
     document.getElementById(id).classList.remove('drag-area-highlight');
 }
 
-//arr.sort((a,b) => a-b);
 
 
-function sortArray(){
-    return allTasks.sort((a,b)=>a.id-b.id)
+function sortArray() {
+    return allTasks.sort((a, b) => a.id - b.id)
 }
+
+function convertCategory(element) {
+    let categories = element.category.split('-');
+    let capitalizedCategories = categories.map((category) => {
+        return category.charAt(0).toUpperCase() + category.slice(1);
+    });
+    let category = capitalizedCategories.join(' ');
+    return category;
+}
+
+
+// function hideBar(element){
+//     if(element.subTask.length===0){
+//        let bar= document.getElementById(`sub${element.id}`);
+//     //    bar.style.display="none!important";
+//     }
+// }

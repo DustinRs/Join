@@ -58,6 +58,11 @@ function renderAddTaskSections(){
           <div class="divIcon"><i><img src="/assets/img/arrow_drop_down.png" alt=""></i></div>
           </div>
         <p>Subtasks</p>
+        <div class="input-group">
+          <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username with two button addons">
+          <button class="btn btn-outline-secondary" type="button">Button</button>
+          <button class="btn btn-outline-secondary" type="button">Button</button>
+        </div>
         <div class="selectContainer">
         <input class="select-box" id="subTask" type="text" placeholder="Add new subtask" />
         <div class="divIcon"><i><img src="/assets/img/board-plus.png" alt=""></i></div>

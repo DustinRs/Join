@@ -23,10 +23,11 @@ async function statusFilter() {
 
 function renderNotes(activeUser) {
   statusFilter();
-  let body = document.querySelector('body');
-  body.innerHTML = renderNavBar();
-  body.innerHTML += renderHeader(activeUser);
+  let nav = document.querySelector('nav');
+  let header=document.querySelector('header')
   let main = document.querySelector('main');
+  nav.innerHTML = renderNavBar();
+  header.innerHTML = renderHeader(activeUser);
   main.innerHTML = gridContainer();
   let grid = document.getElementById('grid')
   grid.innerHTML += greeting(activeUser)

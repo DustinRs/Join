@@ -1,10 +1,12 @@
 main {
-    position: absolute;
+    position: relative;
     top: 0;
     left: 14%;
+    width: 86%;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    padding: 0 5%;
     
 }
 .sections-drag {
@@ -92,4 +94,52 @@ h1 {
     display: block;
     font-size: 61px;
     font-weight: 700;
+}
+
+
+.user-story{
+    background-color: #0038FF;
+    padding: 5px 20px;
+    color: white;
+    border-radius: 10px;
+    width: 135px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.technical-task{
+    background-color: #1FD7C1;
+    padding: 5px 20px;
+    color: white;
+    border-radius: 10px;
+    width: 155px;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.todo-content{
+    color:rgba(0, 0, 0, 0.6)
+}
+
+.progress{
+    height: 8px!important;
+    border-radius: 15px!important;
+    width:49%;
+}
+
+.progress-container {
+    display: flex;
+    align-items: center;
+    width: 200px;
+}
+
+.subtask-content{
+    width: 49%;
+}
+
+h5{
+    font-weight: 700!important;
 }

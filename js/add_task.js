@@ -11,11 +11,12 @@ async function init() {
 }
 
 function renderAddTaskPage(activeUser) {
-  let body = document.querySelector('body');
+  let header = document.querySelector('header');
+  let nav = document.querySelector('nav');
   let taskContainer = document.createElement('div')
   taskContainer.id='task-container'
-  body.innerHTML = renderNavBar();
-  body.innerHTML+= renderHeader(activeUser);
+  header.innerHTML= renderHeader(activeUser);
+  nav.innerHTML = renderNavBar();
   document.querySelector('main').append(taskContainer);
   taskContainer.innerHTML=renderAddTaskSections()
 }
@@ -26,7 +27,7 @@ async function addTask() {
   let date = document.getElementById("date").value;
   let prio = getPrioValue();
   let category = document.getElementById("category").value;
-  let subTask = document.getElementById("subTask").value;
+  // let subTask = document.getElementById("subTask").value;
   let task = {
     title: title,
     description: description,
@@ -34,7 +35,8 @@ async function addTask() {
     prio: prio,
     category: category,
     status:"To-Do",
-    subTask: subTask,
+    // subTaskCounter:0,
+    // subTask: [],
     id:Date.now()
   };
   allTasks.push(task);

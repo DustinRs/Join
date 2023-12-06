@@ -38,12 +38,14 @@ async function init() {
 
 function renderContactPage(activeUser) {
   let section = document.createElement('section');
-  let body = document.querySelector('body');
-  body.innerHTML = renderContactPopUp();
-  body.innerHTML += renderEditPopUp();
-  body.innerHTML += renderNavBar();
-  body.innerHTML += renderHeader(activeUser);
-  document.querySelector('main').append(section);
+  let header = document.querySelector('header');
+  let nav = document.querySelector('nav');
+  let main = document.querySelector('main');
+  main.innerHTML = renderContactPopUp();
+  main.innerHTML += renderEditPopUp();
+  nav.innerHTML = renderNavBar();
+  header.innerHTML = renderHeader(activeUser);
+  main.append(section);
   section.innerHTML += renderContactSection();
 }
 

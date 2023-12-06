@@ -1,12 +1,12 @@
 :root {
     --blue: #29ABE2;
     --outline-active: #74C5E8;
-    --outline-error:#FF6073;
+    --outline-error: #FF6073;
     font-family: 'Inter', sans-serif;
 }
 
 .navBar {
-    position: fixed;
+    position: fixed !important;
     top: 0;
     left: 0;
     display: flex;
@@ -17,7 +17,11 @@
     height: 100%;
     background-color: #2A3647;
     font-size: 16px;
+    flex-wrap: nowrap!important;
+    padding-top: 0!important;
+    padding-bottom: 0!important;
 }
+
 
 .navLogo {
     margin-top: 50px;
@@ -93,9 +97,11 @@ header {
 }
 
 .pHeader {
+    position: relative;
     font-size: 20px;
-    margin-left: 100px;
-    margin-bottom: 16px;
+    top: 0;
+    bottom: 0;
+    margin: auto 0 auto 100px;
 }
 
 .imgsHeader {
@@ -117,10 +123,10 @@ header {
 #profile-icon {
     width: 56px;
     height: 56px;
-    color:var(--blue);
+    color: var(--blue);
     font-size: 1.5rem;
     font-weight: 600;
-    border:3px solid black;
+    border: 3px solid black;
     border-radius: 50%;
     display: flex;
     justify-content: center;
@@ -132,7 +138,7 @@ header {
     background-color: rgba(0, 0, 0, 0.05)
 }
 
-#icon-menu{
+#icon-menu {
     position: absolute;
     right: 16px;
     top: 96px;
@@ -148,17 +154,17 @@ header {
     background-color: #2A3647;
 }
 
-.menu-option{
+.menu-option {
     display: flex;
     align-items: center;
-    color:#CDCDCD;
+    color: #CDCDCD;
     text-decoration: none;
     font-weight: 400;
     font-size: 1rem;
     height: 50px;
     width: 100%;
 
-    &:hover{
+    &:hover {
         background-color: #2A3D59;
     }
 }

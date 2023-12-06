@@ -12,6 +12,7 @@ main{
     position: relative;
     width: 76%;
     left: 14%;
+    top:10%;
     height: 81%;
     padding-left:5%;
 }
@@ -94,12 +95,17 @@ main{
     color: white;
 }
 h1 {
-    font-size: 61px;
-    margin: 0;
+    font-weight: 700!important;
+    font-size: 4rem!important;
 }
 span {
     font-size: 20px;
 }
+
+a>span{
+    font-size: 1rem;
+}
+
 .lineUrgent {
     width: 2px;
     background-color: #D1D1D1;

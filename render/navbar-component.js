@@ -30,37 +30,31 @@ function renderNavBar() {
 
 function renderLegalNavBar(){
   return /*html*/ `
-    <div class="navBar">
         <img class="navLogo" src="/assets/img/NavLogo.png" alt="">
         <div class="navLinks">
         </div>
         <div class="navBottom">
             <a class="navLinksBot" href="/assets/templates/privacy_policy_signUp.html">Privacy Policy</a>
-        </div>
     `;
 }
 
 function renderPrivacyNavBar(){
   return /*html*/ `
-    <div class="navBar">
         <img class="navLogo" src="/assets/img/NavLogo.png" alt="">
         <div class="navLinks">
         </div>
         <div class="navBottom">
             <a class="navLinksBot" href="/assets/templates/legal_notice_signUp.html">Legal notice</a>
-        </div>
     `;
 }
 
 function renderDefaultNavBar(){
   return /*html*/ `
-    <div class="navBar">
         <img class="navLogo" src="/assets/img/NavLogo.png" alt="">
         <div class="navLinks">
         </div>
         <div class="navBottom">
             <a class="navLinksBot" href="/assets/templates/legal_notice_signUp.html">Legal notice</a>
             <a class="navLinksBot" href="/assets/templates/privacy_policy_signUp.html">Privacy Policy</a>
-        </div>
     `;
 }
