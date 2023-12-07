@@ -199,3 +199,10 @@ section {
     font-size: 20px;
 }
 
+.form-control:focus {
+    color: #212529!important;
+    background-color: #fff!important;
+    border-color: #fff!important ;
+    outline: 0!important;
+     box-shadow: none!important;
+}

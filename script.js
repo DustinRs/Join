@@ -135,3 +135,18 @@ function closeMenu(event) {
     }
   
 }
+
+
+function getTime(){
+  let s= new Date().toLocaleString();
+  let hour = s.split(' ');
+  let diggit=hour[1].slice(0,2);
+  if(diggit<10){
+    return "Good Morning";
+   }else if(diggit>=10 && diggit<17){
+    return "Good Afternoon";
+  }else{
+    return "Good Evening";
+   }
+}
+

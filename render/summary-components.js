@@ -56,7 +56,7 @@ function gridContainer() {
 function greeting(user){
     return/*html*/`
     <div id="greeting-container">
-        <div id="greet">Good Morning,</div>
+        <div id="greet">${getTime()},</div>
         <div id="greet-user">${user[0].name}</div>
     </div>
     `
