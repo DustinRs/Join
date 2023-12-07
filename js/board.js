@@ -100,8 +100,7 @@ function generateTodoHTML(element) {
                 <div class="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
             </div>
             <div class="subtask-content">
-                <!-- <div>${element.subTaskCounter}</div>
-                <div>/${element.subTask.length}</div> -->
+
                 <div>Subtasks</div>
             </div>
         </div>
@@ -109,6 +108,9 @@ function generateTodoHTML(element) {
     `
     // hideBar(element)
 }
+
+/* <div>${element.subTaskCounter}</div>
+<div>/${element.subTask.length}</div>  */
 
 function allowDrop(ev) {
     ev.preventDefault();
