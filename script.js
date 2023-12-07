@@ -147,4 +147,3 @@ function getTime(){
     {return "Good Afternoon";}else
     {return "Good Evening"}
 }
-
