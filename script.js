@@ -141,12 +141,10 @@ function getTime(){
   let s= new Date().toLocaleString();
   let hour = s.split(' ');
   let diggit=hour[1].slice(0,2);
-  if(diggit<10){
-    return "Good Morning";
-   }else if(diggit>=10 && diggit<17){
-    return "Good Afternoon";
-  }else{
-    return "Good Evening";
-   }
+  if(diggit<11){
+    return "Good Morning"}else if(diggit>=11 && diggit<15)
+    {return "Good Day"}else if(diggit>=15 && diggit<17)
+    {return "Good Afternoon";}else
+    {return "Good Evening"}
 }
 
