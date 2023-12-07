@@ -94,6 +94,15 @@ main{
     background-color: #2A3647;
     color: white;
 }
+
+#To-do:hover>img {
+    content:url('/assets/img/pen-frame-white.png');
+}
+
+#Done:hover>img {
+    content:url('/assets/img/checkmark-frame-white.png');
+}
+
 h1 {
     font-weight: 700!important;
     font-size: 4rem!important;
