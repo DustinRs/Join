@@ -1,6 +1,8 @@
 let activeUser;
+let currentDraggedElement;
 let contacts = [];
 let allTasks = [];
+let subTasks=[];
 let userList;
 let userData;
 let todoArr=[];

@@ -7,7 +7,7 @@ async function init() {
   renderAddTaskPage(activeUser)
   checkInputs();
   setupInputListeners();
-  // addAssignees()
+  addAssignees()
 }
 
 function renderAddTaskPage(activeUser) {
@@ -21,22 +21,22 @@ function renderAddTaskPage(activeUser) {
   taskContainer.innerHTML = renderAddTaskSections()
 }
 
-async function addTask() {
+async function addTask(status) {
   let title = document.getElementById("title").value;
+  let taskArr;
   let description = document.getElementById("description").value;
   let date = document.getElementById("date").value;
   let prio = getPrioValue();
   let category = document.getElementById("category").value;
-  // let subTask = document.getElementById("subTask").value;
   let task = {
     title: title,
     description: description,
     date: date,
     prio: prio,
     category: category,
-    status: "To-Do",
-    // subTaskCounter:0,
-    // subTask: [],
+    status: status,
+    subTaskCounter:0,
+    subTask: taskArr=[...subTasks],
     id: Date.now()
   };
   allTasks.push(task);
@@ -166,21 +166,31 @@ function getPrioValue() {
 
 
 function addAssignees() {
-  let box = document.getElementById('assign')
-  for (let i = 0; i < contacts.length; i++) {
-    let name = contacts[i].firstName
-    if (name !== '') {
+  let box = document.getElementById('assign-list')
+  let contactArr = [];
+  contacts.map((e)=>{if(e.firstName.length!==0){contactArr.push(e)}})
+  box.innerHTML = ''
+  for (let i = 0; i < contactArr.length; i++) {
+    let name = contactArr[i].firstName
       box.innerHTML +=/*html*/`
-        <option value="${name}">${name}</option>
+        <li class=contact>
+         <div class="profile">
+          <div class="icon">*Bild*</div>
+          <div class="name">${name} ${contactArr[i].name}</div>
+        </div>
+        <div class="checkbox-container">
+          <input type="checkbox" id="check${i}">
+          <img id="img-box${i}" src="/assets/img/checkbox.png" onclick="checkboxClick(${i})" alt="checkbox">
+        </div>        
+      </li>
       `
-    }
   }
 }
 
 
 function setValue(string) {
   let input = document.getElementById('category')
-  input.value = string;
+  input.setAttribute('value', string)
 }
 
 function openList(containerID, inputID, ulID, iconID) {
@@ -221,10 +231,25 @@ function subTaskActive() {
   subBtn.classList.remove('d-none');
 }
 
+
 function subTaskClose() {
   let plus = document.getElementById('sub-btn-plus');
   let subBtn = document.getElementById('sub-btn');
 
   plus.classList.remove('d-none');
   subBtn.classList.add('d-none');
+}
+
+
+function pushSubTasks(){
+  let task = document.getElementById('subtask-input')
+  if(task.value.length > 0){
+    subTasks.push(task.value)
+    task.value = ''
+    renderSubTasksList()
+    return subTaskClose()
+  }else if(task.value.length == 0){
+    task.setCustomValidity('Kindly type in a subtask before adding one.')
+    task.reportValidity()
+  }
 }

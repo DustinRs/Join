@@ -26,25 +26,13 @@ input {
 
 textarea {
     font-family: 'Inter', sans-serif;
-    font-size: 20px;
+    font-size: 1.25rem!important;
     border: 1px solid #DEDFDF;
     border-radius: 10px;
     min-width: 440px;
     max-width: 440px;
     padding: 5px
 }
-
-/* select {
-    min-width: 440px;
-    max-width: 440px;
-    height: 48px;
-    border: 1px solid #DEDFDF;
-    border-radius: 10px;
-    font-size: 20px;
-    padding-left: 16px;
-} */
-
-
 
 a {
     text-decoration: none;
@@ -377,7 +365,7 @@ input:hover {
 
 .drop-down-select-container {
     position: absolute;
-    bottom: 0;
+    top:50px;
     left: 1px;
     width: 100%;
     display: flex;
@@ -431,7 +419,8 @@ input[type="checkbox"] {
 ul li {
     display: block;
     padding: 0.4rem;
-    text-align: left
+    text-align: left;
+    font-size: 1.25rem!important;
 }
 
 ul {
@@ -489,7 +478,7 @@ p:first-child {
 }
 
 textarea.form-control {
-    min-height: calc(9em + (.75rem + 8px)) !important;
+    min-height: calc(9rem + (.75rem + 8px)) !important;
 }
 
 textarea {
@@ -528,3 +517,47 @@ textarea {
     color:black
 }
 
+
+#subtask-listed{
+    position: absolute;
+    min-height: 50px;
+    max-height: 9rem;
+    top: 52px;
+    left: 0;
+    right: 0;
+    width: 24rem;
+    background-color: transparent;
+    margin: 0 auto;
+}
+
+#task-list{
+    display: block;
+    top:0;
+    left:0;
+    position: relative;
+    width: 350px;
+    overflow-y: scroll!important;
+    max-height: 9rem;
+    font-size: 1rem!important;
+    background-color: transparent!important;
+    list-style-type: disc!important;
+
+    &:hover{
+        cursor: default!important;
+    }
+}
+
+#task-list li{
+   display: list-item!important;
+   font-family: 'Inter',sans-serif;
+   list-style-position: inside;
+   line-height: 1rem;
+    &:hover{
+        background-color: transparent!important;
+    }
+}
+
+#task-list li::before{
+   content: "";
+   margin-left: -0.8rem;
+}

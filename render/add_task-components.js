@@ -15,12 +15,15 @@ function renderAddTaskSections() {
         <p>Assigned to</p>
         <div class="relative">
             <div id="assign-select" class="input-group sub-container">
-                <input class="form-control subtask-input contact-assign-select select" onclick="openList('assign-select','assign','assign-ul','assign-icon')"
+                <input class="form-control subtask-input contact-assign-select select"
+                    onclick="openList('assign-select','assign','assign-ul','assign-icon')"
                     placeholder="Select contacts to assign" id="assign">
-                <button id="assign-icon" class="divIcon" onclick="openList('assign-select','assign','assign-ul','assign-icon')"><img src="/assets/img/arrow_drop_down.png" alt=""></button>
+                <button id="assign-icon" class="divIcon"
+                    onclick="openList('assign-select','assign','assign-ul','assign-icon')"><img
+                        src="/assets/img/arrow_drop_down.png" alt=""></button>
             </div>
             <div id="assign-ul" class="ul-parent d-none">
-                <ul class="drop-down-select-container ">
+                <ul id=assign-list class="drop-down-select-container ">
                     <li class=contact>
                         <div class="profile">
                             <div class="icon">*Bild*</div>
@@ -45,47 +48,60 @@ function renderAddTaskSections() {
         <div id="prio">
             <div class="prio Urgent">
                 <label>
-                    <input id="urgent" type="checkbox" value="Urgent" onclick="checkBoxClicked('urgent')">
+                    <input id="urgent" 
+                        type="checkbox" 
+                        value="Urgent" 
+                        onclick="checkBoxClicked('urgent')">
                     <span>Urgent <img class="prioImgs" src="/assets/img/urgent-priority.png" alt=""></span>
                 </label>
             </div>
             <div class="prio Medium">
                 <label>
-                    <input id="medium" type="checkbox" value="Medium" onclick="checkBoxClicked('medium')">
+                    <input id="medium" 
+                        type="checkbox" 
+                        value="Medium" 
+                        onclick="checkBoxClicked('medium')">
                     <span>Medium <img class="prioImgs" src="/assets/img/medium-priority.png" alt=""></span>
                 </label>
             </div>
             <div class="prio Low">
                 <label>
-                    <input id="low" type="checkbox" value="Low" onclick="checkBoxClicked('low')">
+                    <input id="low" 
+                        type="checkbox" 
+                        value="Low" 
+                        onclick="checkBoxClicked('low')">
                     <span>Low <img class="prioImgs" src="/assets/img/low-priority.png" alt=""></span>
                 </label>
             </div>
         </div>
         <p>Category<span class="span">*</span></p>
-
         <div class="relative">
-            <div id="category-select"  class="input-group sub-container">
-                <input class="form-control subtask-input contact-assign-select select" value=""
-                    placeholder="Select task category" id="category"  onclick="openList('category-select','category','category-ul','category-icon')" readonly required>
-                <button id="category-icon" class="divIcon" onclick="openList('category-select','category','category-ul','category-icon')"><img src="/assets/img/arrow_drop_down.png" alt=""></button>
+            <div id="category-select" class="input-group sub-container">
+                <input class="form-control subtask-input contact-assign-select select" 
+                    value=""
+                    placeholder="Select task category" 
+                    id="category"
+                    onclick="openList('category-select','category','category-ul','category-icon')" 
+                    readonly 
+                    required>
+                <button id="category-icon" class="divIcon"
+                    onclick="openList('category-select','category','category-ul','category-icon')"><img
+                        src="/assets/img/arrow_drop_down.png" alt=""></button>
             </div>
             <div id="category-ul" class="ul-parent d-none">
                 <ul class="drop-down-select-container">
                     <li class=contact>
                         <div class="profile">
-                            <div class="name" onclick="setValue('Technical Task');closeList('category-select','category','category-ul','category-icon')">Technical Task</div>
-                        </div>
-                        <div class="checkbox-container">
-                            <input type="checkbox" id="check3">
+                            <div class="name"
+                                onclick="setValue('Technical Task');closeList('category-select','category','category-ul','category-icon');checkInputs()">
+                                Technical Task</div>
                         </div>
                     </li>
                     <li class=contact>
                         <div class="profile">
-                            <div class="name" onclick="setValue('User Story');closeList('category-select','category','category-ul','category-icon')">User Story</div>
-                        </div>
-                        <div class="checkbox-container">
-                            <input type="checkbox" id="check2">
+                            <div class="name"
+                                onclick="setValue('User Story');closeList('category-select','category','category-ul','category-icon');checkInputs()">
+                                User Story</div>
                         </div>
                     </li>
                 </ul>
@@ -93,19 +109,36 @@ function renderAddTaskSections() {
         </div>
         <p>Subtasks</p>
         <div id="sub-container" class="input-group sub-container">
-            <input id="subtask-input" type="text" class="form-control subtask-input" placeholder="Substask"
-                aria-label="Recipient's username with two button addons"
-                onclick="subTaskActive()">
-            <button class="btn btn-outline-secondary sub-active" onclick="subTaskActive()" id="sub-plus" type="button"><img id="sub-btn-plus"
-                    src="/assets/img/dark-plus.png" alt="" ></button>
-                    <div id="sub-btn" class="d-flex d-none">
-                        <button class="btn sub-active" id="cross-btn" type="button" onclick="subTaskClose()"><img id="cross"
-                                src="/assets/img/btn-x.png" alt=""></button>
-                        <div id="border"></div>
-                        <button class="btn sub-active" id="check-btn" type="button"><img id="add-subtask"
-                                src="/assets/img/darkCheckmark.png" alt=""></button>
-                    </div>
-                </div>
+            <input  id="subtask-input" 
+                    type="text" 
+                    class="form-control subtask-input" 
+                    placeholder="Add new Subtask"
+                    aria-label="Recipient's username with two button addons" 
+                    onclick="subTaskActive()">
+            <button class="btn btn-outline-secondary sub-active" 
+                    onclick="subTaskActive()" 
+                    id="sub-plus"
+                    type="button">
+                <img id="sub-btn-plus" src="/assets/img/dark-plus.png" alt="">
+            </button>
+            <div id="sub-btn" class="d-flex d-none">
+                <button class="btn sub-active" 
+                        id="cross-btn" 
+                        type="button" 
+                        onclick="subTaskClose()"><img id="cross"
+                        src="/assets/img/btn-x.png" alt=""></button>
+                <div id="border"></div>
+                <button class="btn sub-active" 
+                        id="check-btn" 
+                        type="button"
+                        onclick="pushSubTasks()">
+                            <img id="add-subtask" src="/assets/img/darkCheckmark.png" alt="">
+                </button>
+            </div>
+            <div id="subtask-listed">
+                <ul id="task-list"> test</ul>
+            </div>
+        </div>
     </div>
 </div>
 </div>
@@ -113,8 +146,17 @@ function renderAddTaskSections() {
     <p><span class="span">*</span>This field is required</p>
     <div>
         <button class="clearButton">Clear <img src="/assets/img/btn-x.png" alt="" /></button>
-        <button class="createTaskButton" onclick="addTask()">Create Task <img src="/assets/img/checkbtn-checkmark.png"
+        <button class="createTaskButton" onclick="addTask('To-Do')">Create Task <img src="/assets/img/checkbtn-checkmark.png"
                 alt="" /></button>
     </div>
 </div>
-`}
+`};
+
+
+function renderSubTasksList(){
+    let list = document.getElementById('task-list');
+    list.innerHTML='';
+    subTasks.forEach((e)=>{
+        list.innerHTML += `<li>${e}</li>`
+    })
+}
