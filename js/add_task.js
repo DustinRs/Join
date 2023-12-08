@@ -14,11 +14,11 @@ function renderAddTaskPage(activeUser) {
   let header = document.querySelector('header');
   let nav = document.querySelector('nav');
   let taskContainer = document.createElement('div')
-  taskContainer.id='task-container'
-  header.innerHTML= renderHeader(activeUser);
+  taskContainer.id = 'task-container'
+  header.innerHTML = renderHeader(activeUser);
   nav.innerHTML = renderNavBar();
   document.querySelector('main').append(taskContainer);
-  taskContainer.innerHTML=renderAddTaskSections()
+  taskContainer.innerHTML = renderAddTaskSections()
 }
 
 async function addTask() {
@@ -34,10 +34,10 @@ async function addTask() {
     date: date,
     prio: prio,
     category: category,
-    status:"To-Do",
+    status: "To-Do",
     // subTaskCounter:0,
     // subTask: [],
-    id:Date.now()
+    id: Date.now()
   };
   allTasks.push(task);
   setAllTasks(tasksKey, allTasks);
@@ -135,9 +135,9 @@ function changeImageSrc(priority, image) {
   checkImageExists(newSrc, function (exists) {
     if (exists) {
       if (image instanceof HTMLImageElement) {
-        image.onload = function () {};
+        image.onload = function () { };
 
-        image.onerror = function () {};
+        image.onerror = function () { };
 
         image.src = newSrc;
       } else {
@@ -159,21 +159,72 @@ function checkImageExists(url, callback) {
 }
 
 
-function getPrioValue(){
+function getPrioValue() {
   let arr = prioArray.slice(-1)
   return arr[0]
 }
 
 
-function addAssignees(){
+function addAssignees() {
   let box = document.getElementById('assign')
-  for(let i = 0; i < contacts.length; i++){
+  for (let i = 0; i < contacts.length; i++) {
     let name = contacts[i].firstName
-    if(name!== ''){
-      box.innerHTML+=/*html*/`
+    if (name !== '') {
+      box.innerHTML +=/*html*/`
         <option value="${name}">${name}</option>
       `
     }
   }
 }
 
+
+function setValue(string) {
+  let input = document.getElementById('category')
+  input.value = string;
+}
+
+function openList(containerID, inputID, ulID, iconID) {
+  let ul = document.getElementById(ulID);
+  if (ul.classList.contains('d-none')) {
+    let input = document.getElementById(inputID);
+    let container = document.getElementById(containerID);
+    let btn = document.getElementById(iconID);
+    btn.style = 'transform:rotate(180deg)'
+    input.style = 'z-index:6'
+    container.style = 'z-index:6'
+    ul.classList.remove('d-none')
+    ul.style = 'z-index:5'
+  } else {
+    return closeList(containerID, inputID, ulID, iconID)
+  }
+}
+
+
+function closeList(containerID, inputID, ulID, iconID) {
+  let input = document.getElementById(inputID);
+  let container = document.getElementById(containerID);
+  let ul = document.getElementById(ulID);
+  let btn = document.getElementById(iconID);
+  btn.style = ''
+  input.style = ''
+  container.style = ''
+  ul.classList.add('d-none')
+  ul.style = ''
+  input.blur()
+}
+
+
+function subTaskActive() {
+  let plus = document.getElementById('sub-btn-plus');
+  let subBtn = document.getElementById('sub-btn');
+  plus.classList.add('d-none');
+  subBtn.classList.remove('d-none');
+}
+
+function subTaskClose() {
+  let plus = document.getElementById('sub-btn-plus');
+  let subBtn = document.getElementById('sub-btn');
+
+  plus.classList.remove('d-none');
+  subBtn.classList.add('d-none');
+}

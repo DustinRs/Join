@@ -14,13 +14,13 @@ function renderAddTaskSections() {
         </div>
         <p>Assigned to</p>
         <div class="relative">
-            <div class="input-group sub-container">
-                <input class="form-control subtask-input contact-assign-select"
+            <div id="assign-select" class="input-group sub-container">
+                <input class="form-control subtask-input contact-assign-select select" onclick="openList('assign-select','assign','assign-ul','assign-icon')"
                     placeholder="Select contacts to assign" id="assign">
-                <div class="divIcon"><i><img src="/assets/img/arrow_drop_down.png" alt=""></i></div>
+                <button id="assign-icon" class="divIcon" onclick="openList('assign-select','assign','assign-ul','assign-icon')"><img src="/assets/img/arrow_drop_down.png" alt=""></button>
             </div>
-            <div class="ul-parent">
-                <ul id="drop-down-select-container">
+            <div id="assign-ul" class="ul-parent d-none">
+                <ul class="drop-down-select-container ">
                     <li class=contact>
                         <div class="profile">
                             <div class="icon">*Bild*</div>
@@ -65,58 +65,47 @@ function renderAddTaskSections() {
         <p>Category<span class="span">*</span></p>
 
         <div class="relative">
-            <div class="input-group sub-container">
-                <input class="form-control subtask-input contact-assign-select"
-                    placeholder="Select task category" id="assign">
-                <div class="divIcon"><i><img src="/assets/img/arrow_drop_down.png" alt=""></i></div>
+            <div id="category-select"  class="input-group sub-container">
+                <input class="form-control subtask-input contact-assign-select select" value=""
+                    placeholder="Select task category" id="category"  onclick="openList('category-select','category','category-ul','category-icon')" readonly required>
+                <button id="category-icon" class="divIcon" onclick="openList('category-select','category','category-ul','category-icon')"><img src="/assets/img/arrow_drop_down.png" alt=""></button>
             </div>
-            <div class="ul-parent">
-                <ul id="drop-down-select-container">
+            <div id="category-ul" class="ul-parent d-none">
+                <ul class="drop-down-select-container">
                     <li class=contact>
                         <div class="profile">
-                            <div class="name">Technical Task</div>
+                            <div class="name" onclick="setValue('Technical Task');closeList('category-select','category','category-ul','category-icon')">Technical Task</div>
                         </div>
                         <div class="checkbox-container">
-                            <input type="checkbox" id="check1">
+                            <input type="checkbox" id="check3">
                         </div>
                     </li>
                     <li class=contact>
                         <div class="profile">
-                            <div class="name">User Story</div>
+                            <div class="name" onclick="setValue('User Story');closeList('category-select','category','category-ul','category-icon')">User Story</div>
                         </div>
                         <div class="checkbox-container">
-                            <input type="checkbox" id="check1">
+                            <input type="checkbox" id="check2">
                         </div>
                     </li>
                 </ul>
             </div>
         </div>
-
-        <div class="input-group sub-container">
-            <select class="select-box form-control subtask-input" id="category" required>
-                <option value="" style="display: none;">Select task category</option>
-                <option value="technical-task">Technical Task</option>
-                <option value="user-story">User Story</option>
-            </select>
-            <div class="divIcon"><i><img src="/assets/img/arrow_drop_down.png" alt=""></i></div>
-        </div>
-
-
-        
         <p>Subtasks</p>
         <div id="sub-container" class="input-group sub-container">
             <input id="subtask-input" type="text" class="form-control subtask-input" placeholder="Substask"
-                aria-label="Recipient's username with two button addons">
-            <button class="btn btn-outline-secondary sub-active" id="" type="button"><img id="sub-btn-plus"
-                    src="/assets/img/dark-plus.png" alt="">
-        </div>
-        <div id="sub-btn" class="d-flex">
-            <button class="btn btn-outline-secondary sub-active" id="" type="button"><img id="cross"
-                    src="/assets/img/btn-x.png" alt=""></button>
-            <div id="border"></div>
-            <button class="btn btn-outline-secondary sub-active" id="" type="button"><img id="add-subtask"
-                    src="/assets/img/darkCheckmark.png" alt=""></button>
-        </div>
+                aria-label="Recipient's username with two button addons"
+                onclick="subTaskActive()">
+            <button class="btn btn-outline-secondary sub-active" onclick="subTaskActive()" id="sub-plus" type="button"><img id="sub-btn-plus"
+                    src="/assets/img/dark-plus.png" alt="" ></button>
+                    <div id="sub-btn" class="d-flex d-none">
+                        <button class="btn sub-active" id="cross-btn" type="button" onclick="subTaskClose()"><img id="cross"
+                                src="/assets/img/btn-x.png" alt=""></button>
+                        <div id="border"></div>
+                        <button class="btn sub-active" id="check-btn" type="button"><img id="add-subtask"
+                                src="/assets/img/darkCheckmark.png" alt=""></button>
+                    </div>
+                </div>
     </div>
 </div>
 </div>
