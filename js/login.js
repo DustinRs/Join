@@ -152,29 +152,6 @@ function enableLogIn() {
 }
 
 
-function checkboxClick() {
-  let checkbox = document.getElementById("check");
-  let img = document.getElementById("checkbox");
-  if(document.getElementById('signup-container')!=null){
-    signUpCheckBox(checkbox, img)
-  }else if(document.getElementById('login-container')!=null){
-    loginCheckBox(checkbox, img)
-  }
-}
-
-function loginCheckBox(box, img){
-  if (box.checked) {
-    box.checked = false;
-    img.src = '/assets/img/checkbox.png';
-    img.style = "";
-  } else if (!box.checked) {
-    box.checked = true;
-    img.src = '/assets/img/checked-box.png';
-    img.style = 'width: 20px; height: 20px;transform:translate(5px,5px);margin-right:12px';
-  }
-}
-
-
 /**
  * Logs in the user by validating the email and password entered.
  *
@@ -214,4 +191,26 @@ function matchingPassword() {
   return userList.filter((e) => e.mail === mail.value)
 
 };
+
+function checkboxClick() {
+  let checkbox = document.getElementById("check");
+  let img = document.getElementById("checkbox");
+  if(document.getElementById('signup-container')!=null){
+    signUpCheckBox(checkbox, img)
+  }else if(document.getElementById('login-container')!=null){
+    loginCheckBox(checkbox, img)
+  }
+}
+
+function loginCheckBox(box, img){
+  if (box.checked) {
+    box.checked = false;
+    img.src = '/assets/img/checkbox.png';
+    img.style = "";
+  } else if (!box.checked) {
+    box.checked = true;
+    img.src = '/assets/img/checked-box.png';
+    img.style = 'width: 20px; height: 20px;transform:translate(5px,5px);margin-right:12px';
+  }
+}
 

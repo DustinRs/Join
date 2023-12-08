@@ -147,3 +147,24 @@ function getTime(){
     {return "Good Afternoon";}else
     {return "Good Evening"}
 }
+
+
+function checkboxClick(i) {
+  let checkbox = document.getElementById(`check${i}`);
+  let img = document.getElementById(`img-box${i}`);
+  loginCheckBox(checkbox, img);
+  }
+
+
+function loginCheckBox(box, img){
+  if (box.checked) {
+    box.checked = false;
+    img.src = '/assets/img/checkbox.png';
+    img.style = "";
+  } else if (!box.checked) {
+    box.checked = true;
+    img.src = '/assets/img/checked-box.png';
+    img.style = 'width: 18px; height: 18px';
+  }
+}
+

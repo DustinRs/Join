@@ -7,7 +7,7 @@ async function init() {
   renderAddTaskPage(activeUser)
   checkInputs();
   setupInputListeners();
-  addAssignees()
+  // addAssignees()
 }
 
 function renderAddTaskPage(activeUser) {
@@ -176,3 +176,4 @@ function addAssignees(){
     }
   }
 }
+
