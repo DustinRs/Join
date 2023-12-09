@@ -145,7 +145,7 @@ function renderAddTaskSections() {
 <div class="add-task-bottom-section">
     <h6 id="required-text"><span class="span">*</span>This field is required</h6>
     <div id="submit-btn-container">
-        <button class="clearButton">Clear <img src="/assets/img/btn-x.png" alt="" /></button>
+        <button class="clearButton" onclick="clearAll()">Clear <img src="/assets/img/btn-x.png" alt="" /></button>
         <button class="createTaskButton" onclick="addTask('To-Do')">Create Task <img src="/assets/img/checkbtn-checkmark.png"
                 alt="" /></button>
     </div>

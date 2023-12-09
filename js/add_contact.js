@@ -33,7 +33,7 @@ async function init() {
   renderContactPage(activeUser);
   renderRegister();
   hideUnusedLetters();
-  calcHeight()
+  calcBarHeight()
 }
 
 function renderContactPage(activeUser) {
@@ -262,10 +262,19 @@ function getRandomColor(id) {
 }
 
 
+function calcBarHeight(){
+  let header=document.querySelector('header');
+  let item = document.getElementById('contacts-bar');
+  let height = window.innerHeight - header.offsetHeight
+  item.style.height = height  + 'px';
+  calcHeight()
+}
+
 function calcHeight(){
   let header=document.querySelector('header');
   let btn = document.getElementById('addNewContact')
   let register = document.getElementById('register');
   let height = window.innerHeight - header.offsetHeight - btn.offsetHeight;
-  register.style.height = height - 90 + 'px';
+  register.style.height = height - 20 + 'px';
 }
+

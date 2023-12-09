@@ -38,7 +38,7 @@ function renderContactPopUp(){
 function renderContactSection(){
     return/*html*/`
     <div class="contactSection">
-    <div class="contactsDiv">
+    <div id="contacts-bar" class="contactsDiv">
         <div id="addNewContact" class="contactButtonDiv">
             <button onclick="openPopUpAddContact()" class="contactButton">
                 <span>Add new contact</span><img src="/assets/img/person_add.png" alt="">
@@ -79,8 +79,7 @@ function renderEditPopUp(){
             </div>
             <div class="contactFormular">
                 <div>
-                    <img class="imgUserContact" src="/assets/img/UserProfileHuge.png" alt="">
-                    
+                    <img class="imgUserContact" src="/assets/img/UserProfileHuge.png" alt="">    
                 </div>
                 <div >
                     <button class="closePopUp" onclick="closePopUpEditContact()"><img src="/assets/img/btn-x.png" alt=""></button>
@@ -93,9 +92,7 @@ function renderEditPopUp(){
                         <button class="clearButton">Delete</button>
                         <button class="createTaskButton" onclick="saveContact()">Save <img src="/assets/img/checkbtn-checkmark.png" alt=""></button>
                     </div>
-                    
                 </div>
-                
             </div>
             </div>
     </div>

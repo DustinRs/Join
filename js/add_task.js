@@ -262,3 +262,15 @@ function pushSubTasks(){
     task.reportValidity()
   }
 }
+
+
+function clearAll(){
+  let input = document.querySelectorAll('input');
+  let textarea = document.querySelectorAll('textarea');
+  for (let i = 0; i < input.length; i++) {
+    input[i].value = '';
+  }
+  for (let i = 0; i < textarea.length; i++) {
+    textarea[i].value = '';
+  }
+}

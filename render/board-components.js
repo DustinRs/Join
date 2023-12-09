@@ -14,7 +14,7 @@ function renderComponents(activeUser) {
                     <div class="input">
                         <input type="text" placeholder="Find Task">
                     </div>
-                    <div class="buttonAdd">Add Task
+                    <div class="buttonAdd" onclick="openPopUp()">Add Task
                         <img src="/assets/img/board-plus.png" alt="">
                     </div>
                 </div>
@@ -93,9 +93,10 @@ function returnPriority(priority){
 function renderPopUpAddTask(){
 let body  = document.querySelector('body');
 body.innerHTML += /*html*/`
-<div class="pop-up-add-task">
+<div id="add-pop-up" class="pop-up-add-task d-none">
     <div id=pop-up-container>
         <div id="task-container">
+            <div id="close-pop-up" onclick="closePopUp()"><img src="/assets/img/btn-x.png" alt=""></div>
             ${renderAddTaskSections()}
         </div>
     </div>

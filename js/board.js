@@ -85,3 +85,12 @@ function hideBar() {
 }
 
 
+function closePopUp() {
+    let popup = document.getElementById('add-pop-up');
+    popup.classList.add('d-none')
+}
+
+function openPopUp() {
+    let popup = document.getElementById('add-pop-up');
+    popup.classList.remove('d-none')
+}

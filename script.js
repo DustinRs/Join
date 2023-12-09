@@ -115,7 +115,7 @@ async function getContacts(key) {
 }
 
 function openMenu() {
-  let menu = document.getElementById('icon-menu');
+  let menu = document.getElementById('header-icon-menu');
   menu.classList.remove('d-none');
   addMenuEvent();
 }
