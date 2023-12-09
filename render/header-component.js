@@ -7,7 +7,7 @@ function renderHeader(user) {
                 <img class="helpIcon" src="/assets/img/help.png" alt=""></a>
             <div id="profile-icon" onclick="openMenu()">${user[0].initials}</div>
         </div>
-        <div id="icon-menu" class="d-none">
+        <div id="header-icon-menu" class="d-none">
             <a class="menu-option" href="/assets/templates/legal_notice.html">
                 Legal Notice
             </a>

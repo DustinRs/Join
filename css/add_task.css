@@ -6,8 +6,9 @@
 main {
     position: relative;
     left: 14%;
-    width: 76%;
-    height: 92vh;
+    width: 86%;
+    padding: 0 5%;
+    height: 89vh;
     display: flex;
     justify-content: center;
     align-items: baseline;
@@ -20,13 +21,13 @@ input {
     border-radius: 10px;
     width: 100%;
     border: 1px solid #DEDFDF;
-    font-size: 1.25rem!important;
+    font-size: 1rem !important;
     padding-left: 16px;
 }
 
 textarea {
     font-family: 'Inter', sans-serif;
-    font-size: 1.25rem!important;
+    font-size: 1rem !important;
     border: 1px solid #DEDFDF;
     border-radius: 10px;
     min-width: 440px;
@@ -53,40 +54,40 @@ section {
 
 #task-container {
     position: relative;
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    margin-top:3rem
 }
 
 .sections {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
+    width: 100%;
 }
 
 .title {
-    margin-left: 84px;
-    margin-bottom: 32px;
-    margin-top: 84px;
-    font-size: 61px;
+    margin-bottom: 2rem;
+    font-size: 4rem;
     font-weight: 700;
 }
 
-.leftSection {
+.left-section {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    width: 440px;
+    width: 50%;
 }
 
 .border {
     width: 1px;
     background-color: #DEDFDF;
-    margin-left: 80px;
-    margin-right: 80px;
+    margin:0 5rem
 }
 
-.rightSection {
-    width: 440px;
+.right-section {
+    width: 50%;
 }
 
 #prio {
@@ -100,15 +101,14 @@ section {
 }
 
 .prio {
-    border: 1px solid #DEDFDF;
     border-radius: 10px;
-    width: 136px;
-    height: 56px;
+    width: 30%;
+    height: 3rem;
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.2);
 }
+
 
 .prio span:hover {
     cursor: pointer;
@@ -116,12 +116,24 @@ section {
     border-radius: 10px;
 }
 
+label {
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
 .prio label span {
     display: flex;
+    font-size: 1.2rem;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0px 0px 2px 1px rgba(0, 0, 0, 0.1);
     align-items: center;
     justify-content: center;
-    width: 136px;
-    height: 56px;
+    gap: 15px;
+    width: 100%;
+    height: 100%;
+    transition: box-shadow 0.2s ease-in-out;
 }
 
 .prio label input {
@@ -137,27 +149,46 @@ section {
     }
 }
 
-.bottomSection {
+.add-task-bottom-section {
     margin-top: 160px;
     display: flex;
     justify-content: space-between;
-    margin-left: 84px;
-    margin-right: 84px;
+}
+
+#submit-btn-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 40%;
+    max-width: 17rem;
+    height: 3rem;
 }
 
 .createTaskButton {
     border: unset;
     border-radius: 10px;
-    padding: 16px;
+    height:100%;
     color: white;
     background-color: #2A3647;
-    gap: 4px;
-    font-size: 21px;
+    width: 55%;
+    font-size: 1rem;
+    font-weight: 600;
+    box-shadow: none;
+    transition: box-shadow 0.2s ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: center
+}
+
+.createTaskButton img{
+    height: 0.8rem;
+    margin-left: 8px;
 }
 
 .createTaskButton:hover {
     cursor: pointer;
     background-color: #29ABE2;
+    box-shadow: 0px 9px 9px -3px rgba(0,0,0,0.3);
 }
 
 .createTaskButton:disabled {
@@ -170,20 +201,32 @@ section {
     color: #091931;
     border: 1px solid #2A3647;
     border-radius: 10px;
-    padding: 16px;
-    gap: 4px;
-    font-size: 20px;
+    height:100%;
+    width: 35%;
+    font-weight: 500;
+    font-size: 1rem;
     margin-right: 16px;
+    box-shadow: none;
+    transition: box-shadow 0.2s ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: center
+}
+
+.clearButton img{
+    height: 1rem;
+    margin-left: 8px;
 }
 
 .clearButton:hover {
     cursor: pointer;
     border: 1px solid #29ABE2;
     color: #29ABE2;
+    box-shadow: 0px 9px 9px -3px rgba(0,0,0,0.3);
 }
 
-span{
-    font-size: 1.25rem!important;
+.clearButton:hover>img{
+        content: url('/assets/img/Vectorblue-cross.png');
 }
 
 .span {
@@ -203,12 +246,6 @@ span{
     padding: 0 30px 0 15px;
     width: 100%;
     color: black;
-    font-size: 20px;
-}
-
-
-
-.divIcon i {
     font-size: 20px;
 }
 
@@ -243,9 +280,9 @@ span{
     box-shadow: inset 0 0 1px 1px #5FC0E9;
 }
 
-.sub-container input{
+/* .sub-container input{
     width: 375px!important;
-}
+} */
 
 .subtask-input {
     border: none !important;
@@ -259,7 +296,7 @@ span{
     }
 }
 
-#sub-btn{
+#sub-btn {
     z-index: 5;
     position: absolute;
     right: 5px;
@@ -268,19 +305,28 @@ span{
     margin: auto 0;
     height: 20px;
     gap: 3px;
+    width: 80px;
 }
 
 #sub-btn-plus {
-    width: 15px
+    width: 15px;
 }
 
-#sub-plus,#cross-btn,#check-btn {
-    &:focus{
-        outline: none!important;
-        box-shadow: none!important;
+#sub-plus {
+    margin-right: 15px
+}
+
+#sub-plus,
+#cross-btn,
+#check-btn {
+    &:focus {
+        outline: none !important;
+        box-shadow: none !important;
     }
-    &:active{
-        background-color: transparent!important;;
+
+    &:active {
+        background-color: transparent !important;
+        ;
     }
 }
 
@@ -310,8 +356,8 @@ span{
 #border {
     height: 25px;
     width: 1px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
     margin: 0 2px;
-    background-color: rgba(0, 0, 0, 0.2);
     align-self: center;
 }
 
@@ -321,23 +367,22 @@ input:hover {
 }
 
 .divIcon {
-    position:absolute;
+    position: absolute;
     right: 15px;
-    height: 25px;
-    width: 25px;
-    top:0;
-    bottom:0;
-    margin:auto 0;
+    width: 25px !important;
+    top: 0;
+    bottom: 0;
+    margin: auto 0;
     border-color: transparent;
     background-color: transparent;
-    border-radius: 50%!important;
+    border-radius: 50% !important;
     display: flex;
     justify-content: center;
     align-items: center;
     z-index: 10;
 }
 
-.divIcon img{
+.divIcon img {
     border-radius: 50%;
 }
 
@@ -365,7 +410,7 @@ input:hover {
 
 .drop-down-select-container {
     position: absolute;
-    top:50px;
+    top: 50px;
     left: 1px;
     width: 100%;
     display: flex;
@@ -373,7 +418,7 @@ input:hover {
     max-height: 320px;
     border-radius: 10px;
     background-color: white;
-
+    box-shadow: 0px 0px 8px 2px rgba(0, 0, 0, 0.1);
 }
 
 .profile {
@@ -418,15 +463,15 @@ input[type="checkbox"] {
 
 ul li {
     display: block;
-    padding: 0.4rem;
+    padding: 0.2rem;
     text-align: left;
-    font-size: 1.25rem!important;
+    font-size: 1rem !important;
 }
 
 ul {
     min-height: 50px;
-    max-height: 320px;
-    overflow-y: scroll !important;
+    max-height: 10rem!important;
+    overflow-y: auto!important;
     overflow-x: hidden;
 
     list-style-type: none;
@@ -464,14 +509,19 @@ li:hover {
 }
 
 
-p {
-    margin-top: 1.5rem;
-    font-size: 1.5rem
+h6 {
+    font-size: 1.1rem !important;
+    font-weight: 400 !important;
 }
 
-p:first-child {
-    margin-top: 0;
+h6:not(:first-of-type):not(:nth-of-type(4)) {
+    margin-top: 35px !important;
 }
+
+#header-six {
+    margin-top: 40px !important;
+}
+
 
 #area-container {
     padding: .5rem 0 0 .5rem !important;
@@ -498,27 +548,28 @@ textarea {
     }
 }
 
-#category,#assign{
+#category,
+#assign {
     background-color: transparent;
 }
 
 
-#category-ul{
+#category-ul {
     height: 340%;
 }
 
-.divIcon:hover{
-    :hover{
-        background-color: rgba(0, 0, 0, 0.08)!important;
+.divIcon:hover {
+    :hover {
+        background-color: rgba(0, 0, 0, 0.08) !important;
     }
 }
 
-.select::placeholder{
-    color:black
+.select::placeholder {
+    color: black
 }
 
 
-#subtask-listed{
+#subtask-listed {
     position: absolute;
     min-height: 50px;
     max-height: 9rem;
@@ -530,34 +581,39 @@ textarea {
     margin: 0 auto;
 }
 
-#task-list{
+#task-list {
     display: block;
-    top:0;
-    left:0;
+    top: 0;
+    left: 0;
     position: relative;
     width: 350px;
-    overflow-y: scroll!important;
+    overflow-y: auto !important;
     max-height: 9rem;
-    font-size: 1rem!important;
-    background-color: transparent!important;
-    list-style-type: disc!important;
+    font-size: 1rem !important;
+    background-color: transparent !important;
+    list-style-type: disc !important;
 
-    &:hover{
-        cursor: default!important;
+    &:hover {
+        cursor: default !important;
     }
 }
 
-#task-list li{
-   display: list-item!important;
-   font-family: 'Inter',sans-serif;
-   list-style-position: inside;
-   line-height: 1rem;
-    &:hover{
-        background-color: transparent!important;
+#task-list li {
+    display: list-item !important;
+    font-family: 'Inter', sans-serif;
+    list-style-position: inside;
+    line-height: 1rem;
+
+    &:hover {
+        background-color: transparent !important;
     }
 }
 
-#task-list li::before{
-   content: "";
-   margin-left: -0.8rem;
+#task-list li::before {
+    content: "";
+    margin-left: -0.8rem;
+}
+
+.row {
+    margin-left: 0 !important;
 }

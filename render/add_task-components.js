@@ -2,19 +2,19 @@ function renderAddTaskSections() {
   return/*html*/`
 <h1 class="title">Add Task</h1>
 <div class="sections">
-    <div class="leftSection">
-        <p>Title<span class="span">*</span></p>
-        <div class="input-group sub-container">
+    <div class="left-section">
+        <h6>Title<span class="span">*</span></h6>
+        <div class="input-group sub-container row">
             <input id="title" class="form-control subtask-input" type="text" placeholder="Enter a title" required />
         </div>
-        <p>Description</p>
-        <div id="area-container" class="input-group sub-container">
+        <h6>Description</h6>
+        <div id="area-container" class="input-group sub-container row">
             <textarea id="description" class="form-control subtask-input" placeholder="Enter a Description" cols="30"
                 rows="10" required></textarea>
         </div>
-        <p>Assigned to</p>
+        <h6>Assigned to</h6>
         <div class="relative">
-            <div id="assign-select" class="input-group sub-container">
+            <div id="assign-select" class="input-group sub-container ">
                 <input class="form-control subtask-input contact-assign-select select"
                     onclick="openList('assign-select','assign','assign-ul','assign-icon')"
                     placeholder="Select contacts to assign" id="assign">
@@ -39,12 +39,12 @@ function renderAddTaskSections() {
         </div>
     </div>
     <div class="border"></div>
-    <div class="rightSection">
-        <p>Due date<span class="span">*</span></p>
-        <div class="input-group sub-container">
+    <div class="right-section">
+        <h6>Due date<span class="span">*</span></h6>
+        <div class="input-group sub-container row">
             <input id="date" class="form-control subtask-input" type="date" required />
         </div>
-        <p>Prio</p>
+        <h6>Prio</h6>
         <div id="prio">
             <div class="prio Urgent">
                 <label>
@@ -52,7 +52,7 @@ function renderAddTaskSections() {
                         type="checkbox" 
                         value="Urgent" 
                         onclick="checkBoxClicked('urgent')">
-                    <span>Urgent <img class="prioImgs" src="/assets/img/urgent-priority.png" alt=""></span>
+                    <span class="priority-span" id="urgent-span">Urgent <img class="prioImgs" id="urgent-img"src="/assets/img/urgent-priority.png" alt=""></span>
                 </label>
             </div>
             <div class="prio Medium">
@@ -61,7 +61,7 @@ function renderAddTaskSections() {
                         type="checkbox" 
                         value="Medium" 
                         onclick="checkBoxClicked('medium')">
-                    <span>Medium <img class="prioImgs" src="/assets/img/medium-priority.png" alt=""></span>
+                    <span class="priority-span" id="medium-span">Medium <img class="prioImgs" id="medium-img"src="/assets/img/medium-priority.png" alt=""></span>
                 </label>
             </div>
             <div class="prio Low">
@@ -70,11 +70,11 @@ function renderAddTaskSections() {
                         type="checkbox" 
                         value="Low" 
                         onclick="checkBoxClicked('low')">
-                    <span>Low <img class="prioImgs" src="/assets/img/low-priority.png" alt=""></span>
+                    <span class="priority-span" id="low-span">Low <img class="prioImgs" id="low-img"src="/assets/img/low-priority.png" alt=""></span>
                 </label>
             </div>
         </div>
-        <p>Category<span class="span">*</span></p>
+        <h6>Category<span class="span">*</span></h6>
         <div class="relative">
             <div id="category-select" class="input-group sub-container">
                 <input class="form-control subtask-input contact-assign-select select" 
@@ -107,8 +107,8 @@ function renderAddTaskSections() {
                 </ul>
             </div>
         </div>
-        <p>Subtasks</p>
-        <div id="sub-container" class="input-group sub-container">
+        <h6 id="header-six">Subtasks</h6>
+        <div id="sub-container" class="input-group sub-container row">
             <input  id="subtask-input" 
                     type="text" 
                     class="form-control subtask-input" 
@@ -136,20 +136,21 @@ function renderAddTaskSections() {
                 </button>
             </div>
             <div id="subtask-listed">
-                <ul id="task-list"> test</ul>
+                <ul id="task-list"></ul>
             </div>
         </div>
     </div>
 </div>
 </div>
-<div class="bottomSection">
-    <p><span class="span">*</span>This field is required</p>
-    <div>
+<div class="add-task-bottom-section">
+    <h6 id="required-text"><span class="span">*</span>This field is required</h6>
+    <div id="submit-btn-container">
         <button class="clearButton">Clear <img src="/assets/img/btn-x.png" alt="" /></button>
         <button class="createTaskButton" onclick="addTask('To-Do')">Create Task <img src="/assets/img/checkbtn-checkmark.png"
                 alt="" /></button>
     </div>
 </div>
+
 `};
 
 

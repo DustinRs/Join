@@ -5,8 +5,9 @@ main {
     width: 86%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: start;
     padding: 0 5%;
+    align-items: unset;
 
 }
 
@@ -31,7 +32,7 @@ main {
     flex-direction: column;
     width: 24%;
     height: 70px;
-    color:black
+    color: black
 }
 
 .drag-area-highlight {
@@ -180,3 +181,74 @@ h5 {
     justify-content: space-between;
     align-items: center;
 }
+
+.pop-up-add-task {
+    position: absolute;
+    z-index: 50;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#pop-up-container {
+    position: absolute;
+    display: flex;
+    background-color: white;
+    inset: 0;
+    height: 87%;
+    margin: auto;
+    padding: 0 5.5rem;
+    width: 80%;
+    border-radius: 30px;
+    flex-direction: column;
+}
+
+.sections{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.left-section, .right-section{
+    width: 50%;
+}
+
+.container{
+    margin: 0 !important;
+}
+
+
+h6:not(:first-of-type):not(:nth-of-type(4)) {
+    margin: 2rem 0 0.5rem!important;}
+
+#header-six {
+    margin: 3rem 0 0.5rem!important;}
+
+#required-text{
+    font-size: .8rem!important;
+    margin:0;
+    align-self: flex-end!important;
+}
+
+
+.add-task-bottom-section{
+    width: 85%!important;
+    position: absolute;
+    margin: auto;
+    bottom: 10%;
+    left: 5%;
+    right: 5%;
+}
+
+.border{
+    margin:0 2.5rem
+}
+
+.row{
+    padding: 2px!important
+}
+

@@ -76,17 +76,26 @@ function setupInputListeners() {
 
 function checkBoxClicked(priority) {
   let checkbox = document.getElementById(priority);
-  let image = checkbox.closest(".prio").querySelector(".prioImgs");
-
+  let image = document.getElementById(priority + "-img");
+  let span = document.getElementById(priority + "-span");
+  resetColor()
   if (checkbox.checked) {
     deactivateOtherCheckboxes(priority);
-    checkbox.parentNode.parentNode.style.backgroundColor = getColor(priority);
+    span.style.backgroundColor = getColor(priority);
     changeImageSrc(priority, image);
   } else {
-    checkbox.parentNode.parentNode.style.backgroundColor = "";
     image.src = "/assets/img/" + priority.toLowerCase() + "-priority.png";
   }
 }
+
+
+function resetColor(){
+  let span= document.getElementsByClassName('priority-span');
+  for (let i = 0; i < span.length; i++) {
+    span[i].style.backgroundColor = "";
+  }
+}
+
 
 function deactivateOtherCheckboxes(currentPriority) {
   const priorities = ["urgent", "medium", "low"];

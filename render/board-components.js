@@ -43,7 +43,8 @@ function renderComponents(activeUser) {
             </div>
         </div>    
     </div>
-    `
+    `;
+    renderPopUpAddTask()
 }
 
 
@@ -87,3 +88,18 @@ function returnPriority(priority){
         `
     }
 }
+
+
+function renderPopUpAddTask(){
+let body  = document.querySelector('body');
+body.innerHTML += /*html*/`
+<div class="pop-up-add-task">
+    <div id=pop-up-container>
+        <div id="task-container">
+            ${renderAddTaskSections()}
+        </div>
+    </div>
+</div>
+`
+}
+
