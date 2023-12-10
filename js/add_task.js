@@ -298,3 +298,4 @@ function pushInfo(){
 function goToBoard(){
   window.location.href = '/assets/templates/board.html';
 };
+

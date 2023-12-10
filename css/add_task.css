@@ -651,3 +651,11 @@ textarea {
         transform: translateY(-40rem);
     }
 }
+
+
+input[type="date"]::-webkit-calendar-picker-indicator{
+    content: url('/assets/img/calendar.png');
+    height: 1.5rem;
+    width: 1.5rem;
+    cursor: pointer;
+}

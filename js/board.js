@@ -3,7 +3,6 @@ async function init() {
     getUser(sessionKey);
     renderComponents(activeUser);
     updateBoard();
-    hideBar();
 }
 
 
@@ -12,6 +11,8 @@ function updateBoard() {
     taskFilter(allTasks, "In-Progress", progressArr)
     taskFilter(allTasks, "Await-Feedback", awaitArr);
     taskFilter(allTasks, "Done", doneArr);
+    checkDragArea();
+    hideBar()
 }
 
 function taskFilter(arr, string, parentArr) {
@@ -78,7 +79,9 @@ function hideBar() {
         let element = allTasks[i];
         if (element.subTask.length === 0) {
             let bar = document.getElementById(`sub${element.id}`);
-            bar.classList.add('d-none')
+            if (bar) {
+                bar.classList.add('d-none')
+            }
         }
     }
 }
@@ -105,7 +108,22 @@ function animatePopUp() {
 }
 
 
-function changeStatus(string){
+function changeStatus(string) {
     let btn = document.getElementById('createTaskButton')
     btn.setAttribute('onclick', `addTask('${string}')`)
+}
+
+function checkDragArea() {
+    let dragArea = document.getElementsByClassName('drag-area')
+    for (let i = 0; i < dragArea.length; i++) {
+        if (dragArea[i].innerHTML.includes('Technical Task') || dragArea[i].innerHTML.includes('User Story')) {
+            if (dragArea[i].firstElementChild) {
+                dragArea[i].style='justify-content: flex-start';
+                dragArea[i].style = 'border:none;background-color: transparent;border-radius:3rem;justify-content: flex-start' 
+            }
+        } else {
+            dragArea[i].style = '';
+            dragArea[i].innerText = 'No tasks to do';
+        }
+    }
 }

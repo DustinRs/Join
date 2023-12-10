@@ -1,5 +1,13 @@
 let activeUser;
+const date = new Date();
+const options = {
+  weekday: 'long',
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric'
+}
 let currentDraggedElement;
+let startX = 0;
 let contacts = [];
 let allTasks = [];
 let subTasks=[];

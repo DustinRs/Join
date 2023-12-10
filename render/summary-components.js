@@ -33,7 +33,7 @@ function gridContainer() {
                 </div>
                 <div class="lineUrgent"></div>
                     <div class="deadline">
-                        <span><b>Datum</b></span><span>Upcoming Deadline</span>
+                        <span><b>${date.toLocaleDateString('de-DE', options)}</b></span><span>Upcoming Deadline</span>
                     </div>
                 </div>
             </div>
