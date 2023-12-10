@@ -163,3 +163,43 @@ a>span{
         opacity: 1;
     }
 }
+
+.grid-3-text{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.3rem;
+    padding: 0 3rem;
+    line-height: 1.5rem;
+    text-align: center;
+    margin-top: -1.5rem;
+}
+
+.auxilary-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.stroke {
+    width: .2rem!important;
+    background-color: #29ABE2;
+    height: 4rem;
+    margin:0 1.5rem;
+    padding: 0 !important;
+}
+
+.d-flex{
+    flex-wrap: nowrap!important;
+    width: 42rem;
+    align-items: center;
+    margin-top:5rem!important
+}
+
+.d-flex>h1{
+    width: 19rem;
+}
+

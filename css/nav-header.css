@@ -3,6 +3,7 @@
     --outline-active: #74C5E8;
     --outline-error: #FF6073;
     font-family: 'Inter', sans-serif;
+    box-sizing: border-box;
 }
 
 .navBar {
@@ -11,13 +12,13 @@
     left: 0;
     display: flex;
     flex-direction: column;
+    flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
-    width: 14%;
+    width: 14rem;
     height: 100%;
     background-color: #2A3647;
     font-size: 16px;
-    flex-wrap: nowrap!important;
     padding-top: 0!important;
     padding-bottom: 0!important;
 }
@@ -25,7 +26,6 @@
 
 .navLogo {
     margin-top: 50px;
-    width: 100px;
 }
 
 .navLinks {
@@ -38,30 +38,32 @@
 }
 
 .navLinkImg {
-    width: 232px;
-    height: 46px;
     display: flex;
-    justify-content: center;
+    width: auto;
+    width: 14rem;
+    height: 3rem;
+    text-align: start;
     align-items: center;
-    gap: 15px;
-    color: white;
+    color:white;
+    text-decoration: none;
+    &:hover{
+        background-color: #2A3D59;
+        color:white
+    }
 }
 
-.navLinkImg a {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 15px;
+.navLinkImg:active{
+    background-color: #091931;
+    color:white
 }
+
+.navLinkImg>span{
+    margin-left:1rem
+}
+
 
 .linkImg {
-    width: 30px;
-    height: 30px;
-}
-
-.navLinkImg:hover {
-    cursor: pointer;
-    background-color: #091931;
+   margin:0 1rem 0 3rem
 }
 
 .navBottom {
@@ -86,11 +88,11 @@ header {
     position: sticky;
     top: 0;
     z-index: 1;
-    left: 14%;
+    left: 14rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 86%;
+    width: calc(100% - 14rem);
     height: 96px;
     background-color: white;
     box-shadow: -2px 0 8px 0 rgba(0, 0, 0, 0.2);
@@ -98,10 +100,9 @@ header {
 
 .pHeader {
     position: relative;
-    font-size: 20px;
     top: 0;
     bottom: 0;
-    margin: auto 0 auto 100px;
+    margin: auto 0 auto 8rem;
 }
 
 .imgsHeader {

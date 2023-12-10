@@ -23,12 +23,9 @@ section{
     height: 100%;
 }
 .contactsDiv {
-    width: 456px;
-    /* min-height: 800px; */
+    width: 25rem;
     background-color: white;
     padding: 0px 24px 0px 24px;
-    /* border-radius: 10px; */
-    /* margin-left: 20px; */
     height: 100%;
     z-index: 2;
     box-shadow: 2px 7px 16px 1px rgba(0,0,0,0.2);

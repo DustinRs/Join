@@ -1,7 +1,7 @@
 function renderHeader(user) {
     return/*html*/`
 
-        <h6 class="pHeader">Kanban Project Management Tool</h6>
+        <h4 class="pHeader">Kanban Project Management Tool</h4>
         <div class="imgsHeader">
             <a href="/assets/templates/help.html">
                 <img class="helpIcon" src="/assets/img/help.png" alt=""></a>
