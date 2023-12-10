@@ -8,7 +8,8 @@ let urgent = [];
 async function init() {
   await getAllTasks(remoteKey);
   getUser(sessionKey);
-  renderNotes(activeUser)
+  renderNotes(activeUser);
+  navActive(0)
 }
 
 async function statusFilter() {

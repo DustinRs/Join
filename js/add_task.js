@@ -4,10 +4,12 @@ async function init() {
   await getAllTasks(tasksKey);
   await getContacts(contactKey);
   getUser(sessionKey);
-  renderAddTaskPage(activeUser)
+  renderAddTaskPage(activeUser);
+  navActive(1)
   checkInputs();
   setupInputListeners();
-  addAssignees()
+  addAssignees();
+
 }
 
 function renderAddTaskPage(activeUser) {

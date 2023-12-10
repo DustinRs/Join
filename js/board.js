@@ -2,6 +2,7 @@ async function init() {
     await getAllTasks(tasksKey);
     getUser(sessionKey);
     renderComponents(activeUser);
+    navActive(2);
     updateBoard();
 }
 

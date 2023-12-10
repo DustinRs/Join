@@ -176,3 +176,7 @@ function loginCheckBox(box, img){
   }
 }
 
+function navActive(i){
+  let active = document.getElementsByClassName('navLinkImg');
+  active[i].classList.add('active')
+}

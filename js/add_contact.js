@@ -32,6 +32,7 @@ async function init() {
   getUser(sessionKey);
   renderContactPage(activeUser);
   renderRegister();
+  navActive(3);
   hideUnusedLetters();
   calcBarHeight()
 }
