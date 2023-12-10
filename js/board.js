@@ -46,6 +46,7 @@ async function moveTo(status, parentArr) {
         sortArray();
         setAllTasks(tasksKey, allTasks);
         updateBoard();
+        hideBar();
     }
 }
 
@@ -98,6 +99,7 @@ function closePopUp() {
 }
 
 function openPopUp() {
+    renderPopUpAddTask();
     checkInputs();
     let popup = document.getElementById('add-pop-up');
     popup.classList.remove('d-none')
