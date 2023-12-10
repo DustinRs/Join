@@ -203,3 +203,93 @@ a>span{
     width: 19rem;
 }
 
+
+
+@media screen and (max-width: 1024px) {
+    main{
+        width: 100%;
+        left: 0;
+        top:0;
+        height: 100%;
+    }
+    #grid{
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        height: 100%;
+        gap: 70px;
+    }
+    #greeting-container{
+        align-items: start;
+        display: flex;
+        flex-direction: column;
+        font-weight: 900;
+        top: 12.5rem;
+        position: relative;
+        height: 10rem;
+        justify-content: center;
+        font-size: 48px;
+    }
+    #grid-main-container{
+        display: flex;
+        gap: 30px;
+        flex-direction: column;
+        height: 562px;
+    }
+    .grid-container1{
+        display: grid;
+        width: 100%;
+        height: 33%;
+        grid-template-columns: 1fr 1fr;
+        gap:18px
+                                
+    }
+    .grid-container2{
+        display: grid;
+        width: 100%;
+        height: 33%;
+        grid-template-columns: 1fr ;
+        gap: 61px;                     
+    }
+    .grid-container3{
+        display: grid;
+        width: 100%;
+        height: 33%;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap:18px                          
+    }
+    .grid-item{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: white;
+        border-radius: 30px;
+        height: 10rem;
+        gap: 18px;
+    }
+    .grid-item:hover {
+        cursor: pointer;
+        background-color: #2A3647;
+        color: white;
+    }
+    #To-do:hover>img {
+        content:url('/assets/img/pen-frame-white.png');
+    }
+    #Done:hover>img {
+        content:url('/assets/img/checkmark-frame-white.png');
+    }
+    h1 {
+        font-weight: 700!important;
+        font-size: 4rem!important;
+    }
+    span {
+        font-size: 20px;
+    }
+    a>span{
+        font-size: 1rem;
+    }
+    .lineUrgent {
+        width: 2px;
+        background-color: #D1D1D1;
+    }
+}

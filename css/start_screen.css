@@ -514,3 +514,142 @@ footer>a{
         color:var(--blue);
     }
 }
+
+@media screen and (max-width: 768px) {
+    #login-container {
+        height: 500px;
+        width: 100%;
+        padding: 48px 24px;
+    }
+
+    #signup-container {
+        height: 700px;
+        width: 100%;
+        padding: 48px 24px;
+    }
+
+    #login-title {
+        font-size: 48px;
+    }
+
+    #login-underline {
+        width: 100px;
+    }
+
+    #login-input-container {
+        width: 100%;
+    }
+
+    #login-btn-container {
+        width: 100%;
+    }
+
+    #login-btn {
+        width: 100%;
+    }
+
+    #guest-login-btn {
+        width: 100%;
+    }
+
+    #login-input-container {
+        width: 100%;
+    }
+
+    #login-input {
+        width: 100%;
+    }
+
+    #login-input-fields {
+        flex-direction: column;
+    }
+
+    #login-input-fields {
+        margin: 16px 0;
+    }
+
+    #login-btn-container {
+        bottom: 32px;
+    }
+
+    #login-btn-container {
+        width: 100%;
+    }
+
+    #login-btn {
+        width: 100%;
+    }
+
+    #guest-login-btn {
+        width: 100%;
+    }
+
+    #login-btn-container {
+        bottom: 32px;
+    }
+
+    #login-btn-container {
+        width: 100%;
+    }
+
+    #login-btn {
+        width: 100%;
+    }
+
+    #guest-login-btn {
+        width: 100%;
+    }
+
+    #login-btn-container {
+        bottom: 32px;
+    }
+
+    #login-btn-container {
+        width: 100%;
+    }
+
+    #login-btn {
+        width: 100%;
+    }
+
+    #guest-login-btn {
+        width: 100%;
+    }
+
+    #login-btn-container {
+        bottom: 32px;
+    }
+
+    #login-btn-container {
+        width: 100%;
+    }
+
+    #login-btn {
+        width: 100%;
+    }
+
+    #guest-login-btn {
+        width: 100%;
+    }
+
+    #login-btn-container {
+        bottom: 32px;
+    }
+
+    #login-btn-container {
+        width: 100%;
+    }
+
+    #login-btn {
+        width: 100%;
+    }
+
+    #guest-login-btn {
+        width: 100%;
+    }
+
+    #login-btn-container {
+        bottom: 32px;
+    }
+    
+}
