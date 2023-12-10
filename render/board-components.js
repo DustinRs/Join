@@ -10,14 +10,24 @@ function renderComponents(activeUser) {
         <div class="sections-drag">
             <div class="headline">
                 <h1>Board</h1>
-                <div class="inputAndButton">
-                    <div class="input">
-                        <input type="text" placeholder="Find Task">
+                    <div id="find-task-container" class="input-group sub-container row">
+                        <input id="find-task" class="form-control subtask-input" type="text" placeholder="Find Task"/>
+                        <div class="input-border"></div>
+                        <button class="btn btn-outline-secondary sub-active" 
+                                id="search-btn"
+                                type="button">
+                            <img id="#search-img" src="/assets/img/search.png" alt="">
+                         </button>
                     </div>
                     <div class="buttonAdd" onclick="openPopUp()">Add Task
-                        <img src="/assets/img/board-plus.png" alt="">
+                        <img id="white-plus" src="/assets/img/white-plus.png" alt="">
                     </div>
-                </div>
+            </div>
+            <div id="content-headlines">
+                <div class="drag-headlines"><h4>To-Do</h4></div>
+                <div class="drag-headlines"><h4>In Progress</h4></div>
+                <div class="drag-headlines"><h4>Await Feedback</h4></div>
+                <div class="drag-headlines"><h4>Done</h4></div>
             </div>
             <div class="content">
                 <div class="drag-area" id="To-Do" 

@@ -111,7 +111,6 @@ async function getContacts(key) {
       contacts = JSON.parse(arr)
       return contacts
     });
-
 }
 
 function openMenu() {
@@ -129,7 +128,7 @@ function addMenuEvent() {
 
 function closeMenu(event) {
   let body = document.querySelector('body');
-  let menu = document.getElementById('icon-menu');
+  let menu = document.getElementById('header-icon-menu');
   let icon = document.getElementById('profile-icon');
       if ( event.target !== icon && event.target !== menu) {
       menu.classList.add('d-none');

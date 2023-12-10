@@ -76,7 +76,6 @@ function convertCategory(element) {
 function hideBar() {
     for (let i = 0; i < allTasks.length; i++) {
         let element = allTasks[i];
-
         if (element.subTask.length === 0) {
             let bar = document.getElementById(`sub${element.id}`);
             bar.classList.add('d-none')
@@ -87,10 +86,19 @@ function hideBar() {
 
 function closePopUp() {
     let popup = document.getElementById('add-pop-up');
-    popup.classList.add('d-none')
+    let container = document.getElementById('pop-up-container');
+    container.style.animation = "slide-out 0.15s ease-in-out forwards"
+    setTimeout(() => {
+        popup.classList.add('d-none')
+        container.style.animation = "";
+    }, 150);
 }
 
 function openPopUp() {
     let popup = document.getElementById('add-pop-up');
     popup.classList.remove('d-none')
+}
+
+function animatePopUp() {
+
 }

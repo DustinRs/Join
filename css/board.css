@@ -1,3 +1,7 @@
+body {
+    overflow-x: hidden;
+}
+
 main {
     position: relative;
     top: 0;
@@ -6,9 +10,8 @@ main {
     display: flex;
     flex-direction: column;
     justify-content: start;
-    padding: 0 5%;
+    padding: 5rem 5% 0;
     align-items: unset;
-
 }
 
 .cloumn {
@@ -51,31 +54,20 @@ main {
 }
 
 .headline {
+    position: relative;
     display: flex;
     justify-content: space-between;
+    margin-bottom: 2rem;
     width: 100%;
-    padding-top: 82px;
-    padding-bottom: 99px;
 }
 
-.inputAndButton {
+/* .inputAndButton {
     display: flex;
     justify-content: space-between;
     align-items: center;
-}
-
-.buttonAdd {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 10px 21px 13px 21px;
-    background-color: #2A3647;
-    color: white;
-    border-radius: 10px;
-    font-size: 21px;
-    font-weight: 700;
-    margin-left: 35px;
-}
+    width: 32rem;
+    margin-right:1rem
+} */
 
 .content {
     display: flex;
@@ -85,22 +77,65 @@ main {
 }
 
 .buttonAdd {
+    position: absolute;
+    top: 0;
+    height: 3rem;
+    bottom: 0;
+    margin: auto;
+    right: 1rem;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 10px 21px 13px 21px;
+    padding: 1rem;
     background-color: #2A3647;
     color: white;
     border-radius: 10px;
-    font-size: 21px;
+    font-size: 1.3rem;
     font-weight: 700;
-    margin-left: 35px;
+    transition: box-shadow 0.1s ease;
 }
+
+#find-task-container {
+    position: absolute;
+    left: 50.5%;
+    width: 29% !important;
+    margin: auto !important;
+    top: 0;
+    bottom: 0;
+    height: 3rem;
+}
+
+#search-icon-container {
+    height: 2rem;
+    width: 2rem !important;
+    position: absolute;
+    right: 1rem;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+}
+
+#find-task-container>.input-border{
+    width: 1px;
+    padding:0;
+    height:2rem;
+    margin-right:1rem;
+}
+
+#find-task-container>button{
+   width:2rem!important;
+   height:2rem!important;
+}
+
+#search-btn{
+    margin-right:1rem;
+} 
+
 
 .buttonAdd:hover {
     cursor: pointer;
     background-color: #29ABE2;
-    box-shadow: 0px 4px 9px -1px rgba(0, 0, 0, 0.4);
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.2);
 }
 
 .buttonAdd img {
@@ -205,38 +240,65 @@ h5 {
     width: 80%;
     border-radius: 30px;
     flex-direction: column;
+    transform: translateX(75rem);
+    animation: slide-in 0.15s ease-in-out forwards;
 }
 
-.sections{
+@keyframes slide-in {
+    0% {
+        transform: translateX(75rem);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+
+}
+
+@keyframes slide-out {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(75rem);
+    }
+
+}
+
+.sections {
     display: flex;
     justify-content: space-between;
     width: 100%;
 }
 
-.left-section, .right-section{
+.left-section,
+.right-section {
     width: 50%;
 }
 
-.container{
+.container {
     margin: 0 !important;
 }
 
 
 h6:not(:first-of-type):not(:nth-of-type(4)) {
-    margin: 2em 0 0.5em!important;}
+    margin: 2em 0 0.5em !important;
+}
 
 #header-six {
-    margin: 3em 0 0.5em!important;}
+    margin: 3em 0 0.5em !important;
+}
 
-#required-text{
-    font-size: .8em!important;
-    margin:0;
-    align-self: flex-end!important;
+#required-text {
+    font-size: .8em !important;
+    margin: 0;
+    align-self: flex-end !important;
 }
 
 
-.add-task-bottom-section{
-    width: 85%!important;
+.add-task-bottom-section {
+    width: 85% !important;
     position: absolute;
     margin: auto;
     bottom: 10%;
@@ -244,19 +306,19 @@ h6:not(:first-of-type):not(:nth-of-type(4)) {
     right: 5%;
 }
 
-.border{
-    margin:0 2.5em
+.border {
+    margin: 0 2.5em
 }
 
-.row{
-    padding: 2px!important
+.row {
+    padding: 2px !important
 }
 
-.clearButton{
+.clearButton {
     background-color: white;
 }
 
-#close-pop-up{
+#close-pop-up {
     position: absolute;
     display: flex;
     right: 0;
@@ -264,7 +326,35 @@ h6:not(:first-of-type):not(:nth-of-type(4)) {
     height: 2em;
     padding: 9px;
     border-radius: 50%;
-    &:hover{
-        background-color: rgba(0,0,0,0.05);
+
+    &:hover {
+        background-color: rgba(0, 0, 0, 0.05);
     }
+}
+
+
+#white-plus {
+    height: 1.3rem;
+    margin-left: .5rem
+}
+
+h1 {
+    font-size: 4rem !important;
+    font-weight: 800 !important;
+}
+
+#content-headlines {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 1rem
+}
+
+.drag-headlines {
+    display: flex;
+    width: 28rem;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    padding-left: .5rem;
 }

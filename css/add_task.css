@@ -3,11 +3,6 @@
     --checked-box: url("/assets/img/checked-box.png");
 }
 
-html{
-    /* font-size: 10px; */
-}
-
-
 
 main {
     position: relative;
@@ -361,7 +356,7 @@ label {
     }
 }
 
-#border {
+.input-border {
     height: 25px;
     width: 1px;
     border: 1px solid rgba(0, 0, 0, 0.2);
@@ -567,9 +562,7 @@ textarea {
 }
 
 .divIcon:hover {
-    :hover {
         background-color: rgba(0, 0, 0, 0.08) !important;
-    }
 }
 
 .select::placeholder {

@@ -127,7 +127,7 @@ function renderAddTaskSections() {
                         type="button" 
                         onclick="subTaskClose()"><img id="cross"
                         src="/assets/img/btn-x.png" alt=""></button>
-                <div id="border"></div>
+                <div class="input-border"></div>
                 <button class="btn sub-active" 
                         id="check-btn" 
                         type="button"
