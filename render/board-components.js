@@ -30,7 +30,7 @@ function renderComponents(activeUser) {
                 <div class="drag-headlines"><h4>Done</h4></div>
             </div>
             <div id="content-box" class="content">
-                <div class="drag-area" id="To-Do" 
+                <div class="drag-area" onclick="opendTodoPopUp()" id="To-Do" 
                 ondrop="moveTo('To-Do')" 
                 ondragleave="removeHighlight('To-Do')"
                 ondragover="allowDrop(event); highlight('To-Do')">
@@ -54,7 +54,7 @@ function renderComponents(activeUser) {
         </div>    
     </div>
     `;
-    renderPopUpAddTask()
+    //    renderPopUpAddTask();
 }
 
 
@@ -83,16 +83,16 @@ function generateTodoHTML(element) {
     `
 }
 
-function returnPriority(priority){
-    if(priority==='urgent'){
+function returnPriority(priority) {
+    if (priority === 'urgent') {
         return /*html*/`
         <img src="/assets/img/urgent-priority.png" alt="urgent">
         `
-    }else if(priority==='medium'){
+    } else if (priority === 'medium') {
         return /*html*/`
         <img src="/assets/img/medium-priority.png" alt="medium">
         `
-    }else if(priority==='low'){
+    } else if (priority === 'low') {
         return /*html*/`
         <img src="/assets/img/low-priority.png" alt="low">
         `
@@ -100,9 +100,9 @@ function returnPriority(priority){
 }
 
 
-function renderPopUpAddTask(){
-let body  = document.querySelector('body');
-body.innerHTML += /*html*/`
+function renderPopUpAddTask() {
+    let body = document.querySelector('body');
+    body.innerHTML += /*html*/`
 <div id="add-pop-up" class="pop-up-add-task d-none">
     <div id=pop-up-container>
         <div id="task-container">
@@ -112,6 +112,19 @@ body.innerHTML += /*html*/`
     </div>
 </div>
 `;
-setupInputListeners()
+    setupInputListeners()
 }
 
+function renderPopUpTodo() {
+    let body = document.querySelector('body');
+    body.innerHTML += /*html*/`
+    <div id="add-pop" class="pop-up-add-task d-none">
+        <div id=pop-up-container>
+            <div id="task-container">
+                <div id="close-pop-up" onclick="closePopUp()"><img src="/assets/img/btn-x.png" alt=""></div>
+                ${taskFilter(allTasks, "To-Do", todoArr)}
+            </div>
+        </div>
+    </div>
+    `;
+}
