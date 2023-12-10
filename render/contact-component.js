@@ -1,37 +1,50 @@
 function renderContactPopUp(){
     return/*html*/`
-    <div id="addContactPopUp" class="addContactPopUp d-none">
-        <div class="addContact">
-            <div class="logoContact">
-                <div class="textContact">
+<div id="addContactPopUp" class="addContactPopUp d-none">
+    <div id="addContact" class="addContact">
+        <div class="logoContact">
+            <div class="textContact">
                 <img class="imgContact" src="/assets/img/logoSmall.png" alt="">
                 <h2 class="h2Contact"><b>Add contact</b></h2>
                 <span>Tasks are better with a team!</span>
                 <div class="lineContact"></div>
-                </div>
             </div>
-            <div class="contactFormular">
-                <div>
-                    <img class="imgUserContact" src="/assets/img/UserProfileHuge.png" alt="">
-                    
-                </div>
-                <div >
-                    <button class="closePopUp" onclick="closePopUpAddContact()"><img src="/assets/img/btn-x.png" alt=""></button>
-                    <div class="inputsContact">
-                        <input id="profileName" type="text" placeholder="Name">
-                        <input id="profileEmail" type="email" placeholder="Email">
-                        <input id="profileNumber" type="number" placeholder="Phone">
+        </div>
+        <button class="closePopUp" onclick="closePopUpAddContact()"><img src="/assets/img/btn-x.png"
+                alt=""></button>
+        <form onsubmit="createContact();return false" class="contactFormular">
+            <div>
+                <img class="imgUserContact" src="/assets/img/create-contact.png" alt="">
+            </div>
+            <div id="input-container">
+                <div class="inputsContact">
+                    <div class="input-group sub-container row">
+                        <input id="Name" class=" contact-creation-inputs form-control subtask-input" type="text"
+                            placeholder="Name" required />
+                        <img src="/assets/img/person.png" alt="">
                     </div>
-                    <div class="divButtonsContact">
-                        <button class="clearButton">Cancel <img src="/assets/img/btn-x.png" alt=""></button>
-                        <button class="createTaskButton" onclick="createContact()">Create Contact <img src="/assets/img/checkbtn-checkmark.png" alt=""></button>
+                    <div class="input-group sub-container row">
+                        <input id="Email" class=" contact-creation-inputs form-control subtask-input" type="email"
+                            placeholder="Email" required />
+                        <img src="/assets/img/mail.png" alt="">
                     </div>
-                    
+                    <div class="input-group sub-container row">
+                        <input id="mobile-number" class=" contact-creation-inputs form-control subtask-input"
+                            type="number" placeholder="Phone" required />
+                        <img src="/assets/img/call.png" alt="">
+                    </div>
                 </div>
-                
+                <div class="divButtonsContact">
+                    <button id="clearButton" class="clearButton" onclick="clearContactsForm()">Cancel <img
+                            src="/assets/img/btn-x.png" alt=""></button>
+                    <button class="createTaskButton" type="submit">Create Contact <img
+                            src="/assets/img/checkbtn-checkmark.png" alt=""></button>
+                </div>
             </div>
-            </div>
+
+        </form>
     </div>
+</div>
     `
 }
 

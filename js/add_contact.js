@@ -38,16 +38,17 @@ async function init() {
 }
 
 function renderContactPage(activeUser) {
+  let body = document.querySelector('body');
   let section = document.createElement('section');
   let header = document.querySelector('header');
   let nav = document.querySelector('nav');
   let main = document.querySelector('main');
-  main.innerHTML = renderContactPopUp();
   main.innerHTML += renderEditPopUp();
   nav.innerHTML = renderNavBar();
   header.innerHTML = renderHeader(activeUser);
   main.append(section);
   section.innerHTML += renderContactSection();
+  body.innerHTML += renderContactPopUp();
 }
 
 function renderRegister() {
@@ -216,7 +217,13 @@ function openPopUpAddContact() {
 }
 
 function closePopUpAddContact() {
-  document.getElementById("addContactPopUp").classList.add("d-none");
+  let popUpContainer = document.getElementById("addContactPopUp")
+  let popUp = document.getElementById('addContact');
+  popUp.style = "animation:slide-contact-out 0.15s linear forwards";
+  setTimeout(() => {
+    popUpContainer.classList.add("d-none");
+    popUp.style.animation = "";
+  }, 300);
 }
 
 async function createContact() {
@@ -235,8 +242,8 @@ async function createContact() {
   };
 
   contacts.push(contact);
-  setContacts(contactKey, contacts);
-  init();
+  await setContacts(contactKey, contacts);
+  closePopUpAddContact();
 }
 
 
@@ -279,3 +286,9 @@ function calcHeight(){
   register.style.height = height - 20 + 'px';
 }
 
+function clearContactsForm(){
+  let input = document.getElementsByClassName('contact-creation-inputs')
+    for (let i = 0; i < input.length; i++) {
+      input[i].value = '';
+    }
+}

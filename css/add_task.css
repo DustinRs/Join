@@ -168,11 +168,10 @@ label {
 .createTaskButton {
     border: unset;
     border-radius: 10px;
-    height:100%;
+    height:3rem;
     color: white;
     background-color: #2A3647;
-    width: 55%;
-    max-width: 9rem;
+    width: 10.5rem;
     font-size: 1rem;
     font-weight: 600;
     box-shadow: none;
@@ -203,9 +202,8 @@ label {
     color: #091931;
     border: 1px solid #2A3647;
     border-radius: 10px;
-    height:100%;
-    width: 40%;
-    max-width: 5.7rem;
+    height:3rem;
+    width: 6.5rem;
     font-weight: 500;
     font-size: 1rem;
     box-shadow: none;

@@ -141,6 +141,7 @@ function popUpSignUp(text) {
   overlay.classList.remove('d-none')
 }
 
+
 function popUp(text, width) {
   let popUp = document.getElementById('info-text');
   let container = document.getElementById('info');
