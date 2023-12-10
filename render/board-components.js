@@ -6,7 +6,7 @@ function renderComponents(activeUser) {
     header.innerHTML += renderHeader(activeUser);
     main.innerHTML =/*html*/`
     <div id="info"><div id="info-text">Task added to board</div><img src="/assets/img/nav-board.png" id="error" alt=""></div>
-    <div class="column">
+    <div  class="column">
         <div class="sections-drag">
             <div class="headline">
                 <h1>Board</h1>
@@ -29,7 +29,7 @@ function renderComponents(activeUser) {
                 <div class="drag-headlines"><h4>Await feedback</h4> <img class="drag-headlines-plus" src="/assets/img/board-plus.png" alt="plus in box" onclick="openPopUp(),changeStatus('Await-Feedback')"></div>
                 <div class="drag-headlines"><h4>Done</h4></div>
             </div>
-            <div class="content">
+            <div id="content-box" class="content">
                 <div class="drag-area" id="To-Do" 
                 ondrop="moveTo('To-Do')" 
                 ondragleave="removeHighlight('To-Do')"
