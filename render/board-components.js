@@ -111,6 +111,7 @@ body.innerHTML += /*html*/`
         </div>
     </div>
 </div>
-`
+`;
+setupInputListeners()
 }
 

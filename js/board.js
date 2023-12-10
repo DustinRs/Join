@@ -95,6 +95,7 @@ function closePopUp() {
 }
 
 function openPopUp() {
+    checkInputs();
     let popup = document.getElementById('add-pop-up');
     popup.classList.remove('d-none')
 }

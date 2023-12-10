@@ -1,6 +1,5 @@
 function renderAddTaskSections() {
   return/*html*/`
-<div id="info"><div id="info-text">Task added to board</div><img src="/assets/img/nav-board.png" id="error" alt=""></div>
 <h1 class="title">Add Task</h1>
 <div class="sections">
     <div class="left-section">

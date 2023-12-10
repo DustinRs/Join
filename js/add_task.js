@@ -40,7 +40,8 @@ async function addTask(status) {
     id: Date.now()
   };
   allTasks.push(task);
-  setAllTasks(tasksKey, allTasks);
+  await setAllTasks(tasksKey, allTasks);
+  pushInfo();
 }
 
 
@@ -48,9 +49,8 @@ function checkInputs() {
   let title = document.getElementById("title").value;
   let description = document.getElementById("description").value;
   let date = document.getElementById("date").value;
-  let category = document.getElementById("category").value;
-
-  let button = document.querySelector(".createTaskButton");
+  let category = document.getElementById("category").getAttribute("value");
+  let button = document.getElementById("createTaskButton");
 
   if (title && description && date && category) {
     button.removeAttribute("disabled");
@@ -199,7 +199,17 @@ function addAssignees() {
 
 function setValue(string) {
   let input = document.getElementById('category')
+  input.innerText = string
+  input.setAttribute('placeholder', string)
   input.setAttribute('value', string)
+}
+
+function clearCategoryValue(){
+  let input = document.getElementById('category')
+  input.innerText = ''
+  input.setAttribute('placeholder', 'Select task category')
+  input.setAttribute('value', '');
+  checkInputs()
 }
 
 function openList(containerID, inputID, ulID, iconID) {
@@ -272,5 +282,19 @@ function clearAll(){
   }
   for (let i = 0; i < textarea.length; i++) {
     textarea[i].value = '';
-  }
+  };
+  clearCategoryValue()
 }
+
+function pushInfo(){
+  let info = document.getElementById('info')
+  info.classList.add('push-up');
+
+  setTimeout(() => {
+    goToBoard()
+  }, 2000)
+};
+
+function goToBoard(){
+  window.location.href = '/assets/templates/board.html';
+};
