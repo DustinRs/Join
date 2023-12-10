@@ -5,7 +5,7 @@ function renderComponents(activeUser) {
     nav.innerHTML = renderNavBar();
     header.innerHTML += renderHeader(activeUser);
     main.innerHTML =/*html*/`
-
+    <div id="info"><div id="info-text">Task added to board</div><img src="/assets/img/nav-board.png" id="error" alt=""></div>
     <div class="column">
         <div class="sections-drag">
             <div class="headline">
@@ -19,14 +19,14 @@ function renderComponents(activeUser) {
                             <img id="#search-img" src="/assets/img/search.png" alt="">
                          </button>
                     </div>
-                    <div class="buttonAdd" onclick="openPopUp()">Add Task
+                    <div class="buttonAdd" onclick="openPopUp(),changeStatus('To-Do')">Add Task
                         <img id="white-plus" src="/assets/img/white-plus.png" alt="">
                     </div>
             </div>
             <div id="content-headlines">
-                <div class="drag-headlines"><h4>To-Do</h4></div>
-                <div class="drag-headlines"><h4>In Progress</h4></div>
-                <div class="drag-headlines"><h4>Await Feedback</h4></div>
+                <div class="drag-headlines"><h4>To do</h4> <img class="drag-headlines-plus" src="/assets/img/board-plus.png" alt="plus in box" onclick="openPopUp(),changeStatus('To-Do')"></div>
+                <div class="drag-headlines"><h4>In progress</h4> <img class="drag-headlines-plus" src="/assets/img/board-plus.png" alt="plus in box" onclick="openPopUp(),changeStatus('In-Progress')"></div>
+                <div class="drag-headlines"><h4>Await feedback</h4> <img class="drag-headlines-plus" src="/assets/img/board-plus.png" alt="plus in box" onclick="openPopUp(),changeStatus('Await-Feedback')"></div>
                 <div class="drag-headlines"><h4>Done</h4></div>
             </div>
             <div class="content">

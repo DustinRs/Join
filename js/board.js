@@ -102,3 +102,9 @@ function openPopUp() {
 function animatePopUp() {
 
 }
+
+
+function changeStatus(string){
+    let btn = document.getElementById('createTaskButton')
+    btn.setAttribute('onclick', `addTask('${string}')`)
+}

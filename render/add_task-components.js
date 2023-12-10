@@ -1,5 +1,6 @@
 function renderAddTaskSections() {
   return/*html*/`
+<div id="info"><div id="info-text">Task added to board</div><img src="/assets/img/nav-board.png" id="error" alt=""></div>
 <h1 class="title">Add Task</h1>
 <div class="sections">
     <div class="left-section">
@@ -146,7 +147,7 @@ function renderAddTaskSections() {
     <h6 id="required-text"><span class="span">*</span>This field is required</h6>
     <div id="submit-btn-container">
         <button class="clearButton" onclick="clearAll()">Clear <img src="/assets/img/btn-x.png" alt="" /></button>
-        <button class="createTaskButton" onclick="addTask('To-Do')">Create Task <img src="/assets/img/checkbtn-checkmark.png"
+        <button id="createTaskButton" class="createTaskButton" onclick="addTask('To-Do')">Create Task <img src="/assets/img/checkbtn-checkmark.png"
                 alt="" /></button>
     </div>
 </div>
