@@ -44,12 +44,12 @@ function renderContactPage(activeUser) {
   let header = document.querySelector('header');
   let nav = document.querySelector('nav');
   let main = document.querySelector('main');
-  main.innerHTML += renderEditPopUp();
   nav.innerHTML = renderNavBar();
   header.innerHTML = renderHeader(activeUser);
   main.append(section);
   section.innerHTML += renderContactSection();
   body.innerHTML += renderContactPopUp();
+  body.innerHTML += renderEditPopUp();
 }
 
 function renderRegister() {
