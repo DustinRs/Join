@@ -158,8 +158,6 @@ function editProfile(id) {
   let img = document.getElementById("profile-img-div");
   img.innerText = object.initials;
   img.style.backgroundColor = object.color;
-  let button= document.getElementById('button').setAttribute('onclick',`saveContact(${id})`)
-
   let button = document.getElementById('saveButton');
   button.setAttribute('onclick', `saveContact(${id})`);
   // contacts.splice(contacts.indexOf(object.id), 1,object);
