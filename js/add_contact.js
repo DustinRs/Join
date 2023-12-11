@@ -158,7 +158,8 @@ function editProfile(id) {
   let img = document.getElementById("profile-img-div");
   img.innerText = object.initials;
   img.style.backgroundColor = object.color;
-
+  let button = document.getElementById('saveButton');
+  button.setAttribute('onclick', `saveContact(${id})`);
   // contacts.splice(contacts.indexOf(object.id), 1,object);
 }
 
@@ -171,8 +172,9 @@ function closePopUpEditContact() {
 }
 
 async function saveContact(id) {
-  let object = contacts.filter((contact) => contact.id === id)[0];
+  let object = contacts.filter((contact) => contact.id == id)[0];
   let index = contacts.indexOf(object);
+  console.log(index);
   let Name = document.getElementById("editName").value;
   let email = document.getElementById("editEmail").value;
   let number = document.getElementById("editNumber").value;
@@ -180,21 +182,21 @@ async function saveContact(id) {
   let firstName = Name.split(" ").slice(0, -1).join(" ");
   let name = Name.split(" ").slice(-1).join(" ");
 
-  if (contacts[index].fullName === Name) {
+  if (object.fullName == Name) {
     contacts[index].name = name;
     contacts[index].firstName = firstName;
     contacts[index].email = email;
     contacts[index].phoneNumber = number;
     contacts[index].initials = createInitials(Name);
   }
-  if (contacts[index].email === email) {
+  if (object.email == email) {
     contacts[index].fullName = Name;
     contacts[index].name = name;
     contacts[index].firstName = firstName;
     contacts[index].phoneNumber = number;
     contacts[index].initials = createInitials(Name);
   }
-  if (contacts[index].phoneNumber === number) {
+  if (object.phoneNumber == number) {
     contacts[index].fullName = Name;
     contacts[index].name = name;
     contacts[index].firstName = firstName;
