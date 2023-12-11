@@ -180,7 +180,7 @@ async function saveContact() {
     phoneNumber: number,
   };
   
-  deleteContact(firstName, name, email, number);
+  //deleteContact(firstName, name, email, number);
   contacts.push(contact);
   setContacts(contactKey, contacts);
   init();

@@ -1,31 +1,15 @@
-main{
-    position: relative;
-    left: 14%;
-    width: 86%;
-    max-width: 1240px;
-    height: 92vh;
-    display: flex;
-    justify-content: center;
-    align-items: baseline;
+main {
+    margin-left: 84px;
+    margin-top: 84px;
 }
-
 .colorJoin {
     color: #29ABE2;
 }
-.scrollHelp {
-    margin-left: 84px;
-    margin-right: 84px;
-    overflow: auto;
-    height: 928px;
-}
+
 .scrollHelp::-webkit-scrollbar {
     display: none;
   }
-.scrollHelp img {
-    position: relative;
-    top: -56px;
-    left: 1002px;
-}
+
 .scrollHelp img:hover {
     cursor: pointer;
 }
