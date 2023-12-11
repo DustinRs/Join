@@ -179,7 +179,7 @@ function getPrioValue() {
 function addAssignees() {
   let box = document.getElementById('assign-list')
   let contactArr = [];
-  contacts.map((e)=>{if(e.firstName){contactArr.push(e)}})
+  contacts.map((e)=>{if(e.id){contactArr.push(e)}})
   box.innerHTML = ''
   for (let i = 0; i < contactArr.length; i++) {
     let name = contactArr[i].firstName
@@ -187,7 +187,7 @@ function addAssignees() {
         <li class=contact>
          <div class="profile">
           <div class="icon" style="background-color:${contactArr[i].color}">${contactArr[i].initials}</div>
-          <div class="name">${name} ${contactArr[i].name}</div>
+          <div class="name">${contactArr[i].fullName}</div>
         </div>
         <div class="checkbox-container">
           <input type="checkbox" id="check${i}">

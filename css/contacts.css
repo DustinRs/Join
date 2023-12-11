@@ -106,7 +106,7 @@ section{
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 19rem;
+    width: 80%;
     border: 1px solid #D1D1D1;
 }
 .contact {
