@@ -80,34 +80,6 @@ function renderContactSection(){
 
 function renderEditPopUp(){
     return/*html*/`
-    <!-- <div id="editContactPopUp" class="addContactPopUp d-none">
-        <div class="addContact">
-            <div class="logoContact">
-                <div class="textContact">
-                <img class="imgContact" src="/assets/img/logoSmall.png" alt="">
-                <h2 class="h2Contact"><b>Edit contact</b></h2>
-                <div class="lineContact"></div>
-                </div>
-            </div>
-            <div class="contactFormular">
-                <div>
-                    <img class="imgUserContact" src="/assets/img/UserProfileHuge.png" alt="">    
-                </div>
-                <div >
-                    <button class="closePopUp" onclick="closePopUpEditContact()"><img src="/assets/img/btn-x.png" alt=""></button>
-                    <div class="inputsContact">
-                        <input id="editName" type="text" placeholder="Name">
-                        <input id="editEmail" type="email" placeholder="Email">
-                        <input id="editNumber" type="number" placeholder="Phone">
-                    </div>
-                    <div class="divButtonsContact">
-                        <button class="clearButton">Delete</button>
-                        <button class="createTaskButton" onclick="saveContact()">Save <img src="/assets/img/checkbtn-checkmark.png" alt=""></button>
-                    </div>
-                </div>
-            </div>
-            </div>
-    </div> -->
     <div id="editContactPopUp" class="addContactPopUp d-none">
     <div id="addContact" class="addContact">
         <div class="logoContact">
