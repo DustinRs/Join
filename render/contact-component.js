@@ -91,7 +91,7 @@ function renderEditPopUp(){
         </div>
         <button class="closePopUp" onclick="closePopUpEditContact()"><img src="/assets/img/btn-x.png"
                 alt=""></button>
-        <form onsubmit="saveContact(1);return false" class="contactFormular">
+        <form onsubmit="saveContact();return false" class="contactFormular">
             <div>
                 <div class="profile-initials-pseudo-img" id="profile-img-div"></div>
             </div>
@@ -116,7 +116,7 @@ function renderEditPopUp(){
                 <div class="divButtonsContact">
                     <button id="clearButton" class="clearButton" onclick="clearContactsForm()">Delete <img
                             src="/assets/img/btn-x.png" alt=""></button>
-                    <button class="createTaskButton" type="submit">Save <img
+                    <button id="saveButton" class="createTaskButton" type="submit">Save <img
                             src="/assets/img/checkbtn-checkmark.png" alt=""></button>
                 </div>
             </div>
