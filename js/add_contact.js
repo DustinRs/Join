@@ -182,7 +182,6 @@ async function saveContact(id) {
   let firstName = Name.split(" ").slice(0, -1).join(" ");
   let name = Name.split(" ").slice(-1).join(" ");
 
-  
     contacts[index].fullName = Name;
     contacts[index].name = name;
     contacts[index].firstName = firstName;
@@ -194,6 +193,7 @@ async function saveContact(id) {
   await setContacts(contactKey, contacts);
   closePopUpEditContact();
   init();
+  openProfile(id);
 }
 
 async function deleteContact(id) {
