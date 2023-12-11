@@ -29,7 +29,6 @@ let letters = [
 
 async function init() {
   await getContacts(contactKey);
-  console.log(contacts);
   getUser(sessionKey);
   renderContactPage(activeUser);
   renderRegister();
@@ -150,7 +149,6 @@ function openProfile(id) {
 function editProfile(id) {
   let object = contacts.filter((contact) => contact.id === id)[0];
   let index = contacts.indexOf(object);
-  console.log(index);
   openPopUpEditContact(object);
   document.getElementById("editName").value = object.fullName;
   document.getElementById("editEmail").value = object.email;
@@ -158,8 +156,6 @@ function editProfile(id) {
   let img = document.getElementById("profile-img-div");
   img.innerText = object.initials;
   img.style.backgroundColor = object.color;
-  let button= document.getElementById('button').setAttribute('onclick',`saveContact(${id})`)
-
   let button = document.getElementById('saveButton');
   button.setAttribute('onclick', `saveContact(${id})`);
   // contacts.splice(contacts.indexOf(object.id), 1,object);
@@ -174,24 +170,14 @@ function closePopUpEditContact() {
 }
 
 async function saveContact(id) {
-  let object = contacts.filter((contact) => contact.id == id)[0];
-  let index = contacts.indexOf(object);
-  console.log(index);
-  let Name = document.getElementById("editName").value;
-  let email = document.getElementById("editEmail").value;
-  let number = document.getElementById("editNumber").value;
-
-  let firstName = Name.split(" ").slice(0, -1).join(" ");
-  let name = Name.split(" ").slice(-1).join(" ");
-
+  if(id==undefined){return}
+  let getObject = contacts.filter((e) => e.id == id)[0];
+  let index=contacts.findIndex((e)=>e.id==id)
+  let editedObject=editObject(getObject)
   
-    contacts[index].fullName = Name;
-    contacts[index].name = name;
-    contacts[index].firstName = firstName;
-    contacts[index].email = email;
-    contacts[index].phoneNumber = number;
-    contacts[index].initials = createInitials(Name);
-  
+  console.log(editedObject)
+  contacts[index] = editedObject;
+  console.log(contacts);
 
   await setContacts(contactKey, contacts);
   closePopUpEditContact();
@@ -308,4 +294,18 @@ function clearContactsForm() {
   for (let i = 0; i < input.length; i++) {
     input[i].value = "";
   }
+}
+
+
+function editObject(person) {
+  let object = {
+    color: person.color,
+    id: person.id,
+    fullName: document.getElementById("editName").value,
+    email: document.getElementById("editEmail").value,
+    phoneNumber: document.getElementById("editNumber").value,
+    initials: createInitials(document.getElementById("editName").value),
+    firstName: differMultipleNames(document.getElementById("editName").value).firstName,
+    name: differMultipleNames(document.getElementById("editName").value).lastName
+  };return object
 }

@@ -1,5 +1,6 @@
 let activeUser;
 let currentDraggedElement;
+let contactObject = [];
 let startX = 0;
 let contacts = [];
 let allTasks = [];
