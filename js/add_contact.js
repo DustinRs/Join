@@ -170,10 +170,26 @@ function closePopUpEditContact() {
 }
 
 async function saveContact(id) {
+<<<<<<< HEAD
   if(id==undefined){return}
   let getObject = contacts.filter((e) => e.id == id)[0];
   let index=contacts.findIndex((e)=>e.id==id)
   let editedObject=editObject(getObject)
+=======
+  let object = contacts.filter((contact) => contact.id == id)[0];
+  let Name = document.getElementById("editName").value;
+  let email = document.getElementById("editEmail").value;
+  let number = document.getElementById("editNumber").value;
+  let firstName = Name.split(" ").slice(0, -1).join(" ");
+  let name = Name.split(" ").slice(-1).join(" ");
+
+  object.fullName = Name;
+  object.name = name;
+  object.firstName = firstName;
+  object.email = email;
+  object.phoneNumber = number;
+  object.initials = createInitials(Name);
+>>>>>>> 85ac8eeb4a5177d948f38b7053cb43435c682c3f
   
   console.log(editedObject)
   contacts[index] = editedObject;
@@ -182,6 +198,7 @@ async function saveContact(id) {
   await setContacts(contactKey, contacts);
   closePopUpEditContact();
   init();
+  openProfile(id);
 }
 
 async function deleteContact(id) {

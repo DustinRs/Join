@@ -130,3 +130,7 @@ function checkDragArea() {
         }
     }
 }
+
+function opendTodoPopUp() {
+document.getElementById('boardPopUp').classList.remove('d-none');
+}

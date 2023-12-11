@@ -128,3 +128,18 @@ function renderPopUpTodo() {
     </div>
     `;
 }
+
+function renderBoardPopUp() {
+    return/*html*/`
+    <div id="boardPopUp" class="pop-up-board d-none">
+        <div id="" class="">User Story</div>
+        <div id="" class="">Title</div>
+        <div id="" class="">Description</div>
+        <div id="" class="">Due Date</div>
+        <div id="" class="">Priority</div>
+        <div id="" class="">Assigned To</div>
+        <div id="" class="">Subtasks</div>
+        <div id="" class=""><button>Delete</button><button>Edit</button></div>
+    </div>
+    `;
+}
