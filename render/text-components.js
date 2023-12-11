@@ -245,7 +245,7 @@ function renderPrivacyPolicy() {
     </div>
 
     <div id="english" >
-        <div class=arrow><h1 class="titleH1">Privacy Policy</h1><a href="/assests/templates/summary.html"><img src="/assets/img/arrow-left.png" alt=""></a></div>
+        <div class=arrow><h1 class="titleH1">Privacy Policy</h1><a href="/assets/templates/summary.html"><img src="/assets/img/arrow-left.png" alt=""></a></div>
         <p>Controller for the purposes of data protection laws, in particular the EU General Data Protection Regulation
             (GDPR),
             is:

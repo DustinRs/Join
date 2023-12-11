@@ -133,7 +133,7 @@ function openProfile(id) {
         <div class="profile-initials-pseudo-img" style="background-color:${e.color}">
            ${e.initials}
         </div>
-    <div class="nameProfile"><h2>${e.fullName}</h2><div class="buttonsPopUp"><Button onclick="editProfile('${e}')" class="buttonPopUp"><img src="/assets/img/edit.png" alt=""> Edit</Button><Button class="buttonPopUp"><img src="/assets/img/delete.png" alt=""> Delete</Button></div></div>
+    <div class="nameProfile"><h2>${e.fullName}</h2><div class="buttonsPopUp"><Button onclick="editProfile(${e.id})" class="buttonPopUp"><img src="/assets/img/edit.png" alt=""> Edit</Button><Button class="buttonPopUp"><img src="/assets/img/delete.png" alt=""> Delete</Button></div></div>
     </div>
     <p>Contact Information</p>
     <p><b>Email</b></p>
@@ -280,7 +280,6 @@ function randomColor() {
 
 function getRandomColor(id,color) {
   let divName = document.getElementById(id);
-  console.log(divName)
   divName.style.backgroundColor = color;}
 
 
