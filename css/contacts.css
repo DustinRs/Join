@@ -1,7 +1,12 @@
+:root{
+    --height:calc(100vh-6rem);
+}
+
 main{
     position: relative;
-    left: 14%;
     width: 86%;
+    left:0;
+    height: var(--height);
     display: flex;
     justify-content: center;
     align-items: baseline;
@@ -10,12 +15,13 @@ main{
 section{
     position: absolute;
     top: 0;
-    left: 0;
+    left: 14rem;
     height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    width: 100%;
+    width: calc(100% - 14rem);
+
 }
 
 .contactSection {
@@ -88,7 +94,7 @@ section{
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    width: 352px;
+    width: 21rem;
     height: 58px;
     padding: 0px 36px 0px 36px;
     font-size: 20px;
@@ -100,16 +106,16 @@ section{
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 352;
+    width: 19rem;
     border: 1px solid #D1D1D1;
 }
 .contact {
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    width: 352px;
+    width: 20rem;
     height: 78px;
-    padding: 15px 24px 15px 74px;
+    padding: 1rem 0 1rem 5rem;
     gap: 12px;
 }
 .contact:hover {
@@ -126,9 +132,10 @@ section{
     font-size: 12px;
     border-radius: 45px;
     color: white;
+    background-color: blue;
 }
 .fullName {
-    font-size: 20px;
+    font-size: 1rem;
 }
 .nameLinkDiv {
     display: flex;
@@ -388,7 +395,21 @@ input::-webkit-inner-spin-button {
   margin: 0;
 }
 
-/* Firefox */
+/* Firefox
 input[type=number] {
   -moz-appearance: textfield;
+} */
+
+.profile-initials-pseudo-img{
+    height: 6rem;
+    width: 6rem;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3.5rem;
+    font-weight: 400;
+    color: white;
+    border:2px solid white;
+    box-shadow: 0px 0px 2px 3px rgba(0, 0, 0, 0.05);
 }

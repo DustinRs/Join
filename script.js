@@ -1,10 +1,4 @@
 let activeUser;
-const date = new Date();
-const options = {
-  year: 'numeric',
-  month: 'long',
-  day: 'numeric'
-}
 let currentDraggedElement;
 let startX = 0;
 let contacts = [];
@@ -19,7 +13,13 @@ let progressArr=[]
 let guest = [{
   name: "Dear Guest",
   initials: "G"
-}]
+}];
+const date = new Date();
+const options = {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric'
+};
 const userKey = "userList";
 const contactKey = "Contacts";
 const tasksKey = "allTasks";
@@ -179,4 +179,39 @@ function loginCheckBox(box, img){
 function navActive(i){
   let active = document.getElementsByClassName('navLinkImg');
   active[i].classList.add('active')
+}
+
+
+
+/**
+ * Splits a name string into first name and last name.
+ *
+ * @param {string} name - The name string to be split.
+ * @return {object} - An object containing the first name and last name.
+ */
+function differMultipleNames(name) {
+  let nameArr = name.split(' ');
+  if (nameArr.length == 2) {
+    name = {
+      firstName: nameArr[0],
+      lastName: nameArr[1]
+    }
+  };
+  return name
+}
+
+
+/**
+ * Generates the initials from a given name.
+ *
+ * @param {string} name - The name to generate the initials from.
+ * @return {string} The initials generated from the name.
+ */
+function createInitials(name) {
+  let item = differMultipleNames(name)
+  if (item.firstName) {
+    return initials = item.firstName.slice(0, 1) + item.lastName.slice(0, 1);
+  } else {
+    return initials = item.slice(0, 1)
+  }
 }

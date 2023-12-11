@@ -154,20 +154,6 @@ function popUp(text, width) {
 }
 
 
-/**
- * Generates the initials from a given name.
- *
- * @param {string} name - The name to generate the initials from.
- * @return {string} The initials generated from the name.
- */
-function createInitials(name) {
-  let item = differMultipleNames(name)
-  if (item.firstName) {
-    return initials = item.firstName.slice(0, 1) + item.lastName.slice(0, 1);
-  } else {
-    return initials = item.slice(0, 1)
-  }
-}
 
 /**
  * Generates a random color from a predefined list of colors.
@@ -180,23 +166,4 @@ function randomColor() {
     "#FFA35E", "#FC71FF", "#FFC701", "#0038FF", "#C3FF2B", "#FFE62B", "#FF4646", "#FFBB2B"];
   let randomIndex = Math.floor(Math.random() * colors.length);
   return colors[randomIndex];
-}
-
-
-
-/**
- * Splits a name string into first name and last name.
- *
- * @param {string} name - The name string to be split.
- * @return {object} - An object containing the first name and last name.
- */
-function differMultipleNames(name) {
-  let nameArr = name.split(' ');
-  if (nameArr.length == 2) {
-    name = {
-      firstName: nameArr[0],
-      lastName: nameArr[1]
-    }
-  };
-  return name
 }

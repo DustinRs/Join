@@ -24,7 +24,7 @@ function renderAddTaskSections() {
             </div>
             <div id="assign-ul" class="ul-parent d-none">
                 <ul id=assign-list class="drop-down-select-container ">
-                    <li class=contact>
+                    <li class=add-task-contact>
                         <div class="profile">
                             <div class="icon">*Bild*</div>
                             <div class="name">*Name*</div>
@@ -90,14 +90,14 @@ function renderAddTaskSections() {
             </div>
             <div id="category-ul" class="ul-parent d-none">
                 <ul class="drop-down-select-container">
-                    <li class=contact>
+                    <li class=add-task-contact>
                         <div class="profile">
                             <div class="name"
                                 onclick="setValue('Technical Task');closeList('category-select','category','category-ul','category-icon');checkInputs()">
                                 Technical Task</div>
                         </div>
                     </li>
-                    <li class=contact>
+                    <li class=add-task-contact>
                         <div class="profile">
                             <div class="name"
                                 onclick="setValue('User Story');closeList('category-select','category','category-ul','category-icon');checkInputs()">

@@ -29,6 +29,7 @@ let letters = [
 
 async function init() {
   await getContacts(contactKey);
+  console.log(contacts)
   getUser(sessionKey);
   renderContactPage(activeUser);
   renderRegister();
@@ -77,27 +78,27 @@ function renderRegister() {
 function renderContacts(letter) {
   let container = document.getElementById(`${letter}`);
   container.innerHTML = "";
-
   for (let i = 0; i < contacts.length; i++) {
-    const contact = contacts[i];
-    let fullName = contact["firstName"] + " " + contact["name"];
-    let initials =
-      contacts[i].firstName.slice(0, 1) + contacts[i].name.slice(0, 1);
-    let initial = contacts[i].firstName.slice(0, 1);
+    let contact = contacts[i];
+    let initials=contact.initials.split("");
+    let initial=initials[0];
+      // if(contacts[i].initials.length>1){
+      //   initial = contact.initials.slice(0, 1)
+      // }else{initial = contact.initials }
 
-    if (letter === initial) {
+    if (letter === `${initial}`) {
       container.innerHTML += `
-        <div id="${fullName}" onclick="openProfile('${fullName}', '${contact["email"]}', '${contact["phoneNumber"]}')" class="contact">
+        <div id="${contact.name}${i}" onclick="openProfile('${contact.id}')" class="contact">
         
         <div>
-            <span id="${initials}" class="initials">${initials}</span>
+            <span id="${contact.id}" class="initials">${contact.initials}</span>
         </div>
         <div class="nameLinkDiv">
-            <span class="fullName">${fullName}</span>
-            <a class="emailLinks" href="#">${contact["email"]}</a>
+            <span class="fullName">${contact.fullName}</span>
+            <a class="emailLinks" href="#">${contact.email}</a>
         </div>
     </div>`;
-      getRandomColor(`${initials}`);
+      getRandomColor(contact.id,contact.color);
     }
   }
 }
@@ -118,31 +119,40 @@ function hideUnusedLetters() {
   });
 }
 
-function openProfile(name, mail, number) {
+function openProfile(id) {
   let userProfile = document.getElementById("userProfile");
+  let user=[];
+  contacts.map((e)=>{if(e.id==id){
+    user.push(e)
+  }})
+  let e = user[0];
   userProfile.innerHTML='';
 
     userProfile.innerHTML = `<div>
     <div class="topProfile">
-    <img src="/assets/img/UserProfileHuge.png" alt="">
-    <div class="nameProfile"><h2>${name}</h2><div class="buttonsPopUp"><Button onclick="editProfile('${name}', '${mail}', '${number}')" class="buttonPopUp"><img src="/assets/img/edit.png" alt=""> Edit</Button><Button class="buttonPopUp"><img src="/assets/img/delete.png" alt=""> Delete</Button></div></div>
+        <div class="profile-initials-pseudo-img" style="background-color:${e.color}">
+           ${e.initials}
+        </div>
+    <div class="nameProfile"><h2>${e.fullName}</h2><div class="buttonsPopUp"><Button onclick="editProfile('${e}')" class="buttonPopUp"><img src="/assets/img/edit.png" alt=""> Edit</Button><Button class="buttonPopUp"><img src="/assets/img/delete.png" alt=""> Delete</Button></div></div>
     </div>
     <p>Contact Information</p>
     <p><b>Email</b></p>
-    <a class="profileLink" href="">${mail}</a>
+    <a class="profileLink" href="">${e.email}</a>
     <p><b>Phone</b></p>
-    <p>${number}</p>
+    <p>${e.phoneNumber}</p>
   </div>`;
-    setContactBackgroundColor(name);
+    // setContactBackgroundColor(name);
   
 }
 
 
-function editProfile(name, mail, number) {
-  openPopUpEditContact();
-  document.getElementById("editName").value = name;
-  document.getElementById("editEmail").value = mail;
-  document.getElementById("editNumber").value = number;
+function editProfile(object) {
+  console.log(object)
+  openPopUpEditContact(object);
+  document.getElementById("editName").value = object.fullName;
+  document.getElementById("editEmail").value = object.email;
+  document.getElementById("editNumber").value = object.phoneNumber;
+  contacts.splice(contacts.indexOf(object.id), 1,object);
   
 }
 
@@ -194,23 +204,23 @@ function deleteContact(firstName, name, email, number) {
 }
 
 
-let previousContactName = null;
+// let previousContactName = null;
 
-function setContactBackgroundColor(name) {
-  let contactName = document.getElementById(name);
+// function setContactBackgroundColor(name) {
+//   let contactName = document.getElementById(name);
 
-  if (previousContactName && previousContactName !== contactName) {
-    previousContactName.classList.remove("backgroundColor");
-  }
+//   if (previousContactName && previousContactName !== contactName) {
+//     previousContactName.classList.remove("backgroundColor");
+//   }
 
-  if (!contactName.classList.contains("backgroundColor")) {
-    contactName.classList.add("backgroundColor");
-    previousContactName = contactName;
-  } else {
-    contactName.classList.remove("backgroundColor");
-    previousContactName = null;
-  }
-}
+//   if (!contactName.classList.contains("backgroundColor")) {
+//     contactName.classList.add("backgroundColor");
+//     previousContactName = contactName;
+//   } else {
+//     contactName.classList.remove("backgroundColor");
+//     previousContactName = null;
+//   }
+// }
 
 function openPopUpAddContact() {
   document.getElementById("addContactPopUp").classList.remove("d-none");
@@ -230,15 +240,20 @@ async function createContact() {
   let fullName = document.getElementById("profileName").value;
   let email = document.getElementById("profileEmail").value;
   let number = document.getElementById("profileNumber").value;
-
-  let firstName = fullName.split(" ").slice(0, -1).join(" ");
-  let name = fullName.split(" ").slice(-1).join(" ");
+  let initials = createInitials(fullName);
+  let nameArr=differMultipleNames(fullName)
+  let firstName = nameArr.firstName
+  let name = nameArr.lastName
 
   let contact = {
+    fullName : fullName,
     firstName: firstName,
     name: name,
+    id:Date.now(),
     email: email,
+    color:randomColor(),
     phoneNumber: number,
+    initials: initials.toUpperCase()
   };
 
   contacts.push(contact);
@@ -263,11 +278,10 @@ function randomColor() {
   return colors[randomIndex];
 }
 
-function getRandomColor(id) {
-  let divName = document.getElementById(`${id}`);
-  let Color = randomColor();
-  divName.style.backgroundColor = Color;
-}
+function getRandomColor(id,color) {
+  let divName = document.getElementById(id);
+  console.log(divName)
+  divName.style.backgroundColor = color;}
 
 
 function calcBarHeight(){

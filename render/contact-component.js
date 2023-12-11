@@ -19,17 +19,17 @@ function renderContactPopUp(){
             <div id="input-container">
                 <div class="inputsContact">
                     <div class="input-group sub-container row">
-                        <input id="Name" class=" contact-creation-inputs form-control subtask-input" type="text"
+                        <input id="profileName" class=" contact-creation-inputs form-control subtask-input" type="text"
                             placeholder="Name" required />
                         <img src="/assets/img/person.png" alt="">
                     </div>
                     <div class="input-group sub-container row">
-                        <input id="Email" class=" contact-creation-inputs form-control subtask-input" type="email"
+                        <input id="profileEmail" class=" contact-creation-inputs form-control subtask-input" type="email"
                             placeholder="Email" required />
                         <img src="/assets/img/mail.png" alt="">
                     </div>
                     <div class="input-group sub-container row">
-                        <input id="mobile-number" class=" contact-creation-inputs form-control subtask-input"
+                        <input id="profileNumber" class=" contact-creation-inputs form-control subtask-input"
                             type="number" placeholder="Phone" required />
                         <img src="/assets/img/call.png" alt="">
                     </div>
@@ -41,7 +41,6 @@ function renderContactPopUp(){
                             src="/assets/img/checkbtn-checkmark.png" alt=""></button>
                 </div>
             </div>
-
         </form>
     </div>
 </div>
