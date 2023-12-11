@@ -6,19 +6,10 @@
     font-family: 'Inter', sans-serif;
 }
 
-body{
-    margin:0
-}
 
-main{
-    position: relative;
-    left: 14%;
-    width: 86%;
-    max-width: 1240px;
-    height: 92vh;
-    display: flex;
-    justify-content: center;
-    align-items: baseline;
+main {
+    margin-left: 84px;
+    margin-top: 84px;
 }
 
 .colorJoin {
