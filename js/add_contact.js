@@ -82,9 +82,9 @@ function renderContacts(letter) {
     let contact = contacts[i];
     let initials=contact.initials.split("");
     let initial=initials[0];
-      // if(contacts[i].initials.length>1){
-      //   initial = contact.initials.slice(0, 1)
-      // }else{initial = contact.initials }
+      if(contacts[i].initials.length>1){
+        initial = contact.initials.slice(0, 1)
+      }else{initial = contact.initials }
 
     if (letter === `${initial}`) {
       container.innerHTML += `
