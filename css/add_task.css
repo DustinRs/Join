@@ -463,11 +463,17 @@ input[type="checkbox"] {
     z-index: 2;
 }
 
+
+
 ul li {
-    display: block;
-    padding: 0.2rem;
+    display: flex;
+    padding: 0.2rem 1rem;
     text-align: left;
     font-size: 1rem !important;
+    align-items: center;
+    justify-content: space-between;
+    margin: .5rem 0.5rem;
+    border-radius: .5rem;
 }
 
 ul {
