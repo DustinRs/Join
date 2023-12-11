@@ -182,34 +182,14 @@ async function saveContact(id) {
   let firstName = Name.split(" ").slice(0, -1).join(" ");
   let name = Name.split(" ").slice(-1).join(" ");
 
-  if (object.fullName == Name) {
-    contacts[index].name = name;
-    contacts[index].firstName = firstName;
-    contacts[index].email = email;
-    contacts[index].phoneNumber = number;
-    contacts[index].initials = createInitials(Name);
-  }
-  if (object.email == email) {
-    contacts[index].fullName = Name;
-    contacts[index].name = name;
-    contacts[index].firstName = firstName;
-    contacts[index].phoneNumber = number;
-    contacts[index].initials = createInitials(Name);
-  }
-  if (object.phoneNumber == number) {
-    contacts[index].fullName = Name;
-    contacts[index].name = name;
-    contacts[index].firstName = firstName;
-    contacts[index].email = email;
-    contacts[index].initials = createInitials(Name);
-  } else {
+  
     contacts[index].fullName = Name;
     contacts[index].name = name;
     contacts[index].firstName = firstName;
     contacts[index].email = email;
     contacts[index].phoneNumber = number;
     contacts[index].initials = createInitials(Name);
-  }
+  
 
   await setContacts(contactKey, contacts);
   closePopUpEditContact();
