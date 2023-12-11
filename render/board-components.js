@@ -76,7 +76,7 @@ function generateTodoHTML(element) {
             </div>
         </div>
         <div class="footer-box">
-            <div id="profile-initials-container" data-value="${element.assignees}" class="profile-initials-container"></div>
+            <div data-value="${element.assignees}" class="profile-initials-container"></div>
             <div class="prioriy-container" >${returnPriority(element.prio)}</div>
         </div>
     </div>
@@ -142,4 +142,17 @@ function renderBoardPopUp() {
         <div id="" class=""><button>Delete</button><button>Edit</button></div>
     </div>
     `;
+}
+
+function renderTodoIcons(){
+    let divs = document.getElementsByClassName('profile-initials-container');
+    for (let i = 0; i < divs.length; i++) {
+        let div = divs[i];
+        let index = div.getAttribute('data-value').split(',');
+        for (let i = 0; i < index.length; i++) {
+            div.innerHTML += /*html*/`
+            <div class="profile-initials" data-value="${index[i]}" style="background-color:${contacts[index[i]].color}">${contacts[index[i]].initials}</div>
+            `;
+        }
+    } 
 }

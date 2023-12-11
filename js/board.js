@@ -14,7 +14,8 @@ function updateBoard() {
     taskFilter(allTasks, "Await-Feedback", awaitArr);
     taskFilter(allTasks, "Done", doneArr);
     checkDragArea();
-    hideBar()
+    hideBar();
+    renderTodoIcons()
 }
 
 function taskFilter(arr, string, parentArr) {
