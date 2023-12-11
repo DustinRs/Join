@@ -8,26 +8,18 @@
 
 
 main {
-    margin-left: 84px;
-    margin-top: 84px;
+    margin-left: 4rem;
+    margin-top: 4rem;
 }
 
 .colorJoin {
     color: #29ABE2;
 }
-.scrollHelp {
-    margin-left: 84px;
-    margin-right: 84px;
-    overflow: auto;
-}
+
 .scrollHelp::-webkit-scrollbar {
     display: none;
   }
-.scrollHelp img {
-    position: relative;
-    top: -56px;
-    left: 1002px;
-}
+
 .scrollHelp img:hover {
     cursor: pointer;
 }
