@@ -1,5 +1,6 @@
 async function init() {
     await getAllTasks(tasksKey);
+    await getContacts(contactKey);
     getUser(sessionKey);
     renderComponents(activeUser);
     navActive(2);
@@ -134,3 +135,11 @@ function checkDragArea() {
 function opendTodoPopUp() {
 document.getElementById('boardPopUp').classList.remove('d-none');
 }
+
+function addAssignees(){
+    let idArr = [];
+    for (let i = 0; i < assignees.length; i++) {
+        idArr.push(allTasks[assignees[i]].id)
+    }
+    return idArr
+}   

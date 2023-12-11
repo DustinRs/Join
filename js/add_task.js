@@ -5,11 +5,10 @@ async function init() {
   await getContacts(contactKey);
   getUser(sessionKey);
   renderAddTaskPage(activeUser);
-  navActive(1)
+  navActive(1);
+  addAssignees();
   checkInputs();
   setupInputListeners();
-  addAssignees();
-
 }
 
 function renderAddTaskPage(activeUser) {
@@ -39,10 +38,13 @@ async function addTask(status) {
     status: status,
     subTaskCounter:0,
     subTask: taskArr=[...subTasks],
-    id: Date.now()
+    id: Date.now(),
+    assignees: assignees,
   };
   allTasks.push(task);
   await setAllTasks(tasksKey, allTasks);
+  assignees = [];
+  subTasks = [];
   pushInfo();
 }
 
@@ -68,7 +70,6 @@ function setupInputListeners() {
     const input = document.getElementById(id);
 
     if (input) {
-      console.log(`Element with ID ${id}:`, input);
       input.addEventListener("input", checkInputs);
     } else {
       console.error(`Element with ID ${id} not found.`);
@@ -176,29 +177,6 @@ function getPrioValue() {
 }
 
 
-function addAssignees() {
-  let box = document.getElementById('assign-list')
-  let contactArr = [];
-  contacts.map((e)=>{if(e.id){contactArr.push(e)}})
-  box.innerHTML = ''
-  for (let i = 0; i < contactArr.length; i++) {
-    let name = contactArr[i].firstName
-      box.innerHTML +=/*html*/`
-        <li class=contact>
-         <div class="profile">
-          <div class="icon" style="background-color:${contactArr[i].color}">${contactArr[i].initials}</div>
-          <div class="name">${contactArr[i].fullName}</div>
-        </div>
-        <div class="checkbox-container">
-          <input type="checkbox" id="check${i}">
-          <img id="img-box${i}" src="/assets/img/checkbox.png" onclick="checkboxClick(${i})" alt="checkbox">
-        </div>        
-      </li>
-      `
-  }
-}
-
-
 function setValue(string) {
   let input = document.getElementById('category')
   input.innerText = string
@@ -301,3 +279,23 @@ function goToBoard(){
   window.location.href = '/assets/templates/board.html';
 };
 
+
+function addboxClick(i) {
+  let checkbox = document.getElementById(`check${i}`);
+  let img = document.getElementById(`img-box${i}`);
+  logTaskCheckBox(checkbox, img,i);
+  }
+
+  function logTaskCheckBox(box, img,i){
+    if (box.checked) {
+      box.checked = false;
+      img.src = '/assets/img/checkbox.png';
+      img.style = "";
+      assignees.splice(assignees.indexOf(i), 1)
+    } else if (!box.checked) {
+      box.checked = true;
+      img.src = '/assets/img/checked-box.png';
+      img.style = 'width: 18px; height: 18px;transform:translate(6px,0px);margin-right:12px';
+      assignees.push(i)
+    }
+  }

@@ -1,4 +1,5 @@
 let activeUser;
+let assignees=[];
 let currentDraggedElement;
 let contactObject = [];
 let startX = 0;

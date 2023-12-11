@@ -150,7 +150,6 @@ function renderAddTaskSections() {
                 alt="" /></button>
     </div>
 </div>
-
 `};
 
 
@@ -163,3 +162,24 @@ function renderSubTasksList(){
 }
 
 
+function addAssignees() {
+    let box = document.getElementById('assign-list')
+    let contactArr = [];
+    contacts.map((e)=>{if(e.id){contactArr.push(e)}})
+    box.innerHTML = ''
+    for (let i = 0; i < contactArr.length; i++) {
+      let contact = contactArr[i]
+        box.innerHTML +=/*html*/`
+          <li class=contact>
+           <div class="profile">
+            <div class="icon" style="background-color:${contact.color}">${contact.initials}</div>
+            <div class="name">${contact.fullName}</div>
+          </div>
+          <div class="checkbox-container">
+            <input type="checkbox" id="check${i}">
+            <img id="img-box${i}" src="/assets/img/checkbox.png" onclick="addboxClick(${i})" alt="checkbox">
+          </div>        
+        </li>
+        `
+    }
+  }

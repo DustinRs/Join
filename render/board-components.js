@@ -76,11 +76,11 @@ function generateTodoHTML(element) {
             </div>
         </div>
         <div class="footer-box">
-            <div class="profile-initials-container"></div>
-            <div class="prioriy-container">${returnPriority(element.prio)}</div>
+            <div id="profile-initials-container" data-value="${element.assignees}" class="profile-initials-container"></div>
+            <div class="prioriy-container" >${returnPriority(element.prio)}</div>
         </div>
     </div>
-    `
+    `;
 }
 
 function returnPriority(priority) {
