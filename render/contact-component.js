@@ -80,7 +80,7 @@ function renderContactSection(){
 
 function renderEditPopUp(){
     return/*html*/`
-    <div id="editContactPopUp" class="addContactPopUp d-none">
+    <!-- <div id="editContactPopUp" class="addContactPopUp d-none">
         <div class="addContact">
             <div class="logoContact">
                 <div class="textContact">
@@ -107,6 +107,49 @@ function renderEditPopUp(){
                 </div>
             </div>
             </div>
+    </div> -->
+    <div id="editContactPopUp" class="addContactPopUp d-none">
+    <div id="addContact" class="addContact">
+        <div class="logoContact">
+            <div class="textContact">
+                <img class="imgContact" src="/assets/img/logoSmall.png" alt="">
+                <h2 class="h2Contact"><b>Edit contact</b></h2>
+                <div class="lineContact"></div>
+            </div>
+        </div>
+        <button class="closePopUp" onclick="closePopUpEditContact()"><img src="/assets/img/btn-x.png"
+                alt=""></button>
+        <form onsubmit="saveContact();return false" class="contactFormular">
+            <div>
+                <div class="profile-initials-pseudo-img" id="profile-img-div"></div>
+            </div>
+            <div id="input-container">
+                <div class="inputsContact">
+                    <div class="input-group sub-container row">
+                        <input id="editName" class=" contact-creation-inputs form-control subtask-input" type="text"
+                            placeholder="Name" required />
+                        <img src="/assets/img/person.png" alt="">
+                    </div>
+                    <div class="input-group sub-container row">
+                        <input id="editEmail" class=" contact-creation-inputs form-control subtask-input" type="email"
+                            placeholder="Email" required />
+                        <img src="/assets/img/mail.png" alt="">
+                    </div>
+                    <div class="input-group sub-container row">
+                        <input id="editNumber" class=" contact-creation-inputs form-control subtask-input"
+                            type="number" placeholder="Phone" required />
+                        <img src="/assets/img/call.png" alt="">
+                    </div>
+                </div>
+                <div class="divButtonsContact">
+                    <button id="clearButton" class="clearButton" onclick="clearContactsForm()">Delete <img
+                            src="/assets/img/btn-x.png" alt=""></button>
+                    <button class="createTaskButton" type="submit">Save <img
+                            src="/assets/img/checkbtn-checkmark.png" alt=""></button>
+                </div>
+            </div>
+        </form>
     </div>
+</div>
     `
 }

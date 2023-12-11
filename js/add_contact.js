@@ -40,14 +40,13 @@ async function init() {
 
 function renderContactPage(activeUser) {
   let body = document.querySelector('body');
-  let section = document.createElement('section');
+  let section = document.querySelector('section');
   let header = document.querySelector('header');
   let nav = document.querySelector('nav');
   let main = document.querySelector('main');
   nav.innerHTML = renderNavBar();
   header.innerHTML = renderHeader(activeUser);
-  main.append(section);
-  section.innerHTML += renderContactSection();
+  section.innerHTML = renderContactSection();
   body.innerHTML += renderContactPopUp();
   body.innerHTML += renderEditPopUp();
 }
@@ -133,7 +132,7 @@ function openProfile(id) {
         <div class="profile-initials-pseudo-img" style="background-color:${e.color}">
            ${e.initials}
         </div>
-    <div class="nameProfile"><h2>${e.fullName}</h2><div class="buttonsPopUp"><Button onclick="editProfile('${e}')" class="buttonPopUp"><img src="/assets/img/edit.png" alt=""> Edit</Button><Button class="buttonPopUp"><img src="/assets/img/delete.png" alt=""> Delete</Button></div></div>
+    <div class="nameProfile"><h2>${e.fullName}</h2><div class="buttonsPopUp"><Button onclick="editProfile(${e.id})" class="buttonPopUp"><img src="/assets/img/edit.png" alt=""> Edit</Button><Button class="buttonPopUp"><img src="/assets/img/delete.png" alt=""> Delete</Button></div></div>
     </div>
     <p>Contact Information</p>
     <p><b>Email</b></p>
@@ -146,13 +145,18 @@ function openProfile(id) {
 }
 
 
-function editProfile(object) {
-  console.log(object)
+function editProfile(id) {
+  let object = contacts.filter((contact) => contact.id === id)[0];
+  let index = contacts.indexOf(object);
+  
   openPopUpEditContact(object);
   document.getElementById("editName").value = object.fullName;
   document.getElementById("editEmail").value = object.email;
   document.getElementById("editNumber").value = object.phoneNumber;
-  contacts.splice(contacts.indexOf(object.id), 1,object);
+  let img =document.getElementById("profile-img-div");
+  img.innerText = object.initials;
+  img.style.backgroundColor = object.color;
+  // contacts.splice(contacts.indexOf(object.id), 1,object);
   
 }
 
@@ -181,7 +185,7 @@ async function saveContact() {
   };
   
   //deleteContact(firstName, name, email, number);
-  contacts.push(contact);
+  // contacts.push(contact);
   setContacts(contactKey, contacts);
   init();
 }

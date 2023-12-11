@@ -215,3 +215,8 @@ function createInitials(name) {
     return initials = item.slice(0, 1)
   }
 }
+
+function logOut(){
+  sessionStorage.clear();
+  window.location.replace("/index.html");
+}

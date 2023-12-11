@@ -16,10 +16,11 @@ function addSignUpHandler() {
     for (let i = 2; i < div.length; i++) {
       if (password.value != confirm_password.value) {
         confirm_password.setCustomValidity("Passwords Don't Match"),
-          div[i].style.border = "3px solid red";
+          div[2].style.border = "3px solid red";
+          div[3].style.border = "3px solid red";
         disableSignUp(); return false
-      } else if (confirm_password.value.length > 0) {
-        div[i].style.border = "3px solid green"
+      } else if (confirm_password.value.length >= 8 && password.value == confirm_password.value) {
+        div[i].style = "border:3px solid green!important"
         confirm_password.setCustomValidity('');
         enableSignUp(); return true
       }
