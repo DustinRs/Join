@@ -7,7 +7,7 @@ function renderAddTaskSections() {
         <div class="input-group sub-container row">
             <input id="title" class="form-control subtask-input" type="text" placeholder="Enter a title" required />
         </div>
-        <h6>Description</h6>
+        <h6>Description<span class="span">*</span></h6>
         <div id="area-container" class="input-group sub-container row">
             <textarea id="description" class="form-control subtask-input" placeholder="Enter a Description" cols="30"
                 rows="10" required></textarea>

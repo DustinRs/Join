@@ -173,21 +173,18 @@ function closePopUpEditContact() {
 
 async function saveContact(id) {
   let object = contacts.filter((contact) => contact.id == id)[0];
-  let index = contacts.indexOf(object);
-  console.log(index);
   let Name = document.getElementById("editName").value;
   let email = document.getElementById("editEmail").value;
   let number = document.getElementById("editNumber").value;
-
   let firstName = Name.split(" ").slice(0, -1).join(" ");
   let name = Name.split(" ").slice(-1).join(" ");
 
-    contacts[index].fullName = Name;
-    contacts[index].name = name;
-    contacts[index].firstName = firstName;
-    contacts[index].email = email;
-    contacts[index].phoneNumber = number;
-    contacts[index].initials = createInitials(Name);
+  object.fullName = Name;
+  object.name = name;
+  object.firstName = firstName;
+  object.email = email;
+  object.phoneNumber = number;
+  object.initials = createInitials(Name);
   
 
   await setContacts(contactKey, contacts);
