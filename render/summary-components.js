@@ -22,11 +22,11 @@ function gridContainer() {
     <div id="grid">  
         <div id=grid-main-container>
             <div class="grid-container1">
-                <div id="To-Do" class="grid-item"><img src="/assets/img/pen-frame.png" alt=""><div class="auxilary-container"><h1>${toDo.length}</h1><span>To do</span></div></div>
-                <div id="Done" class="grid-item"><img src="/assets/img/checkmark-frame.png" alt=""><div class="auxilary-container"><h1>${done.length}</h1> <span>Done</span></div></div>
+                <div id="To-Do" onclick="openBoard()" class="grid-item"><img src="/assets/img/pen-frame.png" alt=""><div class="auxilary-container"><h1>${toDo.length}</h1><span>To do</span></div></div>
+                <div id="Done" onclick="openBoard()" class="grid-item"><img src="/assets/img/checkmark-frame.png" alt=""><div class="auxilary-container"><h1>${done.length}</h1> <span>Done</span></div></div>
             </div>
             <div class="grid-container2">
-                <div id="urgent" class="grid-item"><div class="displayFlex"><img src="/assets/img/arrow-up.png" alt="">
+                <div id="urgent" onclick="openBoard()" class="grid-item"><div class="displayFlex"><img src="/assets/img/arrow-up.png" alt="">
                     <div class="auxilary-container">
                         <h1>${urgent.length}</h1><span>Urgent</span>                
                     </div>
@@ -38,13 +38,13 @@ function gridContainer() {
                 </div>
             </div>
             <div class="grid-container3">
-                <div id="taskInBoard" class="grid-item deadline">
+                <div id="taskInBoard" onclick="openBoard()" class="grid-item deadline">
                 <h1>${allTasks.length}</h1><div class="grid-3-text">Tasks in Board</div>
                 </div>
-                <div id="taskInProgress" class="grid-item deadline">
+                <div id="taskInProgress" onclick="openBoard()" class="grid-item deadline">
                     <h1>${inProgress.length}</h1><div class="grid-3-text">Tasks in Progress</div>
                 </div>
-                <div id="awaitingFeedback" class="grid-item deadline">
+                <div id="awaitingFeedback" onclick="openBoard()" class="grid-item deadline">
                     <h1>${awaitFeedback.length}</h1><div class="grid-3-text">Awaiting Feedback</div>
                 </div>
             </div>

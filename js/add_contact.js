@@ -284,7 +284,6 @@ function randomColor() {
 
 function getRandomColor(id,color) {
   let divName = document.getElementById(id);
-  console.log(divName)
   divName.style.backgroundColor = color;}
 
 

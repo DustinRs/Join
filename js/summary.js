@@ -46,3 +46,8 @@ function hasContent(statusArray, property, string) {
 function clearSubArrays(...array) {
   return array.length = 0
 }
+
+function openBoard() {
+  let pageUrl = '/assets/templates/board.html';
+  window.open(pageUrl, '_self');
+}
