@@ -424,3 +424,8 @@ h1,h2,h3,h4,h5,h6 :hover {
 .profile-initials:first-of-type{
     margin-left: 0;
 }
+
+#pop-headline{
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+}

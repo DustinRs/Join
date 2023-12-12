@@ -8,7 +8,7 @@ async function init() {
   navActive(1);
   addAssignees();
   checkInputs();
-  setupInputListeners();
+  addSubtaskListener();
 }
 
 function renderAddTaskPage(activeUser) {
@@ -36,8 +36,8 @@ async function addTask(status) {
     prio: prio,
     category: category,
     status: status,
-    subTaskCounter:0,
-    subTask: taskArr=[...subTasks],
+    subTaskCounter: 0,
+    subTask: taskArr = [...subTasks],
     id: Date.now(),
     assignees: assignees,
   };
@@ -63,19 +63,19 @@ function checkInputs() {
   }
 }
 
-function setupInputListeners() {
-  const inputIds = ["title", "description", "date", "category"];
+// function setupInputListeners() {
+//   const inputIds = ["title", "description", "date", "category"];
 
-  inputIds.forEach((id) => {
-    const input = document.getElementById(id);
+//   inputIds.forEach((id) => {
+//     const input = document.getElementById(id);
 
-    if (input) {
-      input.addEventListener("input", checkInputs);
-    } else {
-      console.error(`Element with ID ${id} not found.`);
-    }
-  });
-}
+//     if (input) {
+//       input.addEventListener("input", checkInputs);
+//     } else {
+//       console.error(`Element with ID ${id} not found.`);
+//     }
+//   });
+// }
 
 function checkBoxClicked(priority) {
   let checkbox = document.getElementById(priority);
@@ -92,8 +92,8 @@ function checkBoxClicked(priority) {
 }
 
 
-function resetColor(){
-  let span= document.getElementsByClassName('priority-span');
+function resetColor() {
+  let span = document.getElementsByClassName('priority-span');
   for (let i = 0; i < span.length; i++) {
     span[i].style.backgroundColor = "";
   }
@@ -184,7 +184,7 @@ function setValue(string) {
   input.setAttribute('value', string)
 }
 
-function clearCategoryValue(){
+function clearCategoryValue() {
   let input = document.getElementById('category')
   input.innerText = ''
   input.setAttribute('placeholder', 'Select task category')
@@ -240,21 +240,21 @@ function subTaskClose() {
 }
 
 
-function pushSubTasks(){
+function pushSubTasks() {
   let task = document.getElementById('subtask-input')
-  if(task.value.length > 0){
+  if (task.value.length > 0) {
     subTasks.push(task.value)
     task.value = ''
     renderSubTasksList()
     return subTaskClose()
-  }else if(task.value.length == 0){
+  } else if (task.value.length == 0) {
     task.setCustomValidity('Kindly type in a subtask before adding one.')
     task.reportValidity()
   }
 }
 
 
-function clearAll(){
+function clearAll() {
   let input = document.querySelectorAll('input');
   let textarea = document.querySelectorAll('textarea');
   for (let i = 0; i < input.length; i++) {
@@ -266,7 +266,7 @@ function clearAll(){
   clearCategoryValue()
 }
 
-function pushInfo(){
+function pushInfo() {
   let info = document.getElementById('info')
   info.classList.add('push-up');
 
@@ -275,7 +275,7 @@ function pushInfo(){
   }, 2000)
 };
 
-function goToBoard(){
+function goToBoard() {
   window.location.href = '/assets/templates/board.html';
 };
 
@@ -283,19 +283,30 @@ function goToBoard(){
 function addboxClick(i) {
   let checkbox = document.getElementById(`check${i}`);
   let img = document.getElementById(`img-box${i}`);
-  logTaskCheckBox(checkbox, img,i);
-  }
+  logTaskCheckBox(checkbox, img, i);
+}
 
-  function logTaskCheckBox(box, img,i){
-    if (box.checked) {
-      box.checked = false;
-      img.src = '/assets/img/checkbox.png';
-      img.style = "";
-      assignees.splice(assignees.indexOf(i), 1)
-    } else if (!box.checked) {
-      box.checked = true;
-      img.src = '/assets/img/checked-box.png';
-      img.style = 'width: 18px; height: 18px;transform:translate(6px,0px);margin-right:12px';
-      assignees.push(i)
-    }
+function logTaskCheckBox(box, img, i) {
+  if (box.checked) {
+    box.checked = false;
+    img.src = '/assets/img/checkbox.png';
+    img.style = "";
+    assignees.splice(assignees.indexOf(i), 1)
+  } else if (!box.checked) {
+    box.checked = true;
+    img.src = '/assets/img/checked-box.png';
+    img.style = 'width: 18px; height: 18px;transform:translate(6px,0px);margin-right:12px';
+    assignees.push(i)
   }
+}
+
+function addSubtaskListener() {
+ let input = document.getElementById('subtask-input')
+ input.addEventListener('keyup', function (event) {
+    if (event.key === 'Enter' && input.value.length > 0) {
+      pushSubTasks();
+    } else if (event.key === 'Enter' && input.value.length == 0) {
+      event.preventDefault();
+    }
+  });
+}

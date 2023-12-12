@@ -35,8 +35,6 @@ function startDragging(id) {
 }
 
 
-// hideBar(element)
-
 function allowDrop(ev) {
     ev.preventDefault();
 }
@@ -45,12 +43,20 @@ async function moveTo(status, parentArr) {
     const draggedTask = allTasks.find(task => task.id === currentDraggedElement);
 
     if (draggedTask) {
-        draggedTask.status = status;
-        draggedTask.id = Date.now();
-        sortArray();
-        setAllTasks(tasksKey, allTasks);
-        updateBoard();
-        hideBar();
+        setTimeout(() => {
+            draggedTask.status = status;
+            draggedTask.id = Date.now();
+            sortArray();
+            setAllTasks(tasksKey, allTasks);
+            updateBoard();
+            hideBar();
+        }, 100);
+        // draggedTask.status = status;
+        // draggedTask.id = Date.now();
+        // sortArray();
+        // setAllTasks(tasksKey, allTasks);
+        // updateBoard();
+        // hideBar();
     }
 }
 
@@ -103,10 +109,16 @@ function closePopUp() {
 }
 
 function openPopUp() {
-    renderPopUpAddTask();
-    checkInputs();
+    renderPopUpAddTask()
     let popup = document.getElementById('add-pop-up');
     popup.classList.remove('d-none')
+}
+
+function openTodoPopup(id) {
+    renderSingleTodo(id);
+    let popup = document.getElementById('add-pop-up');
+    popup.classList.remove('d-none')
+
 }
 
 function animatePopUp() {
@@ -162,7 +174,7 @@ function addSearchBarHandler() {
 }
 
 
-function focusInput(){
+function focusInput() {
     let input = document.getElementById("find-task");
     input.focus();
 }

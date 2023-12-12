@@ -55,14 +55,14 @@ function renderComponents(activeUser) {
         </div>    
     </div>
     `,
-    addSearchBarHandler()
+        addSearchBarHandler()
 }
 
 
 function generateTodoHTML(element) {
     let category = convertCategory(element);
     return /*html*/`
-    <div id=${element.id} draggable="true" ondragstart="startDragging(${element.id})" class="todo">
+    <div id=${element.id} data-value="${element.assignees}" draggable="true" ondragstart="startDragging(${element.id})" onclick="openTodoPopup(${element.id})" class="todo">
         <div class="${category}">${element.category}</div>
         <h5 class="drag-headline">${element.title}</h5>
         <div class="todo-content">${element.description}</div>
@@ -102,18 +102,15 @@ function returnPriority(priority) {
 
 
 function renderPopUpAddTask() {
-    let body = document.querySelector('body');
-    body.innerHTML += /*html*/`
-<div id="add-pop-up" class="pop-up-add-task d-none">
-    <div id=pop-up-container>
+    let popUp = document.getElementById('pop-up-container');
+    popUp.innerHTML = /*html*/`
         <div id="task-container">
             <div id="close-pop-up" onclick="closePopUp()"><img src="/assets/img/btn-x.png" alt=""></div>
             ${renderAddTaskSections()}
         </div>
-    </div>
-</div>
-`;
-    setupInputListeners()
+`,
+        styleAddTask()
+    // setupInputListeners()
 }
 
 function renderPopUpTodo() {
@@ -145,15 +142,94 @@ function renderBoardPopUp() {
     `;
 }
 
-function renderTodoIcons(){
+function renderTodoIcons() {
     let divs = document.getElementsByClassName('profile-initials-container');
     for (let i = 0; i < divs.length; i++) {
         let div = divs[i];
-        let index = div.getAttribute('data-value').split(',');
-        for (let i = 0; i < index.length; i++) {
-            div.innerHTML += /*html*/`
-            <div class="profile-initials" data-value="${index[i]}" style="background-color:${contacts[index[i]].color}">${contacts[index[i]].initials}</div>
-            `;
+        let index = div.getAttribute('data-value');
+        if (index && index.trim() !== '') {
+            index = index.split(',');
+            for (let j = 0; j < index.length; j++) {
+                div.innerHTML += /*html*/`
+                    <div class="profile-initials" data-value="${index[j]}" style="background-color:${contacts[index[j]].color}">${contacts[index[j]].initials}</div>
+                `;
+            }
         }
-    } 
+    }
 }
+
+
+    
+function renderSingleTodo(id) {
+    if (id === undefined) { return }
+    let index = allTasks.findIndex((task) => task.id === id);
+    let element = allTasks[index];
+    let text = element.description.split('\n').join('<br/>');
+    let date = element.date.split('-').reverse().join('/');
+    let priority = element.prio.slice(0,1).toUpperCase()+element.prio.slice(1);
+    let category = convertCategory(element);
+    let popUp = document.getElementById('pop-up-container');
+    popUp.innerHTML = /*html*/`
+    <div id="single-todo" data-value="${element.assignees}" class="todo">
+        <div class="${category}">${element.category}</div>          
+        <h5 id="pop-headline" class="drag-headline">${element.title}</h5>
+        <div class="todo-content">${text}</div>
+        <div id="dead-line">Due date: ${date}</div>
+        <div id="pop-priority">Priority: ${priority} ${returnPriority(element.prio)}</div>
+        <ul id="assignement">
+        </ul>
+        <ul id=subtask-list>
+        </ul>
+        <div id="sub${element.id}" class="progress-container">
+            <div class="progress">
+                <div class="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0"
+                    aria-valuemax="100"></div>
+            </div>
+            <div class="subtask-content">
+                <div>${element.subTaskCounter}</div>
+                <div>/${element.subTask.length}</div>
+                <div>Subtasks</div>
+            </div>
+        </div>
+        <div class="footer-box">
+            <div data-value="${element.assignees}" class="profile-initials-container"></div>
+            <div class="prioriy-container">${returnPriority(element.prio)}</div>
+        </div>
+    </div>
+`
+    styleTodo()
+}
+
+function styleTodo() {
+    let popUp = document.getElementById('pop-up-container');
+    let sheet = document.getElementById('single-todo');
+
+    sheet.style.boxShadow = 'none';
+    popUp.style = 'width:30rem; padding:2rem 1rem';
+}
+
+function styleAddTask() {
+    let popUp = document.getElementById('pop-up-container');
+    popUp.style.width = '80%';
+
+}
+
+
+//      single container
+// position: absolute;
+// display: flex;
+// background-color: white;
+// inset: 0px;
+// height: 87%;
+// margin: auto;
+// padding: 0px 5.5em;
+// width: 45%;
+// border-radius: 30px;
+// flex-direction: column;
+// transform: translateX(75rem);
+
+
+// function getSubLi(subtaskList){
+//     return subtaskList.map((subtask) => {
+//         return /*html*/`<li class="subtask">${subtask}</li>`
+//     }).join('')}
