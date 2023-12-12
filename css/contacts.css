@@ -100,7 +100,7 @@ section{
     font-size: 20px;
 }
 .register span {
-    padding-left: 54px;
+    padding-left: 1.5rem;
 }
 .registerLine {
     display: flex;
@@ -115,7 +115,7 @@ section{
     align-items: center;
     width: 20rem;
     height: 78px;
-    padding: 1rem 0 1rem 5rem;
+    padding: 0rem 1.5rem 0rem 3rem;
     gap: 12px;
 }
 .contact:hover {
@@ -135,7 +135,7 @@ section{
     background-color: blue;
 }
 .fullName {
-    font-size: 1rem;
+    font-size: 1.2rem;
 }
 .nameLinkDiv {
     display: flex;
@@ -143,6 +143,7 @@ section{
 }
 .emailLinks {
     color: #007CEE;
+    word-break: break-all;
 }
 .headlineDiv {
     display: flex;
