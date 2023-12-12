@@ -425,7 +425,7 @@ function editCurrentTodo(task,object) {
                           type="checkbox" 
                           value="Urgent" 
                           onclick="checkBoxClicked('urgent')">
-                      <span class="priority-span" id="urgent-span">Urgent <img class="prioImgs" id="urgent-img"src="/assets/img/urgent-priority.png" alt=""></span>
+                      <span class="edit-priority-span" id="urgent-span">Urgent <img class="prioImgs" id="urgent-img"src="/assets/img/urgent-priority.png" alt=""></span>
                   </label>
               </div>
               <div class="prio Medium">
@@ -434,7 +434,7 @@ function editCurrentTodo(task,object) {
                           type="checkbox" 
                           value="Medium" 
                           onclick="checkBoxClicked('medium')">
-                      <span class="priority-span" id="medium-span">Medium <img class="prioImgs" id="medium-img"src="/assets/img/medium-priority.png" alt=""></span>
+                      <span class="edit-priority-span" id="medium-span">Medium <img class="prioImgs" id="medium-img"src="/assets/img/medium-priority.png" alt=""></span>
                   </label>
               </div>
               <div class="prio Low">
@@ -443,7 +443,7 @@ function editCurrentTodo(task,object) {
                           type="checkbox" 
                           value="Low" 
                           onclick="checkBoxClicked('low')">
-                      <span class="priority-span" id="low-span">Low <img class="prioImgs" id="low-img"src="/assets/img/low-priority.png" alt=""></span>
+                      <span class="edit-priority-span" id="low-span">Low <img class="prioImgs" id="low-img"src="/assets/img/low-priority.png" alt=""></span>
                   </label>
               </div>
           </div>
