@@ -115,7 +115,7 @@ section{
     align-items: center;
     width: 20rem;
     height: 78px;
-    padding: 0rem 0 0rem 3rem;
+    padding: 0rem 1.5rem 0rem 3rem;
     gap: 12px;
 }
 .contact:hover {
@@ -143,6 +143,7 @@ section{
 }
 .emailLinks {
     color: #007CEE;
+    word-break: break-all;
 }
 .headlineDiv {
     display: flex;
