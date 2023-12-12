@@ -118,11 +118,13 @@ section{
     padding: 0rem 1.5rem 0rem 3rem;
     gap: 12px;
 }
+
 .contact:hover {
     cursor: pointer;
     background-color: lightgray;
     border-radius: 10px;
 }
+
 .initials {
     display: flex;
     justify-content: center;
@@ -133,6 +135,7 @@ section{
     border-radius: 45px;
     color: white;
     background-color: blue;
+    border: 2px solid white;
 }
 .fullName {
     font-size: 1.2rem;
@@ -140,6 +143,7 @@ section{
 .nameLinkDiv {
     display: flex;
     flex-direction: column;
+    margin-left: 1rem;
 }
 .emailLinks {
     color: #007CEE;
@@ -147,15 +151,28 @@ section{
 }
 .headlineDiv {
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: start;
-    margin-bottom: 32px;
-    margin-top: 84px;
-    margin-left: 60px;
+    margin-bottom: 2rem;
+    margin-top: 5rem;
+    margin-left: 4rem;
+    width: 40rem;
 }
 .h1 {
-   font-size: 61px;
-    font-weight: 700; 
+   font-size: 4rem !important;
+    font-weight: 700 !important; 
+}
+.h2 {
+    font-size: 3rem !important;
+    font-weight: 500 !important; 
+}
+.pProfile {
+    font-size: 1.5rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+.pMail{
+    margin-top: 1rem;
 }
 .blueLine {
     border: 3px solid #29ABE2;
@@ -173,10 +190,10 @@ section{
 }
 .userProfile {
     display: flex;
-    width: 461px;
-    height: 364px;
-    gap: 21px;
-    margin-left: 60px;
+    width: 29rem;
+    height: 23rem;
+    gap: 1.5rem;
+    margin-left: 3.5rem;
 }
 
 .topProfile {
@@ -402,13 +419,13 @@ input[type=number] {
 } */
 
 .profile-initials-pseudo-img{
-    height: 6rem;
-    width: 6rem;
+    height: 7.5rem;
+    width: 7.5rem;
     border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 2.5rem;
+    font-size: 3rem;
     font-weight: 400;
     color: white;
     border:2px solid white;
@@ -418,4 +435,9 @@ input[type=number] {
 #profile-img-div{
     height: 8rem;
     width:8rem;
+}
+.activeContact {
+    background-color: #2A3647;
+    color: white;
+    border-radius: 10px;
 }

@@ -88,7 +88,7 @@ function renderContacts(letter) {
 
     if (letter === `${initial}`) {
       container.innerHTML += `
-        <div id="${contact.name}${i}" onclick="openProfile('${contact.id}')" class="contact">
+        <div id="${contact.name}${i}" onclick="openProfile('${contact.id}'); contactActive('${contact.name}${i}')" class="contact">
         
         <div>
             <span id="${contact.id}" class="initials">${contact.initials}</span>
@@ -135,12 +135,12 @@ function openProfile(id) {
         <div class="profile-initials-pseudo-img" style="background-color:${e.color}">
            ${e.initials}
         </div>
-    <div class="nameProfile"><h2>${e.fullName}</h2><div class="buttonsPopUp"><Button onclick="editProfile(${e.id})" class="buttonPopUp"><img src="/assets/img/edit.png" alt=""> Edit</Button><Button onclick="deleteContact(${e.id})" class="buttonPopUp"><img src="/assets/img/delete.png" alt=""> Delete</Button></div></div>
+    <div class="nameProfile"><h2 class="h2">${e.fullName}</h2><div class="buttonsPopUp"><Button onclick="editProfile(${e.id})" class="buttonPopUp"><img src="/assets/img/edit.png" alt=""> Edit</Button><Button onclick="deleteContact(${e.id})" class="buttonPopUp"><img src="/assets/img/delete.png" alt=""> Delete</Button></div></div>
     </div>
-    <p>Contact Information</p>
+    <p class="pProfile">Contact Information</p>
     <p><b>Email</b></p>
     <a class="profileLink" href="">${e.email}</a>
-    <p><b>Phone</b></p>
+    <p class="pMail"><b>Phone</b></p>
     <p>${e.phoneNumber}</p>
   </div>`;
   // setContactBackgroundColor(name);
@@ -156,8 +156,8 @@ function editProfile(id) {
   let img = document.getElementById("profile-img-div");
   img.innerText = object.initials;
   img.style.backgroundColor = object.color;
-  let button = document.getElementById('saveButton');
-  button.setAttribute('onclick', `saveContact(${id})`);
+  let button = document.getElementById("saveButton");
+  button.setAttribute("onclick", `saveContact(${id})`);
   // contacts.splice(contacts.indexOf(object.id), 1,object);
 }
 
@@ -170,12 +170,14 @@ function closePopUpEditContact() {
 }
 
 async function saveContact(id) {
-  if(id==undefined){return}
+  if (id == undefined) {
+    return;
+  }
   let getObject = contacts.filter((e) => e.id == id)[0];
-  let index=contacts.findIndex((e)=>e.id==id)
-  let editedObject=editObject(getObject)
-  
-  console.log(editedObject)
+  let index = contacts.findIndex((e) => e.id == id);
+  let editedObject = editObject(getObject);
+
+  console.log(editedObject);
   contacts[index] = editedObject;
   console.log(contacts);
 
@@ -195,7 +197,6 @@ async function deleteContact(id) {
   await setContacts(contactKey, contacts);
   init();
 }
-
 
 function openPopUpAddContact() {
   document.getElementById("addContactPopUp").classList.remove("d-none");
@@ -280,7 +281,6 @@ function clearContactsForm() {
   }
 }
 
-
 function editObject(person) {
   let object = {
     color: person.color,
@@ -289,7 +289,21 @@ function editObject(person) {
     email: document.getElementById("editEmail").value,
     phoneNumber: document.getElementById("editNumber").value,
     initials: createInitials(document.getElementById("editName").value),
-    firstName: differMultipleNames(document.getElementById("editName").value).firstName,
-    name: differMultipleNames(document.getElementById("editName").value).lastName
-  };return object
+    firstName: differMultipleNames(document.getElementById("editName").value)
+      .firstName,
+    name: differMultipleNames(document.getElementById("editName").value)
+      .lastName,
+  };
+  return object;
+}
+function contactActive(id) {
+  let allElements = document.querySelectorAll(".contact");
+  allElements.forEach((element) => {
+    if (element.id !== id) {
+      element.classList.remove("activeContact");
+    }
+  });
+
+  let active = document.getElementById(id);
+  active.classList.add("activeContact");
 }
