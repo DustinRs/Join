@@ -15,7 +15,8 @@ function renderComponents(activeUser) {
                         <div class="input-border"></div>
                         <button class="btn btn-outline-secondary sub-active" 
                                 id="search-btn"
-                                type="button">
+                                type="button"
+                                onclick="focusInput()">
                             <img id="#search-img" src="/assets/img/search.png" alt="">
                          </button>
                     </div>
@@ -53,8 +54,8 @@ function renderComponents(activeUser) {
             </div>
         </div>    
     </div>
-    `;
-    //    renderPopUpAddTask();
+    `,
+    addSearchBarHandler()
 }
 
 

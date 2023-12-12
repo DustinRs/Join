@@ -151,6 +151,9 @@ main {
 
 #search-btn{
     margin-right:1rem;
+    &:focus{
+        box-shadow: none;
+    }
 } 
 
 

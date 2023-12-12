@@ -8,11 +8,12 @@ async function init() {
 }
 
 
-function updateBoard() {
-    taskFilter(allTasks, "To-Do", todoArr);
-    taskFilter(allTasks, "In-Progress", progressArr)
-    taskFilter(allTasks, "Await-Feedback", awaitArr);
-    taskFilter(allTasks, "Done", doneArr);
+function updateBoard(searchArr) {
+    const fliterArr = searchArr || allTasks;
+    taskFilter(fliterArr, "To-Do", todoArr);
+    taskFilter(fliterArr, "In-Progress", progressArr)
+    taskFilter(fliterArr, "Await-Feedback", awaitArr);
+    taskFilter(fliterArr, "Done", doneArr);
     checkDragArea();
     hideBar();
     renderTodoIcons()
@@ -123,8 +124,8 @@ function checkDragArea() {
     for (let i = 0; i < dragArea.length; i++) {
         if (dragArea[i].innerHTML.includes('Technical Task') || dragArea[i].innerHTML.includes('User Story')) {
             if (dragArea[i].firstElementChild) {
-                dragArea[i].style='justify-content: flex-start';
-                dragArea[i].style = 'border:none;background-color: transparent;border-radius:3rem;justify-content: flex-start' 
+                dragArea[i].style = 'justify-content: flex-start';
+                dragArea[i].style = 'border:none;background-color: transparent;border-radius:3rem;justify-content: flex-start'
             }
         } else {
             dragArea[i].style = '';
@@ -134,13 +135,34 @@ function checkDragArea() {
 }
 
 function opendTodoPopUp() {
-document.getElementById('boardPopUp').classList.remove('d-none');
+    document.getElementById('boardPopUp').classList.remove('d-none');
 }
 
-function addAssignees(){
+function addAssignees() {
     let idArr = [];
     for (let i = 0; i < assignees.length; i++) {
         idArr.push(allTasks[assignees[i]].id)
     }
     return idArr
-}   
+}
+
+
+function addSearchBarHandler() {
+    let input = document.getElementById("find-task");
+    function search() {
+        let searchTerm = input.value.toLowerCase();
+        let filteredTasks = allTasks.filter(task => {
+            let title = task.title.toLowerCase();
+            let description = task.description.toLowerCase();
+            return title.includes(searchTerm) || description.includes(searchTerm);
+        });
+        updateBoard(filteredTasks);
+    }
+    input.oninput = search;
+}
+
+
+function focusInput(){
+    let input = document.getElementById("find-task");
+    input.focus();
+}
