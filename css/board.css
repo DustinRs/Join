@@ -196,7 +196,19 @@ h1 {
     justify-content: center;
     margin-bottom: 20px;
 }
+.categoryBoardPopUp {
+    width: fit-content !important;
+    font-size: 1.5rem !important;
 
+}
+.headlineBoardPopUp {
+    font-size: 4rem !important;
+    font-weight: 700 !important;
+}
+.descriptionBoardPopUp {
+    font-size: 1.2rem !important;
+
+}
 .todo-content {
     color: rgba(0, 0, 0, 0.6)
 }
@@ -260,7 +272,8 @@ h5 {
     display: flex;
     background-color: white;
     inset: 0;
-    height: 87%;
+    min-height: 60%;
+    max-height: fit-content;
     margin: auto;
     padding: 0 5.5em;
     width: 80%;
@@ -347,8 +360,8 @@ h6:not(:first-of-type):not(:nth-of-type(4)) {
 #close-pop-up {
     position: absolute;
     display: flex;
-    right: 0;
-    top: 1em;
+    right: 2em;
+    top: 3.3em;
     height: 2em;
     padding: 9px;
     border-radius: 50%;

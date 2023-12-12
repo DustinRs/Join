@@ -125,6 +125,38 @@ function animatePopUp() {
 
 }
 
+async function deleteTask(id) {
+    let object = allTasks.find((task) => task.id == id);
+    
+    if (object) {
+      let index = allTasks.indexOf(object);
+      allTasks.splice(index, 1);
+    }
+    await setAllTasks(tasksKey, allTasks);
+    closePopUp();
+    updateBoard();
+  }
+async function editTask(id) {
+    let object = allTasks.filter((task) => task.id == id)[0];
+    openEditTaskPopUp(object);
+    document.getElementById("titleEdit").value = object.title;
+    document.getElementById("descriptionEdit").value = object.description;
+    document.getElementById("assignedEdit").value = object.assignees;
+    document.getElementById("dateEdit").value = object.date;
+    document.getElementById("prioEdit").value = object.prio;
+    document.getElementById("categoryEdit").value = object.category;
+    document.getElementById("subtaskEdit").innerHTML = object.subTask;
+}
+
+function saveEditTask() {
+
+}
+
+function openEditTaskPopUp() {
+    renderEditTaskPopUp();
+    let popup = document.getElementById('pop-up-container');
+    popup.classList.remove('d-none')
+}
 
 function changeStatus(string) {
     let btn = document.getElementById('createTaskButton')
