@@ -109,7 +109,7 @@ function renderPopUpAddTask() {
             ${renderAddTaskSections()}
         </div>
 `,
-        styleAddTask()
+styleAddTask()
     // setupInputListeners()
 }
 
@@ -127,20 +127,6 @@ function renderPopUpTodo() {
     `;
 }
 
-function renderBoardPopUp() {
-    return/*html*/`
-    <div id="boardPopUp" class="pop-up-board d-none">
-        <div id="" class="">User Story</div>
-        <div id="" class="">Title</div>
-        <div id="" class="">Description</div>
-        <div id="" class="">Due Date</div>
-        <div id="" class="">Priority</div>
-        <div id="" class="">Assigned To</div>
-        <div id="" class="">Subtasks</div>
-        <div id="" class=""><button>Delete</button><button>Edit</button></div>
-    </div>
-    `;
-}
 
 function renderTodoIcons() {
     let divs = document.getElementsByClassName('profile-initials-container');
@@ -170,22 +156,25 @@ function renderSingleTodo(id) {
     let category = convertCategory(element);
     let popUp = document.getElementById('pop-up-container');
     popUp.innerHTML = /*html*/`
+    <div id="close-pop-up" onclick="closePopUp()"><img src="/assets/img/btn-x.png" alt=""></div>
     <div id="single-todo" data-value="${element.assignees}" class="todo">
         <div class="${category}">${element.category}</div>          
         <h5 id="pop-headline" class="drag-headline">${element.title}</h5>
-        <div class="todo-content">${text}</div>
-        <div id="dead-line">Due date: ${date}</div>
-        <div id="pop-priority">Priority: ${priority} ${returnPriority(element.prio)}</div>
-        <ul id="assignement">
-            <label for="assignement">Assigned to</label>
-            ${getAssignList(element.assignees)}
-        </ul>
-        <ul id=subtask-list>
-            <label for="subtask-list">Subtasks</label>
-            ${getSubList(element.subTask)}
-        </ul>
-
-        <div class="footer-box">
+        <div id="todo-popup-content-box">
+            <div id="todo-text-content" class="todo-content">${text}</div>
+            <div id="dead-line">Due date: ${date}</div>
+            <div id="pop-priority">Priority: ${priority} ${returnPriority(element.prio)}</div>
+            <ul id="assignement">
+                <h6>Assigned to</h6>
+                ${getAssignList(element.assignees)}
+            </ul>
+            <ul id=subtask-list>
+                <h6>Subtasks</h6>
+                ${getSubList(element.subTask)}
+            </ul>
+        </div>
+        <div id="todo-edit-footer">
+            <button id="delete-todo"><img src="/assets/img/delete.png" alt=""> Delete</button><button><img src="/assets/img/edit.png" alt=""> Edit</button>
         </div>
     </div>
 `
@@ -202,23 +191,9 @@ function styleTodo() {
 
 function styleAddTask() {
     let popUp = document.getElementById('pop-up-container');
-    popUp.style.width = '80%';
+    popUp.style = 'width:80%; padding:0 5.5rem';
 
 }
-
-
-//      single container
-// position: absolute;
-// display: flex;
-// background-color: white;
-// inset: 0px;
-// height: 87%;
-// margin: auto;
-// padding: 0px 5.5em;
-// width: 45%;
-// border-radius: 30px;
-// flex-direction: column;
-// transform: translateX(75rem);
 
 
 function getAssignList(assignees){
@@ -239,3 +214,4 @@ function getSubList(subtaskList) {
     }
     return subLiArr.join('')
 }
+
