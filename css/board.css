@@ -11,6 +11,7 @@ main {
     flex-direction: column;
     justify-content: start;
     padding: 5rem 5% 0;
+    padding-left: 6rem;
     align-items: unset;
 }
 
