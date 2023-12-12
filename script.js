@@ -1,5 +1,7 @@
 let activeUser;
 let assignees=[];
+let editTask;
+let editTaskObj;
 let currentDraggedElement;
 let contactObject = [];
 let startX = 0;

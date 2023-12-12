@@ -50,13 +50,7 @@ async function moveTo(status, parentArr) {
             setAllTasks(tasksKey, allTasks);
             updateBoard();
             hideBar();
-        }, 100);
-        // draggedTask.status = status;
-        // draggedTask.id = Date.now();
-        // sortArray();
-        // setAllTasks(tasksKey, allTasks);
-        // updateBoard();
-        // hideBar();
+        }, 50);
     }
 }
 
@@ -136,19 +130,19 @@ async function deleteTask(id) {
     closePopUp();
     updateBoard();
   }
-async function editTask(id) {
-    let object = allTasks.filter((task) => task.id == id)[0];
-    openEditTaskPopUp(object);
-    document.getElementById("titleEdit").value = object.title;
-    document.getElementById("descriptionEdit").value = object.description;
-    document.getElementById("assignedEdit").value = object.assignees;
-    document.getElementById("dateEdit").value = object.date;
-    document.getElementById("prioEdit").value = object.prio;
-    document.getElementById("categoryEdit").value = object.category;
-    document.getElementById("subtaskEdit").innerHTML = object.subTask;
-    let button = document.getElementById("okEditButton");
-    button.setAttribute("onclick", `saveEditTask(${id})`);
-}
+// function editTask(id) {
+//     let object = allTasks.filter((task) => task.id == id)[0];
+//     openEditTaskPopUp(object);
+//     document.getElementById("titleEdit").value = object.title;
+//     document.getElementById("descriptionEdit").value = object.description;
+//     document.getElementById("assignedEdit").value = object.assignees;
+//     document.getElementById("dateEdit").value = object.date;
+//     document.getElementById("prioEdit").value = object.prio;
+//     document.getElementById("categoryEdit").value = object.category;
+//     document.getElementById("subtaskEdit").innerHTML = object.subTask;
+//     let button = document.getElementById("okEditButton");
+//     button.setAttribute("onclick", `saveEditTask(${id})`);
+// }
 
 /*async function saveEditTask(id) {
     if (id == undefined) {
@@ -208,9 +202,6 @@ function checkDragArea() {
     }
 }
 
-function opendTodoPopUp() {
-    document.getElementById('boardPopUp').classList.remove('d-none');
-}
 
 function addAssignees() {
     let idArr = [];
@@ -240,3 +231,25 @@ function focusInput() {
     let input = document.getElementById("find-task");
     input.focus();
 }
+
+function generateVarObj(obj) {
+    let todoObject = {
+        text : obj.description.split('\n').join('<br/>'),
+        date : obj.date.split('-').reverse().join('/'),
+        priority : obj.prio.slice(0, 1).toUpperCase() + obj.prio.slice(1),
+        category : convertCategory(obj)
+    }
+    return todoObject,editTaskObj=todoObject
+}
+
+
+function startEdit() {
+    editCurrentTodo(editTask,editTaskObj),
+    writeDescription(editTask);
+}
+
+function writeDescription(task) {
+    let description = document.getElementById("description");
+    let value = task.description;
+    description.innerHTML = value;
+  }

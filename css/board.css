@@ -273,8 +273,7 @@ h5 {
     display: flex;
     background-color: white;
     inset: 0;
-    min-height: 60%;
-    max-height: fit-content;
+    height: 85%;
     margin: auto;
     padding: 0 5.5em;
     width: 80%;
@@ -310,6 +309,50 @@ h5 {
     display: flex;
     justify-content: space-between;
     width: 100%;
+}
+
+.edit-sections{
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    height: 90%;
+    overflow-y: auto;
+
+    &::-webkit-scrollbar {
+        width: 10px;
+        height:20rem;
+        margin-top: 20px
+    }
+
+
+    &::-webkit-scrollbar-track {
+        background: red;
+        border-radius: 35px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background: #b9b7b7;
+        border-radius: 15px;
+    }
+}
+
+.edit-bottom-section {
+       position: absolute;
+       bottom: 2rem;
+       right: 3rem;
+}
+
+.edit-sections>div>h6{
+    margin-left:0.5rem;
+    
+}
+
+#edit-ok-btn{
+    width: 5rem;
+}
+
+.edit-ul-task-list{
+    margin-bottom: 1rem!important;
 }
 
 .left-section,
@@ -348,6 +391,10 @@ h6:not(:first-of-type):not(:nth-of-type(4)) {
 
 .border {
     margin: 0 2.5em
+}
+
+.edit-border{
+    margin: 1rem 0;
 }
 
 .row {
@@ -451,6 +498,11 @@ ul {
     list-style-position: outside!important;
     margin: 0!important;
     padding: 0!important;
+}
+
+.edit-ul{
+    max-height: 20rem!important;
+    overflow-y: auto!important;
 }
 
 #assignment .contact:hover{

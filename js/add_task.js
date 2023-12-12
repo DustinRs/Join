@@ -6,7 +6,7 @@ async function init() {
   getUser(sessionKey);
   renderAddTaskPage(activeUser);
   navActive(1);
-  addAssignees();
+  addAssigneesSelection();
   checkInputs();
   addSubtaskListener();
 }
@@ -66,7 +66,7 @@ function checkInputs() {
 // function setupInputListeners() {
 //   const inputIds = ["title", "description", "date", "category"];
 
-//   inputIds.forEach((id) => {
+//   inputIds.forEach((index) => {
 //     const input = document.getElementById(id);
 
 //     if (input) {

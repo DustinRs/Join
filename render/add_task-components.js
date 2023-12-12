@@ -162,7 +162,7 @@ function renderSubTasksList(){
 }
 
 
-function addAssignees() {
+function addAssigneesSelection() {
     let box = document.getElementById('assign-list')
     let contactArr = [];
     contacts.map((e)=>{if(e.id){contactArr.push(e)}})
