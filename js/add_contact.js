@@ -177,9 +177,7 @@ async function saveContact(id) {
   let index = contacts.findIndex((e) => e.id == id);
   let editedObject = editObject(getObject);
 
-  console.log(editedObject);
   contacts[index] = editedObject;
-  console.log(contacts);
 
   await setContacts(contactKey, contacts);
   closePopUpEditContact();
