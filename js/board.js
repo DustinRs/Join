@@ -146,11 +146,41 @@ async function editTask(id) {
     document.getElementById("prioEdit").value = object.prio;
     document.getElementById("categoryEdit").value = object.category;
     document.getElementById("subtaskEdit").innerHTML = object.subTask;
+    let button = document.getElementById("okEditButton");
+    button.setAttribute("onclick", `saveEditTask(${id})`);
 }
 
-function saveEditTask() {
+/*async function saveEditTask(id) {
+    if (id == undefined) {
+        return;
+      }
+      let getObject = allTasks.filter((e) => e.id == id)[0];
+      let index = allTasks.findIndex((e) => e.id == id);
+      let editedObject = editedTask(getObject);
+    
+      console.log(editedObject);
+      allTasks[index] = editedObject;
+      console.log(contacts);
+    
+      await setAllTasks(tasksKey, allTasks);
+      closePopUp();
+      updateBoard();
+}*/
 
-}
+/*function editedTask() {
+    let object = {
+        title: document.getElementById("titleEdit").value,
+        description: document.getElementById("descriptionEdit").value,
+        date: document.getElementById("dateEdit").value,
+        prio: document.getElementById("prioEdit").value,
+        status: status,
+        subTaskCounter: 0,
+        subTask: taskArr = [...subTasks],
+        id: Date.now(),
+        assignees: document.getElementById("assignedEdit").value,
+    };
+    return object;
+  }*/
 
 function openEditTaskPopUp() {
     renderEditTaskPopUp();

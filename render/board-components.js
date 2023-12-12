@@ -363,7 +363,7 @@ function renderEditTaskPopUp() {
 <div class="edit-task-bottom-section">
     <div id="submit-btn-container">
         
-        <button id="okEditButton" onclick="saveEditTask()" class="createTaskButton">Ok <img src="/assets/img/checkbtn-checkmark.png"
+        <button id="okEditButton" class="createTaskButton">Ok <img src="/assets/img/checkbtn-checkmark.png"
                 alt="" /></button>
     </div>
 </div>
