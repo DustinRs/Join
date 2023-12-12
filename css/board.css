@@ -427,5 +427,71 @@ h1,h2,h3,h4,h5,h6 :hover {
 
 #pop-headline{
     font-size: 3rem;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.5rem
+}
+
+ul {
+    width: 80%;
+    overflow: hidden!important;
+    list-style-type: none!important;
+    list-style-position: outside!important;
+    margin: 0!important;
+    padding: 0!important;
+}
+
+#assignment .contact:hover{
+    cursor:default!important;
+    background-color: transparent!important;
+}
+
+#todo-text-content{
+    color:black;
+    margin:1rem 0
+}
+
+#pop-priority{
+    margin:1rem 0
+}
+
+#subtask-list{
+    margin:1rem 0!important
+}
+
+#todo-popup-content-box{
+    overflow-y: auto!important;
+    overflow-x: hidden;
+    max-height: calc(32rem + (.75rem + 8px)) !important;
+    ;
+&::-webkit-scrollbar {
+        width: 10px;
+        margin-top: 20px
+    }
+
+    &::-webkit-scrollbar-track {
+        background: white;
+        border-radius: 35px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background: #888;
+        border-radius: 15px;
+    }
+}
+
+#todo-edit-footer{
+    display: flex;
+    align-items: end;
+    position: absolute;
+    right: 2rem;
+    bottom: 2rem;
+    box-sizing: border-box;
+}
+
+#todo-edit-footer>button{
+    background-color: transparent!important;
+    border: none;
+    &:hover{
+        color:#29ABE2;
+        font-weight: 500;
+    }
 }

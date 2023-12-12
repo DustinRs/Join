@@ -418,3 +418,8 @@ input[type=number] {
     height: 8rem;
     width:8rem;
 }
+
+.contact:target{
+    background-color: #2A3647;
+    color:white
+}

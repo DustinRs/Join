@@ -525,6 +525,24 @@ li:hover {
     background-color: rgba(0, 0, 0, 0.08);
 }
 
+#assignement,#subtask-list:hover {
+    cursor: default;
+}
+
+#single-todo:hover{
+    cursor: default;
+}
+
+#assignement>li:hover{
+    cursor:default!important;
+    background-color: transparent!important;
+}
+
+#subtask-list>li:hover{
+    cursor:default!important;
+    background-color: transparent!important;
+}
+
 .relative {
     position: relative;
 }
