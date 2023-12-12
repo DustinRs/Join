@@ -159,14 +159,14 @@ function renderTodoIcons() {
 }
 
 
-    
+
 function renderSingleTodo(id) {
     if (id === undefined) { return }
     let index = allTasks.findIndex((task) => task.id === id);
     let element = allTasks[index];
     let text = element.description.split('\n').join('<br/>');
     let date = element.date.split('-').reverse().join('/');
-    let priority = element.prio.slice(0,1).toUpperCase()+element.prio.slice(1);
+    let priority = element.prio.slice(0, 1).toUpperCase() + element.prio.slice(1);
     let category = convertCategory(element);
     let popUp = document.getElementById('pop-up-container');
     popUp.innerHTML = /*html*/`
@@ -177,23 +177,15 @@ function renderSingleTodo(id) {
         <div id="dead-line">Due date: ${date}</div>
         <div id="pop-priority">Priority: ${priority} ${returnPriority(element.prio)}</div>
         <ul id="assignement">
+            <label for="assignement">Assigned to</label>
+            ${getAssignList(element.assignees)}
         </ul>
         <ul id=subtask-list>
+            <label for="subtask-list">Subtasks</label>
+            ${getSubList(element.subTask)}
         </ul>
-        <div id="sub${element.id}" class="progress-container">
-            <div class="progress">
-                <div class="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0"
-                    aria-valuemax="100"></div>
-            </div>
-            <div class="subtask-content">
-                <div>${element.subTaskCounter}</div>
-                <div>/${element.subTask.length}</div>
-                <div>Subtasks</div>
-            </div>
-        </div>
+
         <div class="footer-box">
-            <div data-value="${element.assignees}" class="profile-initials-container"></div>
-            <div class="prioriy-container">${returnPriority(element.prio)}</div>
         </div>
     </div>
 `
@@ -229,7 +221,21 @@ function styleAddTask() {
 // transform: translateX(75rem);
 
 
-// function getSubLi(subtaskList){
-//     return subtaskList.map((subtask) => {
-//         return /*html*/`<li class="subtask">${subtask}</li>`
-//     }).join('')}
+function getAssignList(assignees){
+    let liArr=[]
+    for (let i = 0; i < assignees.length; i++) {
+        let contact = contacts[assignees[i]];
+        liArr.push(`<li class=contact><div class="profile"><div class="icon" style="background-color:${contact.color}">${contact.initials}</div><div class="name">${contact.fullName}</div></div></li>`)
+    }
+    return liArr.join('')
+}
+
+
+function getSubList(subtaskList) {
+    let subLiArr=[]
+    for (let i = 0; i < subtaskList.length; i++) {
+        let sub = subtaskList[i];
+        subLiArr.push(`<li>${sub}</li>`)
+    }
+    return subLiArr.join('')
+}
