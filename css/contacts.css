@@ -446,3 +446,6 @@ input[type=number] {
     background-color: #2A3647;
     color:white
 }
+.arrowContact {
+    display: none;
+}

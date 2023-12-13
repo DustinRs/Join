@@ -45,9 +45,11 @@ function renderContactPage(activeUser) {
   let main = document.querySelector("main");
   nav.innerHTML = renderNavBar();
   header.innerHTML = renderHeader(activeUser);
-  section.innerHTML = renderContactSection();
+  section.innerHTML += renderContactSection();
+  main.innerHTML += renderAddContactButtonMobile();
   body.innerHTML += renderContactPopUp();
   body.innerHTML += renderEditPopUp();
+  
 }
 
 function renderRegister() {
@@ -88,7 +90,7 @@ function renderContacts(letter) {
 
     if (letter === `${initial}`) {
       container.innerHTML += `
-        <div id="${contact.name}${i}" onclick="openProfile('${contact.id}'); contactActive('${contact.name}${i}')" class="contact">
+        <div id="${contact.name}${i}" onclick="openProfile('${contact.id}'); contactActive('${contact.name}${i}');  setZindex();" class="contact">
         
         <div>
             <span id="${contact.id}" class="initials">${contact.initials}</span>
@@ -304,4 +306,18 @@ function contactActive(id) {
 
   let active = document.getElementById(id);
   active.classList.add("activeContact");
+}
+
+function setZindex() {
+  let div = document.getElementById('zIndex');
+  div.classList.add('zIndex');
+  let arrow = document.getElementById('arrowContact');
+  arrow.classList.remove('d-none');
+}
+
+function removeZindex() {
+  let div = document.getElementById('zIndex');
+  div.classList.remove('zIndex');
+  let arrow = document.getElementById('arrowContact');
+  arrow.classList.add('d-none');
 }

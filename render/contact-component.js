@@ -61,7 +61,7 @@ function renderContactSection(){
         </div>
 
     </div>
-    <div class="popUpUserProfile">
+    <div id="zIndex" class="popUpUserProfile">
     <div class="headlineDiv">
         <div class="headLine">
         <h1 class="h1">Contacts</h1>
@@ -123,5 +123,17 @@ function renderEditPopUp(){
         </form>
     </div>
 </div>
+    `
+}
+
+function renderAddContactButtonMobile(){
+    return/*html*/`
+            <div id="arrowContact" onclick="removeZindex()" class="arrowContact d-none"><a href=""><img src="/assets/img/arrow-left.png" alt=""></a></div>
+    
+            <button onclick="openPopUpAddContact()" class="contactButtonMobile">
+                <img src="/assets/img/person_add.png" alt="">
+            </button>
+        
+        
     `
 }

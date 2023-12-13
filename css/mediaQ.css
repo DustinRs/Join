@@ -276,6 +276,43 @@
 .grid-3-text {
     padding: 0;
 }
+.contactsDiv {
+    position: absolute;
+    left: 0;
+    width: 100%;
+}
+.popUpUserProfile {
+    width: 100%;
+    background-color: #f8f9fa;
+}
+.zIndex {
+    z-index: 12;
+}
+.scrollDiv {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.contactButton {
+    display: none;
+}
+.contactButtonMobile {
+    position: fixed;
+    top: auto;
+    right: 4rem;
+    bottom: 10rem;
+    background-color: #091931;
+    width: 4rem;
+    height: 4rem;
+    border: unset;
+    border-radius: 2rem;
+}
+.arrowContact {
+    display: block;
+    position: absolute;
+    top: 3rem;
+    right: 1.5rem;
+}
 }
 
 @media (max-width: 600px) {
