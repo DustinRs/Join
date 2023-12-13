@@ -58,7 +58,18 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        margin: 0;
     }
+    .navLinks a span {
+        
+        margin: 0;
+    }
+    .navLinks a img {
+        
+        margin: 0;
+    }
+
+
 
     .active {
         background-color: #091931;
