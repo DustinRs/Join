@@ -73,6 +73,7 @@
   .active {
     background-color: #091931;
     color: white;
+    border-radius: 1.5rem;
   }
 
   .navLinkImg {
@@ -90,11 +91,13 @@
     &:hover {
       background-color: #2a3d59;
       color: white;
+      border-radius: 1.5rem;
     }
 
     &:active {
       background-color: #091931;
       color: white;
+      
     }
   }
 
@@ -251,8 +254,11 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: auto;
+    width: 100%;
     padding: 0rem 2rem 0rem 2rem;
+  }
+  .clearButton {
+    display: none;
   }
   .left-section {
     width: 85%;
