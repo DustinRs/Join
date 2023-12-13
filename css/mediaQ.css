@@ -1,7 +1,7 @@
 @media (max-width: 1330px) {
-    main{
-        max-height: 81%;
-    }
+  main {
+    max-height: 81%;
+  }
 }
 
 @media (max-width: 1280px) {
@@ -97,7 +97,6 @@
     &:active {
       background-color: #091931;
       color: white;
-      
     }
   }
 
@@ -272,31 +271,31 @@
   .lineUrgent {
     margin-left: 2rem;
     margin-right: 2rem;
-}
-.grid-3-text {
+  }
+  .grid-3-text {
     padding: 0;
-}
-.contactsDiv {
+  }
+  .contactsDiv {
     position: absolute;
     left: 0;
     width: 100%;
-}
-.popUpUserProfile {
+  }
+  .popUpUserProfile {
     width: 100%;
     background-color: #f8f9fa;
-}
-.zIndex {
+  }
+  .zIndex {
     z-index: 12;
-}
-.scrollDiv {
+  }
+  .scrollDiv {
     display: flex;
     flex-direction: column;
     align-items: center;
-}
-.contactButton {
+  }
+  .contactButton {
     display: none;
-}
-.contactButtonMobile {
+  }
+  .contactButtonMobile {
     position: fixed;
     top: auto;
     right: 4rem;
@@ -306,19 +305,45 @@
     height: 4rem;
     border: unset;
     border-radius: 2rem;
-}
-.arrowContact {
+  }
+  .arrowContact {
     display: block;
     position: absolute;
     top: 3rem;
     right: 1.5rem;
-}
+  }
+  .buttonsPopUpMobile {
+    position: absolute;
+    right: 4rem;
+    bottom: 10rem;
+    z-index: 13;
+    gap: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    background-color: white;
+    width: 8rem;
+    height: 8rem;
+    box-shadow: 0px 6px 8px 0px rgb(0, 0, 0, 0.2);
+    border-radius: 1rem 1rem 0rem 1rem;
+  }
+  .buttonPopUpMobile {
+    border: unset;
+    background-color: white;
+    padding-left: 1rem;
+    display: flex;
+    align-items: center;
+  }
+  .buttonsPopUpMobile img {
+    margin-right: 0.5rem;
+  }
 }
 
 @media (max-width: 600px) {
-    #grid-main-container {
-        width: 90%;
-    }
+  #grid-main-container {
+    width: 90%;
+  }
 }
 
 /* Responsive Design für den Start Screen */

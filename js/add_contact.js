@@ -144,7 +144,8 @@ function openProfile(id) {
     <a class="profileLink" href="">${e.email}</a>
     <p class="pMail"><b>Phone</b></p>
     <p>${e.phoneNumber}</p>
-  </div>`;
+  </div>
+  <div id="buttonsPopUpMobile" class="buttonsPopUpMobile d-none"><Button onclick="editProfile(${e.id}); addDNone();" class="buttonPopUpMobile"><img src="/assets/img/edit.png" alt=""> Edit</Button><Button onclick="deleteContact(${e.id}); addDNone();" class="buttonPopUpMobile"><img src="/assets/img/delete.png" alt=""> Delete</Button></div>`;
   // setContactBackgroundColor(name);
 }
 
@@ -313,6 +314,10 @@ function setZindex() {
   div.classList.add('zIndex');
   let arrow = document.getElementById('arrowContact');
   arrow.classList.remove('d-none');
+  let button = document.getElementById('contactButtonMobile');
+  button.classList.add('d-none');
+  let menu = document.getElementById('menuContactButtonMobile');
+  menu.classList.remove('d-none');
 }
 
 function removeZindex() {
@@ -320,4 +325,22 @@ function removeZindex() {
   div.classList.remove('zIndex');
   let arrow = document.getElementById('arrowContact');
   arrow.classList.add('d-none');
+  let menu = document.getElementById('menuContactButtonMobile');
+  menu.classList.add('d-none');
+  let button = document.getElementById('contactButtonMobile');
+  button.classList.remove('d-none');
+}
+
+function removeDNone() {
+  let button = document.getElementById('buttonsPopUpMobile');
+  button.classList.remove('d-none');
+  let menu = document.getElementById('menuContactButtonMobile');
+  menu.classList.add('d-none');
+}
+
+function addDNone() {
+  let button = document.getElementById('buttonsPopUpMobile');
+  button.classList.add('d-none');
+  let menu = document.getElementById('menuContactButtonMobile');
+  menu.classList.remove('d-none');
 }

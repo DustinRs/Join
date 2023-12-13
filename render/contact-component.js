@@ -130,9 +130,13 @@ function renderAddContactButtonMobile(){
     return/*html*/`
             <div id="arrowContact" onclick="removeZindex()" class="arrowContact d-none"><a href=""><img src="/assets/img/arrow-left.png" alt=""></a></div>
     
-            <button onclick="openPopUpAddContact()" class="contactButtonMobile">
+            <button id="contactButtonMobile" onclick="openPopUpAddContact()" class="contactButtonMobile">
                 <img src="/assets/img/person_add.png" alt="">
             </button>
+            <button id="menuContactButtonMobile" onclick="removeDNone()" class="contactButtonMobile d-none">
+                <img src="/assets/img/menu_btn.png" alt="">
+            </button>
+            
         
         
     `
