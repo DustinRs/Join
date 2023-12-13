@@ -102,6 +102,20 @@ function closePopUp() {
     }, 150);
 }
 
+function closeSingleTodo(id) {
+    function setTaskCounter(id){
+        let task = allTasks.find(task => task.id === id);
+        task.counter = counter
+    }
+    let popup = document.getElementById('add-pop-up');
+    let container = document.getElementById('pop-up-container');
+    container.style.animation = "slide-out 0.15s ease-in-out forwards"
+    setTimeout(() => {
+        popup.classList.add('d-none')
+        container.style.animation = "";
+    }, 150);
+}
+
 function openPopUp() {
     renderPopUpAddTask()
     let popup = document.getElementById('add-pop-up');
@@ -216,3 +230,28 @@ function writeDescription(task) {
     closePopUp();
     updateBoard();
 }
+
+// function taskResolved(){
+
+// }
+
+function subBoxClick(i) {
+    let checkbox = document.getElementById(`check${i}`);
+    let img = document.getElementById(`img-box${i}`);
+    subCheckBox(checkbox, img);
+    }
+  
+  
+  function subCheckBox(box, img){
+    if (box.checked) {
+      box.checked = false;
+      img.src = '/assets/img/checkbox.png';
+      img.style = "";
+      counter-=1;
+    } else if (!box.checked) {
+      box.checked = true;
+      counter+=1;
+      img.src = '/assets/img/checked-box.png';
+      img.style = 'width: 0.9rem;height: .9rem';
+    }
+  }

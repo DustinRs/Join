@@ -88,7 +88,7 @@ function generateTodoHTML(element) {
         <div class="todo-content">${element.description}</div>
         <div id="sub${element.id}" class="progress-container">
             <div class="progress">
-                <div class="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                <div id="progress${element.id}" class="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
             </div>
             <div class="subtask-content">
                 <div>${element.subTaskCounter}</div>
@@ -164,6 +164,15 @@ function renderTodoIcons() {
     }
 }
 
+//////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////onclick="checkboxClick(1)"///////////////////////////////
+//////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////
 
 
 function renderSingleTodo(id) {
@@ -174,7 +183,7 @@ function renderSingleTodo(id) {
     let obj = generateVarObj(element);
     let popUp = document.getElementById('pop-up-container');
     popUp.innerHTML = /*html*/`
-    <div id="close-pop-up" onclick="closePopUp()"><img src="/assets/img/btn-x.png" alt=""></div>
+    <div id="close-pop-up" onclick="closeSingleTodo(id)"><img src="/assets/img/btn-x.png" alt=""></div>
     <div id="single-todo" data-value="${element.assignees}" class="todo">
         <div class="${obj.category} categoryBoardPopUp">${element.category}</div>          
         <h5 id="pop-headline" class="drag-headline headlineBoardPopUp">${element.title}</h5>
@@ -188,7 +197,7 @@ function renderSingleTodo(id) {
             </ul>
             <ul id=subtask-list>
                 <h6 class="descriptionBoardPopUp">Subtasks</h6>
-                ${getSubList(element.subTask)}
+                ${getSubCheckList(element.subTask)}
             </ul>
         </div>
         <div id="todo-edit-footer">
@@ -222,6 +231,24 @@ function getAssignList(assignees) {
         liArr.push(`<li class=contact><div class="profile"><div class="icon" style="background-color:${contact.color}">${contact.initials}</div><div class="name">${contact.fullName}</div></div></li>`)
     }
     return liArr.join('')
+}
+
+function getSubCheckList(subtaskList) {
+    let subLiArr = []
+    for (let i = 0; i < subtaskList.length; i++) {
+        let sub = subtaskList[i];
+        subLiArr.push(/*html*/`
+        <li> 
+            <input type="checkbox" id="check${i}">
+            <div class="sub-task-board">
+                <div class="sub-cb-auxiliary"><img id="img-box${i}" class="sub-checkbox" src="/assets/img/checkbox.png" onclick="subBoxClick(${i})" alt="checkbox"></div>
+                <div class="sub-text">
+                    ${sub}
+                </div>
+            </div>
+        </li>`)
+    }
+    return subLiArr.join('')
 }
 
 
