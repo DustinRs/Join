@@ -113,22 +113,20 @@
         margin: 0 2rem;
     }
 
-    #greet-user {
-        display: none;
-        animation: none;
-    }
+    
 
-    #greet {
+    #greeting-container {
         position: fixed;
         top: 0;
         left: 0;
         right: 0;
         bottom: 0;
         z-index: 9999;
+        height: 100vh;
         display: flex;
         justify-content: center;
         align-items: center;
-        animation: fade-in-out 3s ease 1;
+        animation: fade-in-out 6s ease 1;
         animation-fill-mode: forwards;
         background-color: #f8f9fa;
     }
@@ -137,6 +135,7 @@
         0% {
             opacity: 0;
         }
+        
 
         50% {
             opacity: 1;
@@ -145,13 +144,15 @@
         100% {
             opacity: 0;
         }
+        
     }
 
     .d-flex {
         flex-direction: column;
-        justify-content: flex-start;
-        align-items: start;
+        justify-content: center;
+        align-items: center;
         width: auto;
+        text-align: center;
     }
 
     .stroke {
@@ -170,7 +171,15 @@
         /* Wird an die zweite Stelle verschoben */
     }
     main {
-        left: 12%;
+        width: 100%;
+        left: 0;
+        padding-left: 0;
+        padding: 0% 2% 0% 2%;
+    }
+
+    #grid {
+        display: flex;
+        justify-content: center;
     }
 }
 
