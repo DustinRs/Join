@@ -169,7 +169,10 @@
         /* Wird an die zweite Stelle verschoben */
     }
     main {
-        left: 12%;
+        width: 100%;
+        left: 0;
+        padding-left: 0;
+        padding: 0% 2% 0% 2%;
     }
 }
 
