@@ -430,6 +430,23 @@ input:hover {
     gap: 10px;
 }
 
+#added-profile-initials-container{
+display: flex;
+}
+
+.added-profile-initials{
+    border-radius: 50%;
+    height: 2.1rem;
+    width: 2.1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 0.8rem;
+    margin:.5rem .5rem 0 0;
+    border: .1rem solid white;
+}
+
 .checkbox-container {
     display: flex;
     justify-content: center;

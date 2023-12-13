@@ -146,12 +146,26 @@ function renderTodoIcons() {
 
 
 
+function renderEditIcons(task) {
+    let imgArr = [];
+    console.log(task)
+    let index = task.assignees
+    console.log(index)
+
+    index.forEach((element) => {
+        imgArr.push(`<div class="added-profile-initials" data-value="checked" style="background-color:${contacts[element].color}">${contacts[element].initials}</div>`)
+    })
+    return imgArr.join('')
+}
+
+
+
 function renderSingleTodo(id) {
     if (id === undefined) { return }
     let index = allTasks.findIndex((task) => task.id === id);
     let element = allTasks[index];
-    editTask=element;
-    let obj=generateVarObj(element);
+    editTask = element;
+    let obj = generateVarObj(element);
     let popUp = document.getElementById('pop-up-container');
     popUp.innerHTML = /*html*/`
     <div id="close-pop-up" onclick="closePopUp()"><img src="/assets/img/btn-x.png" alt=""></div>
@@ -176,8 +190,8 @@ function renderSingleTodo(id) {
             <button onclick="startEdit()"><img src="/assets/img/edit.png" alt=""> Edit</button>
         </div>
     </div>`,
-    styleTodo();
-    
+        styleTodo();
+
 }
 
 function styleTodo() {
@@ -369,7 +383,7 @@ function renderEditTaskPopUp() {
 };
 
 
-function editCurrentTodo(task,object) {
+function editCurrentTodo(task, object) {
     console.log(task)
     let popUp = document.getElementById('pop-up-container');
     popUp.innerHTML = /*html*/`
@@ -408,14 +422,17 @@ function editCurrentTodo(task,object) {
                           </div>
                       </li>
                   </ul>
-              </div>
+                </div>
+                <div id="added-profile-initials-container">   ${renderEditIcons(task)}
+
+                </div>
           </div>
       </div>
       <div class="edit-border"></div>
       <div >
           <h6>Due date</h6>
           <div class="input-group sub-container row">
-              <input id="date" class="form-control subtask-input" type="date" required />
+              <input id="date" class="form-control subtask-input" value="${task.date}" type="date" required />
           </div>
           <h6>Prio</h6>
           <div id="prio">
@@ -451,7 +468,7 @@ function editCurrentTodo(task,object) {
           <div class="relative">
               <div id="category-select" class="input-group sub-container">
                   <input class="form-control subtask-input contact-assign-select select" 
-                      value=""
+                      value="${task.category}"
                       placeholder="Select task category" 
                       id="category"
                       onclick="openList('category-select','category','category-ul','category-icon')" 
@@ -509,7 +526,9 @@ function editCurrentTodo(task,object) {
                   </button>
               </div>
               <div id="subtask-listed">
-                  <ul id="task-list" class="edit-ul-task-list"></ul>
+                  <ul id="task-list" class="edit-ul-task-list">
+                        ${getSubList(task.subTask)}
+                  </ul>
               </div>
           </div>
       </div>
@@ -520,5 +539,6 @@ function editCurrentTodo(task,object) {
                   alt="" /></button>
   </div>
   `,
-  addAssigneesSelection()};
+        addAssigneesSelection()
+}
 
