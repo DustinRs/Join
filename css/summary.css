@@ -121,8 +121,8 @@ a>span{
     background-color: #D1D1D1;
     height: 102px;
     border-radius: 2px;
-    margin-left: 48px;
-    margin-right: 48px;
+    margin-left: 3rem;
+    margin-right: 3rem;
 }
 .displayFlex {
     display: flex;
