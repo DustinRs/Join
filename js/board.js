@@ -245,7 +245,7 @@ function generateVarObj(obj) {
 
 function startEdit() {
     editCurrentTodo(editTask,editTaskObj),
-    writeDescription(editTask);
+    writeDescription(editTask)
 }
 
 function writeDescription(task) {
@@ -253,3 +253,5 @@ function writeDescription(task) {
     let value = task.description;
     description.innerHTML = value;
   }
+
+  //added-profile-initials
