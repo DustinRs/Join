@@ -5,55 +5,75 @@ function renderComponents(activeUser) {
     nav.innerHTML = renderNavBar();
     header.innerHTML += renderHeader(activeUser);
     main.innerHTML =/*html*/`
-    <div id="info"><div id="info-text">Task added to board</div><img src="/assets/img/nav-board.png" id="error" alt=""></div>
-    <div  class="column">
-        <div class="sections-drag">
-            <div class="headline">
-                <h1>Board</h1>
-                    <div id="find-task-container" class="input-group sub-container row">
-                        <input id="find-task" class="form-control subtask-input" type="text" placeholder="Find Task"/>
-                        <div class="input-border"></div>
-                        <button class="btn btn-outline-secondary sub-active" 
-                                id="search-btn"
-                                type="button"
-                                onclick="focusInput()">
-                            <img id="#search-img" src="/assets/img/search.png" alt="">
-                         </button>
-                    </div>
-                    <div class="buttonAdd" onclick="openPopUp(),changeStatus('To-Do'),addAssigneesSelection()">Add Task
-                        <img id="white-plus" src="/assets/img/white-plus.png" alt="">
-                    </div>
+<div id="info">
+    <div id="info-text">Task added to board</div><img src="/assets/img/nav-board.png" id="error" alt="">
+</div>
+<div class="column">
+    <div class="sections-drag">
+        <div class="headline">
+            <h1>Board</h1>
+            <div id="find-task-container" class="input-group sub-container row">
+                <input id="find-task" class="form-control subtask-input" type="text" placeholder="Find Task" />
+                <div class="input-border"></div>
+                <button class="btn btn-outline-secondary sub-active" id="search-btn" type="button"
+                    onclick="focusInput()">
+                    <img id="#search-img" src="/assets/img/search.png" alt="">
+                </button>
             </div>
-            <div id="content-headlines">
-                <div class="drag-headlines"><h4>To do</h4> <img class="drag-headlines-plus" src="/assets/img/board-plus.png" alt="plus in box" onclick="openPopUp(),changeStatus('To-Do'),addAssigneesSelection()"></div>
-                <div class="drag-headlines"><h4>In progress</h4> <img class="drag-headlines-plus" src="/assets/img/board-plus.png" alt="plus in box" onclick="openPopUp(),changeStatus('In-Progress'),addAssigneesSelection()"></div>
-                <div class="drag-headlines"><h4>Await feedback</h4> <img class="drag-headlines-plus" src="/assets/img/board-plus.png" alt="plus in box" onclick="openPopUp(),changeStatus('Await-Feedback'),addAssigneesSelection()"></div>
-                <div class="drag-headlines"><h4>Done</h4></div>
+            <div class="buttonAdd" onclick="openPopUp(),changeStatus('To-Do'),addAssigneesSelection()">Add Task
+                <img id="white-plus" src="/assets/img/white-plus.png" alt="">
             </div>
-            <div id="content-box" class="content">
-                <div class="drag-area"  id="To-Do" 
-                ondrop="moveTo('To-Do')" 
-                ondragleave="removeHighlight('To-Do')"
-                ondragover="allowDrop(event); highlight('To-Do')">
+        </div>
+        <div id="content-box" class="content">
+            <div class="drag-headlines">
+                <div class="drag-head">
+                    <h4>To do</h4>
+                    <img class="drag-headlines-plus" src="/assets/img/board-plus.png" alt="plus in box"
+                        onclick="openPopUp(),changeStatus('To-Do'),addAssigneesSelection()">
+
                 </div>
-                <div class="drag-area" id="In-Progress" 
-                ondrop="moveTo('In-Progress')"
-                ondragleave="removeHighlight('In-Progress')"
-                ondragover="allowDrop(event); highlight('In-Progress')">
-                </div>
-                <div class="drag-area" id="Await-Feedback" 
-                ondrop="moveTo('Await-Feedback')" 
-                ondragleave="removeHighlight('Await-Feedback')"
-                ondragover="allowDrop(event); highlight('Await-Feedback')">
-                </div>
-                <div class="drag-area" id="Done" 
-                ondrop="moveTo('Done')" 
-                ondragleave="removeHighlight('Done')"
-                ondragover="allowDrop(event); highlight('Done')">
+                <div class="drag-area" id="To-Do" ondrop="moveTo('To-Do')" ondragleave="removeHighlight('To-Do')"
+                    ondragover="allowDrop(event); highlight('To-Do')">
                 </div>
             </div>
-        </div>    
+            <div class="drag-headlines">
+                <div class="drag-head">
+                    <h4>In progress</h4>
+                    <img class="drag-headlines-plus" src="/assets/img/board-plus.png" alt="plus in box"
+                        onclick="openPopUp(),changeStatus('In-Progress'),addAssigneesSelection()">
+                </div>
+
+                <div class="drag-area" id="In-Progress" ondrop="moveTo('In-Progress')"
+                    ondragleave="removeHighlight('In-Progress')" ondragover="allowDrop(event); highlight('In-Progress')">
+                </div>
+            </div>
+            <div class="drag-headlines">
+
+                <div class="drag-head">
+                    <h4>Await feedback</h4>
+                    <img class="drag-headlines-plus" src="/assets/img/board-plus.png" alt="plus in box"
+                        onclick="openPopUp(),changeStatus('Await-Feedback'),addAssigneesSelection()">
+                </div>
+
+                <div class="drag-area" id="Await-Feedback" ondrop="moveTo('Await-Feedback')"
+                    ondragleave="removeHighlight('Await-Feedback')"
+                    ondragover="allowDrop(event); highlight('Await-Feedback')">
+                </div>
+            </div>
+            <div class="drag-headlines">
+
+                <div class="drag-head">
+                    <h4>Done</h4>
+                </div>
+                <div class="drag-area" id="Done" ondrop="moveTo('Done')" ondragleave="removeHighlight('Done')"
+                    ondragover="allowDrop(event); highlight('Done')">
+                </div>
+
+            </div>
+
+        </div>
     </div>
+</div>
     `,
         addSearchBarHandler()
 }
@@ -151,7 +171,6 @@ function renderSingleTodo(id) {
     let index = allTasks.findIndex((task) => task.id === id);
     let element = allTasks[index];
     editTask = element;
-    console.log(element)
     let obj = generateVarObj(element);
     let popUp = document.getElementById('pop-up-container');
     popUp.innerHTML = /*html*/`
@@ -370,8 +389,9 @@ function renderEditTaskPopUp() {
 };
 
 
-function editCurrentTodo(task, object) {
-    console.log(task)
+function editCurrentTodo(task) {
+    let currentSubTasks = task.subTask
+    subTasks=[...currentSubTasks];
     let popUp = document.getElementById('pop-up-container');
     popUp.innerHTML = /*html*/`
 
@@ -428,7 +448,7 @@ function editCurrentTodo(task, object) {
                       <input id="urgent" 
                           type="checkbox" 
                           value="Urgent" 
-                          onclick="checkBoxClicked('urgent')">
+                          onclick="checkBoxClicked('urgent'),editPrio('urgent')">
                       <span class="edit-priority-span" id="urgent-span">Urgent <img class="prioImgs" id="urgent-img"src="/assets/img/urgent-priority.png" alt=""></span>
                   </label>
               </div>
@@ -437,7 +457,7 @@ function editCurrentTodo(task, object) {
                       <input id="medium" 
                           type="checkbox" 
                           value="Medium" 
-                          onclick="checkBoxClicked('medium')">
+                          onclick="checkBoxClicked('medium'),editPrio('medium')">
                       <span class="edit-priority-span" id="medium-span">Medium <img class="prioImgs" id="medium-img"src="/assets/img/medium-priority.png" alt=""></span>
                   </label>
               </div>
@@ -446,7 +466,7 @@ function editCurrentTodo(task, object) {
                       <input id="low" 
                           type="checkbox" 
                           value="Low" 
-                          onclick="checkBoxClicked('low')">
+                          onclick="checkBoxClicked('low'),editPrio('low')">
                       <span class="edit-priority-span" id="low-span">Low <img class="prioImgs" id="low-img"src="/assets/img/low-priority.png" alt=""></span>
                   </label>
               </div>
@@ -528,7 +548,7 @@ function editCurrentTodo(task, object) {
   `,
         addAssigneesSelection(),
         pushEditAssignees(task)
-        console.log(allTasks.indexOf(task))
+    console.log(allTasks.indexOf(task))
 }
 
 

@@ -56,7 +56,7 @@ main {
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    width: 24%;
+    width: 100%;
     height: 4rem;
     color: black;
 }
@@ -448,9 +448,17 @@ h1 {
 .drag-headlines {
     display: flex;
     width: 25%;
-    flex-direction: row;
+    flex-direction: column;
+    margin-right: 1rem;
+
+}
+
+.drag-head{
+    display: flex;
     justify-content: space-between;
     align-items: center;
+    margin: 1rem 0 1rem 0;
+    padding: 0 .5rem 0 1rem;
 }
 
 .drag-headlines>h4{

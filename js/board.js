@@ -200,7 +200,7 @@ function generateVarObj(obj) {
 
 
 function startEdit() {
-    editCurrentTodo(editTask,editTaskObj),
+    editCurrentTodo(editTask),
     writeDescription(editTask)
 }
 

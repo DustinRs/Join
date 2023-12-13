@@ -33,7 +33,7 @@ async function addTask(status) {
     title: title,
     description: description,
     date: date,
-    prio: prio,
+    prio: prio||"low",
     category: category,
     status: status,
     subTaskCounter: 0,
@@ -59,11 +59,11 @@ async function editTodoInAllTasks(status,index,prio) {
     title: title,
     description: description,
     date: date,
-    prio: prio,
+    prio: editArr[0]||prio,
     category: category,
     status: status,
     subTaskCounter: 0,
-    subTask: taskArr = [...subTasks],
+    subTask: subTasks,
     id: Date.now(),
     assignees: assignees,
   };
@@ -89,19 +89,6 @@ function checkInputs() {
   }
 }
 
-// function setupInputListeners() {
-//   const inputIds = ["title", "description", "date", "category"];
-
-//   inputIds.forEach((index) => {
-//     const input = document.getElementById(id);
-
-//     if (input) {
-//       input.addEventListener("input", checkInputs);
-//     } else {
-//       console.error(`Element with ID ${id} not found.`);
-//     }
-//   });
-// }
 
 function checkBoxClicked(priority) {
   let checkbox = document.getElementById(priority);
@@ -122,7 +109,7 @@ function resetColor() {
   let span = document.getElementsByClassName('priority-span');
   for (let i = 0; i < span.length; i++) {
     span[i].style.backgroundColor = "";
-  }
+  }checkBoxClicked
 }
 
 
@@ -131,9 +118,7 @@ function deactivateOtherCheckboxes(currentPriority) {
   for (const priority of priorities) {
     if (priority !== currentPriority) {
       document.getElementById(priority).checked = false;
-      document.getElementById(
-        priority
-      ).parentNode.parentNode.style.backgroundColor = "";
+      document.getElementById(priority).parentNode.parentNode.style.backgroundColor = "";
       document
         .getElementById(priority)
         .closest(".prio")
@@ -345,4 +330,8 @@ function pushEditAssignees(task){
       addboxClick(element)
   })
 
+}
+
+function editPrio(newPrio){
+  editArr = [newPrio]
 }
