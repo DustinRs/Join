@@ -46,7 +46,7 @@
     width: 100%;
     height: 6rem;
     top: auto;
-    z-index: 99999;
+    z-index: 11;
   }
 
   .navLinks {
@@ -109,7 +109,7 @@
 
   header {
     width: 100%;
-    z-index: 99999;
+    z-index: 11;
   }
 
   .helpicon {
@@ -128,7 +128,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    z-index: 9999;
+    z-index: 10;
     height: 100vh;
     display: flex;
     justify-content: center;
