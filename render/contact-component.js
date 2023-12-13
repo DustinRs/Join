@@ -16,7 +16,7 @@ function renderContactPopUp(){
             <div>
                 <img class="imgUserContact" src="/assets/img/create-contact.png" alt="">
             </div>
-            <div id="input-container">
+            <div id="input-container" class="containterPopUpAddTaskMobile">
                 <div class="inputsContact">
                     <div class="input-group sub-container row">
                         <input id="profileName" class=" contact-creation-inputs form-control subtask-input" type="text"
