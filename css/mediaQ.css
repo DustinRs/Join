@@ -117,9 +117,9 @@
   }
 
   .mobileImgHeader {
-    display: inline;
-    background-color: #2a3647;
-    color: white;
+    display: block;
+    width: 4rem;
+    margin-left: 2rem;
   }
 
   #greeting-container {
@@ -207,6 +207,14 @@
 }
 .add-task-bottom-section {
     margin-top: 5rem;
+}
+.contactsDiv {
+    height: 56rem;
+    position: relative;
+    top: 6rem;
+}
+.scrollDiv {
+    height: 48rem;
 }
 }
 
