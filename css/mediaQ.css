@@ -202,6 +202,12 @@
   .userProfile {
     padding-left: 2rem;
   }
+  .row {
+    margin: 2rem 0rem 2rem 0rem !important;
+}
+.add-task-bottom-section {
+    margin-top: 5rem;
+}
 }
 
 /* Responsive Design für den Start Screen */
