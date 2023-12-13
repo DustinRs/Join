@@ -108,8 +108,9 @@
 
     .mobileImgHeader {
         display: inline;
-        background-color: #2A3647;
-        color: white;
+        content: url('/assets/img/join-logo.png');
+        height: 4.5rem;
+        margin: 0 2rem;
     }
 
     #greet-user {
