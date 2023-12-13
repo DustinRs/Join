@@ -284,6 +284,7 @@ function addboxClick(i) {
   let checkbox = document.getElementById(`check${i}`);
   let img = document.getElementById(`img-box${i}`);
   logTaskCheckBox(checkbox, img, i);
+  renderEditIcons()
 }
 
 function logTaskCheckBox(box, img, i) {
@@ -309,4 +310,13 @@ function addSubtaskListener() {
       event.preventDefault();
     }
   });
+}
+
+
+function pushEditAssignees(task){
+  let index = task.assignees
+  index.forEach((element) => {
+      addboxClick(element)
+  })
+
 }

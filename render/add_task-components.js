@@ -36,6 +36,9 @@ function renderAddTaskSections() {
                     </li>
                 </ul>
             </div>
+            <div id="added-profile-initials-container" class="add-task-main-page">
+
+            </div>
         </div>
     </div>
     <div class="border"></div>
@@ -183,3 +186,15 @@ function addAssigneesSelection() {
         `
     }
   }
+
+ 
+  
+
+function renderEditIcons() {
+    let iconDiv = document.getElementById('added-profile-initials-container')
+    let imgArr = [];
+    assignees.forEach((element) => {
+        imgArr.push(`<div class="added-profile-initials" data-value="${element}" style="background-color:${contacts[element].color}">${contacts[element].initials}</div>`)
+    })
+    iconDiv.innerHTML = `${imgArr.join('')}`
+}

@@ -146,20 +146,6 @@ function renderTodoIcons() {
 
 
 
-function renderEditIcons(task) {
-    let imgArr = [];
-    console.log(task)
-    let index = task.assignees
-    console.log(index)
-
-    index.forEach((element) => {
-        imgArr.push(`<div class="added-profile-initials" data-value="checked" style="background-color:${contacts[element].color}">${contacts[element].initials}</div>`)
-    })
-    return imgArr.join('')
-}
-
-
-
 function renderSingleTodo(id) {
     if (id === undefined) { return }
     let index = allTasks.findIndex((task) => task.id === id);
@@ -423,8 +409,7 @@ function editCurrentTodo(task, object) {
                       </li>
                   </ul>
                 </div>
-                <div id="added-profile-initials-container">   ${renderEditIcons(task)}
-
+                <div id="added-profile-initials-container">   
                 </div>
           </div>
       </div>
@@ -539,6 +524,7 @@ function editCurrentTodo(task, object) {
                   alt="" /></button>
   </div>
   `,
-        addAssigneesSelection()
+        addAssigneesSelection(),
+        pushEditAssignees(task)
 }
 

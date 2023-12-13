@@ -432,6 +432,7 @@ input:hover {
 
 #added-profile-initials-container{
 display: flex;
+margin-left:1rem;
 }
 
 .added-profile-initials{
@@ -714,4 +715,12 @@ input[type="date"]::-webkit-calendar-picker-indicator{
     height: 1.5rem;
     width: 1.5rem;
     cursor: pointer;
+}
+
+
+.add-task-main-page{
+    display: flex;
+    margin-left: 1rem;
+    margin-bottom: -3rem;
+    height: 3rem;
 }
