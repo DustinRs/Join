@@ -151,6 +151,7 @@ function renderSingleTodo(id) {
     let index = allTasks.findIndex((task) => task.id === id);
     let element = allTasks[index];
     editTask = element;
+    console.log(element)
     let obj = generateVarObj(element);
     let popUp = document.getElementById('pop-up-container');
     popUp.innerHTML = /*html*/`
@@ -375,6 +376,7 @@ function editCurrentTodo(task, object) {
     popUp.innerHTML = /*html*/`
 
   <div class="edit-sections">
+  <div id="close-pop-up" onclick="closePopUp()"><img src="/assets/img/btn-x.png" alt=""></div>
       <div >
           <h6>Title</h6>
           <div class="input-group sub-container row">
@@ -520,11 +522,13 @@ function editCurrentTodo(task, object) {
   </div>
   </div>
   <div class="edit-bottom-section">
-  <button id="edit-ok-btn" class="createTaskButton">Ok <img src="/assets/img/checkbtn-checkmark.png"
+  <button id="edit-ok-btn" class="createTaskButton" onclick="editOk('${task.status}',${allTasks.indexOf(task)},'${task.prio}')">Ok <img src="/assets/img/checkbtn-checkmark.png"
                   alt="" /></button>
   </div>
   `,
         addAssigneesSelection(),
         pushEditAssignees(task)
+        console.log(allTasks.indexOf(task))
 }
+
 

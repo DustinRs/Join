@@ -254,4 +254,9 @@ function writeDescription(task) {
     description.innerHTML = value;
   }
 
-  //added-profile-initials
+  function editOk(status,index,prio){
+    console.log(status)
+    editTodoInAllTasks(status,index,prio);
+    closePopUp();
+    updateBoard();
+}

@@ -49,6 +49,32 @@ async function addTask(status) {
 }
 
 
+async function editTodoInAllTasks(status,index,prio) {
+  let title = document.getElementById("title").value;
+  let taskArr;
+  let description = document.getElementById("description").value;
+  let date = document.getElementById("date").value;
+  let category = document.getElementById("category").value;
+  let task = {
+    title: title,
+    description: description,
+    date: date,
+    prio: prio,
+    category: category,
+    status: status,
+    subTaskCounter: 0,
+    subTask: taskArr = [...subTasks],
+    id: Date.now(),
+    assignees: assignees,
+  };
+  allTasks.splice(index, 1, task);
+  await setAllTasks(tasksKey, allTasks);
+  assignees = [];
+  subTasks = [];
+  pushInfo();
+}
+
+
 function checkInputs() {
   let title = document.getElementById("title").value;
   let description = document.getElementById("description").value;
