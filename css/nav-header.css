@@ -174,3 +174,7 @@ header {
         background-color: #2A3D59;
     }
 }
+
+.mobileImgHeader {
+    display: none;
+}

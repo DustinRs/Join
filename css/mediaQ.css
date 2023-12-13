@@ -42,16 +42,47 @@
     .navBar {
         position: absolute !important;
         bottom: 0 !important;
-        flex-direction: row;
+        flex-direction: column;
         width: 100%;
-        height: 3rem;
+        height: 6rem;
         top: auto;
+
     }
 
     .navLinks {
         flex-direction: row;
         width: 100%;
         height: auto;
+    }
+
+    .active {
+        background-color: #091931;
+        color: white;
+    }
+
+    .navLinkImg {
+        display: flex;
+        flex-direction: column;
+        width: 14rem;
+        height: 3rem;
+        text-align: start;
+        align-items: center;
+        color: white;
+        text-decoration: none;
+    }
+
+    .navLinkImg {
+        border-radius: 80% / 100%;
+
+        &:hover {
+            background-color: #2A3D59;
+            color: white
+        }
+
+        &:active {
+            background-color: #091931;
+            color: white
+        }
     }
 
     .navLogo {
@@ -66,14 +97,79 @@
         display: none;
     }
 
-    .header {
-        background-image: url('./assets/img/NavLogo.png');
-        background-size: cover;
-        background-position: center;
+    header {
+        width: 100%;
+    }
+
+    .helpicon {
+        display: none;
+    }
+
+    .mobileImgHeader {
+        display: inline;
+        background-color: #2A3647;
+        color: white;
+    }
+
+    #greet-user {
+        display: none;
+        animation: none;
+    }
+
+    #greet {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 9999;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        animation: fade-in-out 3s ease 1;
+        animation-fill-mode: forwards;
+        background-color: #f8f9fa;
+    }
+
+    @keyframes fade-in-out {
+        0% {
+            opacity: 0;
+        }
+
+        50% {
+            opacity: 1;
+        }
+
+        100% {
+            opacity: 0;
+        }
+    }
+
+    .d-flex {
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: start;
+        width: auto;
+    }
+
+    .stroke {
+        width: 7rem !important;
+        height: 0.3rem;
+        order: 3;
+    }
+
+    .h1 {
+        order: 1;
+        /* Bleibt an erster Stelle */
+    }
+
+    .h4 {
+        order: 2;
+        /* Wird an die zweite Stelle verschoben */
     }
 }
 
-
+/* Responsive Design für den Start Screen */
 @media screen and (max-width: 768px) {
     #login-main {
         display: flex;
