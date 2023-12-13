@@ -222,7 +222,11 @@
     height: 48rem !important;
   }
 }
-
+@media (min-width: 801px) {
+    .contactButtonMobile {
+        display: none;
+    }
+}
 @media (max-width: 800px) {
   .sections {
     display: flex;
