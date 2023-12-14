@@ -80,6 +80,7 @@ function renderComponents(activeUser) {
 
 
 function generateTodoHTML(element) {
+    console.log(element)
     let counter=element.finishedTaskList.length;
     let subTaskLength=element.totalSubTasks;
     let category = convertCategory(element);

@@ -33,12 +33,12 @@ async function addTask(status) {
     title: title,
     description: description,
     date: date,
-    prio: prio||"low",
+    prio: prio || "low",
     category: category,
     status: status,
     counter: 0,
     subTask: taskArr = [...subTasks],
-    finishedTaskList:[],
+    finishedTaskList: [],
     id: Date.now(),
     assignees: assignees,
     totalSubTasks: subTasks.length
@@ -51,7 +51,7 @@ async function addTask(status) {
 }
 
 
-async function editTodoInAllTasks(status,index,prio) {
+async function editTodoInAllTasks(status, index, prio) {
   let title = document.getElementById("title").value;
   let taskArr;
   let description = document.getElementById("description").value;
@@ -61,13 +61,15 @@ async function editTodoInAllTasks(status,index,prio) {
     title: title,
     description: description,
     date: date,
-    prio: editArr[0]||prio,
+    prio: editArr[0] || prio,
     category: category,
     status: status,
-    subTaskCounter: 0,
-    subTask: subTasks,
+    counter: 0,
+    subTask: taskArr = [...subTasks],
+    finishedTaskList: taskArr= [...finishedSubTasks],
+    totalSubTasks: subTasks.length,
     id: Date.now(),
-    assignees: assignees,
+    assignees: assignees
   };
   allTasks.splice(index, 1, task);
   await setAllTasks(tasksKey, allTasks);
@@ -111,7 +113,7 @@ function resetColor() {
   let span = document.getElementsByClassName('priority-span');
   for (let i = 0; i < span.length; i++) {
     span[i].style.backgroundColor = "";
-  }checkBoxClicked
+  } checkBoxClicked
 }
 
 
@@ -315,8 +317,8 @@ function logTaskCheckBox(box, img, i) {
 }
 
 function addSubtaskListener() {
- let input = document.getElementById('subtask-input')
- input.addEventListener('keyup', function (event) {
+  let input = document.getElementById('subtask-input')
+  input.addEventListener('keyup', function (event) {
     if (event.key === 'Enter' && input.value.length > 0) {
       pushSubTasks();
     } else if (event.key === 'Enter' && input.value.length == 0) {
@@ -326,14 +328,14 @@ function addSubtaskListener() {
 }
 
 
-function pushEditAssignees(task){
+function pushEditAssignees(task) {
   let index = task.assignees
   index.forEach((element) => {
-      addboxClick(element)
+    addboxClick(element)
   })
 
 }
 
-function editPrio(newPrio){
+function editPrio(newPrio) {
   editArr = [newPrio]
 }
