@@ -460,10 +460,8 @@ function renderEditTaskPopUp() {
 
 
 function editCurrentTodo(task) {
-    
     let popUp = document.getElementById('pop-up-container');
     popUp.innerHTML = /*html*/`
-
   <div class="edit-sections">
   <div id="close-pop-up" onclick="closePopUp()"><img src="/assets/img/btn-x.png" alt=""></div>
       <div >

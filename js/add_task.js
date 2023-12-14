@@ -326,6 +326,7 @@ function addSubtaskListener() {
 
 
 function pushEditAssignees(task) {
+  assignees=[];
   let index = task.assignees
   index.forEach((element) => {
     addboxClick(element)

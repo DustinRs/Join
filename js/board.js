@@ -93,6 +93,7 @@ function hideBar() {
 
 
 function closePopUp() {
+    clearTasks()
     let popup = document.getElementById('add-pop-up');
     let container = document.getElementById('pop-up-container');
     container.style.animation = "slide-out 0.15s ease-in-out forwards"
@@ -124,15 +125,15 @@ function animatePopUp() {
 
 async function deleteTask(id) {
     let object = allTasks.find((task) => task.id == id);
-    
+
     if (object) {
-      let index = allTasks.indexOf(object);
-      allTasks.splice(index, 1);
+        let index = allTasks.indexOf(object);
+        allTasks.splice(index, 1);
     }
     await setAllTasks(tasksKey, allTasks);
     closePopUp();
     updateBoard();
-  }
+}
 
 
 function openEditTaskPopUp() {
@@ -193,29 +194,34 @@ function focusInput() {
 
 function generateVarObj(obj) {
     let todoObject = {
-        text : obj.description.split('\n').join('<br/>'),
-        date : obj.date.split('-').reverse().join('/'),
-        priority : obj.prio.slice(0, 1).toUpperCase() + obj.prio.slice(1),
-        category : convertCategory(obj)
+        text: obj.description.split('\n').join('<br/>'),
+        date: obj.date.split('-').reverse().join('/'),
+        priority: obj.prio.slice(0, 1).toUpperCase() + obj.prio.slice(1),
+        category: convertCategory(obj)
     }
-    return todoObject,editTaskObj=todoObject
+    return todoObject, editTaskObj = todoObject
 }
 
 
 function startEdit() {
-    editCurrentTodo(editTask),
+    editCurrentTodo(editTask);
     writeDescription(editTask)
+}
+
+function clearTasks() {
+    finishedSubTasks = []
+    subTasks = []
 }
 
 function writeDescription(task) {
     let description = document.getElementById("description");
     let value = task.description;
     description.innerHTML = value;
-  }
+}
 
-  function editOk(status,index,prio){
-    
-    editTodoInAllTasks(status,index,prio);
+function editOk(status, index, prio) {
+
+    editTodoInAllTasks(status, index, prio);
     closePopUp();
     updateBoard();
 }
@@ -225,42 +231,42 @@ function subBoxClick(i) {
     let checkbox = document.getElementById(`check${i}`);
     let img = document.getElementById(`img-box${i}`);
     subCheckBox(checkbox, img);
-    }
-  
-  
-  function subCheckBox(box, img){
+}
+
+
+function subCheckBox(box, img) {
     if (box.checked) {
-      box.checked = false;
-      img.src = '/assets/img/checkbox.png';
-      img.style = "";
-      img.setAttribute('data-counter','0');
+        box.checked = false;
+        img.src = '/assets/img/checkbox.png';
+        img.style = "";
+        img.setAttribute('data-counter', '0');
     } else if (!box.checked) {
-      box.checked = true;
-      img.src = '/assets/img/checked-box.png';
-      img.style = 'width: 0.9rem;height: .9rem';
-      img.setAttribute('data-counter','1');
+        box.checked = true;
+        img.src = '/assets/img/checked-box.png';
+        img.style = 'width: 0.9rem;height: .9rem';
+        img.setAttribute('data-counter', '1');
     }
-  }
+}
 
 
 
-function lookForSubChange(){
-    
+function lookForSubChange() {
+
     let checkbox = document.getElementsByClassName('sub-checkbox')
     let subText = document.getElementsByClassName('sub-text')
     for (let i = 0; i < checkbox.length; i++) {
-      let check = checkbox[i];
-      let text = subText[i];
-      if(check.getAttribute('data-counter') === '1'){
-        finishedSubTasks.push(text.innerText)
-      }else if(check.getAttribute('data-counter') === '0'){
-        subTasks.push(text.innerText)
-      }
+        let check = checkbox[i];
+        let text = subText[i];
+        if (check.getAttribute('data-counter') === '1') {
+            finishedSubTasks.push(text.innerText)
+        } else if (check.getAttribute('data-counter') === '0') {
+            subTasks.push(text.innerText)
+        }
     }
     safeSubTasks()
 }
 
-function safeSubTasks(){
+function safeSubTasks() {
     let newSubs = document.getElementById('subtask-list');
     let id = newSubs.getAttribute('data-id');
     let index = allTasks.findIndex(task => task.id == id);
@@ -271,30 +277,30 @@ function safeSubTasks(){
     setAllTasks(tasksKey, allTasks);
     subTasks = [];
     finishedSubTasks = [];
-    refreshProgressBar(id,task)
+    refreshProgressBar(id, task)
 }
 
-function refreshProgressBar(id,task){
+function refreshProgressBar(id, task) {
     let bar = document.getElementById(`progress${id}`);
     let counter = document.getElementById(`counter${task.id}`);
     let length = document.getElementById(`length${task.id}`);
     let max = task.totalSubTasks;
     let min = task.finishedTaskList.length;
-    let width = Math.round((min/max)*100); 
+    let width = Math.round((min / max) * 100);
     counter.innerHTML = min;
-    length.innerHTML = "/"+max;
+    length.innerHTML = "/" + max;
     setTimeout(() => {
-        bar.setAttribute('style',`width: ${width}%`)
+        bar.setAttribute('style', `width: ${width}%`)
     }, 500);
     console.log(width)
 }
 
 
 
-function initialProgressWidth(task){
+function initialProgressWidth(task) {
     let max = task.totalSubTasks;
     let min = task.finishedTaskList.length;
-    let width = Math.round((min/max)*100); 
+    let width = Math.round((min / max) * 100);
 
     return width
 }
