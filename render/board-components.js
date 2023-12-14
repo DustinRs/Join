@@ -80,7 +80,6 @@ function renderComponents(activeUser) {
 
 
 function generateTodoHTML(element) {
-    console.log(element)
     let counter=element.finishedTaskList.length;
     let subTaskLength=element.totalSubTasks;
     let category = convertCategory(element);
@@ -276,13 +275,33 @@ function getSubFinishedList(finishedTaskList) {
 }
 
 
-function getSubList(subtaskList) {
+function getSubList(subtaskList,finishedTaskList) {
     let subLiArr = []
+    let finListArr= getEditFinishedList(finishedTaskList);
     for (let i = 0; i < subtaskList.length; i++) {
         let sub = subtaskList[i];
+        subTasks.push(sub)
         subLiArr.push(`<li>${sub}</li>`)
     }
-    return subLiArr.join('')
+    if(finListArr !== false){
+        subLiArr = subLiArr.concat(finListArr)
+        return subLiArr.join('')
+    }else{
+        return subLiArr.join('')
+    }
+}
+
+function getEditFinishedList(finishedTaskList) {
+    let finLiArr = []
+    if(finishedTaskList.length === 0){
+        return false
+    }
+    for (let i = 0; i < finishedTaskList.length; i++) {
+        let fin = finishedTaskList[i];
+        finishedSubTasks.push(fin)
+        finLiArr.push(`<li>${fin}</li>`)
+    }
+    return finLiArr
 }
 
 function renderEditTaskPopUp() {
@@ -441,8 +460,7 @@ function renderEditTaskPopUp() {
 
 
 function editCurrentTodo(task) {
-    let currentSubTasks = task.subTask
-    subTasks=[...currentSubTasks];
+    
     let popUp = document.getElementById('pop-up-container');
     popUp.innerHTML = /*html*/`
 
@@ -585,7 +603,7 @@ function editCurrentTodo(task) {
               </div>
               <div id="subtask-listed">
                   <ul id="task-list" class="edit-ul-task-list">
-                        ${getSubList(task.subTask)}
+                  ${getSubList(task.subTask,task.finishedTaskList)}
                   </ul>
               </div>
           </div>

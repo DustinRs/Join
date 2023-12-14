@@ -570,6 +570,7 @@ ul {
 #subtask-list {
     margin: 1rem 0 !important;
     width: 90%!important;
+    max-height: none!important;
 }
 
 #subtask-list>li{

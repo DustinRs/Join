@@ -99,6 +99,7 @@ function closePopUp() {
     setTimeout(() => {
         popup.classList.add('d-none')
         container.style.animation = "";
+        container.innerHTML = "";
     }, 150);
 }
 
@@ -213,6 +214,7 @@ function writeDescription(task) {
   }
 
   function editOk(status,index,prio){
+    
     editTodoInAllTasks(status,index,prio);
     closePopUp();
     updateBoard();
@@ -243,6 +245,7 @@ function subBoxClick(i) {
 
 
 function lookForSubChange(){
+    
     let checkbox = document.getElementsByClassName('sub-checkbox')
     let subText = document.getElementsByClassName('sub-text')
     for (let i = 0; i < checkbox.length; i++) {

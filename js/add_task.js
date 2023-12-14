@@ -64,10 +64,10 @@ async function editTodoInAllTasks(status, index, prio) {
     prio: editArr[0] || prio,
     category: category,
     status: status,
-    counter: 0,
+    counter: finishedSubTasks.length,
     subTask: taskArr = [...subTasks],
     finishedTaskList: taskArr= [...finishedSubTasks],
-    totalSubTasks: subTasks.length,
+    totalSubTasks: subTasks.length + finishedSubTasks.length,
     id: Date.now(),
     assignees: assignees
   };
@@ -75,23 +75,20 @@ async function editTodoInAllTasks(status, index, prio) {
   await setAllTasks(tasksKey, allTasks);
   assignees = [];
   subTasks = [];
+  finishedSubTasks = [];
   pushInfo();
 }
 
 
-function checkInputs() {
-  let title = document.getElementById("title").value;
-  let description = document.getElementById("description").value;
-  let date = document.getElementById("date").value;
-  let category = document.getElementById("category").getAttribute("value");
-  let button = document.getElementById("createTaskButton");
+// function checkInputs() {
+//   const title = document.getElementById("title").value;
+//   const description = document.getElementById("description").value;
+//   const date = document.getElementById("date").value;
+//   const category = document.getElementById("category").getAttribute("value");
+//   const button = document.getElementById("createTaskButton");
 
-  if (title && description && date && category) {
-    button.removeAttribute("disabled");
-  } else {
-    button.setAttribute("disabled", "true");
-  }
-}
+//   button.disabled = (title === "" || description === "" || date === "" || category === "");
+// }
 
 
 function checkBoxClicked(priority) {

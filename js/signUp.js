@@ -11,27 +11,46 @@ const existingMail = "Your email is already in use";
 function addSignUpHandler() {
   let password = document.getElementById("create_password");
   let confirm_password = document.getElementById("confirm_password");
-  function validatePassword() {
-    let div = document.getElementsByClassName("login-input-fields");
-    for (let i = 2; i < div.length; i++) {
-      if (password.value != confirm_password.value) {
-        confirm_password.setCustomValidity("Passwords Don't Match"),
-          div[2].style.border = "3px solid red";
-          div[3].style.border = "3px solid red";
-        disableSignUp(); return false
-      } else if (confirm_password.value.length >= 8 && password.value == confirm_password.value) {
-        div[i].style = "border:3px solid green!important"
-        confirm_password.setCustomValidity('');
-        enableSignUp(); return true
-      }
-    }
-  }
-  password.oninput = validatePassword;
-  confirm_password.oninput = validatePassword;
+  password.addEventListener('input', validatePassword);
+  confirm_password.addEventListener('input', validatePassword);
 }
 
+function validatePassword() {
+  let password = document.getElementById("create_password");
+  let confirm_password = document.getElementById("confirm_password");
+  let div = document.getElementsByClassName("login-input-fields");
+
+  if (password.value !== confirm_password.value) {
+    noMatch(div[2], div[3], confirm_password)
+  } else if (password.value === confirm_password.value && confirm_password.value.length >= 8) {
+    console.log("match")
+    match(div[2], div[3], confirm_password)
+  }
+}
+
+function noMatch(pawsswordDiv, confirmationDiv, confirm_password) {
+  document.getElementById('pw-check-reminder').classList.remove('d-none')
+  confirm_password.setCustomValidity("Passwords Don't Match"),
+  pawsswordDiv.style = "border: 3px solid red!important";
+  confirmationDiv.style = "border: 3px solid red!important";
+  disableSignUp(); 
+  return false
+}
+
+function match(pawsswordDiv, confirmationDiv, confirm_password) {
+  document.getElementById('pw-check-reminder').classList.add('d-none')
+  pawsswordDiv.style = "border: 3px solid green!important";
+  confirmationDiv.style = "border: 3px solid green!important";
+  confirm_password.setCustomValidity('');
+  enableSignUp(); 
+  return true
+}
+
+
+
+
 function formValidation() {
-  if (addSignUpHandler) {
+  if (validatePassword) {
     enableSignUp()
   } else {
     disableSignUp()

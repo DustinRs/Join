@@ -1,5 +1,5 @@
 function renderAddTaskSections() {
-  return/*html*/`
+    return/*html*/`
 <h1 class="title">Add Task</h1>
 <div class="sections">
     <div class="left-section">
@@ -156,22 +156,27 @@ function renderAddTaskSections() {
 `};
 
 
-function renderSubTasksList(){
+function renderSubTasksList() {
     let list = document.getElementById('task-list');
-    list.innerHTML='';
-    subTasks.forEach((e)=>{
+    list.innerHTML = '';
+    subTasks.forEach((e) => {
         list.innerHTML += `<li>${e}</li>`
     })
+    if (finishedSubTasks.length > 0) {
+        finishedSubTasks.forEach((e) => {
+            list.innerHTML += `<li>${e}</li>`
+        })
+    }
 }
 
 
 function addAssigneesSelection() {
     let box = document.getElementById('assign-list')
     let contactArr = [];
-    contacts.map((e)=>{if(e.id){contactArr.push(e)}})
+    contacts.map((e) => { if (e.id) { contactArr.push(e) } })
     box.innerHTML = ''
     for (let i = 0; i < contactArr.length; i++) {
-      let contact = contactArr[i]
+        let contact = contactArr[i]
         box.innerHTML +=/*html*/`
           <li class=contact>
            <div class="profile">
@@ -185,13 +190,14 @@ function addAssigneesSelection() {
         </li>
         `
     }
-  }
+}
 
- 
-  
+
+
 
 function renderEditIcons() {
     let iconDiv = document.getElementById('added-profile-initials-container')
+    iconDiv.innerHTML = '';
     let imgArr = [];
     assignees.forEach((element) => {
         imgArr.push(`<div class="added-profile-initials" data-value="${element}" style="background-color:${contacts[element].color}">${contacts[element].initials}</div>`)
