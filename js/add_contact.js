@@ -49,7 +49,7 @@ function renderContactPage(activeUser) {
   main.innerHTML += renderAddContactButtonMobile();
   body.innerHTML += renderContactPopUp();
   body.innerHTML += renderEditPopUp();
-  
+
 }
 
 function renderRegister() {
@@ -146,7 +146,6 @@ function openProfile(id) {
     <p>${e.phoneNumber}</p>
   </div>
   <div id="buttonsPopUpMobile" class="buttonsPopUpMobile d-none"><Button onclick="editProfile(${e.id}); addDNone();" class="buttonPopUpMobile"><img src="/assets/img/edit.png" alt=""> Edit</Button><Button onclick="deleteContact(${e.id}); addDNone();" class="buttonPopUpMobile"><img src="/assets/img/delete.png" alt=""> Delete</Button></div>`;
-  // setContactBackgroundColor(name);
 }
 
 function editProfile(id) {
@@ -161,7 +160,6 @@ function editProfile(id) {
   img.style.backgroundColor = object.color;
   let button = document.getElementById("saveButton");
   button.setAttribute("onclick", `saveContact(${id})`);
-  // contacts.splice(contacts.indexOf(object.id), 1,object);
 }
 
 function openPopUpEditContact() {

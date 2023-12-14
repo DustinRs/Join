@@ -5,7 +5,6 @@ async function init() {
     renderComponents(activeUser);
     navActive(2);
     updateBoard();
-    // refreshAllBars();
 }
 
 
@@ -103,16 +102,7 @@ function closePopUp() {
     }, 150);
 }
 
-function closeSingleTodo(id) {
 
-    let popup = document.getElementById('add-pop-up');
-    let container = document.getElementById('pop-up-container');
-    container.style.animation = "slide-out 0.15s ease-in-out forwards"
-    setTimeout(() => {
-        popup.classList.add('d-none')
-        container.style.animation = "";
-    }, 150);
-}
 
 function openPopUp() {
     renderPopUpAddTask()
