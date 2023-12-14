@@ -19,7 +19,7 @@ function updateBoard(searchArr) {
     renderTodoIcons()
 }
 
-function taskFilter(arr, string, parentArr) {
+function taskFilter(arr, string) {
     let statusArr = arr.filter(e => e.status == string);
     document.getElementById(string).innerHTML = '';
     for (let i = 0; i < statusArr.length; i++) {
@@ -39,7 +39,7 @@ function allowDrop(ev) {
     ev.preventDefault();
 }
 
-async function moveTo(status, parentArr) {
+async function moveTo(status) {
     const draggedTask = allTasks.find(task => task.id === currentDraggedElement);
 
     if (draggedTask) {
@@ -103,10 +103,10 @@ function closePopUp() {
 }
 
 function closeSingleTodo(id) {
-    function setTaskCounter(id){
-        let task = allTasks.find(task => task.id === id);
-        task.counter = counter
-    }
+    // function setTaskCounter(id){
+    //     let task = allTasks.find(task => task.id === id);
+    //     task.counter = counter
+    // }
     let popup = document.getElementById('add-pop-up');
     let container = document.getElementById('pop-up-container');
     container.style.animation = "slide-out 0.15s ease-in-out forwards"
@@ -238,20 +238,35 @@ function writeDescription(task) {
 function subBoxClick(i) {
     let checkbox = document.getElementById(`check${i}`);
     let img = document.getElementById(`img-box${i}`);
-    subCheckBox(checkbox, img);
+    let finishedTask = document.getElementById(`img-box${i}`)
+    subCheckBox(checkbox, img,finishedTask);
     }
   
   
-  function subCheckBox(box, img){
+  function subCheckBox(box, img,finishedTask){
+    console.log(finishedTask)
     if (box.checked) {
       box.checked = false;
       img.src = '/assets/img/checkbox.png';
       img.style = "";
-      counter-=1;
+      img.setAttribute('data-conter','0');
+      finishedTask.setAttribute('data-counter','0');
     } else if (!box.checked) {
       box.checked = true;
-      counter+=1;
       img.src = '/assets/img/checked-box.png';
       img.style = 'width: 0.9rem;height: .9rem';
+      img.setAttribute('data-conter','1');
+      finishedTask.setAttribute('data-counter','1');
     }
   }
+
+
+//   function checkForFinishedTasks(){
+//     let subTasks = document.getElementsByClassName('sub-checkbox')
+//     for (let i = 0; i < subTasks.length; i++) {
+//       let check = subTasks[i];
+//       if(check.getAttribute('data-counter') === '1'){
+//         subBoxClick(check.id)
+//       }
+//     }
+//   }

@@ -36,8 +36,9 @@ async function addTask(status) {
     prio: prio||"low",
     category: category,
     status: status,
-    subTaskCounter: 0,
+    counter: 0,
     subTask: taskArr = [...subTasks],
+    finishedTaskList:[],
     id: Date.now(),
     assignees: assignees,
   };

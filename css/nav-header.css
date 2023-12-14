@@ -146,11 +146,11 @@ header {
 
 #header-icon-menu {
     position: absolute;
-    right: 16px;
-    top: 96px;
+    right: 1rem;
+    top: 6rem;
     color: #CDCDCD;
     border: 1px solid black;
-    width: 110px;
+    width: 9rem;
     border-radius: 15px 0 15px 15px;
     display: flex;
     flex-direction: column;

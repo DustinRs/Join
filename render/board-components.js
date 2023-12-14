@@ -91,7 +91,7 @@ function generateTodoHTML(element) {
                 <div id="progress${element.id}" class="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
             </div>
             <div class="subtask-content">
-                <div>${element.subTaskCounter}</div>
+                <div>${element.counter}</div>
                 <div>/${element.subTask.length}</div>  
                 <div>Subtasks</div>
             </div>
@@ -197,7 +197,7 @@ function renderSingleTodo(id) {
             </ul>
             <ul id=subtask-list>
                 <h6 class="descriptionBoardPopUp">Subtasks</h6>
-                ${getSubCheckList(element.subTask)}
+                ${getSubCheckList(element.subTask,element.finishedTaskList)}
             </ul>
         </div>
         <div id="todo-edit-footer">
@@ -206,6 +206,7 @@ function renderSingleTodo(id) {
         </div>
     </div>`,
         styleTodo();
+        // checkForFinishedTasks();
 
 }
 
@@ -233,22 +234,61 @@ function getAssignList(assignees) {
     return liArr.join('')
 }
 
-function getSubCheckList(subtaskList) {
+
+//////////////////////////////////////////////////////////////////////////
+////////////////////finishedTaskList//////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////onclick="checkboxClick(1)"///////////////////////////////
+//////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////
+
+
+
+
+function getSubCheckList(subtaskList,finishedTaskList) {
     let subLiArr = []
+    let finListArr=getSubFinishedList(finishedTaskList);
     for (let i = 0; i < subtaskList.length; i++) {
         let sub = subtaskList[i];
         subLiArr.push(/*html*/`
         <li> 
             <input type="checkbox" id="check${i}">
             <div class="sub-task-board">
-                <div class="sub-cb-auxiliary"><img id="img-box${i}" class="sub-checkbox" src="/assets/img/checkbox.png" onclick="subBoxClick(${i})" alt="checkbox"></div>
+                <div class="sub-cb-auxiliary"><img id="img-box${i}" class="sub-checkbox" data-counter="0" src="/assets/img/checkbox.png" onclick="subBoxClick(${i})" alt="checkbox"></div>
                 <div class="sub-text">
                     ${sub}
                 </div>
             </div>
         </li>`)
+    };
+    if(finListArr !== false){
+        subLiArr = subLiArr.concat(finListArr)
+        return subLiArr.join('')
+    }else{
+        return subLiArr.join('')
     }
-    return subLiArr.join('')
+}
+
+function getSubFinishedList(finishedTaskList) {
+    let finLiArr = []
+    if(finishedTaskList.length === 0){
+        return false
+    }
+    for (let i = 0; i < finishedTaskList.length; i++) {
+        let fin = finishedTaskList[i];
+        let finishId= 1000+i
+        finLiArr.push(/*html*/`
+        <li> 
+            <input type="checkbox" checked id="check${finishId}">
+            <div class="sub-task-board">
+                <div class="sub-cb-auxiliary"><img id="img-box${finishId}" style = 'width: 0.9rem;height: .9rem' class="sub-checkbox" src="/assets/img/checked-box.png" onclick="subBoxClick(${finishId})" alt="checkbox"></div>
+                <div class="sub-text">
+                    ${fin}
+                </div>
+            </div>
+        </li>`),console.log(finishId)
+    }
+    return finLiArr
 }
 
 

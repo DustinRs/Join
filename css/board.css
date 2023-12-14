@@ -568,7 +568,8 @@ ul {
 }
 
 #subtask-list {
-    margin: 1rem 0 !important
+    margin: 1rem 0 !important;
+    width: 90%!important;
 }
 
 #subtask-list>li{
@@ -633,7 +634,7 @@ ul {
 }
 
 .sub-text{
-    width: 5rem;
+    width: 19rem;
     display: flex;
     justify-content: flex-start;
     font-size: 0.8rem
