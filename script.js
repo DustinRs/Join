@@ -8,6 +8,7 @@ let counter = 0;
 let contacts = [];
 let allTasks = [];
 let subTasks=[];
+let finishedSubTasks=[];
 let userList;
 let userData;
 let todoArr=[];

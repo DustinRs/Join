@@ -5,6 +5,7 @@ async function init() {
     renderComponents(activeUser);
     navActive(2);
     updateBoard();
+    // refreshAllBars();
 }
 
 
@@ -82,7 +83,7 @@ function convertCategory(element) {
 function hideBar() {
     for (let i = 0; i < allTasks.length; i++) {
         let element = allTasks[i];
-        if (element.subTask.length === 0) {
+        if (element.totalSubTasks === 0) {
             let bar = document.getElementById(`sub${element.id}`);
             if (bar) {
                 bar.classList.add('d-none')
@@ -103,10 +104,7 @@ function closePopUp() {
 }
 
 function closeSingleTodo(id) {
-    // function setTaskCounter(id){
-    //     let task = allTasks.find(task => task.id === id);
-    //     task.counter = counter
-    // }
+
     let popup = document.getElementById('add-pop-up');
     let container = document.getElementById('pop-up-container');
     container.style.animation = "slide-out 0.15s ease-in-out forwards"
@@ -225,48 +223,85 @@ function writeDescription(task) {
   }
 
   function editOk(status,index,prio){
-    console.log(status)
     editTodoInAllTasks(status,index,prio);
     closePopUp();
     updateBoard();
 }
 
-// function taskResolved(){
-
-// }
 
 function subBoxClick(i) {
     let checkbox = document.getElementById(`check${i}`);
     let img = document.getElementById(`img-box${i}`);
-    // let finishedTask = document.getElementById(`img-box${i}`)
     subCheckBox(checkbox, img);
     }
   
   
   function subCheckBox(box, img){
-    // console.log(finishedTask)
     if (box.checked) {
       box.checked = false;
       img.src = '/assets/img/checkbox.png';
       img.style = "";
       img.setAttribute('data-counter','0');
-    //   finishedTask.setAttribute('data-counter','0');
     } else if (!box.checked) {
       box.checked = true;
       img.src = '/assets/img/checked-box.png';
       img.style = 'width: 0.9rem;height: .9rem';
       img.setAttribute('data-counter','1');
-    //   finishedTask.setAttribute('data-counter','1');
     }
   }
 
 
-//   function checkForFinishedTasks(){
-//     let subTasks = document.getElementsByClassName('sub-checkbox')
-//     for (let i = 0; i < subTasks.length; i++) {
-//       let check = subTasks[i];
-//       if(check.getAttribute('data-counter') === '1'){
-//         subBoxClick(check.id)
-//       }
-//     }
-//   }
+
+function lookForSubChange(){
+    let checkbox = document.getElementsByClassName('sub-checkbox')
+    let subText = document.getElementsByClassName('sub-text')
+    for (let i = 0; i < checkbox.length; i++) {
+      let check = checkbox[i];
+      let text = subText[i];
+      if(check.getAttribute('data-counter') === '1'){
+        finishedSubTasks.push(text.innerText)
+      }else if(check.getAttribute('data-counter') === '0'){
+        subTasks.push(text.innerText)
+      }
+    }
+    safeSubTasks()
+}
+
+function safeSubTasks(){
+    let newSubs = document.getElementById('subtask-list');
+    let id = newSubs.getAttribute('data-id');
+    let index = allTasks.findIndex(task => task.id == id);
+    let task = allTasks[index];
+    task.subTask = subTasks;
+    task.finishedTaskList = finishedSubTasks;
+    task.counter = finishedSubTasks.length;
+    setAllTasks(tasksKey, allTasks);
+    subTasks = [];
+    finishedSubTasks = [];
+    refreshProgressBar(id,task)
+}
+
+function refreshProgressBar(id,task){
+    let bar = document.getElementById(`progress${id}`);
+    let counter = document.getElementById(`counter${task.id}`);
+    let length = document.getElementById(`length${task.id}`);
+    let max = task.totalSubTasks;
+    let min = task.finishedTaskList.length;
+    let width = Math.round((min/max)*100); 
+    counter.innerHTML = min;
+    length.innerHTML = "/"+max;
+    setTimeout(() => {
+        bar.setAttribute('style',`width: ${width}%`)
+    }, 500);
+    console.log(width)
+}
+
+
+
+function initialProgressWidth(task){
+    let max = task.totalSubTasks;
+    let min = task.finishedTaskList.length;
+    let width = Math.round((min/max)*100); 
+
+    return width
+}

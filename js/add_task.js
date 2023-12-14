@@ -41,6 +41,7 @@ async function addTask(status) {
     finishedTaskList:[],
     id: Date.now(),
     assignees: assignees,
+    totalSubTasks: subTasks.length
   };
   allTasks.push(task);
   await setAllTasks(tasksKey, allTasks);

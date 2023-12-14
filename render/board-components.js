@@ -81,8 +81,9 @@ function renderComponents(activeUser) {
 
 function generateTodoHTML(element) {
     let counter=element.finishedTaskList.length;
-    let subTaskLength=element.finishedTaskList.length + element.subTask.length;
+    let subTaskLength=element.totalSubTasks;
     let category = convertCategory(element);
+    let width=initialProgressWidth(element)
     return /*html*/`
     <div id=${element.id} data-value="${element.assignees}" draggable="true" ondragstart="startDragging(${element.id})" onclick="openTodoPopup(${element.id})" class="todo">
         <div class="${category}">${element.category}</div>
@@ -90,11 +91,11 @@ function generateTodoHTML(element) {
         <div class="todo-content">${element.description}</div>
         <div id="sub${element.id}" class="progress-container">
             <div class="progress">
-                <div id="progress${element.id}" class="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                <div id="progress${element.id}" class="progress-bar" role="progressbar" style="width: ${width}%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
             </div>
             <div class="subtask-content">
-                <div>${counter}</div>
-                <div>/${subTaskLength}</div>  
+                <div id="counter${element.id}">${counter}</div>
+                <div id="length${element.id}">/${subTaskLength}</div>  
                 <div>Subtasks</div>
             </div>
         </div>
@@ -185,7 +186,7 @@ function renderSingleTodo(id) {
     let obj = generateVarObj(element);
     let popUp = document.getElementById('pop-up-container');
     popUp.innerHTML = /*html*/`
-    <div id="close-pop-up" onclick="closeSingleTodo(id)"><img src="/assets/img/btn-x.png" alt=""></div>
+    <div id="close-pop-up" onclick="closePopUp(),lookForSubChange()"><img src="/assets/img/btn-x.png" alt=""></div>
     <div id="single-todo" data-value="${element.assignees}" class="todo">
         <div class="${obj.category} categoryBoardPopUp">${element.category}</div>          
         <h5 id="pop-headline" class="drag-headline headlineBoardPopUp">${element.title}</h5>
@@ -197,14 +198,14 @@ function renderSingleTodo(id) {
                 <h6 class="descriptionBoardPopUp">Assigned to</h6>
                 ${getAssignList(element.assignees)}
             </ul>
-            <ul id=subtask-list>
-                <h6 class="descriptionBoardPopUp">Subtasks</h6>
+            <ul id=subtask-list data-id="${element.id}">
+                <h6  class="descriptionBoardPopUp">Subtasks</h6>
                 ${getSubCheckList(element.subTask,element.finishedTaskList)}
             </ul>
         </div>
         <div id="todo-edit-footer">
             <button onclick="deleteTask('${id}')" id="delete-todo"><img src="/assets/img/delete.png" alt=""> Delete</button>
-            <button onclick="startEdit()"><img src="/assets/img/edit.png" alt=""> Edit</button>
+            <button onclick="lookForSubChange(),startEdit()"><img src="/assets/img/edit.png" alt=""> Edit</button>
         </div>
     </div>`,
         styleTodo();
