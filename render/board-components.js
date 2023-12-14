@@ -80,6 +80,8 @@ function renderComponents(activeUser) {
 
 
 function generateTodoHTML(element) {
+    let counter=element.finishedTaskList.length;
+    let subTaskLength=element.finishedTaskList.length + element.subTask.length;
     let category = convertCategory(element);
     return /*html*/`
     <div id=${element.id} data-value="${element.assignees}" draggable="true" ondragstart="startDragging(${element.id})" onclick="openTodoPopup(${element.id})" class="todo">
@@ -91,8 +93,8 @@ function generateTodoHTML(element) {
                 <div id="progress${element.id}" class="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
             </div>
             <div class="subtask-content">
-                <div>${element.counter}</div>
-                <div>/${element.subTask.length}</div>  
+                <div>${counter}</div>
+                <div>/${subTaskLength}</div>  
                 <div>Subtasks</div>
             </div>
         </div>
@@ -281,7 +283,7 @@ function getSubFinishedList(finishedTaskList) {
         <li> 
             <input type="checkbox" checked id="check${finishId}">
             <div class="sub-task-board">
-                <div class="sub-cb-auxiliary"><img id="img-box${finishId}" style = 'width: 0.9rem;height: .9rem' class="sub-checkbox" src="/assets/img/checked-box.png" onclick="subBoxClick(${finishId})" alt="checkbox"></div>
+                <div class="sub-cb-auxiliary"><img id="img-box${finishId}" style = 'width: 0.9rem;height: .9rem' data-counter="1" class="sub-checkbox" src="/assets/img/checked-box.png" onclick="subBoxClick(${finishId})" alt="checkbox"></div>
                 <div class="sub-text">
                     ${fin}
                 </div>

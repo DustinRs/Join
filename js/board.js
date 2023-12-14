@@ -238,25 +238,25 @@ function writeDescription(task) {
 function subBoxClick(i) {
     let checkbox = document.getElementById(`check${i}`);
     let img = document.getElementById(`img-box${i}`);
-    let finishedTask = document.getElementById(`img-box${i}`)
-    subCheckBox(checkbox, img,finishedTask);
+    // let finishedTask = document.getElementById(`img-box${i}`)
+    subCheckBox(checkbox, img);
     }
   
   
-  function subCheckBox(box, img,finishedTask){
-    console.log(finishedTask)
+  function subCheckBox(box, img){
+    // console.log(finishedTask)
     if (box.checked) {
       box.checked = false;
       img.src = '/assets/img/checkbox.png';
       img.style = "";
-      img.setAttribute('data-conter','0');
-      finishedTask.setAttribute('data-counter','0');
+      img.setAttribute('data-counter','0');
+    //   finishedTask.setAttribute('data-counter','0');
     } else if (!box.checked) {
       box.checked = true;
       img.src = '/assets/img/checked-box.png';
       img.style = 'width: 0.9rem;height: .9rem';
-      img.setAttribute('data-conter','1');
-      finishedTask.setAttribute('data-counter','1');
+      img.setAttribute('data-counter','1');
+    //   finishedTask.setAttribute('data-counter','1');
     }
   }
 
