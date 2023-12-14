@@ -73,9 +73,10 @@ function getRememberedUser(){
 
   document.getElementById('login-mail').value=rememberUser
   document.getElementById('login-password').value=rememberPassword
-  rememberUser!== ""?checkboxClick():{
-                                      //keine Aktion erforderlich
-                                      }
+  if(rememberUser!== ""){
+    checkboxClick();
+    document.getElementById('login-btn').disabled = false
+  }
 }
 
 
