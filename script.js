@@ -1,5 +1,7 @@
 let activeUser;
 let assignees=[];
+let rememberUser="";
+let rememberPassword="";
 let editTask;
 let editTaskObj;
 let currentDraggedElement;
@@ -51,6 +53,29 @@ function getUser(sessionKey) {
   userData = sessionStorage.getItem(sessionKey)
   activeUser = JSON.parse(userData)
   return activeUser
+}
+
+function rememberMe(){
+  if(rememberUser!==""){
+    localStorage.clear()
+  }else{
+    rememberUser = document.getElementById('login-mail').value
+    rememberPassword = document.getElementById('login-password').value
+  
+    localStorage.setItem("user",rememberUser)
+    localStorage.setItem("password",rememberPassword)
+  }
+}
+
+function getRememberedUser(){
+  rememberUser = localStorage.getItem("user")||"";
+  rememberPassword = localStorage.getItem("password")||"";
+
+  document.getElementById('login-mail').value=rememberUser
+  document.getElementById('login-password').value=rememberPassword
+  rememberUser!== ""?checkboxClick():{
+                                      //keine Aktion erforderlich
+                                      }
 }
 
 

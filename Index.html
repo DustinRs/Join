@@ -17,7 +17,7 @@
     <title>Join</title>
 </head>
 
-<body onload="init()">
+<body onload="init(),getRememberedUser()">
     <div id="logo" class="logo-container"></div>
     <div id="info" class="btn btn-danger"><img src="assets/img/error.png" id="error" alt="">
         <div id="info-text">test</div>
@@ -52,7 +52,7 @@
                     </div>
                     <div id="log-in-check" class="d-flex">
                         <input type="checkbox" id="check">
-                        <img id="checkbox" src="assets/img/checkbox.png" onclick="checkboxClick()" alt="checkbox">
+                        <img id="checkbox" src="assets/img/checkbox.png" onclick="checkboxClick(),rememberMe()" alt="checkbox">
                         <label class="label" for="check">Remember me</label>
                     </div>
                 </div>
