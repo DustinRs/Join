@@ -724,3 +724,24 @@ input[type="date"]::-webkit-calendar-picker-indicator{
     margin-bottom: -3rem;
     height: 3rem;
 }
+
+#title-requirement{
+    position: relative;
+    margin: -2rem 0 .8rem .5rem;
+    color: red;
+    font-size: .8rem;
+}
+
+#description-requirement{
+    position: relative;
+    margin: -2rem 0 .8rem .5rem;
+    color: red;
+    font-size: .8rem;
+}
+
+#date-requirement{
+    position: relative;
+    margin: -2rem 0 .8rem .5rem;
+    color: red;
+    font-size: .8rem;
+}

@@ -7,11 +7,13 @@ function renderAddTaskSections() {
         <div id="add-task-titlte-container"class="input-group sub-container row">
             <input id="title" class="form-control subtask-input" type="text" placeholder="Enter a title" required />
         </div>
+        <div id="title-requirement" class="d-none">This field is required</div>
         <h6>Description<span class="span">*</span></h6>
         <div id="area-container" class="input-group sub-container row">
             <textarea id="description" class="form-control subtask-input" placeholder="Enter a Description" cols="30"
                 rows="10" required></textarea>
         </div>
+        <div id="description-requirement" class="d-none">Please provide a description</div>
         <h6>Assigned to</h6>
         <div class="relative">
             <div id="assign-select" class="input-group sub-container ">
@@ -52,6 +54,7 @@ function renderAddTaskSections() {
                     onfocus="(this.type='date')" 
                     required />
         </div>
+        <div id="date-requirement" class="d-none">Please set the actual or a furture date.</div>
         <h6>Prio</h6>
         <div id="prio">
             <div class="prio Urgent">
@@ -101,14 +104,14 @@ function renderAddTaskSections() {
                     <li class=add-task-contact>
                         <div class="profile">
                             <div class="name"
-                                onclick="setValue('Technical Task');closeList('category-select','category','category-ul','category-icon');checkInputs()">
+                                onclick="setValue('Technical Task');closeList('category-select','category','category-ul','category-icon');checkAllInputs()">
                                 Technical Task</div>
                         </div>
                     </li>
                     <li class=add-task-contact>
                         <div class="profile">
                             <div class="name"
-                                onclick="setValue('User Story');closeList('category-select','category','category-ul','category-icon');checkInputs()">
+                                onclick="setValue('User Story');closeList('category-select','category','category-ul','category-icon');checkAllInputs()">
                                 User Story</div>
                         </div>
                     </li>

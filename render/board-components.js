@@ -400,14 +400,14 @@ function renderEditTaskPopUp() {
                     <li class=add-task-contact>
                         <div class="profile">
                             <div class="name"
-                                onclick="setValue('Technical Task');closeList('category-select','category','category-ul','category-icon');checkInputs()">
+                                onclick="setValue('Technical Task');closeList('category-select','category','category-ul','category-icon');checkAllInputs()">
                                 Technical Task</div>
                         </div>
                     </li>
                     <li class=add-task-contact>
                         <div class="profile">
                             <div class="name"
-                                onclick="setValue('User Story');closeList('category-select','category','category-ul','category-icon');checkInputs()">
+                                onclick="setValue('User Story');closeList('category-select','category','category-ul','category-icon');checkAllInputs()">
                                 User Story</div>
                         </div>
                     </li>
@@ -455,7 +455,8 @@ function renderEditTaskPopUp() {
                 alt="" /></button>
     </div>
 </div>
-`
+`,
+addInputHandler()
 };
 
 
@@ -557,14 +558,14 @@ function editCurrentTodo(task) {
                       <li class=add-task-contact>
                           <div class="profile">
                               <div class="name"
-                                  onclick="setValue('Technical Task');closeList('category-select','category','category-ul','category-icon');checkInputs()">
+                                  onclick="setValue('Technical Task');closeList('category-select','category','category-ul','category-icon');checkAllInputs()">
                                   Technical Task</div>
                           </div>
                       </li>
                       <li class=add-task-contact>
                           <div class="profile">
                               <div class="name"
-                                  onclick="setValue('User Story');closeList('category-select','category','category-ul','category-icon');checkInputs()">
+                                  onclick="setValue('User Story');closeList('category-select','category','category-ul','category-icon');checkAllInputs()">
                                   User Story</div>
                           </div>
                       </li>
@@ -614,6 +615,7 @@ function editCurrentTodo(task) {
   </div>
   `,
         addAssigneesSelection(),
+        addInputHandler(),
         pushEditAssignees(task)
 }
 

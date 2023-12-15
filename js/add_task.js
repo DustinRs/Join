@@ -80,19 +80,6 @@ async function editTodoInAllTasks(status, index, prio) {
 }
 
 
-function checkInputs() {
-  const title = document.getElementById("title").value;
-  const description = document.getElementById("description").value;
-  const date = document.getElementById("date").value;
-  const category = document.getElementById("category").getAttribute("value");
-  const button = document.getElementById("createTaskButton");
-
- if(title === "" || description === "" || date === "" || category === ""){
-  button.disabled = true;
- }
-}
-
-
 function checkBoxClicked(priority) {
   let checkbox = document.getElementById(priority);
   let image = document.getElementById(priority + "-img");
@@ -203,7 +190,7 @@ function clearCategoryValue() {
   input.innerText = ''
   input.setAttribute('placeholder', 'Select task category')
   input.setAttribute('value', '');
-  checkInputs()
+  checkAllInputs()
 }
 
 function openList(containerID, inputID, ulID, iconID) {
@@ -336,55 +323,58 @@ function pushEditAssignees(task) {
 
 }
 
+
 function editPrio(newPrio) {
   editArr = [newPrio]
 }
+
+
+function checkAllInputs(){
+  if(validateTitleInput() && validateDescriptionInput() && validateDateInput()&& categoryResponse()){
+    document.getElementById('createTaskButton').disabled = false;
+  }
+}
+
 
 function addInputHandler() {
   let title = document.getElementById("title");
   let description = document.getElementById("description");
   let date = document.getElementById("date");
-  let category = document.getElementById("category");
 
   title.addEventListener('click', addTitleListener);
   description.addEventListener('click', addDescriptionListener);
-  date.addEventListener('focusout', addDateListener);
-  category.addEventListener('click', addCategoryListener);
+  date.addEventListener('focusout', validateDateInput);
+  date.addEventListener('focusout',checkAllInputs)
 }
 
+
 function addTitleListener() {
-  let input = document.getElementById('title')
-  input.addEventListener('input', validateTitleInput)
+  let input = document.getElementById('title');
+  input.addEventListener('input', validateTitleInput);
+  input.addEventListener('input',checkAllInputs)
 }
 
 
 function addDescriptionListener() {
-  let input = document.getElementById('description')
-  input.addEventListener('input', validateDescriptionInput)
+  let input = document.getElementById('description');
+  input.addEventListener('input', validateDescriptionInput);
+  input.addEventListener('input',checkAllInputs)
 }
 
-
-function addDateListener() {
-  let input = document.getElementById('date')
-  input.addEventListener('focusout', validateDateInput())
-}
-
-
-function addCategoryListener() {
-  let input = document.getElementById('category')
-  input.addEventListener('click', validateCategoryInput)
-}
 
 function validateTitleInput() {
   let title = document.getElementById("title");
   let div = document.getElementsByClassName("input-group");
   let container = document.getElementById('add-task-titlte-container');
+  let message= document.getElementById('title-requirement');
 
   if (title.value.length === 0) {
     div[0].style = "border: 3px solid red!important";
     container.style="box-shadow: inset 0 0 1px 1px #FF4646!important;"
+    message.classList.remove('d-none')
     document.getElementById('createTaskButton').disabled = true;
   } else {
+    message.classList.add('d-none')
     div[0].style = "";
     container.style=""
     return true
@@ -395,13 +385,17 @@ function validateDescriptionInput() {
   let description = document.getElementById("description");
   let div = document.getElementsByClassName("input-group");
   let container = document.getElementById('area-container');
+  let message= document.getElementById('description-requirement');
+
   if (description.value.length === 0) {
     div[1].style = "border: 3px solid red!important";
-    container.style="box-shadow: inset 0 0 1px 1px #FF4646!important;"
+    container.style="box-shadow: inset 0 0 1px 1px #FF4646!important;";
+    message.classList.remove('d-none')
     document.getElementById('createTaskButton').disabled = true;
   } else {
     div[1].style = "";
     container.style=""
+    message.classList.add('d-none')
     return true
   }
 }
@@ -411,31 +405,28 @@ function validateDateInput() {
   let div = document.getElementById("add-task-date-input");
   let selectedDate = new Date(input.value);
   let currentDate = new Date();
-  console.log(selectedDate)
-  console.log(currentDate)
-
+  let message= document.getElementById('date-requirement');
   if (selectedDate=='Invalid Date'){
     div.style = "box-shadow: inset 0 0 1px 1px #FF4646!important;";
+    message.classList.remove('d-none');
     document.getElementById('createTaskButton').disabled = true; 
   } else if (selectedDate < currentDate) {
     div.style = "box-shadow: inset 0 0 1px 1px #FF4646!important;";
+    message.classList.remove('d-none');
     document.getElementById('createTaskButton').disabled = true; 
-  } else {
-    div.style = "";
-    return true
-  }
+  } else {message.classList.add('d-none');div.style = "";return true}
 }
 
-function validateCategoryInput() {
+function categoryResponse() {
   let category = document.getElementById("category");
-  let div = document.getElementsByClassName("input-group");
-  if (category.value === "") {
-    div[4].style = "border: 3px solid red!important";
-    document.getElementById('createTaskButton').disabled = true;
+  if (category.value == "Technical Task"||category.value == "User Story") {
+    return true
   } else {
-    div[4].style = "";
+    document.getElementById('createTaskButton').disabled = true;
+    return false
   }
 }
+    
 
 // function validatePassword() {
 //   let password = document.getElementById("create_password");
