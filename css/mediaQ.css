@@ -1,3 +1,23 @@
+@media (max-width: 1440px) {
+  #content-box {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+  .drag-head {
+    width: 100%;
+  }
+  .drag-area {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    
+  }
+  .drag-headlines {
+    width: 100%;
+  }
+}
+
 @media (max-width: 1330px) {
   main {
     max-height: 81%;
