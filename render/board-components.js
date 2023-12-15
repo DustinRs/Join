@@ -30,7 +30,6 @@ function renderComponents(activeUser) {
                     <h4>To do</h4>
                     <img class="drag-headlines-plus" src="/assets/img/board-plus.png" alt="plus in box"
                         onclick="openPopUp(),changeStatus('To-Do'),addAssigneesSelection()">
-
                 </div>
                 <div class="drag-area" id="To-Do" ondrop="moveTo('To-Do')" ondragleave="removeHighlight('To-Do')"
                     ondragover="allowDrop(event); highlight('To-Do')">
@@ -42,35 +41,29 @@ function renderComponents(activeUser) {
                     <img class="drag-headlines-plus" src="/assets/img/board-plus.png" alt="plus in box"
                         onclick="openPopUp(),changeStatus('In-Progress'),addAssigneesSelection()">
                 </div>
-
                 <div class="drag-area" id="In-Progress" ondrop="moveTo('In-Progress')"
                     ondragleave="removeHighlight('In-Progress')" ondragover="allowDrop(event); highlight('In-Progress')">
                 </div>
             </div>
             <div class="drag-headlines">
-
                 <div class="drag-head">
                     <h4>Await feedback</h4>
                     <img class="drag-headlines-plus" src="/assets/img/board-plus.png" alt="plus in box"
                         onclick="openPopUp(),changeStatus('Await-Feedback'),addAssigneesSelection()">
                 </div>
-
                 <div class="drag-area" id="Await-Feedback" ondrop="moveTo('Await-Feedback')"
                     ondragleave="removeHighlight('Await-Feedback')"
                     ondragover="allowDrop(event); highlight('Await-Feedback')">
                 </div>
             </div>
             <div class="drag-headlines">
-
                 <div class="drag-head">
                     <h4>Done</h4>
                 </div>
                 <div class="drag-area" id="Done" ondrop="moveTo('Done')" ondragleave="removeHighlight('Done')"
                     ondragover="allowDrop(event); highlight('Done')">
                 </div>
-
             </div>
-
         </div>
     </div>
 </div>
@@ -80,10 +73,10 @@ function renderComponents(activeUser) {
 
 
 function generateTodoHTML(element) {
-    let counter=element.finishedTaskList.length;
-    let subTaskLength=element.totalSubTasks;
+    let counter = element.finishedTaskList.length;
+    let subTaskLength = element.totalSubTasks;
     let category = convertCategory(element);
-    let width=initialProgressWidth(element)
+    let width = initialProgressWidth(element)
     return /*html*/`
     <div id=${element.id} data-value="${element.assignees}" draggable="true" ondragstart="startDragging(${element.id})" onclick="openTodoPopup(${element.id})" class="todo">
         <div class="${category}">${element.category}</div>
@@ -109,17 +102,11 @@ function generateTodoHTML(element) {
 
 function returnPriority(priority) {
     if (priority === 'urgent') {
-        return /*html*/`
-        <img src="/assets/img/urgent-priority.png" alt="urgent">
-        `
+        return /*html*/`<img src="/assets/img/urgent-priority.png" alt="urgent">`
     } else if (priority === 'medium') {
-        return /*html*/`
-        <img src="/assets/img/medium-priority.png" alt="medium">
-        `
+        return /*html*/`<img src="/assets/img/medium-priority.png" alt="medium">`
     } else if (priority === 'low') {
-        return /*html*/`
-        <img src="/assets/img/low-priority.png" alt="low">
-        `
+        return /*html*/`<img src="/assets/img/low-priority.png" alt="low">`
     }
 }
 
@@ -131,7 +118,7 @@ function renderPopUpAddTask() {
             <div id="close-pop-up" onclick="closePopUp()"><img src="/assets/img/btn-x.png" alt=""></div>
             ${renderAddTaskSections()}
         </div>
-`,
+        `,
         styleAddTask()
 }
 
@@ -191,7 +178,7 @@ function renderSingleTodo(id) {
             </ul>
             <ul id=subtask-list data-id="${element.id}">
                 <h6  class="descriptionBoardPopUp">Subtasks</h6>
-                ${getSubCheckList(element.subTask,element.finishedTaskList)}
+                ${getSubCheckList(element.subTask, element.finishedTaskList)}
             </ul>
         </div>
         <div id="todo-edit-footer">
@@ -206,7 +193,6 @@ function renderSingleTodo(id) {
 function styleTodo() {
     let popUp = document.getElementById('pop-up-container');
     let sheet = document.getElementById('single-todo');
-
     sheet.style.boxShadow = 'none';
     popUp.style = 'width:30rem; padding:2rem 1rem';
 }
@@ -214,7 +200,6 @@ function styleTodo() {
 function styleAddTask() {
     let popUp = document.getElementById('pop-up-container');
     popUp.style = 'width:80%; padding:0 5.5rem';
-
 }
 
 
@@ -223,14 +208,13 @@ function getAssignList(assignees) {
     for (let i = 0; i < assignees.length; i++) {
         let contact = contacts[assignees[i]];
         liArr.push(`<li class=contact><div class="profile"><div class="icon" style="background-color:${contact.color}">${contact.initials}</div><div class="name">${contact.fullName}</div></div></li>`)
-    }
-    return liArr.join('')
+    }; return liArr.join('')
 }
 
 
-function getSubCheckList(subtaskList,finishedTaskList) {
+function getSubCheckList(subtaskList, finishedTaskList) {
     let subLiArr = []
-    let finListArr=getSubFinishedList(finishedTaskList);
+    let finListArr = getSubFinishedList(finishedTaskList);
     for (let i = 0; i < subtaskList.length; i++) {
         let sub = subtaskList[i];
         subLiArr.push(/*html*/`
@@ -243,23 +227,24 @@ function getSubCheckList(subtaskList,finishedTaskList) {
                 </div>
             </div>
         </li>`)
-    };
-    if(finListArr !== false){
-        subLiArr = subLiArr.concat(finListArr)
-        return subLiArr.join('')
-    }else{
-        return subLiArr.join('')
+    };return mergeSublists(subLiArr, finListArr)
+}
+
+function mergeSublists(sub, fin){
+    if (fin !== false) {
+        sub = sub.concat(fin)
+        return sub.join('')
+    } else {
+        return sub.join('')
     }
 }
 
 function getSubFinishedList(finishedTaskList) {
     let finLiArr = []
-    if(finishedTaskList.length === 0){
-        return false
-    }
+    if (finishedTaskList.length === 0){return false}
     for (let i = 0; i < finishedTaskList.length; i++) {
         let fin = finishedTaskList[i];
-        let finishId= 1000+i
+        let finishId = 1000 + i
         finLiArr.push(/*html*/`
         <li> 
             <input type="checkbox" checked id="check${finishId}">
@@ -269,31 +254,28 @@ function getSubFinishedList(finishedTaskList) {
                     ${fin}
                 </div>
             </div>
-        </li>`),console.log(finishId)
+        </li>`), console.log(finishId)
     }
     return finLiArr
 }
 
 
-function getSubList(subtaskList,finishedTaskList) {
+function getSubList(subtaskList, finishedTaskList) {
     let subLiArr = []
-    let finListArr= getEditFinishedList(finishedTaskList);
+    let finListArr = getEditFinishedList(finishedTaskList);
     for (let i = 0; i < subtaskList.length; i++) {
         let sub = subtaskList[i];
         subTasks.push(sub)
         subLiArr.push(`<li>${sub}</li>`)
     }
-    if(finListArr !== false){
-        subLiArr = subLiArr.concat(finListArr)
-        return subLiArr.join('')
-    }else{
-        return subLiArr.join('')
-    }
+    return mergeSublists(subLiArr, finListArr)
 }
+    
+
 
 function getEditFinishedList(finishedTaskList) {
     let finLiArr = []
-    if(finishedTaskList.length === 0){
+    if (finishedTaskList.length === 0) {
         return false
     }
     for (let i = 0; i < finishedTaskList.length; i++) {
@@ -303,161 +285,6 @@ function getEditFinishedList(finishedTaskList) {
     }
     return finLiArr
 }
-
-function renderEditTaskPopUp() {
-    let popUp = document.getElementById('pop-up-container');
-    popUp.innerHTML = /*html*/`
-    <div id="close-pop-up" onclick="closePopUp()"><img src="/assets/img/btn-x.png" alt=""></div>
-<div class="sectionsEdit">
-    <div class="left-section">
-        <h6>Title</h6>
-        <div class="input-group sub-container row">
-            <input id="titleEdit" class="form-control subtask-input" type="text" placeholder="Enter a title" required />
-        </div>
-        <h6>Description</h6>
-        <div id="area-container" class="input-group sub-container row">
-            <textarea id="descriptionEdit" class="form-control subtask-input" placeholder="Enter a Description" cols="30"
-                rows="10" required></textarea>
-        </div>
-        <h6>Assigned to</h6>
-        <div class="relative">
-            <div id="assign-select" class="input-group sub-container ">
-                <input class="form-control subtask-input contact-assign-select select"
-                    onclick="openList('assign-select','assign','assign-ul','assign-icon')"
-                    placeholder="Select contacts to assign" id="assignedEdit">
-                <button id="assign-icon" class="divIcon"
-                    onclick="openList('assign-select','assign','assign-ul','assign-icon')"><img
-                        src="/assets/img/arrow_drop_down.png" alt=""></button>
-            </div>
-            <div id="assign-ul" class="ul-parent d-none">
-                <ul id=assign-list class="drop-down-select-container ">
-                    <li class=add-task-contact>
-                        <div class="profile">
-                            <div class="icon">*Bild*</div>
-                            <div class="name">*Name*</div>
-                        </div>
-                        <div class="checkbox-container">
-                            <input type="checkbox" id="check1">
-                            <img id="img-box1" src="/assets/img/checkbox.png" onclick="checkboxClick(1)" alt="checkbox">
-                        </div>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </div>
-    <div class="border"></div>
-    <div class="right-section">
-        <h6>Due date</h6>
-        <div class="input-group sub-container row">
-            <input id="dateEdit" class="form-control subtask-input" type="date" required />
-        </div>
-        <h6>Prio</h6>
-        <div id="prioEdit">
-            <div class="prio Urgent">
-                <label>
-                    <input id="urgent" 
-                        type="checkbox" 
-                        value="Urgent" 
-                        onclick="checkBoxClicked('urgent')">
-                    <span class="priority-span" id="urgent-span">Urgent <img class="prioImgs" id="urgent-img"src="/assets/img/urgent-priority.png" alt=""></span>
-                </label>
-            </div>
-            <div class="prio Medium">
-                <label>
-                    <input id="medium" 
-                        type="checkbox" 
-                        value="Medium" 
-                        onclick="checkBoxClicked('medium')">
-                    <span class="priority-span" id="medium-span">Medium <img class="prioImgs" id="medium-img"src="/assets/img/medium-priority.png" alt=""></span>
-                </label>
-            </div>
-            <div class="prio Low">
-                <label>
-                    <input id="low" 
-                        type="checkbox" 
-                        value="Low" 
-                        onclick="checkBoxClicked('low')">
-                    <span class="priority-span" id="low-span">Low <img class="prioImgs" id="low-img"src="/assets/img/low-priority.png" alt=""></span>
-                </label>
-            </div>
-        </div>
-        <h6>Category</h6>
-        <div class="relative">
-            <div id="category-select" class="input-group sub-container">
-                <input class="form-control subtask-input contact-assign-select select" 
-                    value=""
-                    placeholder="Select task category" 
-                    id="categoryEdit"
-                    onclick="openList('category-select','category','category-ul','category-icon')" 
-                    readonly 
-                    required>
-                <button id="category-icon" class="divIcon"
-                    onclick="openList('category-select','category','category-ul','category-icon')"><img
-                        src="/assets/img/arrow_drop_down.png" alt=""></button>
-            </div>
-            <div id="category-ul" class="ul-parent d-none">
-                <ul class="drop-down-select-container">
-                    <li class=add-task-contact>
-                        <div class="profile">
-                            <div class="name"
-                                onclick="setValue('Technical Task');closeList('category-select','category','category-ul','category-icon');checkAllInputs()">
-                                Technical Task</div>
-                        </div>
-                    </li>
-                    <li class=add-task-contact>
-                        <div class="profile">
-                            <div class="name"
-                                onclick="setValue('User Story');closeList('category-select','category','category-ul','category-icon');checkAllInputs()">
-                                User Story</div>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-        </div>
-        <h6 id="header-six">Subtasks</h6>
-        <div id="sub-container" class="input-group sub-container row">
-            <input  id="subtaskEdit" 
-                    type="text" 
-                    class="form-control subtask-input" 
-                    placeholder="Add new Subtask"
-                    aria-label="Recipient's username with two button addons" 
-                    onclick="subTaskActive()">
-            <button class="btn btn-outline-secondary sub-active" 
-                    onclick="subTaskActive()" 
-                    id="sub-plus"
-                    type="button">
-                <img id="sub-btn-plus" src="/assets/img/dark-plus.png" alt="">
-            </button>
-            <div id="sub-btn" class="d-flex d-none">
-                <button class="btn sub-active" 
-                        id="cross-btn" 
-                        type="button" 
-                        onclick="subTaskClose()"><img id="cross"
-                        src="/assets/img/btn-x.png" alt=""></button>
-                <div class="input-border"></div>
-                <button class="btn sub-active" 
-                        id="check-btn" 
-                        type="button"
-                        onclick="pushSubTasks()">
-                            <img id="add-subtask" src="/assets/img/darkCheckmark.png" alt="">
-                </button>
-            </div>
-            <div id="subtask-listed">
-                <ul id="task-list"></ul>
-            </div>
-        </div>
-    </div>
-</div>
-</div>
-<div class="edit-task-bottom-section">
-    <div id="submit-btn-container">        
-    <button id="createTaskButton" class="createTaskButton" onclick="addTask('To-Do')">Ok <img src="/assets/img/checkbtn-checkmark.png"
-                alt="" /></button>
-    </div>
-</div>
-`,
-addInputHandler()
-};
 
 
 function editCurrentTodo(task) {
@@ -602,7 +429,7 @@ function editCurrentTodo(task) {
               </div>
               <div id="subtask-listed">
                   <ul id="task-list" class="edit-ul-task-list">
-                  ${getSubList(task.subTask,task.finishedTaskList)}
+                  ${getSubList(task.subTask, task.finishedTaskList)}
                   </ul>
               </div>
           </div>
