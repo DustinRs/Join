@@ -204,16 +204,6 @@
     order: 3;
   }
 
-  .h1 {
-    order: 1;
-    /* Bleibt an erster Stelle */
-  }
-
-  .h4 {
-    order: 2;
-    /* Wird an die zweite Stelle verschoben */
-  }
-
   main {
     width: 100%;
     left: 0;
@@ -238,6 +228,7 @@
   .headlineDiv {
     width: 0;
     padding-left: 2rem;
+    padding-top: 10rem;
   }
 
   .userProfile {
@@ -256,10 +247,6 @@
     height: 56rem;
     position: relative;
     top: 6rem;
-  }
-
-  .scrollDiv {
-    height: 48rem !important;
   }
   .d-rowMobile {
     flex-direction: row !important;
@@ -299,7 +286,7 @@
   .border {
     display: none;
   }
-  
+
   .add-task-bottom-section {
     position: absolute;
     top: auto;
@@ -371,7 +358,7 @@
   .contactButtonMobile {
     position: fixed;
     top: auto;
-    right: 4rem;
+    right: 2rem;
     bottom: 10rem;
     background-color: #091931;
     width: 4rem;
@@ -389,7 +376,7 @@
 
   .buttonsPopUpMobile {
     position: absolute;
-    right: 4rem;
+    right: 2rem;
     bottom: 10rem;
     z-index: 13;
     gap: 1rem;
@@ -485,6 +472,9 @@
     gap: 0.2rem;
     width: 9rem;
     height: 2.5rem;
+}
+.buttonsPopUp {
+  display: none;
 }
 
 }
@@ -677,5 +667,14 @@
   }
   .sections {
       height: 66vh;
+  }
+  .contactsDiv {
+    padding: 0px 0px 0px 0.5rem;
+  }
+  .headlineDiv {
+    padding-left: 0.5rem;
+  }
+  .userProfile {
+    padding-left: 0.5rem;
   }
 }
