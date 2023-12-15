@@ -28,7 +28,19 @@ li::marker {
         margin-left: 0rem;
         margin-top: 3rem;
         overflow: scroll;
+        height: 80vh;
+        overflow-x: hidden;
+        -ms-overflow-style: none;  /* IE and Edge */
+        scrollbar-width: none;
     }
+    main::-webkit-scrollbar {
+        display: none;
+      }
+      
+      /* Hide scrollbar for IE, Edge and Firefox */
+      .example {
+          /* Firefox */
+      }
     .scroll-help {
         left: 0 !important;
         width: 100% !important;
