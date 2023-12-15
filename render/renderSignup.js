@@ -65,13 +65,11 @@ function renderSignup() {
     addSignUpHandler()
 };
 
-
+//Renders the login component on the page.
 function renderLogin() {
-
     let main = document.getElementById('login-main');
     let header = document.getElementById('sign-up');
     header.classList.remove('d-none')
-
     main.innerHTML = '';
     main.innerHTML +=/*html*/`
         <div id="login-container">

@@ -1,3 +1,4 @@
+// initial render-function which adds the navbar and header as well as preparing several drag and drop areas to render the todos into
 function renderComponents(activeUser) {
     let nav = document.querySelector('nav');
     let header = document.querySelector('header');
@@ -72,6 +73,7 @@ function renderComponents(activeUser) {
 }
 
 
+// main render function which renders every todo
 function generateTodoHTML(element) {
     let counter = element.finishedTaskList.length;
     let subTaskLength = element.totalSubTasks;
@@ -101,6 +103,7 @@ function generateTodoHTML(element) {
 }
 
 
+//auxiliary function for renderTodoIcons which renders the priority icon automatically
 function returnPriority(priority) {
     if (priority === 'urgent') {
         return /*html*/`<img src="/assets/img/urgent-priority.png" alt="urgent">`
@@ -112,6 +115,7 @@ function returnPriority(priority) {
 }
 
 
+//Render the pop-up for adding a task.
 function renderPopUpAddTask() {
     let popUp = document.getElementById('pop-up-container');
     popUp.innerHTML = /*html*/`
@@ -235,7 +239,7 @@ function mergeSublists(sub, fin){
 }
 
 
-//Generate the finished task list for the sub-tasks.
+//Generate the finished task list for the sub-tasks which are recognized as checked
 function getSubFinishedList(finishedTaskList) {
     let finLiArr = []
     if (finishedTaskList.length === 0){return false}

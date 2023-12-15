@@ -1,6 +1,6 @@
+// Generates the headline HTML element.
 function renderHeadline() {
     return /*html*/`
-
     <div class="column">
         <div class ="row">  
             <h1>Join 360</h1>
@@ -12,6 +12,7 @@ function renderHeadline() {
 }
 
 
+// Generates a grid container HTML element.
 function gridContainer() {
     return /*html*/`
     <div class="d-flex row">  
@@ -53,6 +54,8 @@ function gridContainer() {
   `
 }
 
+
+//greets the user individually either by name or as guest if not logged in
 function greeting(user){
     return/*html*/`
     <div id="greeting-container">

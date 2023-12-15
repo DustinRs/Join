@@ -1,3 +1,4 @@
+//renders the content for editing an allready created todo/task
 function editCurrentTodo(task) {
     let popUp = document.getElementById('pop-up-container');
     popUp.innerHTML = /*html*/`

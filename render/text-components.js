@@ -1,3 +1,4 @@
+//just endles html regarding privacy policy and legal notice in german(just in case) as well as english
 function renderPrivacyPolicy() {
   return /*html*/ `
    <div id="german" class="d-none">
