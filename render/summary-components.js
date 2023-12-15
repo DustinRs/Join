@@ -38,13 +38,13 @@ function gridContainer() {
                 </div>
             </div>
             <div class="grid-container3">
-                <div id="taskInBoard" onclick="openBoard()" class="grid-item deadline">
+                <div id="taskInBoard" onclick="openBoard()" class="grid-item deadline deadlineMobile">
                 <h1>${allTasks.length}</h1><div class="grid-3-text">Tasks in Board</div>
                 </div>
-                <div id="taskInProgress" onclick="openBoard()" class="grid-item deadline">
+                <div id="taskInProgress" onclick="openBoard()" class="grid-item deadline deadlineMobile">
                     <h1>${inProgress.length}</h1><div class="grid-3-text">Tasks in Progress</div>
                 </div>
-                <div id="awaitingFeedback" onclick="openBoard()" class="grid-item deadline">
+                <div id="awaitingFeedback" onclick="openBoard()" class="grid-item deadline deadlineMobile">
                     <h1>${awaitFeedback.length}</h1><div class="grid-3-text">Awaiting Feedback</div>
                 </div>
             </div>

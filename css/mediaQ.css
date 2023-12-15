@@ -611,4 +611,25 @@
     left: 6%;
     right: 0%;
   }
+  .navLinks {
+    gap: 0px;
+}
+#grid-main-container {
+  width: 100%;
+  gap: 0px;
+}
+.lineUrgent {
+  margin-left: 0rem;
+  margin-right: 0rem;
+}
+.deadline {
+  text-align: center;
+  gap: 0px;
+}
+.deadlineMobile {
+  gap: 1rem;
+}
+#greeting-container {
+  text-align: center;
+}
 }
