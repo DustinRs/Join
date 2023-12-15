@@ -7,7 +7,7 @@ async function init() {
   renderAddTaskPage(activeUser);
   navActive(1);
   addAssigneesSelection();
-  checkInputs();
+  addInputHandler();
   addSubtaskListener();
 }
 
@@ -66,7 +66,7 @@ async function editTodoInAllTasks(status, index, prio) {
     status: status,
     counter: finishedSubTasks.length,
     subTask: taskArr = [...subTasks],
-    finishedTaskList: taskArr= [...finishedSubTasks],
+    finishedTaskList: taskArr = [...finishedSubTasks],
     totalSubTasks: subTasks.length + finishedSubTasks.length,
     id: Date.now(),
     assignees: assignees
@@ -80,15 +80,17 @@ async function editTodoInAllTasks(status, index, prio) {
 }
 
 
-// function checkInputs() {
-//   const title = document.getElementById("title").value;
-//   const description = document.getElementById("description").value;
-//   const date = document.getElementById("date").value;
-//   const category = document.getElementById("category").getAttribute("value");
-//   const button = document.getElementById("createTaskButton");
+function checkInputs() {
+  const title = document.getElementById("title").value;
+  const description = document.getElementById("description").value;
+  const date = document.getElementById("date").value;
+  const category = document.getElementById("category").getAttribute("value");
+  const button = document.getElementById("createTaskButton");
 
-//   button.disabled = (title === "" || description === "" || date === "" || category === "");
-// }
+ if(title === "" || description === "" || date === "" || category === ""){
+  button.disabled = true;
+ }
+}
 
 
 function checkBoxClicked(priority) {
@@ -326,7 +328,7 @@ function addSubtaskListener() {
 
 
 function pushEditAssignees(task) {
-  assignees=[];
+  assignees = [];
   let index = task.assignees
   index.forEach((element) => {
     addboxClick(element)
@@ -337,3 +339,128 @@ function pushEditAssignees(task) {
 function editPrio(newPrio) {
   editArr = [newPrio]
 }
+
+function addInputHandler() {
+  let title = document.getElementById("title");
+  let description = document.getElementById("description");
+  let date = document.getElementById("date");
+  let category = document.getElementById("category");
+
+  title.addEventListener('click', addTitleListener);
+  description.addEventListener('click', addDescriptionListener);
+  date.addEventListener('focusout', addDateListener);
+  category.addEventListener('click', addCategoryListener);
+}
+
+function addTitleListener() {
+  let input = document.getElementById('title')
+  input.addEventListener('input', validateTitleInput)
+}
+
+
+function addDescriptionListener() {
+  let input = document.getElementById('description')
+  input.addEventListener('input', validateDescriptionInput)
+}
+
+
+function addDateListener() {
+  let input = document.getElementById('date')
+  input.addEventListener('focusout', validateDateInput())
+}
+
+
+function addCategoryListener() {
+  let input = document.getElementById('category')
+  input.addEventListener('click', validateCategoryInput)
+}
+
+function validateTitleInput() {
+  let title = document.getElementById("title");
+  let div = document.getElementsByClassName("input-group");
+  let container = document.getElementById('add-task-titlte-container');
+
+  if (title.value.length === 0) {
+    div[0].style = "border: 3px solid red!important";
+    container.style="box-shadow: inset 0 0 1px 1px #FF4646!important;"
+    document.getElementById('createTaskButton').disabled = true;
+  } else {
+    div[0].style = "";
+    container.style=""
+  }
+}
+
+function validateDescriptionInput() {
+  let description = document.getElementById("description");
+  let div = document.getElementsByClassName("input-group");
+  let container = document.getElementById('area-container');
+  if (description.value.length === 0) {
+    div[1].style = "border: 3px solid red!important";
+    container.style="box-shadow: inset 0 0 1px 1px #FF4646!important;"
+    document.getElementById('createTaskButton').disabled = true;
+  } else {
+    div[1].style = "";
+    container.style=""
+  }
+}
+
+function validateDateInput() {
+  let input = document.getElementById('date');
+  let div = document.getElementById("add-task-date-input");
+  let selectedDate = new Date(input.value);
+  let currentDate = new Date();
+  console.log(selectedDate)
+  console.log(currentDate)
+
+  if (selectedDate=='Invalid Date'){
+    div.style = "box-shadow: inset 0 0 1px 1px #FF4646!important;";
+    document.getElementById('createTaskButton').disabled = true; 
+  } else if (selectedDate < currentDate) {
+    div.style = "box-shadow: inset 0 0 1px 1px #FF4646!important;";
+    document.getElementById('createTaskButton').disabled = true; 
+  } else {
+    div.style = "";
+  }
+}
+
+function validateCategoryInput() {
+  let category = document.getElementById("category");
+  let div = document.getElementsByClassName("input-group");
+  if (category.value === "") {
+    div[4].style = "border: 3px solid red!important";
+    document.getElementById('createTaskButton').disabled = true;
+  } else {
+    div[4].style = "";
+  }
+}
+
+// function validatePassword() {
+//   let password = document.getElementById("create_password");
+//   let confirm_password = document.getElementById("confirm_password");
+//   let div = document.getElementsByClassName("login-input-fields");
+
+//   if (password.value !== confirm_password.value) {
+//     noMatch(div[2], div[3], confirm_password)
+//   } else if (password.value === confirm_password.value && confirm_password.value.length >= 8) {
+//     console.log("match")
+//     match(div[2], div[3], confirm_password)
+//   }
+// }
+
+// function noMatch(pawsswordDiv, confirmationDiv, confirm_password) {
+//   document.getElementById('pw-check-reminder').classList.remove('d-none')
+//   confirm_password.setCustomValidity("Passwords Don't Match"),
+//   pawsswordDiv.style = "border: 3px solid red!important";
+//   confirmationDiv.style = "border: 3px solid red!important";
+//   disableSignUp();
+//   return false
+// }
+
+// function match(pawsswordDiv, confirmationDiv, confirm_password) {
+//   document.getElementById('pw-check-reminder').classList.add('d-none')
+//   pawsswordDiv.style = "border: 3px solid green!important";
+//   confirmationDiv.style = "border: 3px solid green!important";
+//   confirm_password.setCustomValidity('');
+//   enableSignUp();
+//   return true
+// }

@@ -4,7 +4,7 @@ function renderAddTaskSections() {
 <div class="sections">
     <div class="left-section">
         <h6>Title<span class="span">*</span></h6>
-        <div class="input-group sub-container row">
+        <div id="add-task-titlte-container"class="input-group sub-container row">
             <input id="title" class="form-control subtask-input" type="text" placeholder="Enter a title" required />
         </div>
         <h6>Description<span class="span">*</span></h6>
@@ -44,8 +44,13 @@ function renderAddTaskSections() {
     <div class="border"></div>
     <div class="right-section">
         <h6>Due date<span class="span">*</span></h6>
-        <div class="input-group sub-container row">
-            <input id="date" class="form-control subtask-input" type="date" required />
+        <div id="add-task-date-input" class="input-group sub-container row">
+            <input  id="date" 
+                    class="form-control subtask-input" 
+                    type="text" 
+                    placeholder="tt/mm/yyyy"
+                    onfocus="(this.type='date')" 
+                    required />
         </div>
         <h6>Prio</h6>
         <div id="prio">
