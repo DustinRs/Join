@@ -32,6 +32,7 @@ function renderLegalNavBar(){
     `;
 }
 
+
 //Renders the privacy navigation bar. Used for not logged in users.
 function renderPrivacyNavBar(){
   return /*html*/ `
@@ -42,6 +43,7 @@ function renderPrivacyNavBar(){
             <a class="navLinksBot" href="/assets/templates/legal_notice_signUp.html">Legal notice</a>
     `;
 }
+
 
 //Renders the default navigation bar. Used for not logged in users.
 function renderDefaultNavBar(){

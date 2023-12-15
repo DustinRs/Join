@@ -1,3 +1,4 @@
+//renders the signup component on the page.
 function renderSignup() {
     let main = document.getElementById('login-main');
     let header = document.getElementById('sign-up');
@@ -61,9 +62,10 @@ function renderSignup() {
         </div>     
     </div>
         `;
-    setEventListener();
-    addSignUpHandler()
+    setEventListener();// responsible for changeing the input-icons as well as the "show-passwort"-functionality
+    addSignUpHandler()//listener for couloring the input fields in case of mismatch or not fullfilled requirements
 };
+
 
 //Renders the login component on the page.
 function renderLogin() {

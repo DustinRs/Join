@@ -1,3 +1,4 @@
+//Renders the header of the web page for logged in users.
 function renderHeader(user) {
     return/*html*/`
 
@@ -24,16 +25,15 @@ function renderHeader(user) {
     `
 }
 
+
+//Renders the header of the web page for not logged in users.
 function renderDefaultHeader(){
     return/*html*/`
-
         <p class="pHeader">Kanban Project Management Tool</p>
         <div class="imgsHeader">
             <a href="/assets/templates/help_signUp.html">
                 <img class="helpIcon" src="/assets/img/help.png" alt=""></a>
         </div>
-
-
     ` 
 }
 

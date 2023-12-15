@@ -3,10 +3,14 @@ const noAcc="Es ist kein Konto mit dieser Email-Adresse registriert."
 const wrongPass ="Email-Adresse oder Passwort stimmen nicht überein";
 
 
+
 /**
- * Initializes the application.
+ * Initializes the application by setting the event listener,
+ * adding the log in handler, fetching the user list, and
+ * disabling the animation.
  *
- * @return {Promise<void>} A promise that resolves when initialization is complete.
+ * @return {Promise<void>} - A promise that resolves once the
+ * initialization is complete.
  */
 async function init() {
   setEventListener();
@@ -16,6 +20,10 @@ async function init() {
 }
 
 
+/**
+ * Disables animation.
+ *
+ */
 function disableAnimation(){
   let div = document.getElementById('logo');
   setTimeout(() => {
@@ -25,10 +33,10 @@ function disableAnimation(){
 
 
 /**
- * Sets event listeners for password input fields and lock icons.
+ * Sets event listeners for the password input fields and lock icons.
  *
- * @param {type} None - No parameters required.
- * @return {type} None - No return value.
+ * @param {type} paramName - description of parameter
+ * @return {type} description of return value
  */
 function setEventListener() {
   let body = document.querySelector('body')
@@ -42,12 +50,12 @@ function setEventListener() {
 }
 
 
-
 /**
- * A function that changes the lock visibility based on user interaction.
+ * Changes the lock icon and container class when a password input field is clicked.
  *
- * @param {type} None
- * @return {type} None
+ * @param {NodeList} eye - The lock icons in the DOM.
+ * @param {NodeList} input - The password input fields in the DOM.
+ * @param {NodeList} container - The eye container elements in the DOM.
  */
 function changeLock() {
   let eye = document.getElementsByClassName('lock');
@@ -64,12 +72,11 @@ function changeLock() {
 }
 
 
-
 /**
- * Restores the lock functionality when the body is clicked.
+ * Restore the lock functionality as well as icon.
  *
- * @param {type} event - the click event object
- * @return {undefined} This function does not return a value
+ * @param {type} - The type of the parameter.
+ * @return {type} - The type of the return value.
  */
 function restoreLock() {
   let body = document.querySelector('body');
@@ -152,10 +159,13 @@ function enableLogIn() {
 }
 
 
+
 /**
- * Logs in the user by validating the email and password entered.
+ * Logs in the user by checking if the entered email and password match
+ * with the stored credentials. If the login is successful, the user is
+ * redirected to the summary page. Otherwise, a popup is displayed indicating
+ * that the password is incorrect.
  *
- * @return {undefined} Displays alert messages or redirects to another page.
  */
 function logIn() {
   let match = matchingPassword();
@@ -174,11 +184,16 @@ function logIn() {
 }
 
 
+/**
+ * Logs in a guest user and redirects to the summary page.
+ *
+ * @param {undefined} None
+ * @return {undefined} None
+ */
 function guestLogIn() {
   logUser(JSON.stringify(guest))
   location.replace('./assets/templates/summary.html')
 }
-
 
 
 /**
@@ -192,6 +207,14 @@ function matchingPassword() {
 
 };
 
+
+
+/**
+ * Handles the click event of the checkbox.
+ *
+ * @param {Element} checkbox - The checkbox element.
+ * @param {Element} img - The image element.
+ */
 function checkboxClick() {
   let checkbox = document.getElementById("check");
   let img = document.getElementById("checkbox");
@@ -202,6 +225,14 @@ function checkboxClick() {
   }
 }
 
+
+
+/**
+ * Toggles the state of a checkbox and updates the corresponding image.
+ *
+ * @param {HTMLInputElement} box - The checkbox element.
+ * @param {HTMLImageElement} img - The image element.
+ */
 function loginCheckBox(box, img){
   if (box.checked) {
     box.checked = false;
