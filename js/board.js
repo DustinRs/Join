@@ -136,11 +136,6 @@ async function deleteTask(id) {
 }
 
 
-function openEditTaskPopUp() {
-    renderEditTaskPopUp();
-    let popup = document.getElementById('pop-up-container');
-    popup.classList.remove('d-none')
-}
 
 function changeStatus(string) {
     let btn = document.getElementById('createTaskButton')
@@ -187,7 +182,7 @@ function addSearchBarHandler() {
 }
 
 
-function focusInput() {
+function focusInput() {rentTodo
     let input = document.getElementById("find-task");
     input.focus();
 }

@@ -49,7 +49,7 @@ function renderContactPopUp(){
 
 function renderContactSection(){
     return/*html*/`
-    <div class="contactSection">
+<div class="contactSection">
     <div id="contacts-bar" class="contactsDiv">
         <div id="addNewContact" class="contactButtonDiv">
             <button onclick="openPopUpAddContact()" class="contactButton">
@@ -57,24 +57,20 @@ function renderContactSection(){
             </button>
         </div>
         <div class="scrollDiv" id="register">
-            
         </div>
-
     </div>
     <div id="zIndex" class="popUpUserProfile">
-    <div class="headlineDiv">
-        <div class="headLine">
-        <h1 class="h1">Contacts</h1>
-        <div class="blueLine"></div>
-        <span class="spanContact">Better with a team</span>
+        <div class="headlineDiv">
+            <div class="headLine">
+                <h1 class="h1">Contacts</h1>
+                <div class="blueLine"></div>
+                <span class="spanContact">Better with a team</span>
+            </div>
+        </div>
+        <div id="userProfile" class="userProfile">
         </div>
     </div>
-
-    <div id="userProfile" class="userProfile">
-        
-    </div>
-    </div>
-    </div>
+</div>  
     `
 }
 
@@ -128,16 +124,16 @@ function renderEditPopUp(){
 
 function renderAddContactButtonMobile(){
     return/*html*/`
-            <div id="arrowContact" onclick="removeZindex()" class="arrowContact d-none"><a href=""><img src="/assets/img/arrow-left.png" alt=""></a></div>
-    
+        <div id="mobile-add-btn">
+            <div id="arrowContact" onclick="removeZindex()" class="arrowContact d-none"><a href=""><img
+                        src="/assets/img/arrow-left.png" alt=""></a></div>
             <button id="contactButtonMobile" onclick="openPopUpAddContact()" class="contactButtonMobile">
                 <img src="/assets/img/person_add.png" alt="">
             </button>
             <button id="menuContactButtonMobile" onclick="removeDNone()" class="contactButtonMobile d-none">
                 <img src="/assets/img/menu_btn.png" alt="">
             </button>
-            
-        
+        </div>        
         
     `
 }

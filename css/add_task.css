@@ -749,3 +749,8 @@ input[type="date"]::-webkit-calendar-picker-indicator{
     color: red;
     font-size: .8rem;
 }
+
+.profile-checkboxes{
+    position: absolute;
+    right: 1rem;
+}

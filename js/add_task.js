@@ -299,7 +299,7 @@ function logTaskCheckBox(box, img, i) {
   } else if (!box.checked) {
     box.checked = true;
     img.src = '/assets/img/checked-box.png';
-    img.style = 'width: 18px; height: 18px;transform:translate(6px,0px);margin-right:12px';
+    img.style = 'width: 18px; height: 18px;transform:translate(6px,0px);margin-right:12px;right:.8rem';
     assignees.push(i)
   }
 }

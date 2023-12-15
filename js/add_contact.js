@@ -45,8 +45,9 @@ function renderContactPage(activeUser) {
   let main = document.querySelector("main");
   nav.innerHTML = renderNavBar();
   header.innerHTML = renderHeader(activeUser);
-  section.innerHTML += renderContactSection();
+  section.innerHTML = renderContactSection();
   main.innerHTML += renderAddContactButtonMobile();
+  clearHTML();
   body.innerHTML += renderContactPopUp();
   body.innerHTML += renderEditPopUp();
 
@@ -341,4 +342,15 @@ function addDNone() {
   button.classList.add('d-none');
   let menu = document.getElementById('menuContactButtonMobile');
   menu.classList.remove('d-none');
+}
+
+function clearHTML() {
+  if (document.getElementById('editContactPopUp') !== null) {
+    let mobileBtn = document.getElementById('mobile-add-btn');
+    let popup = document.getElementById('editContactPopUp');
+    let popUpTwo = document.getElementById('addContactPopUp');
+    mobileBtn.parentNode.removeChild(mobileBtn);
+    popup.parentNode.removeChild(popup);
+    popUpTwo.parentNode.removeChild(popUpTwo);
+  }
 }
