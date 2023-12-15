@@ -639,9 +639,34 @@ ul {
     display: flex;
     justify-content: flex-start;
     font-size: 0.8rem
-
 }
 
 .sub-checkbox{
     height: 1.2rem;
+}
+
+#title-requirement-edit{
+    position: relative;
+    margin: -0 0 -1.2rem .5rem;
+    color: red;
+    font-size: .8rem;
+}
+
+#description-requirement-edit{
+    position: relative;
+    margin: -0 0 -1.2rem .5rem;
+    color: red;
+    font-size: .8rem;
+}
+
+#date-requirement-edit{
+    position: relative;
+    margin: -0 0 -1.2rem .5rem;
+    color: red;
+    font-size: .8rem;
+}
+
+.profile-checkboxes-edit{
+    position: absolute;
+    right: 1rem;
 }

@@ -4,7 +4,7 @@ function renderAddTaskSections() {
 <div class="sections">
     <div class="left-section">
         <h6>Title<span class="span">*</span></h6>
-        <div id="add-task-titlte-container"class="input-group sub-container row">
+        <div id="add-task-titlte-container" class="input-group sub-container row">
             <input id="title" class="form-control subtask-input" type="text" placeholder="Enter a title" required />
         </div>
         <div id="title-requirement" class="d-none">This field is required</div>
@@ -39,7 +39,6 @@ function renderAddTaskSections() {
                 </ul>
             </div>
             <div id="added-profile-initials-container" class="add-task-main-page">
-
             </div>
         </div>
     </div>

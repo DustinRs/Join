@@ -330,8 +330,9 @@ function editPrio(newPrio) {
 
 
 function checkAllInputs(){
+  let btn = document.getElementById('createTaskButton')||document.getElementById('edit-ok-btn');
   if(validateTitleInput() && validateDescriptionInput() && validateDateInput()&& categoryResponse()){
-    document.getElementById('createTaskButton').disabled = false;
+    btn.disabled = false;
   }
 }
 
@@ -364,18 +365,15 @@ function addDescriptionListener() {
 
 function validateTitleInput() {
   let title = document.getElementById("title");
-  let div = document.getElementsByClassName("input-group");
   let container = document.getElementById('add-task-titlte-container');
-  let message= document.getElementById('title-requirement');
-
+  let message= document.getElementById('title-requirement')||document.getElementById('title-requirement-edit');
+  let btn = document.getElementById('createTaskButton')||document.getElementById('edit-ok-btn');
   if (title.value.length === 0) {
-    div[0].style = "border: 3px solid red!important";
     container.style="box-shadow: inset 0 0 1px 1px #FF4646!important;"
     message.classList.remove('d-none')
-    document.getElementById('createTaskButton').disabled = true;
+    btn.disabled = true;
   } else {
     message.classList.add('d-none')
-    div[0].style = "";
     container.style=""
     return true
   }
@@ -383,17 +381,15 @@ function validateTitleInput() {
 
 function validateDescriptionInput() {
   let description = document.getElementById("description");
-  let div = document.getElementsByClassName("input-group");
   let container = document.getElementById('area-container');
-  let message= document.getElementById('description-requirement');
+  let message= document.getElementById('description-requirement')||document.getElementById('description-requirement-edit');
+  let btn = document.getElementById('createTaskButton')||document.getElementById('edit-ok-btn');
 
   if (description.value.length === 0) {
-    div[1].style = "border: 3px solid red!important";
     container.style="box-shadow: inset 0 0 1px 1px #FF4646!important;";
     message.classList.remove('d-none')
-    document.getElementById('createTaskButton').disabled = true;
+    btn.disabled = true;
   } else {
-    div[1].style = "";
     container.style=""
     message.classList.add('d-none')
     return true
@@ -405,56 +401,27 @@ function validateDateInput() {
   let div = document.getElementById("add-task-date-input");
   let selectedDate = new Date(input.value);
   let currentDate = new Date();
-  let message= document.getElementById('date-requirement');
+  let message= document.getElementById('date-requirement')||document.getElementById('date-requirement-edit');
+  let btn = document.getElementById('createTaskButton')||document.getElementById('edit-ok-btn');
   if (selectedDate=='Invalid Date'){
     div.style = "box-shadow: inset 0 0 1px 1px #FF4646!important;";
     message.classList.remove('d-none');
-    document.getElementById('createTaskButton').disabled = true; 
+    btn.disabled = true;
   } else if (selectedDate < currentDate) {
     div.style = "box-shadow: inset 0 0 1px 1px #FF4646!important;";
     message.classList.remove('d-none');
-    document.getElementById('createTaskButton').disabled = true; 
+    btn.disabled = true;
   } else {message.classList.add('d-none');div.style = "";return true}
 }
 
 function categoryResponse() {
   let category = document.getElementById("category");
+  let btn = document.getElementById('createTaskButton')||document.getElementById('edit-ok-btn');
   if (category.value == "Technical Task"||category.value == "User Story") {
     return true
   } else {
-    document.getElementById('createTaskButton').disabled = true;
+    btn.disabled = true;
     return false
   }
 }
     
-
-// function validatePassword() {
-//   let password = document.getElementById("create_password");
-//   let confirm_password = document.getElementById("confirm_password");
-//   let div = document.getElementsByClassName("login-input-fields");
-
-//   if (password.value !== confirm_password.value) {
-//     noMatch(div[2], div[3], confirm_password)
-//   } else if (password.value === confirm_password.value && confirm_password.value.length >= 8) {
-//     console.log("match")
-//     match(div[2], div[3], confirm_password)
-//   }
-// }
-
-// function noMatch(pawsswordDiv, confirmationDiv, confirm_password) {
-//   document.getElementById('pw-check-reminder').classList.remove('d-none')
-//   confirm_password.setCustomValidity("Passwords Don't Match"),
-//   pawsswordDiv.style = "border: 3px solid red!important";
-//   confirmationDiv.style = "border: 3px solid red!important";
-//   disableSignUp();
-//   return false
-// }
-
-// function match(pawsswordDiv, confirmationDiv, confirm_password) {
-//   document.getElementById('pw-check-reminder').classList.add('d-none')
-//   pawsswordDiv.style = "border: 3px solid green!important";
-//   confirmationDiv.style = "border: 3px solid green!important";
-//   confirm_password.setCustomValidity('');
-//   enableSignUp();
-//   return true
-// }
