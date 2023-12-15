@@ -57,15 +57,18 @@
     width: 100%;
     height: auto;
   }
+
   .navLinks a {
     display: flex;
     justify-content: center;
     align-items: center;
     margin: 0;
   }
+
   .navLinks a span {
     margin: 0;
   }
+
   .navLinks a img {
     margin: 0;
   }
@@ -181,6 +184,7 @@
     order: 2;
     /* Wird an die zweite Stelle verschoben */
   }
+
   main {
     width: 100%;
     left: 0;
@@ -192,6 +196,7 @@
     display: flex;
     justify-content: center;
   }
+
   .contactSection {
     justify-content: center;
     position: fixed;
@@ -200,33 +205,41 @@
     right: 0;
     bottom: 0;
   }
+
   .headlineDiv {
     width: 0;
     padding-left: 2rem;
   }
+
   .userProfile {
     padding-left: 2rem;
   }
+
   .row {
     margin: 2rem 0rem 2rem 0rem !important;
   }
+
   .add-task-bottom-section {
     margin-top: 5rem;
   }
+
   .contactsDiv {
     height: 56rem;
     position: relative;
     top: 6rem;
   }
+
   .scrollDiv {
     height: 48rem !important;
   }
 }
+
 @media (min-width: 801px) {
-    .contactButtonMobile {
-        display: none;
-    }
+  .contactButtonMobile {
+    display: none;
+  }
 }
+
 @media (max-width: 800px) {
   .sections {
     display: flex;
@@ -237,15 +250,19 @@
     gap: 2rem;
     overflow: scroll;
   }
+
   .title {
     text-align: center;
   }
+
   .row {
     margin: 1rem 0rem 0rem 0rem !important;
   }
+
   .border {
     display: none;
   }
+
   .add-task-bottom-section {
     position: absolute;
     top: auto;
@@ -260,45 +277,57 @@
     width: 100%;
     padding: 0rem 2rem 0rem 2rem;
   }
+
   .clearButton {
     display: none;
   }
+
   .left-section {
     width: 85%;
   }
+
   .right-section {
     width: 85%;
   }
+
   #grid {
     margin-top: 2rem;
   }
+
   .lineUrgent {
     margin-left: 2rem;
     margin-right: 2rem;
   }
+
   .grid-3-text {
     padding: 0;
   }
+
   .contactsDiv {
     position: absolute;
     left: 0;
     width: 100%;
   }
+
   .popUpUserProfile {
     width: 100%;
     background-color: #f8f9fa;
   }
+
   .zIndex {
     z-index: 12;
   }
+
   .scrollDiv {
     display: flex;
     flex-direction: column;
     align-items: center;
   }
+
   .contactButton {
     display: none;
   }
+
   .contactButtonMobile {
     position: fixed;
     top: auto;
@@ -310,12 +339,14 @@
     border: unset;
     border-radius: 2rem;
   }
+
   .arrowContact {
     display: block;
     position: absolute;
     top: 3rem;
     right: 1.5rem;
   }
+
   .buttonsPopUpMobile {
     position: absolute;
     right: 4rem;
@@ -332,6 +363,7 @@
     box-shadow: 0px 6px 8px 0px rgb(0, 0, 0, 0.2);
     border-radius: 1rem 1rem 0rem 1rem;
   }
+
   .buttonPopUpMobile {
     border: unset;
     background-color: white;
@@ -339,13 +371,16 @@
     display: flex;
     align-items: center;
   }
+
   .buttonsPopUpMobile img {
     margin-right: 0.5rem;
   }
+
   .addContact {
     flex-direction: column;
-}
-.logoContact {
+  }
+
+  .logoContact {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -355,8 +390,9 @@
     border-radius: 30px 30px 0px 0px;
     font-size: 1.8rem;
     padding: 4rem;
-}
-.contactFormular {
+  }
+
+  .contactFormular {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -367,32 +403,38 @@
     border-radius: 0 0 30px 30px;
     gap: 0rem;
     padding: 2rem;
-}
-.divButtonsContact {
+  }
+
+  .divButtonsContact {
     display: flex;
     justify-content: center;
     align-items: center;
     margin-top: 3rem;
     gap: 1.2rem;
-}
-#input-container {
-    margin-top: 0rem; 
-}
-.closePopUp {
+  }
+
+  #input-container {
+    margin-top: 0rem;
+  }
+
+  .closePopUp {
     top: -4rem;
     background-color: white;
     right: 8rem;
-}
-.imgContact {
+  }
+
+  .imgContact {
     display: none;
-    
-}
-.imgUserContact {
+
+  }
+
+  .imgUserContact {
     transform: translate(0rem, -5rem);
-}
-.containterPopUpAddTaskMobile {
+  }
+
+  .containterPopUpAddTaskMobile {
     transform: translate(0rem, -4rem);
-}
+  }
 
 }
 
@@ -450,8 +492,28 @@
   }
 }
 
-@media screen and (max-width: 425px) {
-  html {
-    font-size: 16px;
+@media screen and (max-width: 675px) {
+  #login-container {
+    width: 38rem;
+    height: 34rem;
   }
+
+  #login-btn {
+    top: 5rem;
+    left: 13rem;
+    width: 11rem;
+  }
+
+  #guest-login-btn {
+    margin-top: 10px;
+    top: 8rem;
+    right: 14rem;
+  }
+
+  #sign-up {
+    position: absolute;
+    bottom: 8rem;
+    left: 11rem;
+  }
+
 }
