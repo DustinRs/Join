@@ -42,6 +42,35 @@
     left: 18%;
   }
 
+  .logo-render {
+    top: 240px;
+    right: 0%;
+  }
+  @keyframes startScreen {
+    from {
+      top: 0;
+      right: 0;
+      bottom: 0;
+    }
+
+    to {
+      top: 240px;
+      width: 101px;
+      height: 124px;
+      right: 0%;
+      bottom: 82%;
+    }
+  }
+  .col-3Mobile {
+    display: none;
+  }
+
+  footer {
+    bottom: 3%;
+    left: 32%;
+    right: 0%;
+  }
+
   .navBar {
     position: absolute !important;
     bottom: 0 !important;
@@ -386,7 +415,7 @@
     align-items: center;
     width: 70%;
     color: white;
-    background-color: #2A3647;
+    background-color: #2a3647;
     border-radius: 30px 30px 0px 0px;
     font-size: 1.8rem;
     padding: 4rem;
@@ -425,7 +454,6 @@
 
   .imgContact {
     display: none;
-
   }
 
   .imgUserContact {
@@ -435,7 +463,11 @@
   .containterPopUpAddTaskMobile {
     transform: translate(0rem, -4rem);
   }
-
+  footer {
+    bottom: 10%;
+    left: 32%;
+    right: 0%;
+  }
 }
 
 @media (max-width: 600px) {
@@ -459,6 +491,7 @@
     align-items: center;
     width: 42rem;
     height: 34rem;
+    padding: 2rem;
   }
 
   #login-input-container {
@@ -487,33 +520,95 @@
 
   #sign-up {
     position: absolute;
-    bottom: 8rem;
-    left: 13rem;
+    bottom: 16rem;
+  }
+
+  .logo-render {
+    top: 120px;
+    right: 0%;
+  }
+  @keyframes startScreen {
+    from {
+      top: 0;
+      right: 0;
+      bottom: 0;
+    }
+
+    to {
+      top: 120px;
+      width: 101px;
+      height: 124px;
+      right: 0%;
+      bottom: 82%;
+    }
+  }
+  footer {
+    bottom: 10%;
+    left: 28%;
+    right: 0%;
   }
 }
 
 @media screen and (max-width: 675px) {
   #login-container {
-    width: 38rem;
+    width: 30rem;
     height: 34rem;
+  }
+
+  #login-input-container {
+    width: 100%;
   }
 
   #login-btn {
     top: 5rem;
-    left: 13rem;
+    left: 9rem;
     width: 11rem;
   }
 
   #guest-login-btn {
     margin-top: 10px;
     top: 8rem;
-    right: 14rem;
+    right: 10rem;
   }
 
   #sign-up {
     position: absolute;
-    bottom: 8rem;
-    left: 11rem;
+    bottom: 16rem;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  #login-container {
+    width: 19rem;
+    height: 34rem;
   }
 
+  #login-btn {
+    top: 5rem;
+    left: 4rem;
+    width: 11rem;
+  }
+
+  #guest-login-btn {
+    margin-top: 10px;
+    top: 8rem;
+    right: 4rem;
+  }
+
+  #sign-up {
+    position: absolute;
+    bottom: 16rem;
+  }
+
+  #sign-up-text {
+    margin-right: 0;
+  }
+  .logo-render {
+    right: 0%;
+  }
+  footer {
+    bottom: 10%;
+    left: 6%;
+    right: 0%;
+  }
 }
