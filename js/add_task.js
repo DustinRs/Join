@@ -19,7 +19,7 @@ function renderAddTaskPage(activeUser) {
   header.innerHTML = renderHeader(activeUser);
   nav.innerHTML = renderNavBar();
   let main = document.querySelector('main');
-  main.innerHTML = renderAddTaskBottomSectionMobile();
+  main.innerHTML = renderAddTaskBottomSection();
   document.querySelector('main').append(taskContainer);
   taskContainer.innerHTML = renderAddTaskSections()
 }

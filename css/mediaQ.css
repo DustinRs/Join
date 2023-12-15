@@ -299,10 +299,8 @@
   .border {
     display: none;
   }
+  
   .add-task-bottom-section {
-    display: none;
-  }
-  .add-task-bottom-section-mobile {
     position: absolute;
     top: auto;
     bottom: 3rem;
@@ -656,13 +654,10 @@
 }
 
 @media (max-width: 420px) {
-  .prio {
-    
-  }
   #prio {
     gap: 2px;
   }
-  .add-task-bottom-section-mobile {
+  .add-task-bottom-section {
     position: absolute;
     top: auto;
     bottom: 3rem;
