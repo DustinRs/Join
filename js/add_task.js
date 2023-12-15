@@ -387,6 +387,7 @@ function validateTitleInput() {
   } else {
     div[0].style = "";
     container.style=""
+    return true
   }
 }
 
@@ -401,6 +402,7 @@ function validateDescriptionInput() {
   } else {
     div[1].style = "";
     container.style=""
+    return true
   }
 }
 
@@ -420,6 +422,7 @@ function validateDateInput() {
     document.getElementById('createTaskButton').disabled = true; 
   } else {
     div.style = "";
+    return true
   }
 }
 
