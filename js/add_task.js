@@ -18,8 +18,6 @@ function renderAddTaskPage(activeUser) {
   taskContainer.id = 'task-container'
   header.innerHTML = renderHeader(activeUser);
   nav.innerHTML = renderNavBar();
-  let main = document.querySelector('main');
-  main.innerHTML = renderAddTaskBottomSection();
   document.querySelector('main').append(taskContainer);
   taskContainer.innerHTML = renderAddTaskSections()
 }
