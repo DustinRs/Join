@@ -2,6 +2,12 @@
   main {
     max-height: 81%;
   }
+  .drag-head {
+    width: fit-content;
+  }
+  .drag-area {
+    width: fit-content;
+  }
 }
 
 @media (max-width: 1280px) {
