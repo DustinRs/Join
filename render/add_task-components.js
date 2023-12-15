@@ -131,7 +131,7 @@ function renderAddTaskSections() {
                     type="button">
                 <img id="sub-btn-plus" src="/assets/img/dark-plus.png" alt="">
             </button>
-            <div id="sub-btn" class="d-flex d-none">
+            <div id="sub-btn" class="d-flex d-none d-rowMobile">
                 <button class="btn sub-active" 
                         id="cross-btn" 
                         type="button" 
@@ -152,14 +152,7 @@ function renderAddTaskSections() {
     </div>
 </div>
 </div>
-<div class="add-task-bottom-section">
-    <h6 id="required-text"><span class="span">*</span>This field is required</h6>
-    <div id="submit-btn-container">
-        <button class="clearButton" onclick="clearAll()">Clear <img src="/assets/img/btn-x.png" alt="" /></button>
-        <button id="createTaskButton" class="createTaskButton" disabled onclick="addTask('To-Do')">Create Task <img src="/assets/img/checkbtn-checkmark.png"
-                alt="" /></button>
-    </div>
-</div>
+
 `};
 
 
@@ -211,3 +204,15 @@ function renderEditIcons() {
     })
     iconDiv.innerHTML = `${imgArr.join('')}`
 }
+
+function renderAddTaskBottomSection() {
+    return/*html*/`
+<div class="add-task-bottom-section">
+    <h6 id="required-text"><span class="span">*</span>This field is required</h6>
+    <div id="submit-btn-container">
+        <button class="clearButton" onclick="clearAll()">Clear <img src="/assets/img/btn-x.png" alt="" /></button>
+        <button id="createTaskButton" class="createTaskButton" disabled onclick="addTask('To-Do')">Create Task <img src="/assets/img/checkbtn-checkmark.png"
+                alt="" /></button>
+    </div>
+</div>
+`};
