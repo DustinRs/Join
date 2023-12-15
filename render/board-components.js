@@ -100,6 +100,7 @@ function generateTodoHTML(element) {
     `;
 }
 
+
 function returnPriority(priority) {
     if (priority === 'urgent') {
         return /*html*/`<img src="/assets/img/urgent-priority.png" alt="urgent">`
@@ -122,21 +123,6 @@ function renderPopUpAddTask() {
         styleAddTask()
 }
 
-
-
-// function renderPopUpTodo() {
-//     let body = document.querySelector('body');
-//     body.innerHTML += /*html*/`
-//     <div id="add-pop" class="pop-up-add-task d-none">
-//         <div id=pop-up-container>
-//             <div id="task-container">
-//                 <div id="close-pop-up" onclick="closePopUp()"><img src="/assets/img/btn-x.png" alt=""></div>
-//                 ${taskFilter(allTasks, "To-Do", todoArr)}
-//             </div>
-//         </div>
-//     </div>
-//     `;
-// }
 
 // renders the profile initials for every todo on board
 function renderTodoIcons() {
