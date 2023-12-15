@@ -235,6 +235,10 @@ label {
     color: #FF8190;
 }
 
+.add-task-bottom-section-mobile {
+    display: none;
+}
+
 .selectContainer {
     display: flex;
     justify-content: center;

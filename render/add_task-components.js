@@ -132,7 +132,7 @@ function renderAddTaskSections() {
                     type="button">
                 <img id="sub-btn-plus" src="/assets/img/dark-plus.png" alt="">
             </button>
-            <div id="sub-btn" class="d-flex d-none">
+            <div id="sub-btn" class="d-flex d-none d-rowMobile">
                 <button class="btn sub-active" 
                         id="cross-btn" 
                         type="button" 
@@ -212,3 +212,14 @@ function renderEditIcons() {
     })
     iconDiv.innerHTML = `${imgArr.join('')}`
 }
+
+function renderAddTaskBottomSectionMobile() {
+    return/*html*/`
+<div class="add-task-bottom-section-mobile">
+    <h6 id="required-text"><span class="span">*</span>This field is required</h6>
+    <div id="submit-btn-container">
+        <button id="createTaskButton" class="createTaskButton" onclick="addTask('To-Do')">Create Task <img src="/assets/img/checkbtn-checkmark.png"
+                alt="" /></button>
+    </div>
+</div>
+`};

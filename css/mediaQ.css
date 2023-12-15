@@ -261,6 +261,9 @@
   .scrollDiv {
     height: 48rem !important;
   }
+  .d-rowMobile {
+    flex-direction: row !important;
+  }
 }
 
 @media (min-width: 801px) {
@@ -278,8 +281,13 @@
     flex-direction: column;
     gap: 2rem;
     overflow: scroll;
+    -ms-overflow-style: none;  
+    scrollbar-width: none; 
   }
-
+  .sections::-webkit-scrollbar {
+    display: none;
+  }
+  
   .title {
     text-align: center;
   }
@@ -291,11 +299,13 @@
   .border {
     display: none;
   }
-
   .add-task-bottom-section {
+    display: none;
+  }
+  .add-task-bottom-section-mobile {
     position: absolute;
     top: auto;
-    bottom: 1rem;
+    bottom: 3rem;
     left: 0;
     z-index: 10;
     background-color: white;
@@ -306,6 +316,9 @@
     width: 100%;
     padding: 0rem 2rem 0rem 2rem;
   }
+  .sections {
+    height: 66vh;
+}
 
   .clearButton {
     display: none;
@@ -468,6 +481,14 @@
     left: 32%;
     right: 0%;
   }
+  .prio label span {
+    display: flex;
+    font-size: 0.8rem;
+    gap: 0.2rem;
+    width: 9rem;
+    height: 2.5rem;
+}
+
 }
 
 @media (max-width: 600px) {
@@ -632,4 +653,34 @@
 #greeting-container {
   text-align: center;
 }
+}
+
+@media (max-width: 420px) {
+  .prio {
+    
+  }
+  #prio {
+    gap: 2px;
+  }
+  .add-task-bottom-section-mobile {
+    position: absolute;
+    top: auto;
+    bottom: 3rem;
+    left: 0;
+    z-index: 10;
+    background-color: white;
+    height: 6rem;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    padding: 0rem 2rem 0rem 2rem;
+  }
+  #required-text {
+    font-size: 0.9rem;
+    text-align: center;
+  }
+  .sections {
+      height: 66vh;
+  }
 }
