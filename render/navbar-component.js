@@ -21,38 +21,3 @@ function renderNavBar() {
 }
 
 
-//Renders the legal navigation bar. Used for not logged in users.
-function renderLegalNavBar(){
-  return /*html*/ `
-        <img class="navLogo" src="/assets/img/NavLogo.png" alt="">
-        <div class="navLinks">
-        </div>
-        <div class="navBottom">
-            <a class="navLinksBot" href="/assets/templates/privacy_policy_signUp.html">Privacy Policy</a>
-    `;
-}
-
-
-//Renders the privacy navigation bar. Used for not logged in users.
-function renderPrivacyNavBar(){
-  return /*html*/ `
-        <img class="navLogo" src="/assets/img/NavLogo.png" alt="">
-        <div class="navLinks">
-        </div>
-        <div class="navBottom">
-            <a class="navLinksBot" href="/assets/templates/legal_notice_signUp.html">Legal notice</a>
-    `;
-}
-
-
-//Renders the default navigation bar. Used for not logged in users.
-function renderDefaultNavBar(){
-  return /*html*/ `
-        <img class="navLogo" src="/assets/img/NavLogo.png" alt="">
-        <div class="navLinks">
-        </div>
-        <div class="navBottom">
-            <a class="navLinksBot" href="/assets/templates/legal_notice_signUp.html">Legal notice</a>
-            <a class="navLinksBot" href="/assets/templates/privacy_policy_signUp.html">Privacy Policy</a>
-    `;
-}
