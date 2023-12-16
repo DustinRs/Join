@@ -1,3 +1,9 @@
+/**
+ * Provides letters for comparison by rendering the
+ * contacts
+ * 
+ * @type {Array<string>}
+ */
 let letters = [
   "A",
   "B",
@@ -26,6 +32,8 @@ let letters = [
   "Y",
   "Z",
 ];
+
+
 
 async function init() {
   await getContacts(contactKey);
@@ -59,18 +67,17 @@ function renderRegister() {
 
   for (let i = 0; i < letters.length; i++) {
     const letter = letters[i];
-    register.innerHTML += `<div class="register">
+    register.innerHTML += `
+      <div class="register">
         <span>${letter}</span>
-        
-    </div>
-    <div class="registerLineDiv">
-    
-    <div class="registerLine">
-    </div>
-    </div>
-    <div id="${letter}" class="test">
-
-    </div>`;
+      </div>
+      <div class="registerLineDiv">
+        <div class="registerLine">
+        </div>
+      </div>
+      <div id="${letter}" class="test">
+      </div>
+    `;
 
     renderContacts(`${letter}`);
   }
