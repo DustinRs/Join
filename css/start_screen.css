@@ -3,8 +3,8 @@
     --outline-active: #74C5E8;
     --outline-error: #FF6073;
     --dark: #2A3647;
-    --box: url("assets/img/checkbox.png");
-    --checked-box: url("assets/img/checked-box.png");
+    --box: url("/assets/img/checkbox.png");
+    --checked-box: url("/assets/img/checked-box.png");
     font-family: 'Inter', sans-serif;
     font-size: 16px;
     overflow: hidden;
