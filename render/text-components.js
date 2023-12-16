@@ -1,4 +1,7 @@
-//just endles html regarding privacy policy and legal notice in german(just in case) as well as english
+//just endless html regarding privacy policy and legal 
+// notice in german(just in case) as well as english
+// 
+// gets rendered in when clicking on either privacy policy or legal notice
 function renderPrivacyPolicy() {
   return /*html*/ `
    <div id="german" class="d-none">

@@ -9,7 +9,7 @@ const wrongPass ="Email-Adresse oder Passwort stimmen nicht überein";
  * adding the log in handler, fetching the user list, and
  * disabling the animation.
  *
- * @return {Promise<void>} - A promise that resolves once the
+ * @return {ListOfSignedUpUsers - Promise} - A promise that resolves once the
  * initialization is complete.
  */
 async function init() {
@@ -21,7 +21,10 @@ async function init() {
 
 
 /**
- * Disables animation.
+ * When DOM is loaded, the Logo will be animated to the top left
+ * rigth corner and the Login will turn visible
+ * 
+ * gets executed within the init function
  *
  */
 function disableAnimation(){
@@ -33,10 +36,12 @@ function disableAnimation(){
 
 
 /**
- * Sets event listeners for the password input fields and lock icons.
+ * Sets event listeners for the password input fields ---> lock icons
+ * for signup-and login-screen
+ * 
+ * Gets executed within the init function
  *
- * @param {type} paramName - description of parameter
- * @return {type} description of return value
+ *
  */
 function setEventListener() {
   let body = document.querySelector('body')
@@ -51,7 +56,11 @@ function setEventListener() {
 
 
 /**
+ * eventListenerFunction set by setEventListener()
+ * 
  * Changes the lock icon and container class when a password input field is clicked.
+ * Lock icon changes to 'visibility.png' when input ist clicked and back to 
+ * 'visibility_off.png' and offers the possibility to show the password.
  *
  * @param {NodeList} eye - The lock icons in the DOM.
  * @param {NodeList} input - The password input fields in the DOM.
@@ -64,6 +73,7 @@ function changeLock() {
   for (let i = 0; i < input.length; i++) {
     input[i].addEventListener('click', e => {
       if (e.target == input[i] && e.target != eye[i] && !eye[i].src.includes('visibility.png')) {
+        console.log("h");
         eye[i].src = 'assets/img/visibility_off.png';
         container[i].classList.add('lock-container')
       };
@@ -73,10 +83,13 @@ function changeLock() {
 
 
 /**
+ * eventListenerFunction set by setEventListener()
+ * 
  * Restore the lock functionality as well as icon.
+ * If the input field is empty and body(anything but #login-container) 
+ * is clicked, the lock icon will be restored.
  *
  * @param {type} - The type of the parameter.
- * @return {type} - The type of the return value.
  */
 function restoreLock() {
   let body = document.querySelector('body');
@@ -96,6 +109,8 @@ function restoreLock() {
 
 
 /**
+ * eventListenerFunction set by setEventListener()
+ * 
  * Toggles the visibility of password fields based on the state of the eye icon clicked.
  *
  * @param {Event} event - The event object that triggered the function.
@@ -119,6 +134,10 @@ function changeEye(event) {
 
 /**
  * Adds a log in handler to the login form.
+ * 
+ * Responisible for validating the requirements for
+ * demanded password-patterns as well as matching
+ * passwords when cofirming the password.
  *
  * @param {type} paramName - description of parameter
  * @return {type} description of return value
@@ -145,15 +164,15 @@ function addLogInHandler() {
 /**
  * Enables the login button if both the email and password fields are filled.
  *
- * @param {HTMLElement} name - The element representing the email field.
+ * @param {HTMLElement} mail - The element representing the email field.
  * @param {HTMLElement} password - The element representing the password field.
  * @param {HTMLElement} button - The element representing the login button.
  */
 function enableLogIn() {
-  const name = document.getElementById('login-mail');
+  const mail = document.getElementById('login-mail');
   const password = document.getElementById('login-password');
   const button = document.getElementById('login-btn')
-  if (name.value !== 0 && password.value !== 0) {
+  if (mail.value !== 0 && password.value !== 0) {
     button.disabled = false
   }
 }
@@ -186,6 +205,11 @@ function logIn() {
 
 /**
  * Logs in a guest user and redirects to the summary page.
+ * 
+ * logUser:script.js:41
+ * compares login-data with userlist. 
+ * get´s a prepared guest-account to log in with
+ * to experience the website without having to register
  *
  * @param {undefined} None
  * @return {undefined} None
@@ -197,9 +221,12 @@ function guestLogIn() {
 
 
 /**
- * This function filters the `userList` array to find objects with a `mail` property that matches the value of the `login-mail` element in the DOM.
+ * This function filters the `userList` array to find 
+ * objects with a `mail`  property that matches the 
+ * value of the `login-mail` element in the DOM.
  *
- * @return {Array} An array of objects that have a `mail` property matching the value of the `login-mail` element.
+ * @return {Array} An array with one object matching the mail
+ *                 of the typed in email
  */
 function matchingPassword() {
   let mail = document.getElementById('login-mail');
@@ -211,6 +238,10 @@ function matchingPassword() {
 
 /**
  * Handles the click event of the checkbox.
+ * 
+ * function:signUpCheckBox: signUp.js:84
+ *    * Toggles the state of a checkbox and updates the corresponding image.
+ *    * Enables registration button if all other conditions are met.
  *
  * @param {Element} checkbox - The checkbox element.
  * @param {Element} img - The image element.

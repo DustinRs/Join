@@ -1,4 +1,5 @@
-//renders the signup component on the page.
+//renders the signup component on the page. Function gets
+//executed when the signup button on the start page is clicked.
 function renderSignup() {
     let main = document.getElementById('login-main');
     let header = document.getElementById('sign-up');
@@ -62,12 +63,13 @@ function renderSignup() {
         </div>     
     </div>
         `;
-    setEventListener();// responsible for changeing the input-icons as well as the "show-passwort"-functionality
-    addSignUpHandler()//listener for couloring the input fields in case of mismatch or not fullfilled requirements
+    setEventListener();// responsible for changeing the input-icons for password-inputs as well as the "show-passwort"-functionality
+    addSignUpHandler()//listener for couloring the input fields in case of missmatch or not fullfilled requirements
 };
 
 
-//Renders the login component on the page.
+// Renders the login component on the page and gets executed when the 
+// arrow-button (#back_arrow) within the signup-screen  is clicked.
 function renderLogin() {
     let main = document.getElementById('login-main');
     let header = document.getElementById('sign-up');
