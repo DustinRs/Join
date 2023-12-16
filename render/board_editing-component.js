@@ -141,6 +141,7 @@ function editCurrentTodo(task) {
   `,
     addAssigneesSelection(),
     addInputHandler(),
+    addSubtaskListener(),
     pushEditAssignees(task)
 };
 

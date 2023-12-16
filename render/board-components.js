@@ -152,7 +152,7 @@ function renderSingleTodo(id) {
     let index = allTasks.findIndex((task) => task.id === id);
     let element = allTasks[index];
     editTask = element;
-    let obj = generateVarObj(element);
+    let obj = generateVarObj(element); // generateVarObj()-->board.js:322
     let popUp = document.getElementById('pop-up-container');
     popUp.innerHTML = /*html*/`
     <div id="close-pop-up" onclick="closePopUp(),lookForSubChange()"><img src="/assets/img/btn-x.png" alt=""></div>
