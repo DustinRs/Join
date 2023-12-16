@@ -9,12 +9,21 @@
   }
   .drag-area {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
     gap: 2rem;
-    
+    height: fit-content;
+    overflow: scroll;
+    -ms-overflow-style: none;  
+    scrollbar-width: none; 
+    height: 100%;
   }
+  .drag-area::-webkit-scrollbar {
+    display: none;
+  }
+  
   .drag-headlines {
     width: 100%;
+    overflow: hidden;
   }
 }
 
@@ -22,12 +31,7 @@
   main {
     max-height: 81%;
   }
-  .drag-head {
-    width: fit-content;
-  }
-  .drag-area {
-    width: fit-content;
-  }
+  
 }
 
 @media (max-width: 1280px) {

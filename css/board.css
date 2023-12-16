@@ -10,8 +10,8 @@ main {
     display: flex;
     flex-direction: column;
     justify-content: start;
-    padding: 5rem 5% 0;
-    padding-left: 6rem;
+    padding: 5rem 1% 0;
+    padding-left: 4rem;
     align-items: unset;
 }
 
@@ -75,6 +75,7 @@ main {
     margin: 0 0 1rem;
     width: 100%;
     box-shadow: 0px 0px 8px 0px rgb(0, 0, 0, 0.2);
+    word-break: break-all;
 }
 
 .headline {
@@ -670,3 +671,4 @@ ul {
     position: absolute;
     right: 1rem;
 }
+
