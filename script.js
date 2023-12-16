@@ -1,37 +1,37 @@
 let activeUser; //needed for the session storage of logged in user
+let allTasks = [];//storage and retrieval of all tasks
 let assignees=[]; //needed for rendering and manupulatin contact-assignments to specific tasks
-let rememberUser=""; //needed for remember-me functionality
-let rememberPassword=""; //needed for remember-me functionality
-let editTask; //needed for editing tasks
-let editTaskObj;  //auxiliary variable for creatig a new task-object which replaces the original task
-let currentDraggedElement; //variable for drag and drop
+let awaitArr=[]; //auxiliary array for filtering awaiting feedback tasks
 let counter = 0;  //auxiliary variable for manipulating finished subtasks and adjusting the progressbar
 let contacts = []; // storage and retrieval of contacts
-let allTasks = [];
-let subTasks=[];
-let finishedSubTasks=[];
-let userList;
-let userData;
-let todoArr=[];
-let awaitArr=[];
-let doneArr=[];
-let progressArr=[]
+let currentDraggedElement; //variable for drag and drop
+let doneArr=[]; //auxiliary array for filtering done tasks
 let editArr=[];
+let editTask; //needed for editing tasks
+let editTaskObj;  //auxiliary variable for creatig a new task-object which replaces the original task
+let finishedSubTasks=[]; // auxiliary variable for manipulating finished subtasks
 let guest = [{
   name: "Dear Guest",
   initials: "G"
 }];
+let progressArr=[]  //auxiliary array for filtering in progress tasks
+let rememberUser=""; //needed for remember-me functionality
+let rememberPassword=""; //needed for remember-me functionality
+let subTasks=[]; // auxiliary variable for manipulating subtasks
+let todoArr=[]; // auxiliary array for filtering todo tasks
+let userList; //storage and retrieval of users
+let userData; //needed for the session storage of logged in user
 const date = new Date();
 const options = {
   year: 'numeric',
   month: 'long',
   day: 'numeric'
 };
-const userKey = "userList";
-const contactKey = "Contacts";
-const tasksKey = "allTasks";
-const sessionKey = "activeUser"
-const remoteKey = "allTasks";
+const userKey = "userList"; // keys for communicating with remote storage
+const contactKey = "Contacts"; // keys for communicating with remote storage
+const tasksKey = "allTasks"; // keys for communicating with remote storage
+const sessionKey = "activeUser"; // keys for communicating with remote storage
+const remoteKey = "allTasks"; // keys for communicating with remote storage
 const STORAGE_TOKEN = 'QFOSCYPA967P352YSSOENCUXGKA464XWSUTNI5NT';
 const STORAGE_URL = 'https://remote-storage.developerakademie.org/item';
 

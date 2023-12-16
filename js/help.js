@@ -1,3 +1,9 @@
+/**
+ * Initializes the application by fetching user data, rendering the navigation bar,
+ * header, and help content.
+ *
+ * @param {string} sessionKey - The session key used to authenticate the user.
+ */
 function init() {
     getUser(sessionKey);
     let header = document.querySelector('header');
@@ -8,6 +14,11 @@ function init() {
     main.innerHTML += renderHelp();
 }
 
+/**
+ * Initializes the sign-up process by rendering the default navigation bar,
+ * default header, and help content.
+ *
+ */
 function initSignUp() {
     let body = document.querySelector('body');
     body.innerHTML = renderDefaultNavBar();

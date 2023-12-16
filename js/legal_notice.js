@@ -1,3 +1,7 @@
+/**
+ * Initializes the application.
+ *
+ */
 function init() {
     getUser(sessionKey);
     let header = document.querySelector('header');
@@ -9,6 +13,11 @@ function init() {
 }
 
 
+/**
+ * Initializes the sign-up process by rendering the legal navigation bar,
+ * the default header, and the legal notice on the page.
+ *
+ */
 function initSignUp(){
     let body = document.querySelector('body');
     body.innerHTML = renderLegalNavBar();

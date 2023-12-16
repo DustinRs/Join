@@ -29,6 +29,15 @@ async function addTask(status) {
   let date = document.getElementById("date").value;
   let prio = getPrioValue();
   let category = document.getElementById("category").value;
+  let task = createNewTaskObject(title, taskArr, description, date, prio, category, status);
+  allTasks.push(task);
+  await setAllTasks(tasksKey, allTasks);
+  assignees = [];
+  subTasks = [];
+  pushInfo();
+}
+
+function createNewTaskObject(title, taskArr, description, date, prio, category, status) {
   let task = {
     title: title,
     description: description,
@@ -42,14 +51,8 @@ async function addTask(status) {
     id: Date.now(),
     assignees: assignees,
     totalSubTasks: subTasks.length
-  };
-  allTasks.push(task);
-  await setAllTasks(tasksKey, allTasks);
-  assignees = [];
-  subTasks = [];
-  pushInfo();
+  }; return task
 }
-
 
 async function editTodoInAllTasks(status, index, prio) {
   let title = document.getElementById("title").value;
@@ -77,6 +80,23 @@ async function editTodoInAllTasks(status, index, prio) {
   subTasks = [];
   finishedSubTasks = [];
   pushInfo();
+}
+
+function createEditTaskObject(){
+  let task = {
+    title: title,
+    description: description,
+    date: date,
+    prio: editArr[0] || prio,
+    category: category,
+    status: status,
+    counter: finishedSubTasks.length,
+    subTask: taskArr = [...subTasks],
+    finishedTaskList: taskArr = [...finishedSubTasks],
+    totalSubTasks: subTasks.length + finishedSubTasks.length,
+    id: Date.now(),
+    assignees: assignees
+  }
 }
 
 

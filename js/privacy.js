@@ -9,10 +9,12 @@ function init() {
 }
 
 
-function initSignUp(){
-    let body = document.querySelector('body');
-    body.innerHTML = renderPrivacyNavBar();
-    body.innerHTML += renderDefaultHeader();
+function initSignUpPrivacy(){
     let main = document.querySelector('main');
-    main.innerHTML += renderPrivacyPolicy();
+    main.innerHTML = renderPrivacyPolicy();
+}
+
+function initSignUpLegal(){
+    let main = document.querySelector('main');
+    main.innerHTML = renderLegalNotice();
 }

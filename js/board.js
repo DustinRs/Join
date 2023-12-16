@@ -143,7 +143,6 @@ function convertCategory(element) {
 }
 
 
-
 /**
  * Hides the `sub` bar for tasks that have no subtasks.
  *
@@ -177,7 +176,6 @@ function closePopUp() {
         container.innerHTML = "";
     }, 150);
 }
-
 
 
 /**
@@ -244,7 +242,6 @@ function changeStatus(string) {
     let btn = document.getElementById('createTaskButton')
     btn.setAttribute('onclick', `addTask('${string}')`)
 }
-
 
 
 /**
@@ -348,7 +345,6 @@ function clearTasks() {
     finishedSubTasks = []
     subTasks = []
 }
-
 
 
 /**
