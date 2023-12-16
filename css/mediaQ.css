@@ -16,11 +16,11 @@
     -ms-overflow-style: none;  
     scrollbar-width: none; 
     height: 100%;
+    padding: 0.5rem;
   }
   .drag-area::-webkit-scrollbar {
     display: none;
   }
-  
   .drag-headlines {
     width: 100%;
     overflow: hidden;
@@ -507,7 +507,20 @@
 .buttonsPopUp {
   display: none;
 }
+#content-box {
+  display: flex;
+  flex-direction: column;
+  height: fit-content;
+}
 
+.drag-area {
+  display: flex;
+  height: fit-content;
+  width: 80%;
+}
+.drag-headlines {
+  height: 20rem;
+}
 }
 
 @media (max-width: 600px) {
