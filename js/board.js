@@ -109,7 +109,8 @@ function closePopUp() {
 function openPopUp() {
     renderPopUpAddTask()
     let popup = document.getElementById('add-pop-up');
-    popup.classList.remove('d-none')
+    popup.classList.remove('d-none');
+    addInputHandler();
 }
 
 function openTodoPopup(id) {

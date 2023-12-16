@@ -1,3 +1,4 @@
+//Renders the add task sections, responsible for creating a new task, assigning it to a contact and adding it to the board.
 function renderAddTaskSections() {
     return/*html*/`
 <h1 class="title">Add Task</h1>
