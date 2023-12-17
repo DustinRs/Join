@@ -21,9 +21,12 @@ function renderComponents(activeUser) {
                     <img id="#search-img" src="/assets/img/search.png" alt="">
                 </button>
             </div>
-            <div class="buttonAdd" onclick="openPopUp(),changeStatus('To-Do'),addAssigneesSelection()">Add Task
+            <div class="buttonAdd" onclick="openPopUp(),changeStatus('To-Do'),addAssigneesSelection()"><span>Add Task</span>
                 <img id="white-plus" src="/assets/img/white-plus.png" alt="">
             </div>
+            <a href="/assets/templates/add_task.html" class="buttonAddMobile">
+                <img id="white-plus" src="/assets/img/white-plus.png" alt="">
+            </a>
         </div>
         <div id="content-box" class="content">
             <div class="drag-headlines">

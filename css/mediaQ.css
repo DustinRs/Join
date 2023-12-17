@@ -1,3 +1,6 @@
+#info {
+  display: none;
+}
 @media (max-width: 1440px) {
   #content-box {
     display: grid;
@@ -69,6 +72,13 @@
 }
 
 @media (max-width: 1100px) {
+  .buttonAdd {
+    display: none;
+  }
+  .buttonAddMobile {
+    display: flex;
+    padding-left: 0.5rem;
+  }
   .scroll-help {
     left: 18%;
   }
@@ -234,6 +244,9 @@
     height: 0.3rem;
     order: 3;
   }
+  .headline {
+    margin-top: 2rem;
+  }
 
   main {
     width: 100%;
@@ -282,6 +295,64 @@
   .d-rowMobile {
     flex-direction: row !important;
   }
+  .addContact {
+    flex-direction: column;
+  }
+
+  .logoContact {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 70%;
+    color: white;
+    background-color: #2a3647;
+    border-radius: 30px 30px 0px 0px;
+    font-size: 1.8rem;
+    padding: 4rem;
+  }
+
+  .contactFormular {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 70%;
+    height: 80%;
+    background-color: white;
+    border-radius: 0 0 30px 30px;
+    gap: 0rem;
+    padding: 2rem;
+  }
+
+  .divButtonsContact {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 9rem;
+    gap: 1.2rem;
+  }
+
+  #input-container {
+    margin-top: 0rem;
+  }
+
+  .closePopUp {
+    top: -4rem;
+    background-color: white;
+    right: 8rem;
+  }
+
+  .imgContact {
+    display: none;
+  }
+
+  .imgUserContact {
+    transform: translate(0rem, -2rem);
+  }
+
+  .containterPopUpAddTaskMobile {
+    transform: translate(0rem, -4rem);
+  }
 }
 
 @media (min-width: 801px) {
@@ -301,15 +372,51 @@
     overflow: scroll;
     -ms-overflow-style: none;  
     scrollbar-width: none; 
+
   }
   .sections::-webkit-scrollbar {
     display: none;
   }
-  
+  .column {
+    overflow: scroll;
+    -ms-overflow-style: none;  
+    scrollbar-width: none;
+    
+  }
+  .column::-webkit-scrollbar {
+    display: none;
+  }
   .title {
     text-align: center;
   }
-
+  #find-task-container {
+    position: relative;
+    left: 0;
+    width: 80% !important;
+    
+}
+.headline {
+  position: absolute;
+  left: 0;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+  background-color: #f8f9fa;
+  gap: 1rem;
+  z-index: 12;
+  margin-top: 0rem;
+}
+.buttonAddMobile {
+  position: absolute;
+  top: -4rem;
+  right: 2rem;
+  padding-left: 0.5rem
+}
+.buttonAdd span {
+  display: none;
+}
   .row {
     margin: 1rem 0rem 0rem 0rem !important;
   }
@@ -321,7 +428,7 @@
   .add-task-bottom-section {
     position: absolute;
     top: auto;
-    bottom: 3rem;
+    bottom: 0rem;
     left: 0;
     z-index: 10;
     background-color: white;
@@ -331,9 +438,10 @@
     align-items: center;
     width: 100%;
     padding: 0rem 2rem 0rem 2rem;
+    margin-top: 0rem;
   }
   .sections {
-    height: 66vh;
+    height: fit-content;
 }
 
   .clearButton {
@@ -511,16 +619,20 @@
   display: flex;
   flex-direction: column;
   height: fit-content;
+  position: relative;
+    left: 0px;
+    top: 11rem;
 }
 
 .drag-area {
   display: flex;
   height: fit-content;
-  width: 80%;
+  width: 100%;
 }
 .drag-headlines {
   height: 20rem;
 }
+
 }
 
 @media (max-width: 600px) {
@@ -628,6 +740,60 @@
     position: absolute;
     bottom: 16rem;
   }
+  .logoContact {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    color: white;
+    background-color: #2a3647;
+    border-radius: 30px 30px 0px 0px;
+    font-size: 1.8rem;
+    padding: 4rem;
+  }
+
+  .contactFormular {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    height: 80%;
+    background-color: white;
+    border-radius: 0 0 30px 30px;
+    gap: 0rem;
+    padding: 2rem;
+  }
+
+  .divButtonsContact {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 3rem;
+    gap: 1.2rem;
+  }
+
+  #input-container {
+    margin-top: 0rem;
+  }
+
+  .closePopUp {
+    top: -4rem;
+    background-color: white;
+    right: 4rem;
+  }
+
+  .imgContact {
+    display: none;
+  }
+
+  .imgUserContact {
+    transform: translate(0rem, -5rem);
+  }
+
+  .containterPopUpAddTaskMobile {
+    transform: translate(0rem, -4rem);
+  }
 }
 
 @media screen and (max-width: 500px) {
@@ -635,6 +801,11 @@
     width: 19rem;
     height: 34rem;
   }
+  #find-task-container {
+    position: relative;
+    left: 0;
+    width: 100% !important;
+}
 
   #login-btn {
     top: 5rem;
@@ -685,6 +856,30 @@
 #greeting-container {
   text-align: center;
 }
+.logoContact {
+  width: 90%;
+}
+.inputsContact {
+  width: 100%;
+  height: 215px;
+}
+
+.contactFormular {
+  width: 90%;
+}
+
+.divButtonsContact {
+  
+}
+
+
+.imgUserContact {
+  transform: translate(0rem, -5rem);
+}
+
+.containterPopUpAddTaskMobile {
+  transform: translate(0rem, -4rem);
+}
 }
 
 @media (max-width: 420px) {
@@ -694,7 +889,7 @@
   .add-task-bottom-section {
     position: absolute;
     top: auto;
-    bottom: 3rem;
+    bottom: 0rem;
     left: 0;
     z-index: 10;
     background-color: white;
@@ -709,9 +904,7 @@
     font-size: 0.9rem;
     text-align: center;
   }
-  .sections {
-      height: 66vh;
-  }
+
   .contactsDiv {
     padding: 0px 0px 0px 0.5rem;
   }

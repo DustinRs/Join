@@ -119,6 +119,24 @@ main {
     font-weight: 700;
     transition: box-shadow 0.1s ease;
 }
+.buttonAddMobile {
+    position: absolute;
+    top: 0;
+    height: 3rem;
+    bottom: 0;
+    margin: auto;
+    right: 1rem;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    background-color: #2A3647;
+    color: white;
+    border-radius: 10px;
+    font-size: 1.3rem;
+    font-weight: 700;
+    transition: box-shadow 0.1s ease;
+}
 
 #find-task-container {
     position: absolute;
@@ -507,6 +525,7 @@ h6 :hover {
 
 .profile-initials-container {
     display: flex;
+    flex-wrap: wrap;
 }
 
 .profile-initials {
