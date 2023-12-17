@@ -24,7 +24,7 @@ function renderComponents(activeUser) {
             <div class="buttonAdd" onclick="openPopUp(),changeStatus('To-Do'),addAssigneesSelection()">Add Task
                 <img id="white-plus" src="/assets/img/white-plus.png" alt="">
             </div>
-            <a href="/assets/templates/add_task.html" class="buttonAddMobile">
+            <a href="/html/add_task.html" class="buttonAddMobile">
                 <img id="white-plus" src="/assets/img/white-plus.png" alt="">
             </a>
         </div>

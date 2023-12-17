@@ -33,7 +33,11 @@ let letters = [
   "Z",
 ];
 
-
+/**
+ * Initializes the application by performing the necessary setup tasks.
+ *
+ * @return {Promise<void>} A promise that resolves when the initialization is complete.
+ */
 async function init() {
   await getContacts(contactKey);
   getUser(sessionKey);
@@ -44,7 +48,11 @@ async function init() {
   calcBarHeight();
 }
 
-
+/**
+ * Renders the contacts for the active user.
+ * 
+ * @param {any} activeUser - The active user object.
+ */
 function renderContactPage(activeUser) {
   let body = document.querySelector("body");
   let section = document.querySelector("section");
@@ -61,6 +69,10 @@ function renderContactPage(activeUser) {
 
 }
 
+/**
+ * Renders the Register from 
+ * 
+ */
 function renderRegister() {
   let register = document.getElementById("register");
   register.innerHTML = "";

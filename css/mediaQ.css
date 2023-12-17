@@ -28,6 +28,17 @@
     width: 100%;
     overflow: hidden;
   }
+  .popUpUserProfile {
+    width: 100%;
+    background-color: #f8f9fa;
+    overflow: scroll;
+    -ms-overflow-style: none;  
+    scrollbar-width: none;
+    
+  }
+  .popUpUserProfile::-webkit-scrollbar {
+    display: none;
+  }
 }
 
 @media (max-width: 1330px) {
@@ -478,6 +489,12 @@
   .popUpUserProfile {
     width: 100%;
     background-color: #f8f9fa;
+    overflow: scroll;
+    -ms-overflow-style: none;  
+    scrollbar-width: none;
+  }
+  .popUpUserProfile::-webkit-scrollbar {
+    display: none;
   }
 
   .zIndex {
@@ -544,8 +561,11 @@
 
   .addContact {
     flex-direction: column;
+    width: 100%;
   }
-
+  .h2Contact {
+    min-width: fit-content;
+  }
   .logoContact {
     display: flex;
     justify-content: center;
@@ -881,6 +901,7 @@
 }
 #pop-up-container {
   width: 95% !important;
+  max-height: 80%;
 }
 
 }
