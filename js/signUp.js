@@ -19,14 +19,20 @@ function validatePassword() {
   let password = document.getElementById("create_password");
   let confirm_password = document.getElementById("confirm_password");
   let div = document.getElementsByClassName("login-input-fields");
-
   if (password.value !== confirm_password.value) {
     noMatch(div[2], div[3], confirm_password)
   } else if (password.value === confirm_password.value && confirm_password.value.length >= 8) {
     console.log("match")
-    match(div[2], div[3], confirm_password)
+      if(isStrongPassword(password.value)) {
+        console.log("hat funktioniert")
+        match(div[2], div[3], confirm_password)
+      } else {
+        console.log("hat nicht funktioniert")
+        noMatch(div[2], div[3], confirm_password)
+      }
   }
 }
+
 
 function noMatch(pawsswordDiv, confirmationDiv, confirm_password) {
   document.getElementById('pw-check-reminder').classList.remove('d-none')
@@ -36,6 +42,7 @@ function noMatch(pawsswordDiv, confirmationDiv, confirm_password) {
   disableSignUp(); 
   return false
 }
+
 
 function match(pawsswordDiv, confirmationDiv, confirm_password) {
   document.getElementById('pw-check-reminder').classList.add('d-none')
@@ -56,6 +63,20 @@ function formValidation() {
     disableSignUp()
   }
 }
+
+
+// function mailExists() {
+//   let mail = document.getElementById('sign-up_mail');
+//   let match = userList.filter(e => e.mail === mail.value)[0]
+//   if (match.length > 0) {
+//     document.getElementById('mail-check-reminder').classList.remove('d-none')
+//     mail.setCustomValidity(existingMail)
+//   } else {
+//     document.getElementById('mail-check-reminder').classList.add('d-none')
+//     mail.setCustomValidity('')
+//     button.disabled = false
+//   }
+// }
 
 
 /**
@@ -164,7 +185,7 @@ function popUpSignUp(text) {
 
 function popUp(text, width) {
   let popUp = document.getElementById('info-text');
-  let container = document.getElementById('info');
+  let container = document.getElementById('info-no-mail');
   popUp.innerHTML = text;
   container.style.width = width + "px";
   container.style.transform = "translateY(0%)";
@@ -187,3 +208,11 @@ function randomColor() {
   let randomIndex = Math.floor(Math.random() * colors.length);
   return colors[randomIndex];
 }
+
+function isStrongPassword(password) {
+  let regex = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*\\-]).{8,}$|(?=[0-9]*.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*\\-]).{8,}$/;
+  let result = regex.test(password);
+  return result;
+}
+
+/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*\\-]).{8,}$|(?=[0-9].*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*\\-]).{8,}$/

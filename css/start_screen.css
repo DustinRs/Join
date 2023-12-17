@@ -30,7 +30,7 @@ footer {
     justify-self: flex-start;
 }
 
-#info {
+#info-no-mail {
     position: absolute;
     top: 0;
     width: 200px;

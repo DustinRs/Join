@@ -21,7 +21,7 @@
         <img class="animation-support" id="letter-animation-support"  alt=""> 
         <img class="animation-support" id="dot-animation-support" src="assets/img/only-dot.png" alt="">
     </div>
-    <div id="info" class="btn btn-danger"><img src="assets/img/error.png" id="error" alt="">
+    <div id="info-no-mail" class="btn btn-danger"><img src="assets/img/error.png" id="error" alt="">
         <div id="info-text">test</div>
     </div>
     <header>
@@ -47,8 +47,8 @@
                     <div id="password-container" class="login-input-fields">
                         <input class="login-input password" id="login-password" type="password" min="8" required
                             placeholder="Password"
-                            pattern="^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*\-]).{8,}$"
-                            title="Bitter verwende mindestens eine Zahl und ein Sonderzeichen.">
+                            pattern="^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*\-]).{8,}$|(?=[0-9].*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*\-]).{8,}$"
+                            title="Bitte verwende mindestens eine Zahl und ein Sonderzeichen.">
                         <div class="eye-container"><img class="lock input-img" src="assets/img/lock.png" alt="lock">
                         </div>
                     </div>
@@ -71,7 +71,7 @@
     </main>
     <footer class="rowMobile row">
         <div class="col-3 col-3Mobile"></div>
-        <a class="col-3" href="/html/privacy_policy_signUP.html" target="_blank">Privacy Police</a>
+        <a class="col-3" href="/html/privacy_policy_signUP.html" target="_blank">Privacy Policy</a>
         <a class="col-3" href="/html/legal_notice_signUp.html" target="_blank">Legal Notice</a>
         <div class="col-3 col-3Mobile"></div>
     </footer>
