@@ -633,6 +633,9 @@
   height: 20rem;
   margin-right: 0;
 }
+#added-profile-initials-container {
+  flex-wrap: wrap !important;
+}
 
 }
 
@@ -880,6 +883,7 @@
 #pop-up-container {
   width: 95% !important;
 }
+
 }
 
 @media (max-width: 420px) {
