@@ -17,7 +17,7 @@ function renderAddTaskSections() {
         <div id="description-requirement" class="d-none">Please provide a description</div>
         <h6>Assigned to</h6>
         <div class="relative">
-            <div id="assign-select" class="input-group sub-container ">
+            <div id="assign-select" class="input-group sub-container">
                 <input class="form-control subtask-input contact-assign-select select"
                     onclick="openList('assign-select','assign','assign-ul','assign-icon')"
                     placeholder="Select contacts to assign" id="assign">
@@ -52,6 +52,7 @@ function renderAddTaskSections() {
                     type="text" 
                     placeholder="tt/mm/yyyy"
                     onfocus="(this.type='date')" 
+                    min="${getMinDate()}"
                     required />
         </div>
         <div id="date-requirement" class="d-none">Please set the actual or a furture date.</div>
@@ -100,18 +101,16 @@ function renderAddTaskSections() {
                         src="/assets/img/arrow_drop_down.png" alt=""></button>
             </div>
             <div id="category-ul" class="ul-parent d-none">
-                <ul class="drop-down-select-container">
-                    <li class=add-task-contact>
+                <ul id="focus-category" class="drop-down-select-container">
+                    <li class=add-task-contact onclick="setValue('Technical Task');closeList('category-select','category','category-ul','category-icon');checkAllInputs()">
                         <div class="profile">
-                            <div class="name"
-                                onclick="setValue('Technical Task');closeList('category-select','category','category-ul','category-icon');checkAllInputs()">
+                            <div class="name">
                                 Technical Task</div>
                         </div>
                     </li>
-                    <li class=add-task-contact>
+                    <li class=add-task-contact onclick="setValue('User Story');closeList('category-select','category','category-ul','category-icon');checkAllInputs()">
                         <div class="profile">
-                            <div class="name"
-                                onclick="setValue('User Story');closeList('category-select','category','category-ul','category-icon');checkAllInputs()">
+                            <div class="name">
                                 User Story</div>
                         </div>
                     </li>
