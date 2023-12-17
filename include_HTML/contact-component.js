@@ -97,11 +97,12 @@ function renderEditPopUp(){
                     </div>
                     <div id="input-container">
                         <div class="inputsContact">
-                            <div class="input-group sub-container row">
+                            <div id="edit-task-name-container" class="input-group sub-container row">
                                 <input id="editName" class=" contact-creation-inputs form-control subtask-input" type="text"
                                     placeholder="Name" required />
                                 <img src="/assets/img/person.png" alt="">
                             </div>
+                            <div id="name-requirement" class="d-none">Please provide a Name</div>
                             <div class="input-group sub-container row">
                                 <input id="editEmail" class=" contact-creation-inputs form-control subtask-input" type="email"
                                     placeholder="Email" required />
@@ -116,7 +117,7 @@ function renderEditPopUp(){
                         <div class="divButtonsContact">
                             <button id="clearButton" class="clearButton" onclick="clearContactsForm()">Delete <img
                                     src="/assets/img/btn-x.png" alt=""></button>
-                            <button id="saveButton" class="createTaskButton" type="submit">Save <img
+                            <button id="saveButtonEdit" class="createTaskButton" type="submit">Save <img
                                     src="/assets/img/checkbtn-checkmark.png" alt=""></button>
                         </div>
                     </div>

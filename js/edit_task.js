@@ -50,8 +50,34 @@ function createEditTaskObject(status, title, taskArr, description, date, categor
         assignees: assignees
     }; return task
 }
+/*
+function inputHandlerEdit() {
+    let name = document.getElementById("editName");
+    name.addEventListener('click', addTitleListener);
+    
+}
 
+function nameListenerEdit() {
+    let input = document.getElementById('editName');
+    input.addEventListener('input', validateNameInput);
+    input.addEventListener('input', checkAllInputs)
+}
 
+function validateNameInput() {
+    let name = document.getElementById("editName");
+    let container = document.getElementById('edit-task-name-container');
+    let message = document.getElementById('name-requirement');
+    let btn = document.getElementById('saveButtonEdit');
+    if (name.value.length === 0) {
+        container.style = "box-shadow: inset 0 0 1px 1px #FF4646!important;"
+        message.classList.remove('d-none');
+        btn.disabled = true;
+    } else {
+        message.classList.add('d-none');
+        container.style = ""
+        return true
+    }
+}*/
 
 function addInputHandler() {
     let title = document.getElementById("title");

@@ -197,7 +197,7 @@ function editProfile(id) {
   let img = document.getElementById("profile-img-div");
   img.innerText = object.initials;
   img.style.backgroundColor = object.color;
-  let button = document.getElementById("saveButton");
+  let button = document.getElementById("saveButtonEdit");
   button.setAttribute("onclick", `saveContact(${id})`);
 }
 
