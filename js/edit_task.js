@@ -165,3 +165,79 @@ function setClosingAssign() {
     assignContainer.removeEventListener('click', setClosingAssign);
 
 }
+
+
+//returns an array of subtasks if available for listing them below the editable task
+function getSubList(subtaskList, finishedTaskList) {
+    let subLiArr = []
+    let finListArr = getEditFinishedList(finishedTaskList);
+    for (let i = 0; i < subtaskList.length; i++) {
+        let sub = subtaskList[i];
+        subTasks.push(sub)
+        subLiArr.push(`<li class="single-subtask" id="${i}">${sub}</li>`)
+    }
+    return mergeSublists(subLiArr, finListArr)
+}
+
+
+//returns an array of finished subtasks if available for listing them below the editable task
+function getEditFinishedList(finishedTaskList) {
+    let finLiArr = []
+    if (finishedTaskList.length === 0) {
+        return false
+    }
+    for (let i = 0; i < finishedTaskList.length; i++) {
+        let fin = finishedTaskList[i];
+        finishedSubTasks.push(fin)
+        finLiArr.push(`<li class="single-finished-task" id="f${i}">${fin}</li>`)
+    }
+    return finLiArr
+}
+
+function setEditableSubtask() {
+    if (subTasks.length > 0) {
+        let subtaskListItems = document.getElementsByClassName('single-subtask');
+        for (let i = 0; i < subtaskListItems.length; i++) {
+            let sub = subtaskListItems[i];
+            console.log(sub)
+            sub.addEventListener('dblclick', (event)=>{
+                console.log(sub.id)
+                editListItem(sub.id)
+            })
+        }
+    }
+}
+
+function editSubaskList(id) {
+    let subtaskList = document.getElementById(`${id}`).innerHTML;
+    console.log(subtaskList)
+    subtaskList.contentEditable = true;
+    subtaskList.focus();
+}
+
+
+function editListItem(id) {
+    // Erstelle ein textInput-Element
+    let item = document.getElementById(`${id}`);
+    const textInput = document.createElement("input");
+    textInput.type = "text";
+    textInput.value = item.textContent;
+    textInput.classList.add('subtask-input');
+    textInput.classList.add('edit-input');
+
+    // Ersetze das li-Element durch das textInput-Element
+    item.parentNode.replaceChild(textInput, item);
+
+    // Füge ein Eventlistener für die "Enter"-Taste hinzu, um die Bearbeitung zu beenden
+    textInput.addEventListener("keydown", function(event) {
+      if (event.key === "Enter") {
+        // Beende die Bearbeitung und setze den neuen Text im li-Element
+        item.textContent = textInput.value;
+        // Ersetze das textInput-Element durch das ursprüngliche li-Element
+        textInput.parentNode.replaceChild(item, textInput);
+      }
+    });
+
+    // Setze den Fokus auf das Texteingabefeld
+    textInput.focus();
+  }

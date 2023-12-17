@@ -167,11 +167,11 @@ function renderSubTasksList() {
     let list = document.getElementById('task-list');
     list.innerHTML = '';
     subTasks.forEach((e) => {
-        list.innerHTML += `<li>${e}</li>`
+        list.innerHTML += `<li class="single-subtask" id="${subTasks.indexOf(e)}">${e}</li>`
     })
     if (finishedSubTasks.length > 0) {
         finishedSubTasks.forEach((e) => {
-            list.innerHTML += `<li>${e}</li>`
+            list.innerHTML += `<li class="single-finished-task" id="f${finishedSubTasks.indexOf(e)}">${e}</li>`
         })
     }
 }
@@ -211,15 +211,3 @@ function renderEditIcons() {
     })
     iconDiv.innerHTML = `${imgArr.join('')}`
 }
-
-// function renderAddTaskBottomSection() {
-//     return/*html*/`
-// <div class="add-task-bottom-section">
-//     <h6 id="required-text"><span class="span">*</span>This field is required</h6>
-//     <div id="submit-btn-container">
-//         <button class="clearButton" onclick="clearAll()">Clear <img src="/assets/img/btn-x.png" alt="" /></button>
-//         <button id="createTaskButton" class="createTaskButton" disabled onclick="addTask('To-Do')">Create Task <img src="/assets/img/checkbtn-checkmark.png"
-//                 alt="" /></button>
-//     </div>
-// </div>
-// `};
