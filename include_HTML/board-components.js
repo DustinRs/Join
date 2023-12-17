@@ -197,7 +197,7 @@ function styleTodo() {
 //changes the pop-up size according to the content
 function styleAddTask() {
     let popUp = document.getElementById('pop-up-container');
-    popUp.style = 'width:80%; padding:0 5.5rem';
+    popUp.style = 'width:80%; padding:0 5.5rem 19rem';
 }
 
 
