@@ -1,5 +1,13 @@
+/**
+ * Array wich contains the priority of an created Task
+ */
 let prioArray = [];
 
+/**
+ * Initializes the application by performing the necessary setup tasks.
+ *
+ * @return {Promise<void>} A promise that resolves when the initialization is complete.
+ */
 async function init() {
   await getAllTasks(tasksKey);
   await getContacts(contactKey);
@@ -11,6 +19,11 @@ async function init() {
   addSubtaskListener();
 }
 
+/**
+ * Renders the task creation page for the active user.
+ * 
+ * @param {any} activeUser - The active user object.
+ */
 function renderAddTaskPage(activeUser) {
   let header = document.querySelector('header');
   let nav = document.querySelector('nav');
@@ -22,6 +35,11 @@ function renderAddTaskPage(activeUser) {
   taskContainer.innerHTML = renderAddTaskSections()
 }
 
+/**
+ * Pushes the created task into the 'allTasks' array.
+ * 
+ * @param {string} status - The status of the task.
+ */
 async function addTask(status) {
   let title = document.getElementById("title").value;
   let taskArr;
@@ -37,6 +55,19 @@ async function addTask(status) {
   pushInfo();
 }
 
+
+/**
+ * Creates a new task by taking the value of the inputfields.
+ * 
+ * @param {string} title - This is the 'title' value.
+ * @param {string} taskArr - ?
+ * @param {string} description - This is the 'description' value.
+ * @param {string} date - This is the 'date' value.
+ * @param {string} prio - This is the 'prio' value.
+ * @param {string} category - This is the 'category' value.
+ * @param {string} status - This is the 'status' value.
+ * @returns 
+ */
 function createNewTaskObject(title, taskArr, description, date, prio, category, status) {
   let task = {
     title: title,
@@ -54,7 +85,11 @@ function createNewTaskObject(title, taskArr, description, date, prio, category, 
   }; return task
 }
 
-
+/**
+ * Gets the priority by wich one of the priority buttons is clicked.
+ * 
+ * @param {string} priority - The priority button thats clicked.
+ */
 function checkBoxClicked(priority) {
   let checkbox = document.getElementById(priority);
   let image = document.getElementById(priority + "-img");
@@ -67,7 +102,9 @@ function checkBoxClicked(priority) {
   } else {image.src = "/assets/img/" + priority.toLowerCase() + "-priority.png"}
 }
 
-
+/**
+ * Resets the color if the priority button is not clicked anymore.
+ */
 function resetColor() {
   let span = document.getElementsByClassName('priority-span');
   for (let i = 0; i < span.length; i++) {
@@ -75,7 +112,9 @@ function resetColor() {
   } checkBoxClicked
 }
 
-
+/**
+ * Deactivates the color of the priority buttons that are not clicked anymore.
+ */
 function deactivateOtherCheckboxes(currentPriority) {
   const priorities = ["urgent", "medium", "low"];
   for (const priority of priorities) {
@@ -92,6 +131,12 @@ function deactivateOtherCheckboxes(currentPriority) {
   pushCurrentPriority(currentPriority);
 }
 
+
+/**
+ * Pushes the selected priority into the 'prioArray' array.
+ * 
+ * @param {string} currentPriority - The selected priority.
+ */
 function pushCurrentPriority(currentPriority) {
   if (prioArray.length > 0) {
     prioArray[0] = currentPriority;
@@ -100,6 +145,13 @@ function pushCurrentPriority(currentPriority) {
   }
 }
 
+
+/**
+ * Changes the backgroundcolor of the selected priority.
+ * 
+ * @param {string} priority - The selected priority.
+ * @returns the backgroundcolor of the selected priority.
+ */
 function getColor(priority) {
   switch (priority) {
     case "urgent":
@@ -113,6 +165,13 @@ function getColor(priority) {
   }
 }
 
+
+/**
+ * Changes the imagepath of the selected priority.
+ * 
+ * @param {string} priority - The selected priority.
+ * @param {source} image - The image of the selected priority.
+ */
 function changeImageSrc(priority, image) {
   let basePath = "/assets/img/";
   let activeFileName = priority.toLowerCase() + "-active.png";
@@ -127,6 +186,12 @@ function changeImageSrc(priority, image) {
   });
 }
 
+/**
+ * Checks if the image source is correct.
+ * 
+ * @param {source} url - The source of the image.
+ * @param {string} callback - ?
+ */
 function checkImageExists(url, callback) {
   let img = new Image();
   img.onload = function () {
@@ -136,13 +201,20 @@ function checkImageExists(url, callback) {
   img.src = url;
 }
 
-
+/**
+ * 
+ * @returns the value of the 'prioArray' array.
+ */
 function getPrioValue() {
   let arr = prioArray.slice(-1)
   return arr[0]
 }
 
-
+/**
+ * Sets the value of the priority from the current task.
+ * 
+ * @param {string} string - The current priority.
+ */
 function setValue(string) {
   let input = document.getElementById('category')
   input.innerText = string
@@ -150,6 +222,9 @@ function setValue(string) {
   input.setAttribute('value', string)
 }
 
+/**
+ * Clears the category value from the current task. 
+ */
 function clearCategoryValue() {
   let input = document.getElementById('category')
   input.innerText = ''
@@ -157,6 +232,7 @@ function clearCategoryValue() {
   input.setAttribute('value', '');
   checkAllInputs()
 }
+
 
 function openList(containerID, inputID, ulID, iconID) {
   let ul = document.getElementById(ulID);
