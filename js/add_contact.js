@@ -70,7 +70,7 @@ function renderContactPage(activeUser) {
 }
 
 /**
- * Renders the Register from 
+ * Renders the register from A to Z.
  * 
  */
 function renderRegister() {
@@ -95,6 +95,11 @@ function renderRegister() {
   }
 }
 
+/**
+ * Renders the contacts matching their first letter to the letters in the register.
+ * 
+ * @param {string} letter - These are the letters from A to Z.
+ */
 function renderContacts(letter) {
   let container = document.getElementById(`${letter}`);
   container.innerHTML = "";
@@ -125,6 +130,10 @@ function renderContacts(letter) {
   }
 }
 
+/**
+ * Hides the unused letters in the register where there are no contacts.
+ * 
+ */
 function hideUnusedLetters() {
   let divElements = document.querySelectorAll(".test");
   let divRegister = document.querySelectorAll(".register");
@@ -141,6 +150,12 @@ function hideUnusedLetters() {
   });
 }
 
+
+/**
+ * Opens the contact you clicked on from the register.
+ * 
+ * @param {string} id - This is the id of the contact you click on.
+ */
 function openProfile(id) {
   let userProfile = document.getElementById("userProfile");
   let user = [];
@@ -167,7 +182,11 @@ function openProfile(id) {
   </div>
   <div id="buttonsPopUpMobile" class="buttonsPopUpMobile d-none"><Button onclick="editProfile(${e.id}); addDNone();" class="buttonPopUpMobile"><img src="/assets/img/edit.png" alt=""> Edit</Button><Button onclick="deleteContact(${e.id}); addDNone();" class="buttonPopUpMobile"><img src="/assets/img/delete.png" alt=""> Delete</Button></div>`;
 }
-
+/**
+ * Opens the edit popup for the contact you clicked on from the register.
+ * 
+ * @param {string} id - This is the id of the contact you click on. 
+ */
 function editProfile(id) {
   let object = contacts.filter((contact) => contact.id === id)[0];
   let index = contacts.indexOf(object);
@@ -182,14 +201,27 @@ function editProfile(id) {
   button.setAttribute("onclick", `saveContact(${id})`);
 }
 
+/**
+ * Opens the edit popup for a contact. 
+ */
 function openPopUpEditContact() {
   document.getElementById("editContactPopUp").classList.remove("d-none");
 }
 
+/**
+ * Closes the edit popup for a contact. 
+ */
 function closePopUpEditContact() {
   document.getElementById("editContactPopUp").classList.add("d-none");
 }
 
+
+/**
+ * Safes the eddited contact.
+ * 
+ * @param {string} id - This is the id of the contact you're edditing.
+ * @returns 
+ */
 async function saveContact(id) {
   if (id == undefined) {
     return;
@@ -206,6 +238,12 @@ async function saveContact(id) {
   openProfile(id);
 }
 
+
+/**
+ * Deletes the current contact.
+ * 
+ * @param {string} id - This is the id of the contact you're edditing.
+ */
 async function deleteContact(id) {
   let object = contacts.find((contact) => contact.id === id);
 
@@ -217,10 +255,16 @@ async function deleteContact(id) {
   init();
 }
 
+/**
+ * Opens the popup where you can add a contact.
+ */
 function openPopUpAddContact() {
   document.getElementById("addContactPopUp").classList.remove("d-none");
 }
 
+/**
+ * closes the popup where you can add a contact.
+ */
 function closePopUpAddContact() {
   let popUpContainer = document.getElementById("addContactPopUp");
   let popUp = document.getElementById("addContact");
@@ -231,6 +275,11 @@ function closePopUpAddContact() {
   }, 30);
 }
 
+
+/**
+ * Creates a contact and pushing it into the contacts array.
+ * 
+ */
 async function createContact() {
   let fullName = document.getElementById("profileName").value;
   let email = document.getElementById("profileEmail").value;
@@ -255,7 +304,11 @@ async function createContact() {
   closePopUpAddContact();
   init();
 }
-
+/**
+ * Creates a array for colors and randomizes the return of it.
+ * 
+ * @returns a randomized color.
+ */
 function randomColor() {
   let colors = [
     "#FF7A00",
@@ -272,11 +325,22 @@ function randomColor() {
   return colors[randomIndex];
 }
 
+
+/**
+ * Gives a color to an created contact by his id.
+ * 
+ * @param {string} id - This is the id of the contact you're giving a color.
+ * @param {string} color - This is the color you're giving to the contact.
+ */
 function getRandomColor(id, color) {
   let divName = document.getElementById(id);
   divName.style.backgroundColor = color;
 }
 
+
+/**
+ * Calculates the barheight of the contact scroll div.
+ */
 function calcBarHeight() {
   let header = document.querySelector("header");
   let item = document.getElementById("contacts-bar");
@@ -285,6 +349,9 @@ function calcBarHeight() {
   calcHeight();
 }
 
+/**
+ * Calculates the height of the add new contact popup.
+ */
 function calcHeight() {
   let header = document.querySelector("header");
   let btn = document.getElementById("addNewContact");
@@ -293,6 +360,9 @@ function calcHeight() {
   register.style.height = height - 20 + "px";
 }
 
+/**
+ * Clears all inputs of the add task page.
+ */
 function clearContactsForm() {
   let input = document.getElementsByClassName("contact-creation-inputs");
   for (let i = 0; i < input.length; i++) {
@@ -300,6 +370,13 @@ function clearContactsForm() {
   }
 }
 
+
+/**
+ * Takes the informations that got eddited and returns the eddited contact.
+ * 
+ * @param {string} person - This is the id of the contact you have clicked on in the contact list. 
+ * @returns the eddited contact information.
+ */
 function editObject(person) {
   let object = {
     color: person.color,
@@ -315,6 +392,12 @@ function editObject(person) {
   };
   return object;
 }
+
+/**
+ * Higlights the contact you have clicked on in the contact list.
+ * 
+ * @param {string} person - This is the id of the contact you have clicked on in the contact list.
+ */
 function contactActive(id) {
   let allElements = document.querySelectorAll(".contact");
   allElements.forEach((element) => {
@@ -327,6 +410,9 @@ function contactActive(id) {
   active.classList.add("activeContact");
 }
 
+/**
+ * Swappes the mobile Buttons of the mobile contact page.
+ */
 function setZindex() {
   let div = document.getElementById('zIndex');
   div.classList.add('zIndex');
@@ -338,6 +424,10 @@ function setZindex() {
   menu.classList.remove('d-none');
 }
 
+
+/**
+ * Swappes the mobile Buttons of the mobile contact page the otherway around.
+ */
 function removeZindex() {
   let div = document.getElementById('zIndex');
   div.classList.remove('zIndex');
@@ -349,6 +439,9 @@ function removeZindex() {
   button.classList.remove('d-none');
 }
 
+/**
+ * Adds d-none to two buttons.
+ */
 function removeDNone() {
   let button = document.getElementById('buttonsPopUpMobile');
   button.classList.remove('d-none');
@@ -356,6 +449,9 @@ function removeDNone() {
   menu.classList.add('d-none');
 }
 
+/**
+ * Removes d-none of two buttons.
+ */
 function addDNone() {
   let button = document.getElementById('buttonsPopUpMobile');
   button.classList.add('d-none');
@@ -363,6 +459,9 @@ function addDNone() {
   menu.classList.remove('d-none');
 }
 
+/**
+ * Clears the HTML of the inputfields in the edit contact popup.
+ */
 function clearHTML() {
   if (document.getElementById('editContactPopUp') !== null) {
     let mobileBtn = document.getElementById('mobile-add-btn');
