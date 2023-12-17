@@ -309,7 +309,7 @@ h5 {
     display: flex;
     background-color: white;
     inset: 0;
-    height: 85%;
+    height: fit-content;
     margin: auto;
     padding: 0 5.5em;
     width: 80%;

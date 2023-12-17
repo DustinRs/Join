@@ -869,10 +869,6 @@
   width: 90%;
 }
 
-.divButtonsContact {
-  
-}
-
 
 .imgUserContact {
   transform: translate(0rem, -5rem);
@@ -880,6 +876,9 @@
 
 .containterPopUpAddTaskMobile {
   transform: translate(0rem, -4rem);
+}
+#pop-up-container {
+  width: 95% !important;
 }
 }
 
