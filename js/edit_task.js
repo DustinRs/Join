@@ -1,6 +1,12 @@
 // date form-validation, title description, (addinputhandler)listener, 
 
-
+/**
+ * Pushes the eddited task into the 'allTasks' array.
+ * 
+ * @param {string} status - The status of the task.
+ * @param {string} index - The index of the task.
+ * @param {string} prio - The prio of the task.
+ */
 async function editTodoInAllTasks(status, index, prio) {
     let title = document.getElementById("title").value;
     let taskArr;
@@ -16,6 +22,18 @@ async function editTodoInAllTasks(status, index, prio) {
     pushInfo();
 }
 
+/**
+ * Creates an eddited task by taking the value of the inputfields.
+ * 
+ * @param {string} title - This is the 'title' value.
+ * @param {string} taskArr - ?
+ * @param {string} description - This is the 'description' value.
+ * @param {string} date - This is the 'date' value.
+ * @param {string} prio - This is the 'prio' value.
+ * @param {string} category - This is the 'category' value.
+ * @param {string} status - This is the 'status' value.
+ * @returns 
+ */
 function createEditTaskObject(status, title, taskArr, description, date, category, prio) {
     let task = {
         title: title,

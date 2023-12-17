@@ -190,7 +190,7 @@ function changeImageSrc(priority, image) {
  * Checks if the image source is correct.
  * 
  * @param {source} url - The source of the image.
- * @param {string} callback - ?
+ * @param {string} callback - The function that checks the image.
  */
 function checkImageExists(url, callback) {
   let img = new Image();
