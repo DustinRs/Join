@@ -5,6 +5,10 @@
     --dark: #2A3647;
     --box: url("/assets/img/checkbox.png");
     --checked-box: url("/assets/img/checked-box.png");
+    --logo:url("/assets/img/join-logo.png");
+    --logo-switch:url("/assets/img/join-logo.png");
+    --opacity:1;
+    --opacity-low:1;
     font-family: 'Inter', sans-serif;
     font-size: 16px;
     overflow: hidden;
@@ -70,10 +74,29 @@ body {
     position: absolute;
     height: 342px;
     width: 280px;
-    background-image: url('/assets/img/join-logo.png');
-    background-size: cover;
     visibility: visible;
     animation: startScreen 1s ease 1s 1 forwards;
+}
+
+.animation-support{
+    z-index: 1;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    visibility: visible;
+}
+
+#dot-animation-support{
+    z-index: 2;
+}
+
+#letter-animation-support{
+    content:var(--logo);
+    filter:brightness(0.5);
+    transition:opacity 0.1s;
+    opacity: 1;
+    animation: icon-change 1s ease 1s 1 forwards;
+
 }
 
 .logo-render {
@@ -101,19 +124,42 @@ body {
     }
 }
 
+@keyframes icon-change {
+
+    0% {
+        opacity:1;    
+    }
+    5%{
+        opacity: var(--opacity-low);
+        content:var(--logo-switch);
+
+    }
+
+     
+    50%{
+        opacity: var(--opacity);
+    }
+
+    100%{
+        opacity: 1;
+        content: var(--logo-switch);
+    }
+}
+
 @keyframes startScreen {
-    from {
+    0% {
         top: 0;
         right: 0;
         bottom: 0;
     }
-
-    to {
+    
+    100% {
         top: 120px;
         width: 7.1rem;
         height: 8.6rem;
         right: 82%;
         bottom: 82%;
+
     }
 }
 

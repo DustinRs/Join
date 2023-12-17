@@ -45,7 +45,7 @@ function renderSignup() {
                     </div>
                     &nbsp;accept the&nbsp;
                     <span>
-                        <a href="/assets/templates/privacy_policy_signUp.html" target="_blank">Privacy Policy
+                        <a href="/html/privacy_policy_signUp.html" target="_blank">Privacy Policy
                         </a>
                     </span>
                 </label>

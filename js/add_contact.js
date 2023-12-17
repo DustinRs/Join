@@ -34,7 +34,6 @@ let letters = [
 ];
 
 
-
 async function init() {
   await getContacts(contactKey);
   getUser(sessionKey);
@@ -44,6 +43,7 @@ async function init() {
   hideUnusedLetters();
   calcBarHeight();
 }
+
 
 function renderContactPage(activeUser) {
   let body = document.querySelector("body");

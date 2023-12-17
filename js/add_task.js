@@ -54,51 +54,6 @@ function createNewTaskObject(title, taskArr, description, date, prio, category, 
   }; return task
 }
 
-async function editTodoInAllTasks(status, index, prio) {
-  let title = document.getElementById("title").value;
-  let taskArr;
-  let description = document.getElementById("description").value;
-  let date = document.getElementById("date").value;
-  let category = document.getElementById("category").value;
-  let task = {
-    title: title,
-    description: description,
-    date: date,
-    prio: editArr[0] || prio,
-    category: category,
-    status: status,
-    counter: finishedSubTasks.length,
-    subTask: taskArr = [...subTasks],
-    finishedTaskList: taskArr = [...finishedSubTasks],
-    totalSubTasks: subTasks.length + finishedSubTasks.length,
-    id: Date.now(),
-    assignees: assignees
-  };
-  allTasks.splice(index, 1, task);
-  await setAllTasks(tasksKey, allTasks);
-  assignees = [];
-  subTasks = [];
-  finishedSubTasks = [];
-  pushInfo();
-}
-
-function createEditTaskObject(){
-  let task = {
-    title: title,
-    description: description,
-    date: date,
-    prio: editArr[0] || prio,
-    category: category,
-    status: status,
-    counter: finishedSubTasks.length,
-    subTask: taskArr = [...subTasks],
-    finishedTaskList: taskArr = [...finishedSubTasks],
-    totalSubTasks: subTasks.length + finishedSubTasks.length,
-    id: Date.now(),
-    assignees: assignees
-  }
-}
-
 
 function checkBoxClicked(priority) {
   let checkbox = document.getElementById(priority);
@@ -109,9 +64,7 @@ function checkBoxClicked(priority) {
     deactivateOtherCheckboxes(priority);
     span.style.backgroundColor = getColor(priority);
     changeImageSrc(priority, image);
-  } else {
-    image.src = "/assets/img/" + priority.toLowerCase() + "-priority.png";
-  }
+  } else {image.src = "/assets/img/" + priority.toLowerCase() + "-priority.png"}
 }
 
 
@@ -164,30 +117,22 @@ function changeImageSrc(priority, image) {
   let basePath = "/assets/img/";
   let activeFileName = priority.toLowerCase() + "-active.png";
   let newSrc = basePath + activeFileName;
-
   checkImageExists(newSrc, function (exists) {
     if (exists) {
       if (image instanceof HTMLImageElement) {
         image.onload = function () { };
-
         image.onerror = function () { };
-
-        image.src = newSrc;
-      } else {
-      }
-    } else {
-    }
+        image.src = newSrc} 
+    } 
   });
 }
 
 function checkImageExists(url, callback) {
   let img = new Image();
   img.onload = function () {
-    callback(true);
-  };
+    callback(true);};
   img.onerror = function () {
-    callback(false);
-  };
+    callback(false);};
   img.src = url;
 }
 
@@ -224,9 +169,7 @@ function openList(containerID, inputID, ulID, iconID) {
     container.style = 'z-index:6'
     ul.classList.remove('d-none')
     ul.style = 'z-index:5'
-  } else {
-    return closeList(containerID, inputID, ulID, iconID)
-  }
+  } else {return closeList(containerID, inputID, ulID, iconID)}
 }
 
 
@@ -255,7 +198,6 @@ function subTaskActive() {
 function subTaskClose() {
   let plus = document.getElementById('sub-btn-plus');
   let subBtn = document.getElementById('sub-btn');
-
   plus.classList.remove('d-none');
   subBtn.classList.add('d-none');
 }
@@ -270,34 +212,37 @@ function pushSubTasks() {
     return subTaskClose()
   } else if (task.value.length == 0) {
     task.setCustomValidity('Kindly type in a subtask before adding one.')
-    task.reportValidity()
-  }
+    task.reportValidity()}
 }
 
 
 function clearAll() {
+  clearAssignees()
   let input = document.querySelectorAll('input');
   let textarea = document.querySelectorAll('textarea');
   for (let i = 0; i < input.length; i++) {
-    input[i].value = '';
+    input[i].value = '';}
+    for (let i = 0; i < textarea.length; i++) {
+      textarea[i].value = '';};
+      clearCategoryValue()
+}
+
+function clearAssignees(){
+  let clickList = [];
+  clickList.push(...assignees)
+  for(let i=0; i < clickList.length; i++){
+    addboxClick(clickList[i])
   }
-  for (let i = 0; i < textarea.length; i++) {
-    textarea[i].value = '';
-  };
-  clearCategoryValue()
 }
 
 function pushInfo() {
   let info = document.getElementById('info')
   info.classList.add('push-up');
-
-  setTimeout(() => {
-    goToBoard()
-  }, 2000)
+  setTimeout(() => {goToBoard()}, 2000)
 };
 
 function goToBoard() {
-  window.location.href = '/assets/templates/board.html';
+  window.location.href = '/html/board.html';
 };
 
 
@@ -328,8 +273,7 @@ function addSubtaskListener() {
     if (event.key === 'Enter' && input.value.length > 0) {
       pushSubTasks();
     } else if (event.key === 'Enter' && input.value.length == 0) {
-      event.preventDefault();
-    }
+      event.preventDefault();}
   });
 }
 
@@ -337,111 +281,41 @@ function addSubtaskListener() {
 function pushEditAssignees(task) {
   assignees = [];
   let index = task.assignees
-  index.forEach((element) => {
-    addboxClick(element)
-  })
-
+  index.forEach((element) => {addboxClick(element)})
 }
 
 
-function editPrio(newPrio) {
-  editArr = [newPrio]
-}
+function editPrio(newPrio) {editArr = [newPrio]}
 
 
 function checkAllInputs(){
   let btn = document.getElementById('createTaskButton')||document.getElementById('edit-ok-btn');
   if(validateTitleInput() && validateDescriptionInput() && validateDateInput()&& categoryResponse()){
-    btn.disabled = false;
-  }
+    btn.disabled = false;}
 }
 
 
-function addInputHandler() {
-  let title = document.getElementById("title");
-  let description = document.getElementById("description");
-  let date = document.getElementById("date");
+// function setCloseListListener(event) {
+//  let body= document.querySelector('body');
+//   body.addEventListener('click', closeOpenCategory(event))
+//   // body.addEventListener('click', closeOpenAssginSelection)
+// }
 
-  title.addEventListener('click', addTitleListener);
-  description.addEventListener('click', addDescriptionListener);
-  date.addEventListener('focusout', validateDateInput);
-  date.addEventListener('focusout',checkAllInputs)
-}
-
-
-function addTitleListener() {
-  let input = document.getElementById('title');
-  input.addEventListener('input', validateTitleInput);
-  input.addEventListener('input',checkAllInputs)
-}
-
-
-function addDescriptionListener() {
-  let input = document.getElementById('description');
-  input.addEventListener('input', validateDescriptionInput);
-  input.addEventListener('input',checkAllInputs)
-}
-
-
-function validateTitleInput() {
-  let title = document.getElementById("title");
-  let container = document.getElementById('add-task-titlte-container');
-  let message= document.getElementById('title-requirement')||document.getElementById('title-requirement-edit');
-  let btn = document.getElementById('createTaskButton')||document.getElementById('edit-ok-btn');
-  if (title.value.length === 0) {
-    container.style="box-shadow: inset 0 0 1px 1px #FF4646!important;"
-    message.classList.remove('d-none')
-    btn.disabled = true;
-  } else {
-    message.classList.add('d-none')
-    container.style=""
-    return true
-  }
-}
-
-function validateDescriptionInput() {
-  let description = document.getElementById("description");
-  let container = document.getElementById('area-container');
-  let message= document.getElementById('description-requirement')||document.getElementById('description-requirement-edit');
-  let btn = document.getElementById('createTaskButton')||document.getElementById('edit-ok-btn');
-
-  if (description.value.length === 0) {
-    container.style="box-shadow: inset 0 0 1px 1px #FF4646!important;";
-    message.classList.remove('d-none')
-    btn.disabled = true;
-  } else {
-    container.style=""
-    message.classList.add('d-none')
-    return true
-  }
-}
-
-function validateDateInput() {
-  let input = document.getElementById('date');
-  let div = document.getElementById("add-task-date-input");
-  let selectedDate = new Date(input.value);
-  let currentDate = new Date();
-  let message= document.getElementById('date-requirement')||document.getElementById('date-requirement-edit');
-  let btn = document.getElementById('createTaskButton')||document.getElementById('edit-ok-btn');
-  if (selectedDate=='Invalid Date'){
-    div.style = "box-shadow: inset 0 0 1px 1px #FF4646!important;";
-    message.classList.remove('d-none');
-    btn.disabled = true;
-  } else if (selectedDate < currentDate) {
-    div.style = "box-shadow: inset 0 0 1px 1px #FF4646!important;";
-    message.classList.remove('d-none');
-    btn.disabled = true;
-  } else {message.classList.add('d-none');div.style = "";return true}
-}
-
-function categoryResponse() {
-  let category = document.getElementById("category");
-  let btn = document.getElementById('createTaskButton')||document.getElementById('edit-ok-btn');
-  if (category.value == "Technical Task"||category.value == "User Story") {
-    return true
-  } else {
-    btn.disabled = true;
-    return false
-  }
-}
+// function closeOpenCategory(event){
+//   let body = document.querySelector('body');
+//   let container = document.getElementById("category-select");
+//   let input = document.getElementById("category");
+//   let ul = document.getElementById("category-ul");
+//   let btn = document.getElementById("category-icon");
+//   if(event.target === body && event.target !== input && event.target !== container && event.target !== ul && event.target !== btn){
+//     btn.style = ''
+//     input.style = ''
+//     container.style = ''
+//     ul.classList.add('d-none')
+//     ul.style = ''
+//     input.blur()
+//   }
     
+
+// }
+

@@ -49,7 +49,7 @@ function editCurrentTodo(task) {
     <div>
         <h6>Due date</h6>
         <div id="add-task-date-input" class="input-group sub-container row">
-            <input id="date" class="form-control subtask-input" value="${task.date}" type="date" required />
+            <input id="date" class="form-control subtask-input" value="${task.date}" min="${getMinDate()}" type="date" required />
         </div>
         <div id="date-requirement-edit" class="d-none">Please set the actual or a furture date.</div>
         <h6>Prio</h6>

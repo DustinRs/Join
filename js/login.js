@@ -196,7 +196,7 @@ function logIn() {
     logUser(JSON.stringify(match))
     console.log(match)
     console.log(JSON.stringify(match))
-    location.replace('./assets/templates/summary.html')
+    location.replace('/html/summary.html')
   } else {
     popUp(wrongPass,567)
   }
@@ -216,7 +216,7 @@ function logIn() {
  */
 function guestLogIn() {
   logUser(JSON.stringify(guest))
-  location.replace('./assets/templates/summary.html')
+  location.replace('/html/summary.html')
 }
 
 
