@@ -146,29 +146,3 @@ function editCurrentTodo(task) {
 };
 
 
-//returns an array of subtasks if available for listing them below the editable task
-function getSubList(subtaskList, finishedTaskList) {
-    let subLiArr = []
-    let finListArr = getEditFinishedList(finishedTaskList);
-    for (let i = 0; i < subtaskList.length; i++) {
-        let sub = subtaskList[i];
-        subTasks.push(sub)
-        subLiArr.push(`<li>${sub}</li>`)
-    }
-    return mergeSublists(subLiArr, finListArr)
-}
-    
-
-//returns an array of finished subtasks if available for listing them below the editable task
-function getEditFinishedList(finishedTaskList) {
-    let finLiArr = []
-    if (finishedTaskList.length === 0) {
-        return false
-    }
-    for (let i = 0; i < finishedTaskList.length; i++) {
-        let fin = finishedTaskList[i];
-        finishedSubTasks.push(fin)
-        finLiArr.push(`<li>${fin}</li>`)
-    }
-    return finLiArr
-}

@@ -370,28 +370,3 @@ function checkAllInputs(){
     btn.disabled = false;}
 }
 
-
-// function setCloseListListener(event) {
-//  let body= document.querySelector('body');
-//   body.addEventListener('click', closeOpenCategory(event))
-//   // body.addEventListener('click', closeOpenAssginSelection)
-// }
-
-// function closeOpenCategory(event){
-//   let body = document.querySelector('body');
-//   let container = document.getElementById("category-select");
-//   let input = document.getElementById("category");
-//   let ul = document.getElementById("category-ul");
-//   let btn = document.getElementById("category-icon");
-//   if(event.target === body && event.target !== input && event.target !== container && event.target !== ul && event.target !== btn){
-//     btn.style = ''
-//     input.style = ''
-//     container.style = ''
-//     ul.classList.add('d-none')
-//     ul.style = ''
-//     input.blur()
-//   }
-    
-
-// }
-
