@@ -631,6 +631,7 @@
 }
 .drag-headlines {
   height: 20rem;
+  margin-right: 0;
 }
 
 }
