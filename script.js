@@ -383,5 +383,5 @@ function createInitials(name) {
  */
 function logOut(){
   sessionStorage.clear();
-  window.location.replace("/Index.html");
+  window.location.replace("/index.html");
 }
