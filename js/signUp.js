@@ -15,6 +15,7 @@ function addSignUpHandler() {
   confirm_password.addEventListener('input', validatePassword);
 }
 
+
 function validatePassword() {
   let password = document.getElementById("create_password");
   let confirm_password = document.getElementById("confirm_password");

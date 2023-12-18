@@ -129,6 +129,7 @@ function resetColor() {
   } checkBoxClicked
 }
 
+
 /**
  * Deactivates the color of the priority buttons that are not clicked anymore.
  */
@@ -218,6 +219,7 @@ function checkImageExists(url, callback) {
   img.src = url;
 }
 
+
 /**
  * 
  * @returns the value of the 'prioArray' array.
@@ -226,6 +228,7 @@ function getPrioValue() {
   let arr = prioArray.slice(-1)
   return arr[0]
 }
+
 
 /**
  * Sets the value of the priority from the current task.
@@ -238,6 +241,7 @@ function setValue(string) {
   input.setAttribute('placeholder', string)
   input.setAttribute('value', string)
 }
+
 
 /**
  * Clears the category value from the current task. 
@@ -321,6 +325,7 @@ function clearAll() {
   btn.disabled = true
 }
 
+
 function clearAssignees(){
   let clickList = [];
   clickList.push(...assignees)
@@ -329,11 +334,13 @@ function clearAssignees(){
   }
 }
 
+
 function pushInfo() {
   let info = document.getElementById('info')
   info.classList.add('push-up');
   setTimeout(() => {goToBoard()}, 2000)
 };
+
 
 function goToBoard() {
   window.location.href = '/html/board.html';
@@ -346,6 +353,7 @@ function addboxClick(i) {
   logTaskCheckBox(checkbox, img, i);
   renderEditIcons()
 }
+
 
 function logTaskCheckBox(box, img, i) {
   if (box.checked) {
@@ -360,6 +368,7 @@ function logTaskCheckBox(box, img, i) {
     assignees.push(i)
   }
 }
+
 
 function addSubtaskListener() {
   let input = document.getElementById('subtask-input')

@@ -1,3 +1,6 @@
+const doubleName="Contact already exists";
+const doubleMail="Email already exists";
+
 /**
  * Provides letters for comparison by rendering the
  * contacts
@@ -46,6 +49,7 @@ async function init() {
   navActive(3);
   hideUnusedLetters();
   calcBarHeight();
+  addFormListener()
 }
 
 /**
@@ -277,33 +281,115 @@ function closePopUpAddContact() {
 
 
 /**
- * Creates a contact and pushing it into the contacts array.
- * 
+ * Creates a contact based on the values entered in the profile form.
+ *
+ * @return {object} This function returns a new contact if the requirements are met.
  */
-async function createContact() {
-  let fullName = document.getElementById("profileName").value;
+function createContact() {
+  let fullName = document.getElementById("profileName");
+  let initials = createInitials(fullName.value);
+  let email = document.getElementById("profileEmail");
+  let nameArr = differMultipleNames(fullName.value);
+  let contact= newContactObject(nameArr,initials);
+  if(checkForDuplicateMail(email.value)){return}
+  else if(checkForDuplicateName(fullName.value)){return}
+  if (checkForDuplicateName(fullName.value)) {return}
+  else{contactCreation(contact)}
+}
+
+
+/**
+ * Adds event listeners to the full name and email input fields in the profile form.
+ * When the full name input field is changed, it checks for duplicate names and displays an error message if found.
+ * When the email input field is changed, it checks for duplicate emails and displays an error message if found.
+ *
+ * @param {HTMLElement} fullName - The input field for the full name.
+ * @param {HTMLElement} email - The input field for the email.
+ * @return {boolean} Returns true if a duplicate name or email is found, otherwise returns undefined.
+ */
+function addFormListener(){
+  let fullName = document.getElementById("profileName");
+  let email = document.getElementById("profileEmail");
+  fullName.addEventListener("input", () => {    
+    if (checkForDuplicateName(fullName.value)) {
+      fullName.setCustomValidity(doubleName);
+      return true
+    }else{
+      fullName.setCustomValidity("");
+    }});
+  email.addEventListener("input", () => {
+    if (checkForDuplicateMail(email.value)) {
+      email.setCustomValidity(doubleMail);
+      return true
+    }else{
+      email.setCustomValidity("");
+    }});
+
+}
+
+
+/**
+ * Creates a new contact and adds it to the list of contacts.
+ *
+ * @param {Object} contact - The contact object to be added.
+ * @return {Promise} A promise that resolves when the contact is successfully added.
+ */
+async function contactCreation(contact){
+  contacts.push(contact);
+    await setContacts(contactKey, contacts);
+    closePopUpAddContact();
+    init();
+}
+
+
+/**
+ * Checks if a given name is a duplicate in the contacts list.
+ *
+ * @param {string} fullName - The name to check for duplicates.
+ * @return {boolean} True if the name is a duplicate, false otherwise.
+ */
+function checkForDuplicateName(fullName) {
+  for (let i = 0; i < contacts.length; i++) {
+    if (fullName === contacts[i].fullName) {
+      return true;
+    }
+  }
+  return false;
+}
+
+
+/**
+ * Checks if a given email is a duplicate in the contacts list.
+ *
+ * @param {string} mail - The email to check for duplicates.
+ * @return {boolean} True if the email is a duplicate, false otherwise.
+ */
+function checkForDuplicateMail(mail) {
+  for (let i = 0; i < contacts.length; i++) {
+    if (mail === contacts[i].email) {
+      return true
+    }
+  }return false
+}
+
+
+
+function newContactObject(nameArr,initials){
   let email = document.getElementById("profileEmail").value;
   let number = document.getElementById("profileNumber").value;
-  let initials = createInitials(fullName);
-  let nameArr = differMultipleNames(fullName);
-  let firstName = nameArr.firstName;
-  let name = nameArr.lastName;
-
   let contact = {
-    fullName: fullName,
-    firstName: firstName,
-    name: name,
+    fullName: nameArr.firstName + " " + nameArr.lastName,
+    firstName: nameArr.firstName,
+    name: nameArr.lastName,
     id: Date.now(),
     email: email,
     color: randomColor(),
     phoneNumber: number,
     initials: initials.toUpperCase(),
-  };
-  contacts.push(contact);
-  await setContacts(contactKey, contacts);
-  closePopUpAddContact();
-  init();
+  };return contact
 }
+
+
 /**
  * Creates a array for colors and randomizes the return of it.
  * 
