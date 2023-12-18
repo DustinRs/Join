@@ -72,7 +72,8 @@ function renderAddTaskSections() {
                     <input id="medium" 
                         type="checkbox" 
                         value="Medium" 
-                        onclick="checkBoxClicked('medium')">
+                        onclick="checkBoxClicked('medium')"
+                        checked>
                     <span class="priority-span" id="medium-span">Medium <img class="prioImgs" id="medium-img"src="/assets/img/medium-priority.png" alt=""></span>
                 </label>
             </div>

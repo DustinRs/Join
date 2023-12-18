@@ -17,6 +17,7 @@ async function init() {
   addAssigneesSelection();
   addInputHandler();
   addSubtaskListener();
+  clickMedium('medium')
 }
 
 /**
@@ -101,6 +102,22 @@ function checkBoxClicked(priority) {
     changeImageSrc(priority, image);
   } else {image.src = "/assets/img/" + priority.toLowerCase() + "-priority.png"}
 }
+
+
+/**
+ * A function that handles the click event on medium priority
+ * for every new task/todo by default.
+ *
+ * @param {string} priority - The priority of the medium element.
+ */
+function clickMedium(priority){
+  let image = document.getElementById(priority + "-img");
+  let span = document.getElementById(priority + "-span");
+  deactivateOtherCheckboxes(priority);
+    span.style.backgroundColor = getColor(priority);
+    changeImageSrc(priority, image);
+}
+
 
 /**
  * Resets the color if the priority button is not clicked anymore.
