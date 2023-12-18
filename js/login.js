@@ -211,8 +211,6 @@ function logIn() {
  * get´s a prepared guest-account to log in with
  * to experience the website without having to register
  *
- * @param {undefined} None
- * @return {undefined} None
  */
 function guestLogIn() {
   logUser(JSON.stringify(guest))

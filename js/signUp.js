@@ -65,20 +65,6 @@ function formValidation() {
 }
 
 
-// function mailExists() {
-//   let mail = document.getElementById('sign-up_mail');
-//   let match = userList.filter(e => e.mail === mail.value)[0]
-//   if (match.length > 0) {
-//     document.getElementById('mail-check-reminder').classList.remove('d-none')
-//     mail.setCustomValidity(existingMail)
-//   } else {
-//     document.getElementById('mail-check-reminder').classList.add('d-none')
-//     mail.setCustomValidity('')
-//     button.disabled = false
-//   }
-// }
-
-
 /**
  * Enables the sign-up button if both the username and email input fields have a value.
  *
@@ -95,6 +81,7 @@ function enableSignUp() {
     button.disabled = false
   }
 }
+
 
 function disableSignUp() {
   let button = document.getElementById('signup-btn');
@@ -167,7 +154,7 @@ function createAccount(name, mail, password) {
     initials: initials.toUpperCase()
   }
   userList.push(user)
-  setUserList(key, userList)
+  setUserList(userKey, userList)
   popUpSignUp(success)
   setTimeout(() => {
     renderLogin()
@@ -188,7 +175,7 @@ function popUp(text, width) {
   let container = document.getElementById('info-no-mail');
   popUp.innerHTML = text;
   container.style.width = width + "px";
-  container.style.transform = "translateY(0%)";
+  container.style.transform = "translateY(50%)";
   setTimeout(() => {
     container.style.transform = "translateY(-105%)";
   }, 2000)
@@ -215,4 +202,3 @@ function isStrongPassword(password) {
   return result;
 }
 
-/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*\\-]).{8,}$|(?=[0-9].*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*\\-]).{8,}$/

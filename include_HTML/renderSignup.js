@@ -25,13 +25,22 @@ function renderSignup() {
                 <img class="input-img" src="assets/img/mail.png" alt="mail">
             </div>
             <div class="login-input-fields">
-                <input class="login-input password" id="create_password" type="password" min="8" required placeholder="Password"
-                    pattern="^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*\\-]).{8,}$|(?=[0-9].*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*\\-]).{8,}$"
-                    title="Bitte verwende Groß- und Kleinbuchstaben, sowie ein Sonderzeichen(#?!@$%^&*-) und mindestens eine Nummer">
+                <input class="login-input password" 
+                        id="create_password" 
+                        type="password" 
+                        min="8" 
+                        required 
+                        placeholder="Password"
+                        pattern="^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*\\-]).{8,}$|(?=[0-9].*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*\\-]).{8,}$"
+                        title="Bitte verwende Groß- und Kleinbuchstaben, sowie ein Sonderzeichen(#?!@$%^&*-) und mindestens eine Nummer">
                     <div class="eye-container"><img class="input-img lock" src="assets/img/lock.png" alt="lock"></div>
             </div>
             <div class="login-input-fields">
-                <input class="login-input password" id="confirm_password" type="password" placeholder="Password Conformation">
+                <input class="login-input password" 
+                        id="confirm_password" 
+                        type="password" 
+                        placeholder="Password Conformation"
+                        title="Bitte verwende Groß- und Kleinbuchstaben, sowie ein Sonderzeichen(#?!@$%^&*-) und mindestens eine Nummer">
                 <div class="eye-container"><img class="input-img lock" src="assets/img/lock.png" alt="lock"></div>
             </div>
             <div class="reminder d-none" id="pw-check-reminder">Ups?! Your passwords don't match or dont meet the requirements.</div>
