@@ -143,3 +143,98 @@ function renderAddContactButtonMobile(){
         </div>        
     `
 }
+
+
+/**
+ * Opens the contact you clicked on from the register.
+ * 
+ * @param {string} id - This is the id of the contact you click on.
+ */
+function openProfile(id) {
+    let userProfile = document.getElementById("userProfile");
+    let user = [];
+    contacts.map((e) => {
+      if (e.id == id) {
+        user.push(e);
+      }
+    });
+    let e = user[0];
+    userProfile.innerHTML = "";
+  
+    userProfile.innerHTML = `<div>
+      <div class="topProfile">
+          <div class="profile-initials-pseudo-img" style="background-color:${e.color}">
+             ${e.initials}
+          </div>
+      <div class="nameProfile"><h2 class="h2">${e.fullName}</h2><div class="buttonsPopUp"><Button onclick="editProfile(${e.id})" class="buttonPopUp"><img src="/assets/img/edit.png" alt=""> Edit</Button><Button onclick="deleteContact(${e.id})" class="buttonPopUp"><img src="/assets/img/delete.png" alt=""> Delete</Button></div></div>
+      </div>
+      <p class="pProfile">Contact Information</p>
+      <p><b>Email</b></p>
+      <a class="profileLink" href="">${e.email}</a>
+      <p class="pMail"><b>Phone</b></p>
+      <p>${e.phoneNumber}</p>
+    </div>
+    <div id="buttonsPopUpMobile" class="buttonsPopUpMobile d-none"><Button onclick="editProfile(${e.id}); addDNone();" class="buttonPopUpMobile"><img src="/assets/img/edit.png" alt=""> Edit</Button><Button onclick="deleteContact(${e.id}); addDNone();" class="buttonPopUpMobile"><img src="/assets/img/delete.png" alt=""> Delete</Button></div>`;
+  }
+  
+
+  /**
+ * Renders the contacts matching their first letter to the letters in the register.
+ * 
+ * @param {string} letter - These are the letters from A to Z.
+ */
+function renderContacts(letter) {
+    let container = document.getElementById(`${letter}`);
+    container.innerHTML = "";
+    for (let i = 0; i < contacts.length; i++) {
+      let contact = contacts[i];
+      let initials = contact.initials.split("");
+      let initial = initials[0];
+      if (contacts[i].initials.length > 1) {
+        initial = contact.initials.slice(0, 1);
+      } else {
+        initial = contact.initials;
+      }
+      if (letter === `${initial}`) {
+        container.innerHTML += `
+          <div id="${contact.name}${i}" onclick="openProfile('${contact.id}'); contactActive('${contact.name}${i}');  setZindex();" class="contact">
+          
+          <div>
+              <span id="${contact.id}" class="initials">${contact.initials}</span>
+          </div>
+          <div class="nameLinkDiv">
+              <span class="fullName">${contact.fullName}</span>
+              <a class="emailLinks" href="#">${contact.email}</a>
+          </div>
+      </div>`;
+        getRandomColor(contact.id, contact.color);
+      }
+    }
+  }
+
+  
+/**
+ * Renders the register from A to Z.
+ * 
+ */
+function renderRegister() {
+    let register = document.getElementById("register");
+    register.innerHTML = "";
+    for (let i = 0; i < letters.length; i++) {
+      const letter = letters[i];
+      register.innerHTML += `
+        <div class="register">
+          <span>${letter}</span>
+        </div>
+        <div class="registerLineDiv">
+          <div class="registerLine">
+          </div>
+        </div>
+        <div id="${letter}" class="test">
+        </div>
+      `;
+      renderContacts(`${letter}`);
+    }
+  }
+  
+  

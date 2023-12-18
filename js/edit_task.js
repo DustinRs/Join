@@ -22,6 +22,7 @@ async function editTodoInAllTasks(status, index, prio) {
     pushInfo();
 }
 
+
 /**
  * Creates an eddited task by taking the value of the inputfields.
  * 
@@ -50,35 +51,14 @@ function createEditTaskObject(status, title, taskArr, description, date, categor
         assignees: assignees
     }; return task
 }
-/*
-function inputHandlerEdit() {
-    let name = document.getElementById("editName");
-    name.addEventListener('click', addTitleListener);
-    
-}
 
-function nameListenerEdit() {
-    let input = document.getElementById('editName');
-    input.addEventListener('input', validateNameInput);
-    input.addEventListener('input', checkAllInputs)
-}
 
-function validateNameInput() {
-    let name = document.getElementById("editName");
-    let container = document.getElementById('edit-task-name-container');
-    let message = document.getElementById('name-requirement');
-    let btn = document.getElementById('saveButtonEdit');
-    if (name.value.length === 0) {
-        container.style = "box-shadow: inset 0 0 1px 1px #FF4646!important;"
-        message.classList.remove('d-none');
-        btn.disabled = true;
-    } else {
-        message.classList.add('d-none');
-        container.style = ""
-        return true
-    }
-}*/
-
+/**
+ * Adds event listeners to input elements in the document.
+ *
+ * @param {None} None
+ * @return {None} None
+ */
 function addInputHandler() {
     let title = document.getElementById("title");
     let description = document.getElementById("description");
@@ -93,18 +73,35 @@ function addInputHandler() {
 }
 
 
+/**
+ * Adds a title listener to the 'title' input element.
+ *
+ * @param {HTMLElement} input - The input element to attach the listener to.
+ * @return {void} This function does not return a value.
+ */
 function addTitleListener() {
     let input = document.getElementById('title');
     input.addEventListener('input', validateTitleInput);
 }
 
 
+/**
+ * Adds a description listener to the input element with the id 'description'.
+ *
+ * @param {Element} input - The input element to add the listener to.
+ * @return {void} No return value.
+ */
 function addDescriptionListener() {
     let input = document.getElementById('description');
     input.addEventListener('input', validateDescriptionInput);
 }
 
 
+/**
+ * Validates the title input field.
+ *
+ * @return {boolean} Returns true if the title input field is valid, false otherwise.
+ */
 function validateTitleInput() {
     let title = document.getElementById("title");
     let container = document.getElementById('add-task-titlte-container');
@@ -121,6 +118,12 @@ function validateTitleInput() {
     }
 }
 
+
+/**
+ * Validates the input of the description field.
+ *
+ * @return {boolean} Returns true if the description field is not empty, false otherwise.
+ */
 function validateDescriptionInput() {
     let description = document.getElementById("description");
     let container = document.getElementById('area-container');
@@ -133,10 +136,15 @@ function validateDescriptionInput() {
     } else {
         container.style = ""
         message.classList.add('d-none')
-        return true
-    }
+        return true}
 }
 
+
+/**
+ * Validates the date input provided by the user.
+ *
+ * @return {boolean} Returns true if the date input is valid, false otherwise.
+ */
 function validateDateInput() {
     let input = document.getElementById('date');
     let div = document.getElementById("add-task-date-input");
@@ -155,29 +163,43 @@ function validateDateInput() {
     } else { message.classList.add('d-none'); div.style = ""; return true }
 }
 
+
+/**
+ * Checks the selected category and enables or disables the create task button 
+ * based on the category value.
+ *
+ * @return {boolean} Returns true if the category is "Technical Task" or "User Story", 
+ *                   otherwise returns false.
+ */
 function categoryResponse() {
     let category = document.getElementById("category");
     let btn = document.getElementById('createTaskButton') || document.getElementById('edit-ok-btn');
     if (category.value == "Technical Task" || category.value == "User Story") {
         return true
-    } else {
-        btn.disabled = true;
-        return false
-    }
+    } else {btn.disabled = true;return false}
 }
 
 
+/**
+ * Generates a string representing the current date in the format 'YYYY-MM-DD'.
+ *
+ * @return {string} - A string representing the current date.
+ */
 function getMinDate() {
     const today = new Date();
     const year = today.getFullYear();
     const month = (today.getMonth() + 1).toString().padStart(2, '0'); // Monate sind nullbasiert
     const day = today.getDate().toString().padStart(2, '0');
-
     return `${year}-${month}-${day}`;
 }
 
 
-
+/**
+ * Sets the closing category functionality.
+ *
+ * @param {type} paramName - description of parameter
+ * @return {type} description of return value
+ */
 function setClosingCategory() {
     let categoryContainer = document.getElementById('category-select');
     let categoryInput = document.getElementById('category');
@@ -188,19 +210,22 @@ function setClosingCategory() {
         if (event.target != categoryContainer && event.target != categoryInput &&event.target != btn && event.target != list) {
             closeList("category-select", "category", "category-ul", "category-icon")
         }
-    })
-    categoryContainer.removeEventListener('click', setClosingCategory);
-
+    });categoryContainer.removeEventListener('click', setClosingCategory);
 }
 
 
+/**
+ * Sets the closing assign behavior.
+ *
+ * @param {type} paramName - description of parameter
+ * @return {type} description of return value
+ */
 function setClosingAssign() {
     let assignContainer = document.getElementById('assign-select');
     let assignInput = document.getElementById('assign');
     let btn  = document.getElementById('assign-icon') 
     let body = document.querySelector('body')
     let list = document.getElementById('assign-ul')
-    let liItem = document.querySelectorAll('.contact')
     body.addEventListener('click', function (event) {
         if (event.target != assignContainer && event.target != assignInput &&event.target != btn && event.target != list) {
             closeList("assign-select", "assign", "assign-ul", "assign-icon")
@@ -211,7 +236,13 @@ function setClosingAssign() {
 }
 
 
-//returns an array of subtasks if available for listing them below the editable task
+/**
+ * Generate the function comment for the given function body.
+ *
+ * @param {array} subtaskList - The list of subtasks.
+ * @param {array} finishedTaskList - The list of finished tasks.
+ * @returns {array} The merged sublist and finished list.
+ */
 function getSubList(subtaskList, finishedTaskList) {
     let subLiArr = []
     let finListArr = getEditFinishedList(finishedTaskList);
@@ -224,7 +255,12 @@ function getSubList(subtaskList, finishedTaskList) {
 }
 
 
-//returns an array of finished subtasks if available for listing them below the editable task
+/**
+ * Generates a list of finished tasks with HTML list items.
+ *
+ * @param {Array} finishedTaskList - the list of finished tasks.
+ * @return {Array} - the list of HTML list items representing the finished tasks.
+ */
 function getEditFinishedList(finishedTaskList) {
     let finLiArr = []
     if (finishedTaskList.length === 0) {
@@ -238,6 +274,13 @@ function getEditFinishedList(finishedTaskList) {
     return finLiArr
 }
 
+
+/**
+ * Sets the subtasks to be editable.
+ *
+ * @param {Array} subTasks - The array of subtasks.
+ * @return {void} This function does not return anything.
+ */
 function setEditableSubtask() {
     if (subTasks.length > 0) {
         let subtaskListItems = document.getElementsByClassName('single-subtask');
@@ -252,12 +295,20 @@ function setEditableSubtask() {
     }
 }
 
+
+/**
+ * Edits the subtask list with the specified ID.
+ *
+ * @param {string} id - The ID of the element containing the subtask list.
+ * @return {undefined} This function does not return a value.
+ */
 function editSubaskList(id) {
     let subtaskList = document.getElementById(`${id}`).innerHTML;
     console.log(subtaskList)
     subtaskList.contentEditable = true;
     subtaskList.focus();
 }
+
 
 
 function editListItem(id) {
@@ -284,4 +335,57 @@ function editListItem(id) {
 
     // Setze den Fokus auf das Texteingabefeld
     textInput.focus();
+  }
+
+  
+/**
+ * Adds event listeners to the full name and email input fields in the profile form.
+ * When the full name input field is changed, it checks for duplicate names and displays an error message if found.
+ * When the email input field is changed, it checks for duplicate emails and displays an error message if found.
+ *
+ * @param {HTMLElement} fullName - The input field for the full name.
+ * @param {HTMLElement} email - The input field for the email.
+ * @return {boolean} Returns true if a duplicate name or email is found, otherwise returns undefined.
+ */
+function addContactFormListener(){
+    let fullName = document.getElementById("profileName");
+    let email = document.getElementById("profileEmail");
+    fullName.addEventListener("input", () => {    
+      if (checkForDuplicateName(fullName.value)) {
+        fullName.setCustomValidity(doubleName);
+        return true
+      }else{fullName.setCustomValidity("");
+      }});
+    email.addEventListener("input", () => {
+      if (checkForDuplicateMail(email.value)) {
+        email.setCustomValidity(doubleMail);
+        return true
+      }else{email.setCustomValidity("");
+      }});
+  }
+  
+
+/**
+ * Checks if a given name is a duplicate in the contacts list.
+ *
+ * @param {string} fullName - The name to check for duplicates.
+ * @return {boolean} True if the name is a duplicate, false otherwise.
+ */
+function checkForDuplicateName(fullName) {
+    for (let i = 0; i < contacts.length; i++) {
+      if (fullName === contacts[i].fullName) {return true}
+    }return false;
+  }
+  
+  
+  /**
+   * Checks if a given email is a duplicate in the contacts list.
+   *
+   * @param {string} mail - The email to check for duplicates.
+   * @return {boolean} True if the email is a duplicate, false otherwise.
+   */
+  function checkForDuplicateMail(mail) {
+    for (let i = 0; i < contacts.length; i++) {
+      if (mail === contacts[i].email) {return true}
+    }return false
   }
