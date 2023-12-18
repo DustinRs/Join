@@ -28,7 +28,7 @@ function editCurrentTodo(task) {
                         src="/assets/img/arrow_drop_down.png" alt=""></button>
             </div>
             <div id="assign-ul" class="ul-parent d-none">
-                <ul id=assign-list class="drop-down-select-container edit-ul">
+                <ul id=assign-list class="drop-down-select-container edit-ul" onclick="event.stopPropagation()">
                     <li class=add-task-contact>
                         <div class="profile">
                             <div class="icon">*Bild*</div>

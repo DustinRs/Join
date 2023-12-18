@@ -21,12 +21,12 @@ function renderAddTaskSections() {
                 <input class="form-control subtask-input contact-assign-select select"
                     onclick="openList('assign-select','assign','assign-ul','assign-icon')"
                     placeholder="Select contacts to assign" id="assign">
-                <button id="assign-icon" class="divIcon"
+                <button id="assign-btn" class="divIcon"
                     onclick="openList('assign-select','assign','assign-ul','assign-icon')"><img
-                        src="/assets/img/arrow_drop_down.png" alt=""></button>
+                    id="assign-icon" src="/assets/img/arrow_drop_down.png" alt=""></button>
             </div>
             <div id="assign-ul" class="ul-parent d-none">
-                <ul id=assign-list class="drop-down-select-container ">
+                <ul id=assign-list class="drop-down-select-container" onclick="event.stopPropagation()">
                     <li class=add-task-contact>
                         <div class="profile">
                             <div class="icon">*Bild*</div>
@@ -96,9 +96,9 @@ function renderAddTaskSections() {
                     onclick="openList('category-select','category','category-ul','category-icon')" 
                     readonly 
                     required>
-                <button id="category-icon" class="divIcon"
+                <button id="category-btn" class="divIcon"
                     onclick="openList('category-select','category','category-ul','category-icon')"><img
-                        src="/assets/img/arrow_drop_down.png" alt=""></button>
+                    id="category-icon" src="/assets/img/arrow_drop_down.png" alt=""></button>
             </div>
             <div id="category-ul" class="ul-parent d-none">
                 <ul id="focus-category" class="drop-down-select-container">

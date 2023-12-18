@@ -20,16 +20,10 @@ function validatePassword() {
   let confirm_password = document.getElementById("confirm_password");
   let div = document.getElementsByClassName("login-input-fields");
   if (password.value !== confirm_password.value) {
-    noMatch(div[2], div[3], confirm_password)
+    noMatch(div[2], div[3], confirm_password);
   } else if (password.value === confirm_password.value && confirm_password.value.length >= 8) {
-    console.log("match")
-      if(isStrongPassword(password.value)) {
-        console.log("hat funktioniert")
-        match(div[2], div[3], confirm_password)
-      } else {
-        console.log("hat nicht funktioniert")
-        noMatch(div[2], div[3], confirm_password)
-      }
+    match(div[2], div[3], confirm_password)
+    return password.value
   }
 }
 
@@ -39,7 +33,7 @@ function noMatch(pawsswordDiv, confirmationDiv, confirm_password) {
   confirm_password.setCustomValidity("Passwords Don't Match"),
   pawsswordDiv.style = "border: 3px solid red!important";
   confirmationDiv.style = "border: 3px solid red!important";
-  disableSignUp(); 
+  disableSignUp();
   return false
 }
 
@@ -49,7 +43,7 @@ function match(pawsswordDiv, confirmationDiv, confirm_password) {
   pawsswordDiv.style = "border: 3px solid green!important";
   confirmationDiv.style = "border: 3px solid green!important";
   confirm_password.setCustomValidity('');
-  enableSignUp(); 
+  enableSignUp();
   return true
 }
 
@@ -57,8 +51,14 @@ function match(pawsswordDiv, confirmationDiv, confirm_password) {
 
 
 function formValidation() {
+  let password = validatePassword();
   if (validatePassword) {
-    enableSignUp()
+    if(isStrongPassword(password)){
+      enableSignUp()
+    }else{
+      password.setCustomValidity(passwordPattern);
+      disableSignUp()
+    }
   } else {
     disableSignUp()
   }
@@ -128,7 +128,6 @@ function signUp() {
  * @return {boolean} Returns true if an existing account is found, false otherwise.
  */
 function findExistingAccount(mail) {
-  console.log(mail)
   for (let i = 0; i < userList.length; i++) {
     if (userList[i].mail === mail) {
       return true

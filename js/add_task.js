@@ -230,7 +230,6 @@ function clearCategoryValue() {
   input.innerText = ''
   input.setAttribute('placeholder', 'Select task category')
   input.setAttribute('value', '');
-  checkAllInputs()
 }
 
 
@@ -300,7 +299,9 @@ function clearAll() {
     input[i].value = '';}
     for (let i = 0; i < textarea.length; i++) {
       textarea[i].value = '';};
-      clearCategoryValue()
+  clearCategoryValue()
+  let btn = document.getElementById('createTaskButton')||document.getElementById('edit-ok-btn');
+  btn.disabled = true
 }
 
 function clearAssignees(){

@@ -88,7 +88,6 @@ function addInputHandler() {
     title.addEventListener('click', addTitleListener);
     description.addEventListener('click', addDescriptionListener);
     date.addEventListener('focusout', validateDateInput);
-    date.addEventListener('focusout', checkAllInputs);
     assignSelect.addEventListener('click', setClosingAssign);
     categorySelect.addEventListener('click', setClosingCategory);
 }
@@ -97,14 +96,12 @@ function addInputHandler() {
 function addTitleListener() {
     let input = document.getElementById('title');
     input.addEventListener('input', validateTitleInput);
-    input.addEventListener('input', checkAllInputs)
 }
 
 
 function addDescriptionListener() {
     let input = document.getElementById('description');
     input.addEventListener('input', validateDescriptionInput);
-    input.addEventListener('input', checkAllInputs)
 }
 
 
@@ -184,10 +181,11 @@ function getMinDate() {
 function setClosingCategory() {
     let categoryContainer = document.getElementById('category-select');
     let categoryInput = document.getElementById('category');
+    let btn  = document.getElementById('category-icon') 
     let body = document.querySelector('body')
+    let list = document.getElementById('category-ul')
     body.addEventListener('click', function (event) {
-        if (event.target != categoryContainer && event.target != categoryInput) {
-            console.log("hallo")
+        if (event.target != categoryContainer && event.target != categoryInput &&event.target != btn && event.target != list) {
             closeList("category-select", "category", "category-ul", "category-icon")
         }
     })
@@ -199,10 +197,12 @@ function setClosingCategory() {
 function setClosingAssign() {
     let assignContainer = document.getElementById('assign-select');
     let assignInput = document.getElementById('assign');
+    let btn  = document.getElementById('assign-icon') 
     let body = document.querySelector('body')
+    let list = document.getElementById('assign-ul')
+    let liItem = document.querySelectorAll('.contact')
     body.addEventListener('click', function (event) {
-        if (event.target != assignContainer && event.target != assignInput) {
-            console.log("hallo")
+        if (event.target != assignContainer && event.target != assignInput &&event.target != btn && event.target != list) {
             closeList("assign-select", "assign", "assign-ul", "assign-icon")
         }
     })

@@ -1,6 +1,7 @@
 let data;
-const noAcc="Es ist kein Konto mit dieser Email-Adresse registriert."
+const noAcc="Es ist kein Konto mit dieser Email-Adresse registriert.";
 const wrongPass ="Email-Adresse oder Passwort stimmen nicht überein";
+const passwordPattern = "Bitte verwende Groß- und Kleinbuchstaben, sowie ein Sonderzeichen(#?!@$%^&*-) und mindestens eine Nummer";
 
 
 

@@ -43,7 +43,7 @@ function renderSignup() {
                         title="Bitte verwende Groß- und Kleinbuchstaben, sowie ein Sonderzeichen(#?!@$%^&*-) und mindestens eine Nummer">
                 <div class="eye-container"><img class="input-img lock" src="assets/img/lock.png" alt="lock"></div>
             </div>
-            <div class="reminder d-none" id="pw-check-reminder">Ups?! Your passwords don't match or dont meet the requirements.</div>
+            <div class="reminder d-none" id="pw-check-reminder">Ups?! Your passwords don't match.</div>
         </div>
         <div>
             <div id="policy-check" class="d-flex">
