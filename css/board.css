@@ -569,7 +569,7 @@ ul {
 
 #assignement{
     height: auto;
-    max-height: none!important;
+    overflow: scroll !important;
 }
 
 #assignment .contact:hover {

@@ -11,6 +11,7 @@ async function init() {
     renderComponents(activeUser);
     navActive(2);
     updateBoard();
+    hideExcessElements();
 }
 
 
@@ -490,3 +491,42 @@ function initialProgressWidth(task) {
     let width = Math.round((min / max) * 100);
     return width
 }
+
+// Funktion, um Elemente zu verstecken, wenn ihre Anzahl 5 übersteigt
+function hideExcessElements() {
+    let containers = document.querySelectorAll('.profile-initials-container');
+  
+    containers.forEach(function(container) {
+      // Extrahiere die Datenwerte und zähle die Anzahl der Elemente
+      let dataValue = container.getAttribute('data-value');
+      let elements = dataValue.split(',').map(function(item) {
+        return item.trim();
+      });
+  
+      // Suche nach dem individuellen span-Element
+      let countSpan = container.querySelector(`span[id^="hidden-elements-count"]`);
+  
+      if (!countSpan) {
+        // Erstelle das span-Element, wenn es nicht existiert
+        countSpan = document.createElement('span');
+        countSpan.id = 'hidden-elements-count' + container.id.replace('footer', '');
+        // Füge das span-Element nach dem Container ein
+        container.parentNode.insertBefore(countSpan, container.nextSibling);
+      }
+  
+      // Überprüfe, ob die Anzahl der Elemente größer als 5 ist
+      if (elements.length > 5) {
+        // Verstecke die überschüssigen Elemente
+        for (let i = 5; i < elements.length; i++) {
+          container.children[i].style.display = 'none';
+        }
+  
+        // Zeige die Anzahl der versteckten Elemente im Text an
+        let hiddenElementsCount = elements.length - 5;
+        countSpan.textContent = hiddenElementsCount > 0 ? '+' + hiddenElementsCount : '';
+      } else {
+        // Falls die Anzahl der Elemente nicht größer als 5 ist, setze den Text auf leer
+        countSpan.textContent = '';
+      }
+    });
+  }
