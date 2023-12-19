@@ -286,7 +286,7 @@ function getSubList(subtaskList, finishedTaskList) {
   for (let i = 0; i < subtaskList.length; i++) {
     let sub = subtaskList[i];
     subTasks.push(sub);
-    subLiArr.push(`<li class="single-subtask" onclick="editListItem(${i})" id="${i}">${sub}</li><img class="deleteSubtaskImg" onclick="deleteSubtask(${i})" src="/assets/img/delete.png" alt="">`);
+    subLiArr.push(`<div class="subTaskListFlex"><li class="single-subtask" onclick="editListItem(${i})" id="${i}">${sub}</li><img class="deleteSubtaskImg" onclick="deleteSubtask(${i})" src="/assets/img/delete.png" alt=""></div>`);
   }
   return mergeSublists(subLiArr, finListArr);
 }

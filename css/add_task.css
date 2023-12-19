@@ -761,6 +761,14 @@ input[type="date"]::-webkit-calendar-picker-indicator{
     position: absolute;
     right: 1rem;
 }
+.subTaskListFlex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.deleteSubtaskImg {
+    width: fit-content;
+}
 .deleteSubtaskImg:hover {
     cursor: pointer;
 }

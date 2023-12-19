@@ -365,8 +365,8 @@ function clearHTML() {
 }
 
 document.addEventListener('click', function(event) {
-  var zIndexDiv = document.getElementById('zIndex');
-  var buttonsPopUpMobile = document.getElementById('buttonsPopUpMobile');
+  let zIndexDiv = document.getElementById('zIndex');
+  let buttonsPopUpMobile = document.getElementById('buttonsPopUpMobile');
 
   // Überprüfen, ob das geklickte Element die DIV mit der ID "zIndex" ist
   if (event.target === zIndexDiv) {
@@ -379,3 +379,4 @@ document.addEventListener('click', function(event) {
       }
   }
 });
+
