@@ -53,6 +53,8 @@ async function addTask(status) {
   await setAllTasks(tasksKey, allTasks);
   assignees = [];
   subTasks = [];
+  let btn = document.getElementById('createTaskButton');
+  btn.disabled = true
   pushInfo();
 }
 
