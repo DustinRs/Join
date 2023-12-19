@@ -168,11 +168,11 @@ function renderSubTasksList() {
     let list = document.getElementById('task-list');
     list.innerHTML = '';
     subTasks.forEach((e) => {
-        list.innerHTML += `<li class="single-subtask" id="${subTasks.indexOf(e)}">${e}</li>`
+        list.innerHTML += `<li class="single-subtask" onclick="editListItem(${subTasks.indexOf(e)})" id="${subTasks.indexOf(e)}">${e}</li>`
     })
     if (finishedSubTasks.length > 0) {
         finishedSubTasks.forEach((e) => {
-            list.innerHTML += `<li class="single-finished-task" id="f${finishedSubTasks.indexOf(e)}">${e}</li>`
+            list.innerHTML += `<li class="single-finished-task" onclick="editListItem(${subTasks.indexOf(e)}) id="f${finishedSubTasks.indexOf(e)}">${e}</li>`
         })
     }
 }
