@@ -182,6 +182,7 @@ function renderSingleTodo(id) {
         </div>
     </div>`,
         styleTodo();
+        
 
 }
 

@@ -1,31 +1,38 @@
-// date form-validation, title description, (addinputhandler)listener, 
+// date form-validation, title description, (addinputhandler)listener,
 
 /**
  * Pushes the eddited task into the 'allTasks' array.
- * 
+ *
  * @param {string} status - The status of the task.
  * @param {string} index - The index of the task.
  * @param {string} prio - The prio of the task.
  */
 async function editTodoInAllTasks(status, index, prio) {
-    let title = document.getElementById("title").value;
-    let taskArr;
-    let description = document.getElementById("description").value;
-    let date = document.getElementById("date").value;
-    let category = document.getElementById("category").value;
-    let task = createEditTaskObject(status, title, taskArr, description, date, category, prio);
-    allTasks.splice(index, 1, task);
-    await setAllTasks(tasksKey, allTasks);
-    assignees = [];
-    subTasks = [];
-    finishedSubTasks = [];
-    pushInfo();
+  let title = document.getElementById("title").value;
+  let taskArr;
+  let description = document.getElementById("description").value;
+  let date = document.getElementById("date").value;
+  let category = document.getElementById("category").value;
+  let task = createEditTaskObject(
+    status,
+    title,
+    taskArr,
+    description,
+    date,
+    category,
+    prio
+  );
+  allTasks.splice(index, 1, task);
+  await setAllTasks(tasksKey, allTasks);
+  assignees = [];
+  subTasks = [];
+  finishedSubTasks = [];
+  pushInfo();
 }
-
 
 /**
  * Creates an eddited task by taking the value of the inputfields.
- * 
+ *
  * @param {string} title - This is the 'title' value.
  * @param {string} taskArr - ?
  * @param {string} description - This is the 'description' value.
@@ -33,25 +40,33 @@ async function editTodoInAllTasks(status, index, prio) {
  * @param {string} prio - This is the 'prio' value.
  * @param {string} category - This is the 'category' value.
  * @param {string} status - This is the 'status' value.
- * @returns 
+ * @returns
  */
-function createEditTaskObject(status, title, taskArr, description, date, category, prio) {
-    let task = {
-        title: title,
-        description: description,
-        date: date,
-        prio: editArr[0] || prio,
-        category: category,
-        status: status,
-        counter: finishedSubTasks.length,
-        subTask: taskArr = [...subTasks],
-        finishedTaskList: taskArr = [...finishedSubTasks],
-        totalSubTasks: subTasks.length + finishedSubTasks.length,
-        id: Date.now(),
-        assignees: assignees
-    }; return task
+function createEditTaskObject(
+  status,
+  title,
+  taskArr,
+  description,
+  date,
+  category,
+  prio
+) {
+  let task = {
+    title: title,
+    description: description,
+    date: date,
+    prio: editArr[0] || prio,
+    category: category,
+    status: status,
+    counter: finishedSubTasks.length,
+    subTask: (taskArr = [...subTasks]),
+    finishedTaskList: (taskArr = [...finishedSubTasks]),
+    totalSubTasks: subTasks.length + finishedSubTasks.length,
+    id: Date.now(),
+    assignees: assignees,
+  };
+  return task;
 }
-
 
 /**
  * Adds event listeners to input elements in the document.
@@ -60,18 +75,17 @@ function createEditTaskObject(status, title, taskArr, description, date, categor
  * @return {None} None
  */
 function addInputHandler() {
-    let title = document.getElementById("title");
-    let description = document.getElementById("description");
-    let date = document.getElementById("date");
-    let assignSelect = document.getElementById('assign-select');
-    let categorySelect = document.getElementById('category-select');
-    title.addEventListener('click', addTitleListener);
-    description.addEventListener('click', addDescriptionListener);
-    date.addEventListener('focusout', validateDateInput);
-    assignSelect.addEventListener('click', setClosingAssign);
-    categorySelect.addEventListener('click', setClosingCategory);
+  let title = document.getElementById("title");
+  let description = document.getElementById("description");
+  let date = document.getElementById("date");
+  let assignSelect = document.getElementById("assign-select");
+  let categorySelect = document.getElementById("category-select");
+  title.addEventListener("click", addTitleListener);
+  description.addEventListener("click", addDescriptionListener);
+  date.addEventListener("focusout", validateDateInput);
+  assignSelect.addEventListener("click", setClosingAssign);
+  categorySelect.addEventListener("click", setClosingCategory);
 }
-
 
 /**
  * Adds a title listener to the 'title' input element.
@@ -80,10 +94,9 @@ function addInputHandler() {
  * @return {void} This function does not return a value.
  */
 function addTitleListener() {
-    let input = document.getElementById('title');
-    input.addEventListener('input', validateTitleInput);
+  let input = document.getElementById("title");
+  input.addEventListener("input", validateTitleInput);
 }
-
 
 /**
  * Adds a description listener to the input element with the id 'description'.
@@ -92,10 +105,9 @@ function addTitleListener() {
  * @return {void} No return value.
  */
 function addDescriptionListener() {
-    let input = document.getElementById('description');
-    input.addEventListener('input', validateDescriptionInput);
+  let input = document.getElementById("description");
+  input.addEventListener("input", validateDescriptionInput);
 }
-
 
 /**
  * Validates the title input field.
@@ -103,21 +115,24 @@ function addDescriptionListener() {
  * @return {boolean} Returns true if the title input field is valid, false otherwise.
  */
 function validateTitleInput() {
-    let title = document.getElementById("title");
-    let container = document.getElementById('add-task-titlte-container');
-    let message = document.getElementById('title-requirement') || document.getElementById('title-requirement-edit');
-    let btn = document.getElementById('createTaskButton') || document.getElementById('edit-ok-btn');
-    if (title.value.length === 0) {
-        container.style = "box-shadow: inset 0 0 1px 1px #FF4646!important;"
-        message.classList.remove('d-none')
-        btn.disabled = true;
-    } else {
-        message.classList.add('d-none')
-        container.style = ""
-        return true
-    }
+  let title = document.getElementById("title");
+  let container = document.getElementById("add-task-titlte-container");
+  let message =
+    document.getElementById("title-requirement") ||
+    document.getElementById("title-requirement-edit");
+  let btn =
+    document.getElementById("createTaskButton") ||
+    document.getElementById("edit-ok-btn");
+  if (title.value.length === 0) {
+    container.style = "box-shadow: inset 0 0 1px 1px #FF4646!important;";
+    message.classList.remove("d-none");
+    btn.disabled = true;
+  } else {
+    message.classList.add("d-none");
+    container.style = "";
+    return true;
+  }
 }
-
 
 /**
  * Validates the input of the description field.
@@ -125,20 +140,24 @@ function validateTitleInput() {
  * @return {boolean} Returns true if the description field is not empty, false otherwise.
  */
 function validateDescriptionInput() {
-    let description = document.getElementById("description");
-    let container = document.getElementById('area-container');
-    let message = document.getElementById('description-requirement') || document.getElementById('description-requirement-edit');
-    let btn = document.getElementById('createTaskButton') || document.getElementById('edit-ok-btn');
-    if (description.value.length === 0) {
-        container.style = "box-shadow: inset 0 0 1px 1px #FF4646!important;";
-        message.classList.remove('d-none')
-        btn.disabled = true;
-    } else {
-        container.style = ""
-        message.classList.add('d-none')
-        return true}
+  let description = document.getElementById("description");
+  let container = document.getElementById("area-container");
+  let message =
+    document.getElementById("description-requirement") ||
+    document.getElementById("description-requirement-edit");
+  let btn =
+    document.getElementById("createTaskButton") ||
+    document.getElementById("edit-ok-btn");
+  if (description.value.length === 0) {
+    container.style = "box-shadow: inset 0 0 1px 1px #FF4646!important;";
+    message.classList.remove("d-none");
+    btn.disabled = true;
+  } else {
+    container.style = "";
+    message.classList.add("d-none");
+    return true;
+  }
 }
-
 
 /**
  * Validates the date input provided by the user.
@@ -146,39 +165,50 @@ function validateDescriptionInput() {
  * @return {boolean} Returns true if the date input is valid, false otherwise.
  */
 function validateDateInput() {
-    let input = document.getElementById('date');
-    let div = document.getElementById("add-task-date-input");
-    let selectedDate = new Date(input.value);
-    let currentDate = new Date();
-    let message = document.getElementById('date-requirement') || document.getElementById('date-requirement-edit');
-    let btn = document.getElementById('createTaskButton') || document.getElementById('edit-ok-btn');
-    if (selectedDate == 'Invalid Date') {
-        div.style = "box-shadow: inset 0 0 1px 1px #FF4646!important;";
-        message.classList.remove('d-none');
-        btn.disabled = true;
-    } else if (selectedDate < currentDate) {
-        div.style = "box-shadow: inset 0 0 1px 1px #FF4646!important;";
-        message.classList.remove('d-none');
-        btn.disabled = true;
-    } else { message.classList.add('d-none'); div.style = ""; return true }
+  let input = document.getElementById("date");
+  let div = document.getElementById("add-task-date-input");
+  let selectedDate = new Date(input.value);
+  let currentDate = new Date();
+  let message =
+    document.getElementById("date-requirement") ||
+    document.getElementById("date-requirement-edit");
+  let btn =
+    document.getElementById("createTaskButton") ||
+    document.getElementById("edit-ok-btn");
+  if (selectedDate == "Invalid Date") {
+    div.style = "box-shadow: inset 0 0 1px 1px #FF4646!important;";
+    message.classList.remove("d-none");
+    btn.disabled = true;
+  } else if (selectedDate < currentDate) {
+    div.style = "box-shadow: inset 0 0 1px 1px #FF4646!important;";
+    message.classList.remove("d-none");
+    btn.disabled = true;
+  } else {
+    message.classList.add("d-none");
+    div.style = "";
+    return true;
+  }
 }
 
-
 /**
- * Checks the selected category and enables or disables the create task button 
+ * Checks the selected category and enables or disables the create task button
  * based on the category value.
  *
- * @return {boolean} Returns true if the category is "Technical Task" or "User Story", 
+ * @return {boolean} Returns true if the category is "Technical Task" or "User Story",
  *                   otherwise returns false.
  */
 function categoryResponse() {
-    let category = document.getElementById("category");
-    let btn = document.getElementById('createTaskButton') || document.getElementById('edit-ok-btn');
-    if (category.value == "Technical Task" || category.value == "User Story") {
-        return true
-    } else {btn.disabled = true;return false}
+  let category = document.getElementById("category");
+  let btn =
+    document.getElementById("createTaskButton") ||
+    document.getElementById("edit-ok-btn");
+  if (category.value == "Technical Task" || category.value == "User Story") {
+    return true;
+  } else {
+    btn.disabled = true;
+    return false;
+  }
 }
-
 
 /**
  * Generates a string representing the current date in the format 'YYYY-MM-DD'.
@@ -186,13 +216,12 @@ function categoryResponse() {
  * @return {string} - A string representing the current date.
  */
 function getMinDate() {
-    const today = new Date();
-    const year = today.getFullYear();
-    const month = (today.getMonth() + 1).toString().padStart(2, '0'); // Monate sind nullbasiert
-    const day = today.getDate().toString().padStart(2, '0');
-    return `${year}-${month}-${day}`;
+  const today = new Date();
+  const year = today.getFullYear();
+  const month = (today.getMonth() + 1).toString().padStart(2, "0"); // Monate sind nullbasiert
+  const day = today.getDate().toString().padStart(2, "0");
+  return `${year}-${month}-${day}`;
 }
-
 
 /**
  * Sets the closing category functionality.
@@ -201,18 +230,23 @@ function getMinDate() {
  * @return {type} description of return value
  */
 function setClosingCategory() {
-    let categoryContainer = document.getElementById('category-select');
-    let categoryInput = document.getElementById('category');
-    let btn  = document.getElementById('category-icon') 
-    let body = document.querySelector('body')
-    let list = document.getElementById('category-ul')
-    body.addEventListener('click', function (event) {
-        if (event.target != categoryContainer && event.target != categoryInput &&event.target != btn && event.target != list) {
-            closeList("category-select", "category", "category-ul", "category-icon")
-        }
-    });categoryContainer.removeEventListener('click', setClosingCategory);
+  let categoryContainer = document.getElementById("category-select");
+  let categoryInput = document.getElementById("category");
+  let btn = document.getElementById("category-icon");
+  let body = document.querySelector("body");
+  let list = document.getElementById("category-ul");
+  body.addEventListener("click", function (event) {
+    if (
+      event.target != categoryContainer &&
+      event.target != categoryInput &&
+      event.target != btn &&
+      event.target != list
+    ) {
+      closeList("category-select", "category", "category-ul", "category-icon");
+    }
+  });
+  categoryContainer.removeEventListener("click", setClosingCategory);
 }
-
 
 /**
  * Sets the closing assign behavior.
@@ -221,20 +255,23 @@ function setClosingCategory() {
  * @return {type} description of return value
  */
 function setClosingAssign() {
-    let assignContainer = document.getElementById('assign-select');
-    let assignInput = document.getElementById('assign');
-    let btn  = document.getElementById('assign-icon') 
-    let body = document.querySelector('body')
-    let list = document.getElementById('assign-ul')
-    body.addEventListener('click', function (event) {
-        if (event.target != assignContainer && event.target != assignInput &&event.target != btn && event.target != list) {
-            closeList("assign-select", "assign", "assign-ul", "assign-icon")
-        }
-    })
-    assignContainer.removeEventListener('click', setClosingAssign);
-
+  let assignContainer = document.getElementById("assign-select");
+  let assignInput = document.getElementById("assign");
+  let btn = document.getElementById("assign-icon");
+  let body = document.querySelector("body");
+  let list = document.getElementById("assign-ul");
+  body.addEventListener("click", function (event) {
+    if (
+      event.target != assignContainer &&
+      event.target != assignInput &&
+      event.target != btn &&
+      event.target != list
+    ) {
+      closeList("assign-select", "assign", "assign-ul", "assign-icon");
+    }
+  });
+  assignContainer.removeEventListener("click", setClosingAssign);
 }
-
 
 /**
  * Generate the function comment for the given function body.
@@ -244,16 +281,15 @@ function setClosingAssign() {
  * @returns {array} The merged sublist and finished list.
  */
 function getSubList(subtaskList, finishedTaskList) {
-    let subLiArr = []
-    let finListArr = getEditFinishedList(finishedTaskList);
-    for (let i = 0; i < subtaskList.length; i++) {
-        let sub = subtaskList[i];
-        subTasks.push(sub)
-        subLiArr.push(`<li class="single-subtask" id="${i}">${sub}</li>`)
-    }
-    return mergeSublists(subLiArr, finListArr)
+  let subLiArr = [];
+  let finListArr = getEditFinishedList(finishedTaskList);
+  for (let i = 0; i < subtaskList.length; i++) {
+    let sub = subtaskList[i];
+    subTasks.push(sub);
+    subLiArr.push(`<li class="single-subtask" onclick="editListItem(${i})" id="${i}">${sub}</li>`);
+  }
+  return mergeSublists(subLiArr, finListArr);
 }
-
 
 /**
  * Generates a list of finished tasks with HTML list items.
@@ -262,18 +298,17 @@ function getSubList(subtaskList, finishedTaskList) {
  * @return {Array} - the list of HTML list items representing the finished tasks.
  */
 function getEditFinishedList(finishedTaskList) {
-    let finLiArr = []
-    if (finishedTaskList.length === 0) {
-        return false
-    }
-    for (let i = 0; i < finishedTaskList.length; i++) {
-        let fin = finishedTaskList[i];
-        finishedSubTasks.push(fin)
-        finLiArr.push(`<li class="single-finished-task" id="f${i}">${fin}</li>`)
-    }
-    return finLiArr
+  let finLiArr = [];
+  if (finishedTaskList.length === 0) {
+    return false;
+  }
+  for (let i = 0; i < finishedTaskList.length; i++) {
+    let fin = finishedTaskList[i];
+    finishedSubTasks.push(fin);
+    finLiArr.push(`<li class="single-finished-task" id="f${i}">${fin}</li>`);
+  }
+  return finLiArr;
 }
-
 
 /**
  * Sets the subtasks to be editable.
@@ -282,19 +317,18 @@ function getEditFinishedList(finishedTaskList) {
  * @return {void} This function does not return anything.
  */
 function setEditableSubtask() {
-    if (subTasks.length > 0) {
-        let subtaskListItems = document.getElementsByClassName('single-subtask');
-        for (let i = 0; i < subtaskListItems.length; i++) {
-            let sub = subtaskListItems[i];
-            console.log(sub)
-            sub.addEventListener('dblclick', (event)=>{
-                console.log(sub.id)
-                editListItem(sub.id)
-            })
-        }
+  if (subTasks.length > 0) {
+    let subtaskListItems = document.getElementsByClassName("single-subtask");
+    for (let i = 0; i < subtaskListItems.length; i++) {
+      let sub = subtaskListItems[i];
+      console.log(sub);
+      sub.addEventListener("dblclick", (event) => {
+        console.log(sub.id);
+        editListItem(sub.id);
+      });
     }
+  }
 }
-
 
 /**
  * Edits the subtask list with the specified ID.
@@ -303,41 +337,40 @@ function setEditableSubtask() {
  * @return {undefined} This function does not return a value.
  */
 function editSubaskList(id) {
-    let subtaskList = document.getElementById(`${id}`).innerHTML;
-    console.log(subtaskList)
-    subtaskList.contentEditable = true;
-    subtaskList.focus();
+  let subtaskList = document.getElementById(`${id}`).innerHTML;
+  console.log(subtaskList);
+  subtaskList.contentEditable = true;
+  subtaskList.focus();
+}
+
+function editListItem(id) {
+  // Erstelle ein textInput-Element
+  let item = document.getElementById(`${id}`);
+  const textInput = document.createElement("input");
+  textInput.type = "text";
+  textInput.value = item.textContent;
+  textInput.classList.add("subtask-input");
+  textInput.classList.add("edit-input");
+
+  // Ersetze das li-Element durch das textInput-Element
+  item.parentNode.replaceChild(textInput, item);
+
+  // Füge ein Eventlistener für die "Enter"-Taste hinzu, um die Bearbeitung zu beenden
+  textInput.addEventListener("keydown", function (event) {
+    if (event.key === "Enter") {
+      // Beende die Bearbeitung und setze den neuen Text im li-Element
+      item.textContent = textInput.value;
+      // Ersetze das textInput-Element durch das ursprüngliche li-Element
+      textInput.parentNode.replaceChild(item, textInput);
+    }
+  });
+
+  // Setze den Fokus auf das Texteingabefeld
+  textInput.focus();
 }
 
 
 
-function editListItem(id) {
-    // Erstelle ein textInput-Element
-    let item = document.getElementById(`${id}`);
-    const textInput = document.createElement("input");
-    textInput.type = "text";
-    textInput.value = item.textContent;
-    textInput.classList.add('subtask-input');
-    textInput.classList.add('edit-input');
-
-    // Ersetze das li-Element durch das textInput-Element
-    item.parentNode.replaceChild(textInput, item);
-
-    // Füge ein Eventlistener für die "Enter"-Taste hinzu, um die Bearbeitung zu beenden
-    textInput.addEventListener("keydown", function(event) {
-      if (event.key === "Enter") {
-        // Beende die Bearbeitung und setze den neuen Text im li-Element
-        item.textContent = textInput.value;
-        // Ersetze das textInput-Element durch das ursprüngliche li-Element
-        textInput.parentNode.replaceChild(item, textInput);
-      }
-    });
-
-    // Setze den Fokus auf das Texteingabefeld
-    textInput.focus();
-  }
-
-  
 /**
  * Adds event listeners to the full name and email input fields in the profile form.
  * When the full name input field is changed, it checks for duplicate names and displays an error message if found.
@@ -347,23 +380,26 @@ function editListItem(id) {
  * @param {HTMLElement} email - The input field for the email.
  * @return {boolean} Returns true if a duplicate name or email is found, otherwise returns undefined.
  */
-function addContactFormListener(){
-    let fullName = document.getElementById("profileName");
-    let email = document.getElementById("profileEmail");
-    fullName.addEventListener("input", () => {    
-      if (checkForDuplicateName(fullName.value)) {
-        fullName.setCustomValidity(doubleName);
-        return true
-      }else{fullName.setCustomValidity("");
-      }});
-    email.addEventListener("input", () => {
-      if (checkForDuplicateMail(email.value)) {
-        email.setCustomValidity(doubleMail);
-        return true
-      }else{email.setCustomValidity("");
-      }});
-  }
-  
+function addContactFormListener() {
+  let fullName = document.getElementById("profileName");
+  let email = document.getElementById("profileEmail");
+  fullName.addEventListener("input", () => {
+    if (checkForDuplicateName(fullName.value)) {
+      fullName.setCustomValidity(doubleName);
+      return true;
+    } else {
+      fullName.setCustomValidity("");
+    }
+  });
+  email.addEventListener("input", () => {
+    if (checkForDuplicateMail(email.value)) {
+      email.setCustomValidity(doubleMail);
+      return true;
+    } else {
+      email.setCustomValidity("");
+    }
+  });
+}
 
 /**
  * Checks if a given name is a duplicate in the contacts list.
@@ -372,20 +408,25 @@ function addContactFormListener(){
  * @return {boolean} True if the name is a duplicate, false otherwise.
  */
 function checkForDuplicateName(fullName) {
-    for (let i = 0; i < contacts.length; i++) {
-      if (fullName === contacts[i].fullName) {return true}
-    }return false;
+  for (let i = 0; i < contacts.length; i++) {
+    if (fullName === contacts[i].fullName) {
+      return true;
+    }
   }
-  
-  
-  /**
-   * Checks if a given email is a duplicate in the contacts list.
-   *
-   * @param {string} mail - The email to check for duplicates.
-   * @return {boolean} True if the email is a duplicate, false otherwise.
-   */
-  function checkForDuplicateMail(mail) {
-    for (let i = 0; i < contacts.length; i++) {
-      if (mail === contacts[i].email) {return true}
-    }return false
+  return false;
+}
+
+/**
+ * Checks if a given email is a duplicate in the contacts list.
+ *
+ * @param {string} mail - The email to check for duplicates.
+ * @return {boolean} True if the email is a duplicate, false otherwise.
+ */
+function checkForDuplicateMail(mail) {
+  for (let i = 0; i < contacts.length; i++) {
+    if (mail === contacts[i].email) {
+      return true;
+    }
   }
+  return false;
+}

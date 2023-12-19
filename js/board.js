@@ -30,7 +30,7 @@ function updateBoard(searchArr) {
     taskFilter(fliterArr, "Done", doneArr);
     checkDragArea();
     hideBar();
-    renderTodoIcons()
+    renderTodoIcons();
 }
 
 
@@ -88,6 +88,7 @@ async function moveTo(status) {
             sortArray(); // the latest task(timestamp) gets the last position; board.js:123
             setAllTasks(tasksKey, allTasks); // update the tasks and send them to remote storage; script.js:186
             updateBoard();//the board gets updated immediately after the drop; board.js:24
+            hideExcessElements();
             hideBar(); //if no subtasks exist within a todo/task, the progressbar gets hidden; board.js:137
         }, 50);
     }
@@ -262,6 +263,7 @@ function checkDragArea() {
             dragArea[i].innerText = 'No tasks to do';
         }
     }
+    
 }
 
 /////////////////////////Do-not-touch////////////////////////////////
