@@ -363,3 +363,19 @@ function clearHTML() {
     popUpTwo.parentNode.removeChild(popUpTwo);
   }
 }
+
+document.addEventListener('click', function(event) {
+  var zIndexDiv = document.getElementById('zIndex');
+  var buttonsPopUpMobile = document.getElementById('buttonsPopUpMobile');
+
+  // Überprüfen, ob das geklickte Element die DIV mit der ID "zIndex" ist
+  if (event.target === zIndexDiv) {
+      // Überprüfen, ob die Klasse "d-none" noch nicht zugewiesen ist
+      if (!buttonsPopUpMobile.classList.contains('d-none')) {
+          // Füge die Klasse "d-none" hinzu
+          buttonsPopUpMobile.classList.add('d-none');
+          let menu = document.getElementById('menuContactButtonMobile');
+          menu.classList.remove('d-none');
+      }
+  }
+});
