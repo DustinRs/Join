@@ -502,11 +502,11 @@ function renderLegalNotice() {
         <li>Simon Golenia</li>
         <li>René Heller</li>
         <li>Dustin Rohrschneider</li>
-        <li>Musterweg 7</li>
-        <li>77777 Musterdorf</li>
+        <li>Im Rehwinkel 7</li>
+        <li>66620 Nonnweiler</li>
     </ul>
     <h2>Exploring the Board</h2>
-    <p>Email: muster@mail.de</p>
+    <p>Email: drohrschneider@web.de</p>
     <h2>Acceptance of terms</h2>
     <p>By accessing and using <span class="colorJoin">Join</span> (Product), you acknowledge and agree to the following terms and conditions, and any policies, guidelines, or amendments thereto that may be presented to you from time to time. We, the listed students, may update or change the terms and conditions from time to time without notice.</p>
     <h2>Scope and ownership of the product</h2>
