@@ -286,7 +286,7 @@ function getSubList(subtaskList, finishedTaskList) {
   for (let i = 0; i < subtaskList.length; i++) {
     let sub = subtaskList[i];
     subTasks.push(sub);
-    subLiArr.push(`<li class="single-subtask" onclick="editListItem(${i})" id="${i}">${sub}</li>`);
+    subLiArr.push(`<li class="single-subtask" onclick="editListItem(${i})" id="${i}">${sub}</li><img class="deleteSubtaskImg" onclick="deleteSubtask(${i})" src="/assets/img/delete.png" alt="">`);
   }
   return mergeSublists(subLiArr, finListArr);
 }
@@ -369,7 +369,16 @@ function editListItem(id) {
   textInput.focus();
 }
 
-
+async function deleteSubtask(index) {
+    // Check if the index is within the valid range
+    if (index >= 0 && index < subTasks.length) {
+        // Splice removes 1 element at the specified index
+        subTasks.splice(index, 1);
+        console.log("Subtask at index", index, "deleted.");
+    } else {
+        console.error("Invalid index:", index);
+    }
+}
 
 /**
  * Adds event listeners to the full name and email input fields in the profile form.
