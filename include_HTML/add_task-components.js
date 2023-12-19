@@ -207,8 +207,9 @@ function renderEditIcons() {
     let iconDiv = document.getElementById('added-profile-initials-container')
     iconDiv.innerHTML = '';
     let imgArr = [];
-    assignees.forEach((element) => {
-        imgArr.push(`<div class="added-profile-initials" data-value="${element}" style="background-color:${contacts[element].color}">${contacts[element].initials}</div>`)
+    let filterAssignees = contacts.filter((e) => assignees.includes(e.id))
+    filterAssignees.forEach((element) => {
+        imgArr.push(`<div class="added-profile-initials" data-value="${element.id}" style="background-color:${element.color}">${element.initials}</div>`)
     })
-    iconDiv.innerHTML = `${imgArr.join('')}`
+    return iconDiv.innerHTML = `${imgArr.join('')}`
 }

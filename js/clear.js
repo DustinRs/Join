@@ -4,6 +4,6 @@ function clearContacts(){
 }
 
 function clearTasks(){
-    subTasks=[];
+    allTasks=[];
     return setAllTasks(tasksKey, allTasks);
 }
