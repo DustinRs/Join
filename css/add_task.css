@@ -689,13 +689,13 @@ textarea {
 }
 
 #info{
+    display: none;
     z-index: 999;
     position: absolute;
     bottom: 0;
     left: 0;
     right: 0;
     margin:auto;
-    display: flex;
     justify-content: space-evenly;
     align-items: center;
     width: 23rem;
@@ -708,6 +708,7 @@ textarea {
 }
 
 .push-up{
+    display: flex !important;
     animation: pushUp .2s forwards;
 }
 
