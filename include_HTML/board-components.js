@@ -193,11 +193,6 @@ function renderSingleTodo(id) {
 
 }
 
-function refreshSubtaskList(){
-    let list = document.getElementById('task-list');
-    return list.innerHTML=getSubList(subTasks, finishedSubTasks);
-}
-
 
 //changes the pop-up size according to the content
 function styleTodo() {
@@ -242,17 +237,6 @@ function getSubCheckList(subtaskList, finishedTaskList) {
             </div>
         </li>`)
     };return mergeSublists(subLiArr, finListArr)
-}
-
-
-//Merges two sublists and returns a string.
-function mergeSublists(sub, fin){
-    if (fin !== false) {
-        sub = sub.concat(fin)
-        return sub.join('')
-    } else {
-        return sub.join('')
-    }
 }
 
 

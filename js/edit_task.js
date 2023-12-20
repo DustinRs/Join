@@ -149,6 +149,13 @@ function editListItem(id) {
   textInput.focus();
 }
 
+
+/**
+ * Deletes a subtask at the specified index.
+ *
+ * @param {number} index - The index of the subtask to delete.
+ * @return {Array} - The updated array of subtasks.
+ */
 function deleteSubtask(index) {
     // Check if the index is within the valid range
     if (index >= 0 && index < subTasks.length) {
@@ -159,6 +166,34 @@ function deleteSubtask(index) {
     } else {
         console.error("Invalid index:", index);
     }
+}
+
+
+/**
+ * Merges two sublists and returns the concatenated result.
+ *
+ * @param {Array} sub - The first sublist to merge.
+ * @param {Array|boolean} fin - The second sublist to merge. If set to false, only the first sublist will be returned.
+ * @return {string} - The concatenated result of the two sublists.
+ */
+function mergeSublists(sub, fin){
+  if (fin !== false) {
+      sub = sub.concat(fin)
+      return sub.join('')
+  } else {
+      return sub.join('')
+  }
+}
+
+
+/**
+ * Refreshes the subtask list.
+ *
+ * @return {string} The updated HTML of the subtask list.
+ */
+function refreshSubtaskList(){
+  let list = document.getElementById('task-list');
+  return list.innerHTML=getSubList(subTasks, finishedSubTasks);
 }
 
 /**
