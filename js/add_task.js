@@ -119,6 +119,7 @@ function clickMedium(priority){
   let span = document.getElementById(priority + "-span");
   deactivateOtherCheckboxes(priority);
     span.style.backgroundColor = getColor(priority);
+    span.style.color= "white";
     changeImageSrc(priority, image);
 }
 
@@ -151,6 +152,7 @@ function deactivateOtherCheckboxes(currentPriority) {
     if (priority !== currentPriority) {
       document.getElementById(priority).checked = false;
       document.getElementById(priority).parentNode.parentNode.style.backgroundColor = "";
+      document.getElementById(priority + "-span").style.color = "";
       document.getElementById(priority).closest(".prio").querySelector(".prioImgs").src ="/assets/img/" + priority.toLowerCase() + "-priority.png";
     }
   }
