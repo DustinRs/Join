@@ -255,7 +255,15 @@ function clearCategoryValue() {
   input.setAttribute('value', '');
 }
 
-
+/**
+ * Opens a list by changing the styles and classes of the specified elements.
+ * If the list is already open, it is closed.
+ *
+ * @param {string} containerID - Die ID des Container-Elements.
+ * @param {string} inputID - Die ID des Eingabeelements.
+ * @param {string} ulID - Die ID des ungeordneten Listen-Elements.
+ * @param {string} iconID - Die ID des Icon-Elements.
+ */
 function openList(containerID, inputID, ulID, iconID) {
   let ul = document.getElementById(ulID);
   if (ul.classList.contains('d-none')) {
@@ -270,7 +278,14 @@ function openList(containerID, inputID, ulID, iconID) {
   } else {return closeList(containerID, inputID, ulID, iconID)}
 }
 
-
+/**
+ * Closes a list by resetting the styles and classes of the specified elements.
+ *
+ * @param {string} containerID - Die ID des Container-Elements.
+ * @param {string} inputID - Die ID des Eingabeelements.
+ * @param {string} ulID - Die ID des ungeordneten Listen-Elements.
+ * @param {string} iconID - Die ID des Icon-Elements.
+ */
 function closeList(containerID, inputID, ulID, iconID) {
   let input = document.getElementById(inputID);
   let container = document.getElementById(containerID);
@@ -284,7 +299,9 @@ function closeList(containerID, inputID, ulID, iconID) {
   input.blur()
 }
 
-
+/**
+ * Activates the subtask by changing the visibility of the plus and subtask buttons.
+ */
 function subTaskActive() {
   let plus = document.getElementById('sub-btn-plus');
   let subBtn = document.getElementById('sub-btn');
@@ -292,7 +309,9 @@ function subTaskActive() {
   subBtn.classList.remove('d-none');
 }
 
-
+/**
+ * Closes the subtask by changing the visibility of the plus and subtask buttons.
+ */
 function subTaskClose() {
   let plus = document.getElementById('sub-btn-plus');
   let subBtn = document.getElementById('sub-btn');
@@ -300,7 +319,10 @@ function subTaskClose() {
   subBtn.classList.add('d-none');
 }
 
-
+/**
+ * Adds a subtask to the subTasks array and updates the subtask list.
+ * If the subtask input is empty, it sets a custom validity message.
+ */
 function pushSubTasks() {
   let task = document.getElementById('subtask-input')
   if (task.value.length > 0) {
@@ -313,7 +335,9 @@ function pushSubTasks() {
     task.reportValidity()}
 }
 
-
+/**
+ * Clears all input and textarea fields, clears the assignees, resets the category value, and disables the create/edit task button.
+ */
 function clearAll() {
   clearAssignees()
   let input = document.querySelectorAll('input');
@@ -328,6 +352,9 @@ function clearAll() {
 }
 
 
+/**
+ * Clears the assignees by resetting the clickList array.
+ */
 function clearAssignees(){
   let clickList = [];
   clickList.push(...assignees)
@@ -336,19 +363,27 @@ function clearAssignees(){
   }
 }
 
-
+/**
+ * Adds the 'push-up' class to the info element and navigates to the board after a delay.
+ */
 function pushInfo() {
   let info = document.getElementById('info')
   info.classList.add('push-up');
   setTimeout(() => {goToBoard()}, 2000)
 };
 
-
+/**
+ * Navigates to the board page.
+ */
 function goToBoard() {
   window.location.href = '/html/board.html';
 };
 
-
+/**
+ * Handles the click event for the checkbox, updates the checkbox and image, and re-renders the edit icons.
+ *
+ * @param {number} i - The index of the checkbox.
+ */
 function addboxClick(i) {
   let checkbox = document.getElementById(`check${i}`);
   let img = document.getElementById(`img-box${i}`);
@@ -356,7 +391,13 @@ function addboxClick(i) {
   renderEditIcons()
 }
 
-
+/**
+ * Updates the checkbox and image based on the checkbox state and updates the assignees array.
+ *
+ * @param {HTMLInputElement} box - The checkbox element.
+ * @param {HTMLImageElement} img - The image element.
+ * @param {number} i - The index of the checkbox.
+ */
 function logTaskCheckBox(box, img, i) {
   if (box.checked) {
     box.checked = false;
@@ -371,7 +412,9 @@ function logTaskCheckBox(box, img, i) {
   }
 }
 
-
+/**
+ * Adds a keyup event listener to the subtask input. If the Enter key is pressed and the input is not empty, a subtask is added.
+ */
 function addSubtaskListener() {
   let input = document.getElementById('subtask-input')
   input.addEventListener('keyup', function (event) {
@@ -382,17 +425,27 @@ function addSubtaskListener() {
   });
 }
 
-
+/**
+ * Resets the assignees array and adds the assignees of the specified task.
+ *
+ * @param {Object} task - The task object.
+ */
 function pushEditAssignees(task) {
   assignees = [];//emptying global array
   let index = contacts.filter((e) => task.assignees.includes(e.id))
   index.forEach((element) => {addboxClick(contacts.indexOf(element))})
 }
 
-
+/**
+ * Sets the editArr array to contain only the specified priority.
+ *
+ * @param {string} newPrio - The new priority.
+ */
 function editPrio(newPrio) {editArr = [newPrio]}
 
-
+/**
+ * Checks all input fields for validity. If all inputs are valid, the create/edit task button is enabled.
+ */
 function checkAllInputs(){
   let btn = document.getElementById('createTaskButton')||document.getElementById('edit-ok-btn');
   if(validateTitleInput() && validateDescriptionInput() && validateDateInput()&& categoryResponse()){

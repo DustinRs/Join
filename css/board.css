@@ -63,7 +63,7 @@ main {
 }
 
 .drag-area-highlight {
-    background-color: rgb(48, 231, 48);
+    background-color: #009494;
     box-shadow: none;
     border: none;
 }

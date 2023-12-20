@@ -651,7 +651,8 @@ textarea {
 }
 
 #task-list {
-    display: block;
+    display: flex;
+    flex-direction: column;
     top: 0;
     left: 0;
     position: relative;
@@ -759,4 +760,15 @@ input[type="date"]::-webkit-calendar-picker-indicator{
 .profile-checkboxes{
     position: absolute;
     right: 1rem;
+}
+.subTaskListFlex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.deleteSubtaskImg {
+    width: fit-content;
+}
+.deleteSubtaskImg:hover {
+    cursor: pointer;
 }

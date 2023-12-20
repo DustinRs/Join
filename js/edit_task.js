@@ -81,7 +81,7 @@ function getSubList(subtaskList, finishedTaskList) {
   for (let i = 0; i < subtaskList.length; i++) {
     let sub = subtaskList[i];
     subTasks.push(sub);
-    subLiArr.push(`<li class="single-subtask" onclick="editListItem(${i})" id="${i}">${sub}</li>`);
+    subLiArr.push(`<div class="subTaskListFlex"><li class="single-subtask" onclick="editListItem(${i})" id="${i}">${sub}</li><img class="deleteSubtaskImg" onclick="deleteSubtask(${i})" src="/assets/img/delete.png" alt=""></div>`);
   }
   return mergeSublists(subLiArr, finListArr);
 }
@@ -118,6 +118,73 @@ function editSubaskList(id) {
   console.log(subtaskList);
   subtaskList.contentEditable = true;
   subtaskList.focus();
+}
+
+function editListItem(id) {
+  // Erstelle ein textInput-Element
+  let item = document.getElementById(`${id}`);
+  const textInput = document.createElement("input");
+  textInput.type = "text";
+  textInput.value = item.textContent;
+  textInput.classList.add("subtask-input");
+  textInput.classList.add("edit-input");
+
+  // Ersetze das li-Element durch das textInput-Element
+  item.parentNode.replaceChild(textInput, item);
+
+  // Füge ein Eventlistener für die "Enter"-Taste hinzu, um die Bearbeitung zu beenden
+  textInput.addEventListener("keydown", function (event) {
+    if (event.key === "Enter") {
+      // Beende die Bearbeitung und setze den neuen Text im li-Element
+      item.textContent = textInput.value;
+      // Ersetze das textInput-Element durch das ursprüngliche li-Element
+      textInput.parentNode.replaceChild(item, textInput);
+    }
+  });
+
+  // Setze den Fokus auf das Texteingabefeld
+  textInput.focus();
+}
+
+async function deleteSubtask(index) {
+    // Check if the index is within the valid range
+    if (index >= 0 && index < subTasks.length) {
+        // Splice removes 1 element at the specified index
+        subTasks.splice(index, 1);
+        console.log("Subtask at index", index, "deleted.");
+    } else {
+        console.error("Invalid index:", index);
+    }
+}
+
+/**
+ * Adds event listeners to the full name and email input fields in the profile form.
+ * When the full name input field is changed, it checks for duplicate names and displays an error message if found.
+ * When the email input field is changed, it checks for duplicate emails and displays an error message if found.
+ *
+ * @param {HTMLElement} fullName - The input field for the full name.
+ * @param {HTMLElement} email - The input field for the email.
+ * @return {boolean} Returns true if a duplicate name or email is found, otherwise returns undefined.
+ */
+function addContactFormListener() {
+  let fullName = document.getElementById("profileName");
+  let email = document.getElementById("profileEmail");
+  fullName.addEventListener("input", () => {
+    if (checkForDuplicateName(fullName.value)) {
+      fullName.setCustomValidity(doubleName);
+      return true;
+    } else {
+      fullName.setCustomValidity("");
+    }
+  });
+  email.addEventListener("input", () => {
+    if (checkForDuplicateMail(email.value)) {
+      email.setCustomValidity(doubleMail);
+      return true;
+    } else {
+      email.setCustomValidity("");
+    }
+  });
 }
 
 /**

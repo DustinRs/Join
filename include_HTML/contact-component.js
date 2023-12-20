@@ -21,7 +21,7 @@ function renderContactPopUp(){
                         <div class="inputsContact">
                             <div class="input-group sub-container row">
                                 <input id="profileName" class=" contact-creation-inputs form-control subtask-input" type="text"
-                                    placeholder="Name" required />
+                                    placeholder="Name" pattern="[a-zA-Z]+ [a-zA-Z]+" title="You need to have First- and Lastname with a space in between" required />
                                 <img src="/assets/img/person.png" alt="">
                             </div>
                             <div class="input-group sub-container row">
@@ -99,7 +99,7 @@ function renderEditPopUp(){
                         <div class="inputsContact">
                             <div id="edit-task-name-container" class="input-group sub-container row">
                                 <input id="editName" class=" contact-creation-inputs form-control subtask-input" type="text"
-                                    placeholder="Name" required />
+                                    placeholder="Name" pattern="[a-zA-Z]+ [a-zA-Z]+" title="You need to have First- and Lastname with a space in between" required />
                                 <img src="/assets/img/person.png" alt="">
                             </div>
                             <div id="name-requirement" class="d-none">Please provide a Name</div>
@@ -203,7 +203,7 @@ function renderContacts(letter) {
               <span id="${contact.id}" class="initials">${contact.initials}</span>
           </div>
           <div class="nameLinkDiv">
-              <span class="fullName">${contact.fullName}</span>
+              <span class="fullName">${contact.firstName} ${contact.name}</span>
               <a class="emailLinks" href="#">${contact.email}</a>
           </div>
       </div>`;
