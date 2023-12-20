@@ -99,7 +99,7 @@ function renderLogin() {
                     <div id="password-container" class="login-input-fields">
                         <input class="login-input password" id="login-password" type="password" min="8" required
                             placeholder="Password"
-                            pattern="^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*\-]).{8,}$"
+                            pattern="^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*\\-]).{8,}$"
                             title="Bitter verwende mindestens eine Zahl und ein Sonderzeichen.">
                         <div class="eye-container"><img  class="lock input-img" src="assets/img/lock.png" alt="lock"></div>
                     </div>

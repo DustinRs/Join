@@ -144,9 +144,9 @@ function findExistingAccount(mail) {
  * @param {string} mail - The email of the user.
  * @param {string} password - The password of the user.
  */
-function createAccount(name, mail, password) {
+async function createAccount(name, mail, password) {
   let initials = createInitials(name)
-  const user = {
+  let user = {
     name: name,
     mail: mail,
     password: password,
@@ -154,7 +154,7 @@ function createAccount(name, mail, password) {
     initials: initials.toUpperCase()
   }
   userList.push(user)
-  setUserList(userKey, userList)
+  await setUserList(userKey, userList)
   popUpSignUp(success)
   setTimeout(() => {
     renderLogin()

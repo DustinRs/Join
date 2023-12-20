@@ -180,10 +180,12 @@ function setClosingAssign() {
             event.target != btn &&
             event.target != list
         ) { closeList("assign-select", "assign", "assign-ul", "assign-icon")}
+    }
     body.addEventListener("click", handleClickAssign);
     assignContainer.removeEventListener("click", setClosingAssign);
-    }
 }
+
+
 /**
 * Sets the subtasks to be editable.
 *

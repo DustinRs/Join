@@ -94,6 +94,7 @@ function createNewTaskObject(title, taskArr, description, date, prio, category, 
  * @param {string} priority - The priority button thats clicked.
  */
 function checkBoxClicked(priority) {
+  debugger
   let checkbox = document.getElementById(priority);
   let image = document.getElementById(priority + "-img");
   let span = document.getElementById(priority + "-span");
@@ -366,7 +367,7 @@ function clearAssignees(){
   let clickList = [];
   clickList.push(...assignees)
   for(let i=0; i < clickList.length; i++){
-    addboxClick(i)
+    addboxClick(i,checkList[i])
   }
 }
 
@@ -391,10 +392,10 @@ function goToBoard() {
  *
  * @param {number} i - The index of the checkbox.
  */
-function addboxClick(i) {
+function addboxClick(i,id) {
   let checkbox = document.getElementById(`check${i}`);
   let img = document.getElementById(`img-box${i}`);
-  logTaskCheckBox(checkbox, img, i);
+  logTaskCheckBox(checkbox, img, id);
   renderEditIcons()
 }
 
@@ -405,17 +406,17 @@ function addboxClick(i) {
  * @param {HTMLImageElement} img - The image element.
  * @param {number} i - The index of the checkbox.
  */
-function logTaskCheckBox(box, img, i) {
+function logTaskCheckBox(box, img, id) {
   if (box.checked) {
     box.checked = false;
     img.src = '/assets/img/checkbox.png';
     img.style = "";
-    assignees.splice(assignees.indexOf(i), 1)
+    assignees.splice(assignees.indexOf(id), 1)
   } else if (!box.checked) {
     box.checked = true;
     img.src = '/assets/img/checked-box.png';
     img.style = 'width: 18px; height: 18px;transform:translate(6px,0px);margin-right:12px;right:.8rem';
-    assignees.push(contacts[i].id)
+    assignees.push(contacts[contacts.findIndex((e) => e.id == id)].id)
   }
 }
 
@@ -440,7 +441,7 @@ function addSubtaskListener() {
 function pushEditAssignees(task) {
   assignees = [];//emptying global array
   let index = contacts.filter((e) => task.assignees.includes(e.id))
-  index.forEach((element) => {addboxClick(contacts.indexOf(element))})
+  index.forEach((element) => {addboxClick(contacts.indexOf(element),element.id)})
 }
 
 /**
