@@ -76,6 +76,7 @@ function getMinDate() {
  * @returns {array} The merged sublist and finished list.
  */
 function getSubList(subtaskList, finishedTaskList) {
+  subTasks = []
   let subLiArr = [];
   let finListArr = getEditFinishedList(finishedTaskList);
   for (let i = 0; i < subtaskList.length; i++) {
@@ -93,13 +94,15 @@ function getSubList(subtaskList, finishedTaskList) {
  * @param {Array} finishedTaskList - the list of finished tasks.
  * @return {Array} - the list of HTML list items representing the finished tasks.
  */
-function getEditFinishedList(finishedTaskList) {
+function getEditFinishedList(finishedVariable) {
+  let finArr=finishedVariable
   let finLiArr = [];
-  if (finishedTaskList.length === 0) {
+  if (finArr.length === 0) {
     return false;
   }
-  for (let i = 0; i < finishedTaskList.length; i++) {
-    let fin = finishedTaskList[i];
+  for (let i = 0; i < finArr.length; i++) {
+    let fin = finArr[i];
+    finishedSubTasks=[];
     finishedSubTasks.push(fin);
     finLiArr.push(`<li class="single-finished-task" id="f${i}">${fin}</li>`);
   }
@@ -146,12 +149,13 @@ function editListItem(id) {
   textInput.focus();
 }
 
-async function deleteSubtask(index) {
+function deleteSubtask(index) {
     // Check if the index is within the valid range
     if (index >= 0 && index < subTasks.length) {
         // Splice removes 1 element at the specified index
         subTasks.splice(index, 1);
         console.log("Subtask at index", index, "deleted.");
+        return refreshSubtaskList();
     } else {
         console.error("Invalid index:", index);
     }

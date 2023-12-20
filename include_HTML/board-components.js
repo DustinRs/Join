@@ -193,6 +193,11 @@ function renderSingleTodo(id) {
 
 }
 
+function refreshSubtaskList(){
+    let list = document.getElementById('task-list');
+    return list.innerHTML=getSubList(subTasks, finishedSubTasks);
+}
+
 
 //changes the pop-up size according to the content
 function styleTodo() {
