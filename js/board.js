@@ -386,6 +386,7 @@ function editOk(status, index, prio) {
     editTodoInAllTasks(status, index, prio);
     closePopUp();
     updateBoard();
+    hideExcessElements();
 }
 
 
