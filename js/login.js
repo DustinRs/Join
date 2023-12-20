@@ -74,7 +74,6 @@ function changeLock() {
   for (let i = 0; i < input.length; i++) {
     input[i].addEventListener('click', e => {
       if (e.target == input[i] && e.target != eye[i] && !eye[i].src.includes('visibility.png')) {
-        console.log("h");
         eye[i].src = 'assets/img/visibility_off.png';
         container[i].classList.add('lock-container')
       };
@@ -195,8 +194,6 @@ function logIn() {
     return popUp(noAcc,575)
   } else if (mail.value === match[0].mail && password.value === match[0].password) {
     logUser(JSON.stringify(match))
-    console.log(match)
-    console.log(JSON.stringify(match))
     location.replace('/html/summary.html')
   } else {
     popUp(wrongPass,567)

@@ -118,7 +118,6 @@ function getEditFinishedList(finishedVariable) {
  */
 function editSubaskList(id) {
   let subtaskList = document.getElementById(`${id}`).innerHTML;
-  console.log(subtaskList);
   subtaskList.contentEditable = true;
   subtaskList.focus();
 }
@@ -161,7 +160,6 @@ function deleteSubtask(index) {
     if (index >= 0 && index < subTasks.length) {
         // Splice removes 1 element at the specified index
         subTasks.splice(index, 1);
-        console.log("Subtask at index", index, "deleted.");
         return refreshSubtaskList();
     } else {
         console.error("Invalid index:", index);

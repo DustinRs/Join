@@ -154,9 +154,7 @@ function setClosingCategory() {
             event.target != categoryInput &&
             event.target != btn &&
             event.target != list
-        ) { console.log("category ist schuld")
-            { closeList("category-select", "category", "category-ul", "category-icon"); }
-        }
+        ) {{ closeList("category-select", "category", "category-ul", "category-icon"); }}
     }   body.addEventListener("click", handleClick);
         categoryContainer.removeEventListener("click", setClosingCategory);
 }
@@ -181,14 +179,11 @@ function setClosingAssign() {
             event.target != assignInput &&
             event.target != btn &&
             event.target != list
-        ) { console.log("assign ist schuld")
-        { closeList("assign-select", "assign", "assign-ul", "assign-icon"); }
-        }
-    }
+        ) { closeList("assign-select", "assign", "assign-ul", "assign-icon")}
     body.addEventListener("click", handleClickAssign);
     assignContainer.removeEventListener("click", setClosingAssign);
+    }
 }
-
 /**
 * Sets the subtasks to be editable.
 *
@@ -200,9 +195,7 @@ function setEditableSubtask() {
         let subtaskListItems = document.getElementsByClassName("single-subtask");
         for (let i = 0; i < subtaskListItems.length; i++) {
             let sub = subtaskListItems[i];
-            console.log(sub);
             sub.addEventListener("dblclick", (event) => {
-                console.log(sub.id);
                 editListItem(sub.id);
             });
         }
