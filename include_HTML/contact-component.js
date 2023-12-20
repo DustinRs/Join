@@ -166,7 +166,7 @@ function openProfile(id) {
           <div class="profile-initials-pseudo-img" style="background-color:${e.color}">
              ${e.initials}
           </div>
-      <div class="nameProfile"><h2 class="h2">${e.fullName}</h2><div class="buttonsPopUp"><Button onclick="editProfile(${e.id})" class="buttonPopUp"><img src="/assets/img/edit.png" alt=""> Edit</Button><Button onclick="deleteContact(${e.id})" class="buttonPopUp"><img src="/assets/img/delete.png" alt=""> Delete</Button></div></div>
+      <div class="nameProfile"><h2 class="h2">${e.fullName.firstName} ${e.fullName.lastName}</h2><div class="buttonsPopUp"><Button onclick="editProfile(${e.id})" class="buttonPopUp"><img src="/assets/img/edit.png" alt=""> Edit</Button><Button onclick="deleteContact(${e.id})" class="buttonPopUp"><img src="/assets/img/delete.png" alt=""> Delete</Button></div></div>
       </div>
       <p class="pProfile">Contact Information</p>
       <p><b>Email</b></p>

@@ -189,7 +189,7 @@ function addAssigneesSelection() {
           <li class=contact onclick="addboxClick(${i})">
            <div class="profile">
             <div class="icon" style="background-color:${contact.color}">${contact.initials}</div>
-            <div class="name">${contact.fullName}</div>
+            <div class="name">${contact.fullName.firstName} ${contact.fullName.lastName}</div>
           </div>
           <div class="checkbox-container">
             <input type="checkbox" id="check${i}">
