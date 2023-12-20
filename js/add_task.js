@@ -359,7 +359,7 @@ function clearAssignees(){
   let clickList = [];
   clickList.push(...assignees)
   for(let i=0; i < clickList.length; i++){
-    addboxClick(clickList[i])
+    addboxClick(i)
   }
 }
 

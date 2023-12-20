@@ -193,7 +193,7 @@ function addAssigneesSelection() {
           </div>
           <div class="checkbox-container">
             <input type="checkbox" id="check${i}">
-            <img class="profile-checkboxes" id="img-box${i}" src="/assets/img/checkbox.png" onclick="addboxClick(${i})" alt="checkbox">
+            <img class="profile-checkboxes" id="img-box${i}" src="/assets/img/checkbox.png"  alt="checkbox">
           </div>        
         </li>
         `
