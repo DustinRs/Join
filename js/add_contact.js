@@ -78,7 +78,7 @@ function hideUnusedLetters() {
 function editProfile(id) {
   let object = contacts.filter((contact) => contact.id === id)[0];
   openPopUpEditContact(object);
-  document.getElementById("editName").value = object.fullName;
+  document.getElementById("editName").value = object.fullName.firstName +" "+ object.fullName.lastName;
   document.getElementById("editEmail").value = object.email;
   document.getElementById("editNumber").value = object.phoneNumber;
   let img = document.getElementById("profile-img-div");
