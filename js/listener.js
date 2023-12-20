@@ -146,8 +146,9 @@ function setClosingCategory() {
     let body = document.querySelector("body");
     let list = document.getElementById("category-ul");
     let popUp = document.getElementById("popup-img")
+    let edit = document.getElementById("close-pop-up");
     function handleClick(event) {
-        if (event.target === popUp) {
+        if (event.target === popUp || event.target === edit) {
             body.removeEventListener("click", handleClick);
         } else if (
             event.target != categoryContainer &&
@@ -170,9 +171,10 @@ function setClosingAssign() {
     let btn = document.getElementById("assign-icon");
     let body = document.querySelector("body");
     let list = document.getElementById("assign-ul");
-    let popUp = document.getElementById("popup-img")
+    let popUp = document.getElementById("popup-img");
+    let edit = document.getElementById("close-pop-up");
     function handleClickAssign(event) {
-        if (event.target === popUp) {
+        if (event.target === popUp || event.target === edit) {
             body.removeEventListener("click", handleClickAssign);
         } else if (
             event.target != assignContainer &&
