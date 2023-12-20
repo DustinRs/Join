@@ -4,6 +4,7 @@ let assignees=[]; //needed for rendering and manupulatin contact-assignments to 
 let awaitArr=[]; //auxiliary array for filtering awaiting feedback tasks
 let counter = 0;  //auxiliary variable for manipulating finished subtasks and adjusting the progressbar
 let contacts = []; // storage and retrieval of contacts
+let contactId;
 let currentDraggedElement; //variable for drag and drop
 let doneArr=[]; //auxiliary array for filtering done tasks
 let editArr=[];

@@ -24,7 +24,8 @@ async function init() {
   navActive(3);
   hideUnusedLetters();
   calcBarHeight();
-  addContactFormListener()
+  addContactFormListener();
+  addContactEditListener();
 }
 
 
@@ -70,6 +71,33 @@ function hideUnusedLetters() {
 }
 
 
+
+
+
+/**
+ * Creates a contact based on the values entered in the profile form.
+ *
+ * @return {object} This function returns a new contact if the requirements are met.
+ */
+function editContact(contactId) {
+  let index= contacts.findIndex(e=>e.id==contactId)
+  contacts.splice(index,1)
+  let fullName = document.getElementById("editName");
+  let initials = createInitials(fullName.value);
+  let email = document.getElementById("editEmail");
+  let nameObj = differMultipleNames(fullName.value);
+  let contact= editObject(nameObj,initials,contactId);
+  if(checkEditDuplicateMail(email.value)){return}
+  else if(checkEditDuplicateName(fullName.value)){return}
+  else{
+    return contactCreation(contact),openProfile(contactId);}
+}
+
+
+
+
+
+
 /**
  * Opens the edit popup for the contact you clicked on from the register.
  * 
@@ -78,14 +106,12 @@ function hideUnusedLetters() {
 function editProfile(id) {
   let object = contacts.filter((contact) => contact.id === id)[0];
   openPopUpEditContact(object);
-  document.getElementById("editName").value = object.fullName.firstName +" "+ object.fullName.lastName;
+  document.getElementById("editName").value = object.fullName;
   document.getElementById("editEmail").value = object.email;
   document.getElementById("editNumber").value = object.phoneNumber;
   let img = document.getElementById("profile-img-div");
   img.innerText = object.initials;
   img.style.backgroundColor = object.color;
-  let button = document.getElementById("saveButtonEdit");
-  button.setAttribute("onclick", `saveContact(${id})`);
 }
 
 
@@ -171,8 +197,8 @@ function createContact() {
   let fullName = document.getElementById("profileName");
   let initials = createInitials(fullName.value);
   let email = document.getElementById("profileEmail");
-  let nameArr = differMultipleNames(fullName.value);
-  let contact= newContactObject(nameArr,initials);
+  let nameObj = differMultipleNames(fullName.value);
+  let contact= newContactObject(nameObj,initials);
   if(checkForDuplicateMail(email.value)){return}
   else if(checkForDuplicateName(fullName.value)){return}
   else{contactCreation(contact)}
@@ -188,24 +214,23 @@ function createContact() {
 async function contactCreation(contact){
   contacts.push(contact);
     await setContacts(contactKey, contacts);
-    closePopUpAddContact();init();
+    return closePopUpAddContact(),renderRegister(),hideUnusedLetters(),closePopUpEditContact();
 }
 
 
 /**
  * Generates a new contact object based on the given name array and initials.
  *
- * @param {Array} nameArr - An array containing the first name and last name of the contact.
+ * @param {Object} nameObj - An array containing the first name and last name of the contact.
  * @param {string} initials - The initials of the contact.
  * @return {Object} The newly generated contact object.
  */
-function newContactObject(nameArr,initials){
+function newContactObject(nameObj,initials){
   let email = document.getElementById("profileEmail").value;
   let number = document.getElementById("profileNumber").value;
-  let fullName=nameArr == Array ? nameArr[0] + " " + nameArr[1] : nameArr
-  let firstName = nameArr.firstName||" ";
-  let name = nameArr.lastName||nameArr;
-  console.log(nameArr)
+  let fullName=typeof nameObj == "object" ? nameObj.firstName + " " + nameObj.lastName : nameObj
+  let firstName = nameObj.firstName||" ";
+  let name = nameObj.lastName||nameObj;
   let contact = {
     fullName: fullName,
     firstName: firstName,
@@ -272,24 +297,22 @@ function clearContactsForm() {
  * @param {string} person - This is the id of the contact you have clicked on in the contact list. 
  * @returns the eddited contact information.
  */
-function editObject(person) {
-  let wholeName = document.getElementById("editName").value;
-  let nameArr = differMultipleNames(wholeName);
-  let fullName=nameArr == Array ? nameArr[0] + " " + nameArr[1] : nameArr
-  let firstName = nameArr.firstName||" ";
-  let name = nameArr.lastName||nameArr;
-  let email = document.getElementById("profileEmail");
-  console.log(nameArr)
-  let object = {
+function editObject(nameObj,initials,contactId) {
+  let email = document.getElementById("editEmail").value;
+  let number = document.getElementById("editNumber").value;
+  let fullName=typeof nameObj == "object" ? nameObj.firstName + " " + nameObj.lastName : nameObj
+  let firstName = nameObj.firstName||" ";
+  let name = nameObj.lastName||nameObj;
+  let contact = {
     fullName: fullName,
-    id: person.id,
-    email: checkForDuplicateMail(email.value),
-    color: person.color,
-    phoneNumber: document.getElementById("editNumber").value,
-    initials: createInitials(document.getElementById("editName").value),
     firstName: firstName,
     name: name,
-  };return object;
+    id: parseInt(contactId),
+    email: email,
+    color: randomColor(),
+    phoneNumber: number,
+    initials: initials.toUpperCase(),
+  };return contact
 }
 
 

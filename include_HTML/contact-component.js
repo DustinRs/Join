@@ -20,12 +20,12 @@ function renderContactPopUp(){
                     <div id="input-container" class="containterPopUpAddTaskMobile">
                         <div class="inputsContact">
                             <div class="input-group sub-container row">
-                                <input id="profileName" class=" contact-creation-inputs form-control subtask-input" type="text"
+                                <input id="profileName" min="3" class=" contact-creation-inputs form-control subtask-input" type="text"
                                     placeholder="Name" title="You need to have First- and Lastname with a space in between" required />
                                 <img src="/assets/img/person.png" alt="">
                             </div>
                             <div class="input-group sub-container row">
-                                <input id="profileEmail" class=" contact-creation-inputs form-control subtask-input" type="email"
+                                <input id="profileEmail" min ="6" class=" contact-creation-inputs form-control subtask-input" type="email"
                                     placeholder="Email" required />
                                 <img src="/assets/img/mail.png" alt="">
                             </div>
@@ -91,7 +91,7 @@ function renderEditPopUp(){
                     </div>
                 </div>
                 <button class="closePopUp" onclick="closePopUpEditContact()"><img src="/assets/img/btn-x.png" alt=""></button>
-                <form onsubmit="saveContact();return false" class="contactFormular">
+                <form onsubmit="editContact(contactId);return false" class="contactFormular">
                     <div>
                         <div class="profile-initials-pseudo-img" id="profile-img-div"></div>
                     </div>
@@ -99,7 +99,9 @@ function renderEditPopUp(){
                         <div class="inputsContact">
                             <div id="edit-task-name-container" class="input-group sub-container row">
                                 <input id="editName" class=" contact-creation-inputs form-control subtask-input" type="text"
-                                    placeholder="Name" pattern="[a-zA-Z]+ [a-zA-Z]+" title="You need to have First- and Lastname with a space in between" required />
+                                    placeholder="Name" 
+                                    pattern="^(?=[A-Za-z])[A-Za-z0-9].{3,}" 
+                                    title="You kindly need to have a minimum of 3 characters and have to start with a letter" required />
                                 <img src="/assets/img/person.png" alt="">
                             </div>
                             <div id="name-requirement" class="d-none">Please provide a Name</div>
@@ -152,6 +154,7 @@ function renderAddContactButtonMobile(){
  */
 function openProfile(id) {
     let userProfile = document.getElementById("userProfile");
+    contactId=id;
     let user = [];
     contacts.map((e) => {
       if (e.id == id) {
@@ -166,7 +169,7 @@ function openProfile(id) {
           <div class="profile-initials-pseudo-img" style="background-color:${e.color}">
              ${e.initials}
           </div>
-      <div class="nameProfile"><h2 class="h2">${e.fullName.firstName} ${e.fullName.lastName}</h2><div class="buttonsPopUp"><Button onclick="editProfile(${e.id})" class="buttonPopUp"><img src="/assets/img/edit.png" alt=""> Edit</Button><Button onclick="deleteContact(${e.id})" class="buttonPopUp"><img src="/assets/img/delete.png" alt=""> Delete</Button></div></div>
+      <div class="nameProfile"><h2 class="h2">${e.fullName}</h2><div class="buttonsPopUp"><Button onclick="editProfile(${e.id})" class="buttonPopUp"><img src="/assets/img/edit.png" alt=""> Edit</Button><Button onclick="deleteContact(${e.id})" class="buttonPopUp"><img src="/assets/img/delete.png" alt=""> Delete</Button></div></div>
       </div>
       <p class="pProfile">Contact Information</p>
       <p><b>Email</b></p>

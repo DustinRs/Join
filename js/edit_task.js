@@ -255,3 +255,65 @@ function checkForDuplicateMail(mail) {
   }
   return false;
 }
+
+
+/**
+ * Adds event listeners to the full name and email input fields in the profile form.
+ * When the full name input field is changed, it checks for duplicate names and displays an error message if found.
+ * When the email input field is changed, it checks for duplicate emails and displays an error message if found.
+ *
+ * @param {HTMLElement} fullName - The input field for the full name.
+ * @param {HTMLElement} email - The input field for the email.
+ * @return {boolean} Returns true if a duplicate name or email is found, otherwise returns undefined.
+ */
+function addContactEditListener() {
+  let fullName = document.getElementById("editName");
+  let email = document.getElementById("editEmail");
+  fullName.addEventListener("input", () => {
+    if (checkEditDuplicateName(fullName.value)) {
+      fullName.setCustomValidity(doubleName);
+      return true;
+    } else {
+      fullName.setCustomValidity("");
+    }
+  });
+  email.addEventListener("input", () => {
+    if (checkEditDuplicateMail(email.value)) {
+      email.setCustomValidity(doubleMail);
+      return true;
+    } else {
+      email.setCustomValidity("");
+    }
+  });
+}
+
+
+/**
+ * Checks if a given name is a duplicate in the contacts list.
+ *
+ * @param {string} fullName - The name to check for duplicates.
+ * @return {boolean} True if the name is a duplicate, false otherwise.
+ */
+function checkEditDuplicateName(fullName) {
+  for (let i = 0; i < contacts.length; i++) {
+    if (fullName === contacts[i].fullName) {
+      return true;
+    }
+  }
+  return false;
+}
+
+/**
+ * Checks if a given email is a duplicate in the contacts list.
+ *
+ * @param {string} mail - The email to check for duplicates.
+ * @return {boolean} True if the email is a duplicate, false otherwise.
+ */
+function checkEditDuplicateMail(mail) {
+  for (let i = 0; i < contacts.length; i++) {
+    if (mail === contacts[i].email) {
+      return true;
+    }
+  }
+  return false;
+}

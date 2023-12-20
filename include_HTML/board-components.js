@@ -215,7 +215,7 @@ function getAssignList(assignees) {
     let liArr = []
     for (let i = 0; i < assignees.length; i++) {
         let contact = assignees[i];
-        liArr.push(`<li class=contact><div class="profile"><div class="icon" style="background-color:${contact.color}">${contact.initials}</div><div class="name">${contact.fullName.firstName} ${contact.fullName.lastName}</div></div></li>`)
+        liArr.push(`<li class=contact><div class="profile"><div class="icon" style="background-color:${contact.color}">${contact.initials}</div><div class="name">${contact.fullName}</div></div></li>`)
     }; return liArr.join('')
 }
 
