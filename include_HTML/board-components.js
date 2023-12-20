@@ -174,8 +174,8 @@ function renderSingleTodo(id) {
             <div id="todo-text-content" class="todo-content descriptionBoardPopUp">${obj.text}</div>
             <div id="dead-line" class="descriptionBoardPopUp"><span>Due date:  </span>${obj.date}</div>
             <div id="pop-priority" class="descriptionBoardPopUp"><span>Priority:  </span>${obj.priority} ${returnPriority(element.prio)}</div>
+            <h6 class="descriptionBoardPopUp">Assigned to</h6>
             <ul id="assignement">
-                <h6 class="descriptionBoardPopUp">Assigned to</h6>
                 ${getAssignList(contactArr)}
             </ul>
             <ul id=subtask-list data-id="${element.id}">
