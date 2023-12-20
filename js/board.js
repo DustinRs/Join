@@ -308,6 +308,7 @@ function addSearchBarHandler() {
             return title.includes(searchTerm) || description.includes(searchTerm);
         });
         updateBoard(filteredTasks);
+        hideExcessElements();
     }
     input.oninput = search;
 }
