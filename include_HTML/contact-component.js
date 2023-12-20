@@ -21,7 +21,7 @@ function renderContactPopUp(){
                         <div class="inputsContact">
                             <div class="input-group sub-container row">
                                 <input id="profileName" class=" contact-creation-inputs form-control subtask-input" type="text"
-                                    placeholder="Name" pattern="[a-zA-Z]+ [a-zA-Z]+" title="You need to have First- and Lastname with a space in between" required />
+                                    placeholder="Name" title="You need to have First- and Lastname with a space in between" required />
                                 <img src="/assets/img/person.png" alt="">
                             </div>
                             <div class="input-group sub-container row">
