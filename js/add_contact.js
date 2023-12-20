@@ -273,10 +273,17 @@ function clearContactsForm() {
  * @returns the eddited contact information.
  */
 function editObject(person) {
+  let wholeName = document.getElementById("editName").value;
+  let namesArray = wholeName.split(" ");
+  let FirstName = namesArray[0];
+  let LastName = namesArray.slice(1).join(" ");
   let object = {
     color: person.color,
     id: person.id,
-    fullName: document.getElementById("editName").value,
+    fullName: {
+      firstName: FirstName,
+      lastName: LastName,
+    },
     email: document.getElementById("editEmail").value,
     phoneNumber: document.getElementById("editNumber").value,
     initials: createInitials(document.getElementById("editName").value),
