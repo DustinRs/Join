@@ -186,7 +186,7 @@ function addAssigneesSelection() {
     for (let i = 0; i < contactArr.length; i++) {
         let contact = contactArr[i]
         box.innerHTML +=/*html*/`
-          <li class=contact>
+          <li class=contact onclick="addboxClick(${i})">
            <div class="profile">
             <div class="icon" style="background-color:${contact.color}">${contact.initials}</div>
             <div class="name">${contact.fullName}</div>

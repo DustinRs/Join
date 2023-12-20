@@ -144,7 +144,8 @@ function editCurrentTodo(task) {
     addInputHandler(),
     addSubtaskListener(),
     pushEditAssignees(task),
-    checkBoxClicked(task.prio)
+    checkBoxClicked(task.prio),
+    clickMedium(task.prio)
 };
 
 
