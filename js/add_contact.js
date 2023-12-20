@@ -305,6 +305,11 @@ function editObject(nameObj,initials,contactId) {
   let name = nameObj.lastName||nameObj;
   let contact = {
     fullName: fullName,
+    id: person.id,
+    email: checkForDuplicateMail(email.value),
+    color: person.color,
+    phoneNumber: document.getElementById("editNumber").value,
+    initials: createInitials(document.getElementById("editName").value),
     firstName: firstName,
     name: name,
     id: parseInt(contactId),
