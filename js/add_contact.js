@@ -278,11 +278,12 @@ function editObject(person) {
   let fullName=nameArr == Array ? nameArr[0] + " " + nameArr[1] : nameArr
   let firstName = nameArr.firstName||" ";
   let name = nameArr.lastName||nameArr;
+  let email = document.getElementById("profileEmail");
   console.log(nameArr)
   let object = {
     fullName: fullName,
     id: person.id,
-    email: document.getElementById("editEmail").value,
+    email: checkForDuplicateMail(email.value),
     color: person.color,
     phoneNumber: document.getElementById("editNumber").value,
     initials: createInitials(document.getElementById("editName").value),
