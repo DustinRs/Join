@@ -15,6 +15,14 @@ main {
     align-items: unset;
 }
 
+#assign-list li:hover{
+        background-color: rgba(0, 0, 0, 0.08);
+}
+
+#assign-list li{
+    width: 95%;
+}
+
 .cloumn {
     display: flex;
     flex-direction: column;

@@ -351,11 +351,11 @@ label {
     }
 
     &:hover #cross #add-subtask #sub-btn-plus {
-        height: 16px !important;
+        height: 1rem !important;
     }
 
     &:hover #add-subtask {
-        height: 16px !important;
+        height: 1rem !important;
     }
 }
 
