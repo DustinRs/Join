@@ -94,7 +94,6 @@ function createNewTaskObject(title, taskArr, description, date, prio, category, 
  * @param {string} priority - The priority button thats clicked.
  */
 function checkBoxClicked(priority) {
-  debugger
   let checkbox = document.getElementById(priority);
   let image = document.getElementById(priority + "-img");
   let span = document.getElementById(priority + "-span");
