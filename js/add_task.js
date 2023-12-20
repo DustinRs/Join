@@ -94,10 +94,12 @@ function createNewTaskObject(title, taskArr, description, date, prio, category, 
  * @param {string} priority - The priority button thats clicked.
  */
 function checkBoxClicked(priority) {
+  debugger
   let checkbox = document.getElementById(priority);
   let image = document.getElementById(priority + "-img");
   let span = document.getElementById(priority + "-span");
-  resetColor()
+  resetColor();
+  resetBoardColor();
   if (checkbox.checked) {
     deactivateOtherCheckboxes(priority);
     span.style.backgroundColor = getColor(priority);
@@ -125,7 +127,15 @@ function clickMedium(priority){
  * Resets the color if the priority button is not clicked anymore.
  */
 function resetColor() {
-  let span = document.getElementsByClassName('edit-priority-span')||document.getElementsByClassName('priority-span');
+  let span = document.getElementsByClassName('priority-span');
+  for (let i = 0; i < span.length; i++) {
+    span[i].style.backgroundColor = "";
+  } checkBoxClicked
+}
+
+
+function resetBoardColor() {
+  let span = document.getElementsByClassName('edit-priority-span');
   for (let i = 0; i < span.length; i++) {
     span[i].style.backgroundColor = "";
   } checkBoxClicked
@@ -141,11 +151,7 @@ function deactivateOtherCheckboxes(currentPriority) {
     if (priority !== currentPriority) {
       document.getElementById(priority).checked = false;
       document.getElementById(priority).parentNode.parentNode.style.backgroundColor = "";
-      document
-        .getElementById(priority)
-        .closest(".prio")
-        .querySelector(".prioImgs").src =
-        "/assets/img/" + priority.toLowerCase() + "-priority.png";
+      document.getElementById(priority).closest(".prio").querySelector(".prioImgs").src ="/assets/img/" + priority.toLowerCase() + "-priority.png";
     }
   }
   pushCurrentPriority(currentPriority);
