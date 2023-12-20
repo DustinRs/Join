@@ -59,6 +59,15 @@ function taskFilter(arr, string) {
  */
 function startDragging(id) {
     currentDraggedElement = id;
+    let divs = document.querySelectorAll(".no-tasks");
+    let areas = document.querySelectorAll(".drag-area");
+    
+    divs.forEach(div => div.parentNode.removeChild(div));
+
+    areas.forEach(area => {
+        area.style = '';
+        area.style.justifyContent = 'flex-start';
+    });
 }
 
 
@@ -113,7 +122,6 @@ function highlight(id) {
 function removeHighlight(id) {
     document.getElementById(id).classList.remove('drag-area-highlight');
 }
-
 
 
 /**
@@ -251,20 +259,23 @@ function changeStatus(string) {
  *
  */
 function checkDragArea() {
-    let dragArea = document.getElementsByClassName('drag-area')
-    for (let i = 0; i < dragArea.length; i++) {
-        if (dragArea[i].innerHTML.includes('Technical Task') || dragArea[i].innerHTML.includes('User Story')) {
-            if (dragArea[i].firstElementChild) {
-                dragArea[i].style = 'justify-content: flex-start';
-                dragArea[i].style = 'border:none;background-color: transparent;border-radius:3rem;justify-content: flex-start'
-            }
+    let dragAreas = document.getElementsByClassName('drag-area');
+    for (let i = 0; i < dragAreas.length; i++) {
+        if (dragAreas[i].innerHTML.includes('Technical Task') || dragAreas[i].innerHTML.includes('User Story')) {
+            if (dragAreas[i].firstElementChild) {
+                dragAreas[i].style = 'justify-content: flex-start; border:none; background-color: transparent; border-radius:3rem;';}
         } else {
-            dragArea[i].style = '';
-            dragArea[i].innerText = 'No tasks to do';
+            dragAreas[i].style = '';
+            if (!dragAreas[i].querySelector('.no-task')) {
+                let div = document.createElement('div');
+                div.classList.add('no-tasks');
+                div.innerText = "No tasks to do";
+                dragAreas[i].appendChild(div);
+            }
         }
     }
-    
 }
+
 
 /////////////////////////Do-not-touch////////////////////////////////
 // /**
@@ -477,7 +488,6 @@ function refreshProgressBar(id, task) {
     setTimeout(() => {
         bar.setAttribute('style', `width: ${width}%`)
     }, 500);
-    console.log(width)
 }
 
 

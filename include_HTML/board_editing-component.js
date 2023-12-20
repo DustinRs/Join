@@ -1,9 +1,10 @@
 //renders the content for editing an allready created todo/task
 function editCurrentTodo(task) {
+    console.log(task)
     let popUp = document.getElementById('pop-up-container');
     popUp.innerHTML = /*html*/`
 <div class="edit-sections">
-    <div id="close-pop-up" onclick="closePopUp()"><img src="/assets/img/btn-x.png" alt=""></div>
+    <div id="close-pop-up" onclick="closePopUp()"><img id="popup-img" src="/assets/img/btn-x.png" alt=""></div>
     <div>
         <h6>Title</h6>
         <div id="add-task-titlte-container" class="input-group sub-container row">
@@ -142,7 +143,8 @@ function editCurrentTodo(task) {
     addAssigneesSelection(),
     addInputHandler(),
     addSubtaskListener(),
-    pushEditAssignees(task)
+    pushEditAssignees(task),
+    checkBoxClicked(task.prio)
 };
 
 

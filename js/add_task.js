@@ -125,7 +125,7 @@ function clickMedium(priority){
  * Resets the color if the priority button is not clicked anymore.
  */
 function resetColor() {
-  let span = document.getElementsByClassName('priority-span');
+  let span = document.getElementsByClassName('edit-priority-span')||document.getElementsByClassName('priority-span');
   for (let i = 0; i < span.length; i++) {
     span[i].style.backgroundColor = "";
   } checkBoxClicked
@@ -384,9 +384,9 @@ function addSubtaskListener() {
 
 
 function pushEditAssignees(task) {
-  assignees = [];
-  let index = task.assignees
-  index.forEach((element) => {addboxClick(element)})
+  assignees = [];//emptying global array
+  let index = contacts.filter((e) => task.assignees.includes(e.id))
+  index.forEach((element) => {addboxClick(contacts.indexOf(element))})
 }
 
 

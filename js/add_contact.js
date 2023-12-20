@@ -175,7 +175,6 @@ function createContact() {
   let contact= newContactObject(nameArr,initials);
   if(checkForDuplicateMail(email.value)){return}
   else if(checkForDuplicateName(fullName.value)){return}
-  if (checkForDuplicateName(fullName.value)) {return}
   else{contactCreation(contact)}
 }
 
@@ -203,10 +202,14 @@ async function contactCreation(contact){
 function newContactObject(nameArr,initials){
   let email = document.getElementById("profileEmail").value;
   let number = document.getElementById("profileNumber").value;
+  let fullName=nameArr == Array ? nameArr[0] + " " + nameArr[1] : nameArr
+  let firstName = nameArr.firstName||" ";
+  let name = nameArr.lastName||nameArr;
+  console.log(nameArr)
   let contact = {
-    fullName: nameArr.firstName + " " + nameArr.lastName,
-    firstName: nameArr.firstName,
-    name: nameArr.lastName,
+    fullName: fullName,
+    firstName: firstName,
+    name: name,
     id: Date.now(),
     email: email,
     color: randomColor(),

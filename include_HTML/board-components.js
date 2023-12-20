@@ -137,12 +137,18 @@ function renderTodoIcons() {
     let divs = document.getElementsByClassName('profile-initials-container');
     for (let i = 0; i < divs.length; i++) {
         let div = divs[i];
+        let contactArr=[]
         let index = div.getAttribute('data-value');
         if (index && index.trim() !== '') {
             index = index.split(',');
-            for (let j = 0; j < index.length; j++) {
+            index.forEach(element => {
+                if(contacts.filter((e) => e.id == element)[0]){
+                    contactArr.push(contacts.filter((e) => e.id == element)[0])
+                }
+            });
+            for (let j = 0; j < contactArr.length; j++) {
                 div.innerHTML += /*html*/`
-                    <div class="profile-initials" data-value="${index[j]}" style="background-color:${contacts[index[j]].color}">${contacts[index[j]].initials}</div>
+                    <div class="profile-initials" data-value="${contactArr[j].id}" style="background-color:${contactArr[j].color}">${contactArr[j].initials}</div>
                 `;
             }
         }
@@ -155,7 +161,8 @@ function renderSingleTodo(id) {
     if (id === undefined) { return }
     let index = allTasks.findIndex((task) => task.id === id);
     let element = allTasks[index];
-    editTask = element;
+    editTask=element//IMPORTANT! Edit Task NOT POSSIBLE WITHOUT SETTING THE VALUE OF THE GLOBAL VARIABLE HERE
+    let contactArr = contacts.filter((e) => element.assignees.includes(e.id));
     let obj = generateVarObj(element); // generateVarObj()-->board.js:322
     let popUp = document.getElementById('pop-up-container');
     popUp.innerHTML = /*html*/`
@@ -169,7 +176,7 @@ function renderSingleTodo(id) {
             <div id="pop-priority" class="descriptionBoardPopUp"><span>Priority:  </span>${obj.priority} ${returnPriority(element.prio)}</div>
             <ul id="assignement">
                 <h6 class="descriptionBoardPopUp">Assigned to</h6>
-                ${getAssignList(element.assignees)}
+                ${getAssignList(contactArr)}
             </ul>
             <ul id=subtask-list data-id="${element.id}">
                 <h6  class="descriptionBoardPopUp">Subtasks</h6>
@@ -207,7 +214,7 @@ function styleAddTask() {
 function getAssignList(assignees) {
     let liArr = []
     for (let i = 0; i < assignees.length; i++) {
-        let contact = contacts[assignees[i]];
+        let contact = assignees[i];
         liArr.push(`<li class=contact><div class="profile"><div class="icon" style="background-color:${contact.color}">${contact.initials}</div><div class="name">${contact.fullName}</div></div></li>`)
     }; return liArr.join('')
 }
