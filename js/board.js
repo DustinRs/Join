@@ -176,9 +176,11 @@ function hideBar() {
  *
  */
 function closePopUp() {
-    clearTasks()
+    clearTasks();
     let popup = document.getElementById('add-pop-up');
     let container = document.getElementById('pop-up-container');
+    let body = document.querySelector("body");
+    body.removeEventListener("click", handleClickAssign);
     container.style.animation = "slide-out 0.15s ease-in-out forwards"
     setTimeout(() => {
         popup.classList.add('d-none')

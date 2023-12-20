@@ -124,7 +124,7 @@ function renderPopUpAddTask() {
     let popUp = document.getElementById('pop-up-container');
     popUp.innerHTML = /*html*/`
         <div id="task-container">
-            <div id="close-pop-up" onclick="closePopUp()"><img src="/assets/img/btn-x.png" alt=""></div>
+            <div id="close-pop-up" onclick="closePopUp()"><img id="close-pop-up-img"  src="/assets/img/btn-x.png" alt=""></div>
             ${renderAddTaskSections()}
         </div>
         `,

@@ -141,24 +141,30 @@ function categoryResponse() {
  */
 function setClosingCategory() {
     let categoryContainer = document.getElementById("category-select");
+    let body = document.querySelector("body");
+    body.addEventListener("click", handleClick);
+    categoryContainer.removeEventListener("click", setClosingCategory);
+}
+
+
+function handleClick(event) {
+    let categoryContainer = document.getElementById("category-select");
+    let body = document.querySelector("body");
     let categoryInput = document.getElementById("category");
     let btn = document.getElementById("category-icon");
-    let body = document.querySelector("body");
     let list = document.getElementById("category-ul");
     let popUp = document.getElementById("popup-img")
-    let edit = document.getElementById("close-pop-up");
-    function handleClick(event) {
-        if (event.target === popUp || event.target === edit) {
-            body.removeEventListener("click", handleClick);
-        } else if (
-            event.target != categoryContainer &&
-            event.target != categoryInput &&
-            event.target != btn &&
-            event.target != list
-        ) {{ closeList("category-select", "category", "category-ul", "category-icon"); }}
-    }   body.addEventListener("click", handleClick);
-        categoryContainer.removeEventListener("click", setClosingCategory);
+    if (event.target === popUp) {
+        body.removeEventListener("click", handleClick);
+    } else if (
+        event.target != categoryContainer &&
+        event.target != categoryInput &&
+        event.target != btn &&
+        event.target != list
+    ) {{ closeList("category-select", "category", "category-ul", "category-icon"); }}
 }
+
+
 /**
  * Sets the closing assign behavior.
  *
@@ -167,24 +173,33 @@ function setClosingCategory() {
  */
 function setClosingAssign() {
     let assignContainer = document.getElementById("assign-select");
-    let assignInput = document.getElementById("assign");
-    let btn = document.getElementById("assign-icon");
     let body = document.querySelector("body");
-    let list = document.getElementById("assign-ul");
-    let popUp = document.getElementById("popup-img");
-    let edit = document.getElementById("close-pop-up");
-    function handleClickAssign(event) {
-        if (event.target === popUp || event.target === edit) {
-            body.removeEventListener("click", handleClickAssign);
-        } else if (
-            event.target != assignContainer &&
-            event.target != assignInput &&
-            event.target != btn &&
-            event.target != list
-        ) { closeList("assign-select", "assign", "assign-ul", "assign-icon")}
-    }
     body.addEventListener("click", handleClickAssign);
     assignContainer.removeEventListener("click", setClosingAssign);
+}
+
+
+
+function handleClickAssign(event) {
+    let assignContainer = document.getElementById("assign-select");
+    let body = document.querySelector("body");
+    let assignInput = document.getElementById("assign");
+    let btn = document.getElementById("assign-icon");
+    let list = document.getElementById("assign-ul");
+    let popUp = document.getElementById("popup-img")
+    if (event.target === popUp) {
+        body.removeEventListener("click", handleClickAssign);
+    } else if (
+        event.target != assignContainer &&
+        event.target != assignInput &&
+        event.target != btn &&
+        event.target != list
+    ) { closeList("assign-select", "assign", "assign-ul", "assign-icon")}
+}
+
+function removeBodyHandler(){
+    let body = document.querySelector("body");
+    body.removeEventListener("click", handleClickAssign);
 }
 
 
