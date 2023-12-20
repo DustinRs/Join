@@ -274,21 +274,20 @@ function clearContactsForm() {
  */
 function editObject(person) {
   let wholeName = document.getElementById("editName").value;
-  let namesArray = wholeName.split(" ");
-  let FirstName = namesArray[0];
-  let LastName = namesArray.slice(1).join(" ");
+  let nameArr = differMultipleNames(wholeName);
+  let fullName=nameArr == Array ? nameArr[0] + " " + nameArr[1] : nameArr
+  let firstName = nameArr.firstName||" ";
+  let name = nameArr.lastName||nameArr;
+  console.log(nameArr)
   let object = {
-    color: person.color,
+    fullName: fullName,
     id: person.id,
-    fullName: {
-      firstName: FirstName,
-      lastName: LastName,
-    },
     email: document.getElementById("editEmail").value,
+    color: person.color,
     phoneNumber: document.getElementById("editNumber").value,
     initials: createInitials(document.getElementById("editName").value),
-    firstName: differMultipleNames(document.getElementById("editName").value).firstName,
-    name: differMultipleNames(document.getElementById("editName").value).lastName,
+    firstName: firstName,
+    name: name,
   };return object;
 }
 
