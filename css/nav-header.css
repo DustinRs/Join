@@ -25,16 +25,18 @@
 
 
 .navLogo {
-    margin-top: 50px;
+    margin-top: 3.2rem;
+    width: 6.375rem;
+    height: 7.625rem
 }
 
 .navLinks {
     display: flex;
     flex-direction: column;
-    width: 232px;
-    height: 229px;
-    gap: 15px;
-    margin-bottom: 200px;
+    width: 14.5rem;
+    height: 14.31rem;
+    gap: 1rem;
+    margin-bottom: 10rem;
 }
 
 .navLinkImg {
@@ -44,7 +46,7 @@
     height: 3rem;
     text-align: start;
     align-items: center;
-    color:white;
+    color:#F6F7F8;
     text-decoration: none;
     &:hover{
         background-color: #2A3D59;
@@ -62,13 +64,9 @@
     color:white
 }
 
-.navLinkImg>span{
-    margin-left:1rem
-}
-
-
 .linkImg {
-   margin:0 1rem 0 3rem
+   margin:0 .5rem 0 3rem;
+   height: 1.875rem;
 }
 
 .navBottom {
@@ -81,7 +79,8 @@
 .navLinksBot {
     color: #A8A8A8;
     text-decoration: none;
-    width: 120px;
+    width: 8rem;
+    font-size: 1rem;
 
     &:hover {
         color: #29ABE2;
@@ -98,7 +97,7 @@ header {
     justify-content: space-between;
     align-items: center;
     width: calc(100% - 14rem);
-    height: 96px;
+    height: 6rem;
     background-color: white;
     box-shadow: -2px 0 8px 0 rgba(0, 0, 0, 0.2);
 }
@@ -118,6 +117,10 @@ header {
     gap: 20px;
 }
 
+.helpIcon{
+    width: 1.25rem;
+}
+
 .helpIcon:hover {
     cursor: pointer;
     -webkit-transform: scale(1.2);
@@ -127,10 +130,10 @@ header {
 }
 
 #profile-icon {
-    width: 56px;
-    height: 56px;
+    width: 3.5rem;
+    height: 3.5rem;
     color: var(--blue);
-    font-size: 1.5rem;
+    font-size: 2rem;
     font-weight: 600;
     border: 3px solid black;
     border-radius: 50%;
@@ -150,14 +153,40 @@ header {
     top: 6rem;
     color: #CDCDCD;
     border: 1px solid black;
-    width: fit-content;
+    width: 9rem;
+    height: 8.8rem;
     border-radius: 15px 0 15px 15px;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 5px 20px;
+    padding: 5px 0;
     align-items: flex-start;
     background-color: #2A3647;
+}
+
+.menu-link{
+    width: 8rem;
+    padding-left: 1rem;
+    display:flex;
+    justify-content: flex-start;
+    height: 2.93rem;
+    align-items: center;
+
+    &:hover{
+        background-color: #2A3D59;
+    }
+}
+
+.menu-link>a:hover{
+    color:white
+}
+
+.menu-link:first-child{
+    border-radius: 15px 0 0 0;
+}
+
+.menu-link:last-child{
+    border-radius: 0 0 15px 15px;
 }
 
 .menu-option {
@@ -168,11 +197,7 @@ header {
     font-weight: 400;
     font-size: 1rem;
     height: 50px;
-    width: 100%;
-
-    &:hover {
-        background-color: #2A3D59;
-    }
+    width: fit-content;
 }
 
 .mobileImgHeader {

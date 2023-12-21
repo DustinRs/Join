@@ -338,7 +338,10 @@ function loginCheckBox(box, img){
  */
 function navActive(i){
   let active = document.getElementsByClassName('navLinkImg');
-  active[i].classList.add('active')
+  let img = document.getElementsByClassName('linkImg');
+  img[i].src=`/assets/img/${i}.png`;
+  active[i].classList.add('active');
+  active[i].style="color:white"
 }
 
 

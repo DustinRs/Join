@@ -187,7 +187,6 @@ function openProfile(id) {
  * @param {string} letter - These are the letters from A to Z.
  */
 function renderContacts(letter) {
-    debugger
     let container = document.getElementById(`${letter}`);
     container.innerHTML = "";
     for (let i = 0; i < contacts.length; i++) {
