@@ -4,10 +4,27 @@
     --outline-active: #74C5E8;
     --outline-error:#FF6073;
     font-family: 'Inter', sans-serif;
+    --opactity: 1;
+    --display:flex;
+    --background:#F6F7F8;
 }
 
 *,::after,::before{
     box-sizing: content-box!important;
+}
+
+@keyframes fade-out {
+    0% {
+        opacity: 1;
+        display: flex;
+    }
+    99% {
+        opacity: var(--opactity);
+        display: flex;
+    }    
+    100% {
+        display: var(--display);
+    }
 }
 
 main{
@@ -63,9 +80,11 @@ body{
     bottom: 0;
     height: 10rem;
     justify-content: center;
+    background-color: var(--background);
     font-size: 4rem;
     right: 3rem;
     margin: auto 0;
+    animation: fade-out 1s ease 3s 1 forwards;
 }
 
 .grid-container1{
@@ -126,7 +145,7 @@ a>span{
 .lineUrgent {
     width: 2px;
     background-color: #D1D1D1;
-    height: 102px;
+    height: 6.375rem;
     border-radius: 2px;
     margin-left: 3rem;
     margin-right: 3rem;
@@ -283,6 +302,103 @@ a>span{
 
     #sum-headline{
         margin:1rem 0 2rem
+    }
+    
+}
+
+@media screen and (max-width: 960px) {
+    main{
+        width: 100%;
+        left: 0;
+        top: 0;
+        right: 0;
+        height: 100%;
+        bottom: 0;
+        margin: auto;
+        justify-content: center;
+        position: unset;
+        align-items: center;
+        padding:unset;
+    }
+
+    #grid{
+        display: flex;
+        grid-template-columns: unset;
+        position: unset;
+        width: 34rem;
+        /* border:1px solid black; */
+    }
+
+    #sum-headline{
+        width: 23rem;
+        display: flex;
+        align-items: self-start;
+        flex-direction: column;
+        position: relative;
+        margin: 2rem 0 3rem 3rem;
+        align-self: flex-start;
+        /* gap:1rem */
+    }
+
+    .stroke{
+    height:8rem;
+    position: absolute;
+    bottom: -5rem;
+    left: 4rem;
+    transform: rotate(90deg);
+    margin:0
+    }
+
+    #greeting-container{
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        z-index: 10;
+        right: 0;
+        left: 0;
+        justify-content: center;
+        align-items: center;
+    }
+
+    :root{
+        font-size: 14px;
+        --opactity:0;
+        --display:none!important;
+    }
+}
+
+@media screen and (max-width: 545px) {
+    :root{
+        font-size: 12px;
+    }
+    
+    #grid-main-container{
+        margin-top: 2rem;
+    }
+
+    @media screen and (max-width: 455px) {
+        :root{
+            font-size: 10px;
+        }
+        
+    }
+
+    @media screen and (max-width: 355px) {
+        :root{
+            font-size: 9px;
+        }
+        
+    }
+
+    @media screen and (max-width: 320px) {
+        :root{
+            font-size: 8px;
+        }
+
+        .grid-item{
+            border-radius: 16px;
+        }
+        
     }
     
 }

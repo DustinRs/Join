@@ -7,7 +7,7 @@
 }
 
 .navBar {
-    position: fixed !important;
+    position: fixed;
     top: 0;
     left: 0;
     display: flex;
@@ -18,7 +18,7 @@
     width: 14rem;
     height: 100%;
     background-color: #2A3647;
-    font-size: 16px;
+    font-size: 1rem;
     padding-top: 0!important;
     padding-bottom: 0!important;
 }
@@ -135,7 +135,7 @@ header {
     color: var(--blue);
     font-size: 2rem;
     font-weight: 600;
-    border: 3px solid black;
+    border: 0.1875rem solid black;
     border-radius: 50%;
     display: flex;
     justify-content: center;
@@ -204,3 +204,95 @@ header {
     display: none;
 }
 
+@media screen and (max-width: 960px) {
+    .navBar{
+        position: absolute;
+        top: unset;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        height: 7rem;
+        background-color: #2A3647;
+        font-size: 1rem;
+        padding-top: 0!important;
+        padding-bottom: 0!important;
+    }
+
+    .navLogo{
+        display: none;
+    }
+    
+    .navBottom{
+        display: none;
+    }
+
+    .navLinks{
+        flex-direction: row;
+        width: 100%;
+        justify-content: space-evenly;
+        align-items: center;
+        height: 7rem;
+        margin:unset;
+        gap:unset
+    }
+
+    .navLinkImg{
+        justify-content: center;
+        height: 6rem;
+        width: 6rem;
+        border-radius: 12px;
+        flex-direction: column;
+        gap:.5rem
+    }
+
+    .linkImg{
+        margin:unset;
+        height:3rem;
+    }
+
+    header{
+        width: 100%;
+        left:0
+    }
+
+    .imgsHeader>a{
+        display: none;
+    }
+
+    .pHeader{
+        display: none;
+    }
+
+    .imgsHeader{
+        position: absolute;
+        right: 0;
+    }
+
+    .mobileImgHeader{
+        height: 4rem;
+        position: absolute;
+        left: 2rem;
+        display: block;
+    }
+}
+
+@media screen and (max-width: 545px) {
+    .navLinks{
+        width: fit-content;
+        gap:4rem
+    }
+    
+}
+
+@media screen and (max-width: 455px) {
+   
+
+    .navLinks{
+        gap:2rem
+    }
+    
+}

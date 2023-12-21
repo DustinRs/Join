@@ -27,7 +27,7 @@ function gridContainer() {
                 <div id="Done" onclick="openBoard()" class="grid-item"><img class="summary-icon" src="/assets/img/checkmark-frame.png" alt=""><div class="auxilary-container"><h1>${done.length}</h1> <span>Done</span></div></div>
             </div>
             <div class="grid-container2">
-                <div id="urgent" onclick="openBoard()" class="grid-item"><div class="displayFlex"><img class="prority-icon" src="/assets/img/arrow-up.png" alt="">
+                <div id="urgent" onclick="openBoard()" class="grid-item"><div class="displayFlex"><img class="priority-icon" src="/assets/img/arrow-up.png" alt="">
                     <div class="auxilary-container">
                         <h1>${urgent.length}</h1><span>Urgent</span>                
                     </div>

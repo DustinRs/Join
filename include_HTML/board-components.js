@@ -7,7 +7,7 @@ function renderComponents(activeUser) {
     header.innerHTML += renderHeader(activeUser);
     main.innerHTML =/*html*/`
 <div id="info">
-    <div id="info-text">Task added to board</div><img src="/assets/img/nav-board.png" id="error" alt="">
+    <div id="info-text">Task added to board</div><img src="/assets/img/board.png" id="error" alt="">
 </div>
 <div class="column">
     <div class="sections-drag">
