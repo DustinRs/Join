@@ -511,7 +511,7 @@ function initialProgressWidth(task) {
 // Funktion, um Elemente zu verstecken, wenn ihre Anzahl 5 übersteigt
 function hideExcessElements() {
     let containers = document.querySelectorAll('.profile-initials-container');
-  
+    let existingContacts=[];
     containers.forEach(function(container) {
       // Extrahiere die Datenwerte und zähle die Anzahl der Elemente
       let dataValue = container.getAttribute('data-value');
@@ -529,9 +529,10 @@ function hideExcessElements() {
         // Füge das span-Element nach dem Container ein
         container.parentNode.insertBefore(countSpan, container.nextSibling);
       }
-  
+      elements.forEach((e,i)=>{if(contacts[i] && contacts[i].id == e){if(!existingContacts.includes(e)){existingContacts.push(e)}}})
       // Überprüfe, ob die Anzahl der Elemente größer als 5 ist
-      if (elements.length > 5) {
+      console.log(existingContacts)
+      if (existingContacts.length > 5) {
         // Verstecke die überschüssigen Elemente
         for (let i = 5; i < elements.length; i++) {
           container.children[i].style.display = 'none';

@@ -187,18 +187,12 @@ function openProfile(id) {
  * @param {string} letter - These are the letters from A to Z.
  */
 function renderContacts(letter) {
+    debugger
     let container = document.getElementById(`${letter}`);
     container.innerHTML = "";
     for (let i = 0; i < contacts.length; i++) {
       let contact = contacts[i];
-      let initials = contact.initials.split("");
-      let initial = initials[0];
-      if (contacts[i].initials.length > 1) {
-        initial = contact.initials.slice(0, 1);
-      } else {
-        initial = contact.initials;
-      }
-      if (letter === `${initial}`) {
+      if (letter === contact.initials.charAt(0)) {
         container.innerHTML += `
           <div id="${contact.name}${i}" onclick="openProfile('${contact.id}'); contactActive('${contact.name}${i}');  setZindex();" class="contact">
           
@@ -206,7 +200,7 @@ function renderContacts(letter) {
               <span id="${contact.id}" class="initials">${contact.initials}</span>
           </div>
           <div class="nameLinkDiv">
-              <span class="fullName">${contact.firstName} ${contact.name}</span>
+              <span class="fullName">${contact.fullName}</span>
               <a class="emailLinks" href="#">${contact.email}</a>
           </div>
       </div>`;

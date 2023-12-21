@@ -214,7 +214,20 @@ function createContact() {
 async function contactCreation(contact){
   contacts.push(contact);
     await setContacts(contactKey, contacts);
-    return closePopUpAddContact(),renderRegister(),hideUnusedLetters(),closePopUpEditContact();
+    closePopUpAddContact();
+    renderRegister();
+    hideUnusedLetters();
+    clearContactInputs();
+    return closePopUpEditContact();
+}
+
+function clearContactInputs(){
+  document.getElementById("profileName").value = "";
+  document.getElementById("profileEmail").value = "";
+  document.getElementById("profileNumber").value = "";
+  document.getElementById("editName").value = "";
+  document.getElementById("editEmail").value = "";
+  document.getElementById("editNumber").value = "";
 }
 
 
@@ -305,18 +318,16 @@ function editObject(nameObj,initials,contactId) {
   let name = nameObj.lastName||nameObj;
   let contact = {
     fullName: fullName,
-    id: person.id,
+    id: contactId,
     email: checkForDuplicateMail(email.value),
-    color: person.color,
     phoneNumber: document.getElementById("editNumber").value,
-    initials: createInitials(document.getElementById("editName").value),
+    initials: initials.toUpperCase(),
     firstName: firstName,
     name: name,
     id: parseInt(contactId),
     email: email,
     color: randomColor(),
     phoneNumber: number,
-    initials: initials.toUpperCase(),
   };return contact
 }
 

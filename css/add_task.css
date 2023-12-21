@@ -767,6 +767,25 @@ input[type="date"]::-webkit-calendar-picker-indicator{
     justify-content: space-between;
     align-items: center;
 }
+
+.subTaskListFlex:focus-within{
+    border-bottom: 1px solid #29ABE2;
+}
+.edit-input{
+    outline:none!important;
+    background-color: transparent;
+    border-bottom: 1px #29ABE2!important;
+}
+
+.single-subtask:hover{
+    cursor: url('/assets/img/edit.png')16 16, auto;
+}
+
+.edit-input:focus{
+    outline:none!important;
+    background-color: transparent;
+}
+
 .deleteSubtaskImg {
     width: fit-content;
 }
