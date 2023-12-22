@@ -22,7 +22,6 @@ async function init() {
   renderContactPage(activeUser);
   renderRegister();
   navActive(3);
-  calcBarHeight();
   addContactFormListener();
   addContactEditListener();
 }
@@ -42,7 +41,7 @@ function renderContactPage(activeUser) {
   nav.innerHTML = renderNavBar();
   header.innerHTML = renderHeader(activeUser);
   section.innerHTML = renderContactSection();
-  main.innerHTML += renderAddContactButtonMobile();
+  // main.innerHTML += renderAddContactButtonMobile();
   clearHTML();
   body.innerHTML += renderContactPopUp();
   body.innerHTML += renderEditPopUp();
@@ -70,9 +69,27 @@ function editContact(contactId) {
 }
 
 
+function addSlider(){
+  let section = document.getElementById("zIndex");
+  let register = document.getElementById("contacts-bar");
+  document.getElementById('contactButtonMobile').classList.add('d-none');
+  register.classList.contains("slide-back") ? register.classList.remove("slide-back") : register.classList.add("slider");
+  register.classList.add("slider");
+  section.classList.contains("slide-out") ? section.classList.remove("slide-out") : section.classList.add("slider");
+  section.classList.add("slider");
+}
 
 
 
+function takeSlider(){
+  let section = document.getElementById("zIndex");
+  let register = document.getElementById("contacts-bar");
+  document.getElementById('contactButtonMobile').classList.remove('d-none');
+  register.classList.remove("slider");
+  register.classList.add("slide-back");
+  section.classList.remove("slider");
+  section.classList.add("slide-out");
+}
 
 /**
  * Opens the edit popup for the contact you clicked on from the register.
@@ -245,30 +262,6 @@ function getRandomColor(id, color) {
 
 
 /**
- * Calculates the barheight of the contact scroll div.
- */
-function calcBarHeight() {
-  let header = document.querySelector("header");
-  let item = document.getElementById("contacts-bar");
-  let height = window.innerHeight - header.offsetHeight;
-  item.style.height = height + "px";
-  calcHeight();
-}
-
-
-/**
- * Calculates the height of the add new contact popup.
- */
-function calcHeight() {
-  let header = document.querySelector("header");
-  let btn = document.getElementById("addNewContact");
-  let register = document.getElementById("register");
-  let height = window.innerHeight - header.offsetHeight - btn.offsetHeight;
-  register.style.height = height - 20 + "px";
-}
-
-
-/**
  * Clears all inputs of the add task page.
  */
 function clearContactsForm() {
@@ -323,18 +316,18 @@ function contactActive(id) {
 
 
 /**
- * Swappes the mobile Buttons of the mobile contact page.
- */
-function setZindex() {
-  let div = document.getElementById('zIndex');
-  div.classList.add('zIndex');
-  let arrow = document.getElementById('arrowContact');
-  arrow.classList.remove('d-none');
-  let button = document.getElementById('contactButtonMobile');
-  button.classList.add('d-none');
-  let menu = document.getElementById('menuContactButtonMobile');
-  menu.classList.remove('d-none');
-}
+//  * Swappes the mobile Buttons of the mobile contact page.
+//  */
+// function setZindex() {
+//   let div = document.getElementById('zIndex');
+//   div.classList.add('zIndex');
+//   let arrow = document.getElementById('arrowContact');
+//   arrow.classList.remove('d-none');
+//   let button = document.getElementById('contactButtonMobile');
+//   button.classList.add('d-none');
+//   let menu = document.getElementById('menuContactButtonMobile');
+//   menu.classList.remove('d-none');
+// }
 
 
 /**
@@ -379,10 +372,10 @@ function addDNone() {
  */
 function clearHTML() {
   if (document.getElementById('editContactPopUp') !== null) {
-    let mobileBtn = document.getElementById('mobile-add-btn');
+    // let mobileBtn = document.getElementById('mobile-add-btn');
     let popup = document.getElementById('editContactPopUp');
     let popUpTwo = document.getElementById('addContactPopUp');
-    mobileBtn.parentNode.removeChild(mobileBtn);
+    // mobileBtn.parentNode.removeChild(mobileBtn);
     popup.parentNode.removeChild(popup);
     popUpTwo.parentNode.removeChild(popUpTwo);
   }

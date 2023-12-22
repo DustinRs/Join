@@ -821,15 +821,15 @@ input[type="date"]::-webkit-calendar-picker-indicator{
 } 
  @media screen and (max-width: 1024px) {
     .sub-container{
-        border-radius: 6px;
+        border-radius: .8rem;
     }
 
     .clearButton{
-        border-radius: 6px;
+        border-radius: .8rem;
     }
 
     .createTaskButton{
-        border-radius: 6px;
+        border-radius: .8rem;
     }
 
     .border{

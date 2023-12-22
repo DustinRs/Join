@@ -130,21 +130,21 @@ function renderEditPopUp(){
 }
 
 
-//Renders the add contact button for mobile devices.
-function renderAddContactButtonMobile(){
-    return/*html*/`
-        <div id="mobile-add-btn">
-            <div id="arrowContact" onclick="removeZindex()" class="arrowContact d-none"><a href=""><img
-                        src="/assets/img/arrow-left.png" alt=""></a></div>
-            <button id="contactButtonMobile" onclick="openPopUpAddContact()" class="contactButtonMobile">
-                <img src="/assets/img/person_add.png" alt="">
-            </button>
-            <button id="menuContactButtonMobile" onclick="removeDNone()" class="contactButtonMobile d-none">
-                <img src="/assets/img/menu_btn.png" alt="">
-            </button>
-        </div>        
-    `
-}
+// //Renders the add contact button for mobile devices.
+// function renderAddContactButtonMobile(){
+//     return/*html*/`
+//         <div id="mobile-add-btn">
+//             <div id="arrowContact" onclick="removeZindex()" class="arrowContact d-none"><a href=""><img
+//                         src="/assets/img/arrow-left.png" alt=""></a></div>
+//             <button id="contactButtonMobile" onclick="openPopUpAddContact()" class="contactButtonMobile">
+//                 <img src="/assets/img/person_add.png" alt="">
+//             </button>
+//             <button id="menuContactButtonMobile" onclick="removeDNone()" class="contactButtonMobile d-none">
+//                 <img src="/assets/img/menu_btn.png" alt="">
+//             </button>
+//         </div>        
+//     `
+// }
 
 
 /**
@@ -164,7 +164,9 @@ function openProfile(id) {
     let e = user[0];
     userProfile.innerHTML = "";
   
-    userProfile.innerHTML = `<div>
+    userProfile.innerHTML = `
+    <a id="help-arrow" href="#" onclick="takeSlider()"><img src="/assets/img/arrow-left.png" alt=""></a>
+    <div>
       <div class="topProfile">
           <div class="profile-initials-pseudo-img" style="background-color:${e.color}">
              ${e.initials}
@@ -173,12 +175,12 @@ function openProfile(id) {
       </div>
       <p class="pProfile">Contact Information</p>
       <p><b>Email</b></p>
-      <a class="profileLink" href="">${e.email}</a>
+      <a class="profileLink" href="#" onclick="return false;">${e.email}</a>
       <p class="pMail"><b>Phone</b></p>
       <p>${e.phoneNumber}</p>
     </div>
     <div id="buttonsPopUpMobile" class="buttonsPopUpMobile d-none"><Button onclick="editProfile(${e.id}); addDNone();" class="buttonPopUpMobile"><img src="/assets/img/edit.png" alt=""> Edit</Button><Button onclick="deleteContact(${e.id}); addDNone();" class="buttonPopUpMobile"><img src="/assets/img/delete.png" alt=""> Delete</Button></div>`;
-  }
+  addSlider()}
   
 
   /**
@@ -193,7 +195,7 @@ function renderContacts(letter) {
       let contact = contacts[i];
       if (letter === contact.initials.charAt(0)) {
         container.innerHTML += `
-          <div id="${contact.name}${i}" onclick="openProfile('${contact.id}'); contactActive('${contact.name}${i}');  setZindex();" class="contact">
+          <div id="${contact.name}${i}" onclick="openProfile('${contact.id}'); contactActive('${contact.name}${i}')" class="contact">
           <div>
               <span id="${contact.id}" class="initials">${contact.initials}</span>
           </div>
