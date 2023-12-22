@@ -194,7 +194,6 @@ function renderContacts(letter) {
       if (letter === contact.initials.charAt(0)) {
         container.innerHTML += `
           <div id="${contact.name}${i}" onclick="openProfile('${contact.id}'); contactActive('${contact.name}${i}');  setZindex();" class="contact">
-          
           <div>
               <span id="${contact.id}" class="initials">${contact.initials}</span>
           </div>
@@ -214,10 +213,12 @@ function renderContacts(letter) {
  * 
  */
 function renderRegister() {
+    let letterCheck = contacts.map(element => element.fullName.charAt(0).toUpperCase());
     let register = document.getElementById("register");
     register.innerHTML = "";
     for (let i = 0; i < letters.length; i++) {
       const letter = letters[i];
+      if(letterCheck.includes(letter)){
       register.innerHTML += `
         <div class="register">
           <span>${letter}</span>
@@ -228,8 +229,9 @@ function renderRegister() {
         </div>
         <div id="${letter}" class="test">
         </div>
-      `;
-      renderContacts(`${letter}`);
+        `;
+        renderContacts(`${letter}`);
+    }
     }
   }
   

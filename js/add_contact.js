@@ -22,7 +22,6 @@ async function init() {
   renderContactPage(activeUser);
   renderRegister();
   navActive(3);
-  hideUnusedLetters();
   calcBarHeight();
   addContactFormListener();
   addContactEditListener();
@@ -49,29 +48,6 @@ function renderContactPage(activeUser) {
   body.innerHTML += renderEditPopUp();
 
 }
-
-
-/**
- * Hides the unused letters in the register where there are no contacts.
- * 
- */
-function hideUnusedLetters() {
-  let divElements = document.querySelectorAll(".test");
-  let divRegister = document.querySelectorAll(".register");
-  let divLine = document.querySelectorAll(".registerLineDiv");
-  divElements.forEach((element, index) => {
-    if (element.innerHTML.trim() === "") {
-      divRegister[index].classList.add("d-none");
-      divLine[index].classList.add("d-none");
-    } else {
-      divRegister[index].classList.remove("d-none");
-      divLine[index].classList.remove("d-none");
-    }
-  });
-}
-
-
-
 
 
 /**
@@ -216,7 +192,6 @@ async function contactCreation(contact){
     await setContacts(contactKey, contacts);
     closePopUpAddContact();
     renderRegister();
-    hideUnusedLetters();
     clearContactInputs();
     return closePopUpEditContact();
 }
