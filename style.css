@@ -90,6 +90,18 @@ body {
     max-width: 1240px;
 }
 
+@media screen and (max-width: 5500px) {
+    :root {
+        font-size: 48px;
+    }
+    
+}
+
+@media screen and (max-width: 4500px) {
+    :root {
+        font-size: 40px;
+    }
+}
 
 @media screen and (max-width: 3900px) {
     :root {
@@ -97,19 +109,25 @@ body {
     }
 }
 
-@media screen and (max-width: 2600px) {
+@media screen and (max-width: 3000px) {
     :root {
         font-size: 28px;
     }
 }
 
-@media screen and (max-width: 2100px) {
+@media screen and (max-width: 2650px) {
+    :root {
+        font-size: 24px;
+    }
+}
+
+@media screen and (max-width: 2280px) {
     :root {
         font-size: 20px;
     }
 }
 
-@media screen and (max-width: 1900px) {
+@media screen and (max-width: 1920px) {
     :root {
         font-size: 16px;
     }
@@ -117,13 +135,20 @@ body {
 
 @media screen and (max-width: 1370px) {
     :root {
-        font-size: 14px;
+        font-size: 13px;
+    }
+}
+
+
+@media screen and (max-width: 1080px) {
+    :root {
+        font-size: 12px;
     }
 }
 
 @media screen and (max-width: 1024px) {
     :root {
-        font-size: 12px;
+        font-size: 10px;
     }
 }
 

@@ -8,6 +8,7 @@
 
 .navBar {
     position: fixed;
+    z-index: 10;
     top: 0;
     left: 0;
     display: flex;
@@ -249,9 +250,25 @@ header {
         gap:.5rem
     }
 
+    .navLinkImg:nth-child(3){
+        order:2
+    }
+
+    .navLinkImg:nth-child(2){
+        order:3
+    }
+
+    .navLinkImg:first-child{
+        order:1
+    }
+
+    .navLinkImg:last-child{
+        order:4
+    }
+
     .linkImg{
         margin:unset;
-        height:3rem;
+        height:2rem;
     }
 
     header{
