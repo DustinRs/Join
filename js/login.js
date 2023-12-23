@@ -195,7 +195,6 @@ function logIn() {
   } else if (mail.value === match[0].mail && password.value === match[0].password) {
     logUser(JSON.stringify(match))
     location.replace('/html/summary.html')
-    loginSlider();
   } else {
     popUp(wrongPass,567)
   }
@@ -214,7 +213,6 @@ function logIn() {
 function guestLogIn() {
   logUser(JSON.stringify(guest))
   location.replace('/html/summary.html');
-  loginSlider();
 }
 
 
@@ -274,11 +272,3 @@ function loginCheckBox(box, img){
   }
 }
 
-function loginSlider() {
-  let greetingContainer = document.getElementById('greeting-container');
-  let greet = document.getElementById('greet');
-  let greetUser = document.getElementById('greet-user');
-  greetingContainer.classList.add('slider-greeting-container');
-  greet.classList.add('slider-greet');
-  greetUser.classList.add('slider-greet-user');
-}

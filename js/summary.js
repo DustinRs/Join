@@ -84,3 +84,55 @@ function openBoard() {
   let pageUrl = '/html/board.html';
   window.open(pageUrl, '_self');
 }
+
+function createSliderKeyframes() {
+  // Erstellen Sie ein neues <style>-Element
+  const styleElement = document.createElement('style');
+  
+  // Fügen Sie die Keyframes-Regel hinzu
+  styleElement.textContent = `
+      @keyframes fade-out {
+          0% {
+              opacity: 1;
+              display: flex;
+          }
+          99% {
+              opacity: var(--opacity);
+              display: flex;
+          }
+          100% {
+              display: var(--display);
+          }
+      }
+
+      @keyframes greet {
+          0% {
+              opacity: 0;
+              transform: translateY(-20px);
+          }
+          100% {
+              opacity: 1;
+              transform: translateY(0);
+          }
+      }
+  `;
+  
+  // Fügen Sie das <style>-Element zum <head>-Element des Dokuments hinzu
+  document.head.appendChild(styleElement);
+
+  // Fügen Sie die Animationen zu den entsprechenden Elementen hinzu
+  const greetingContainer = document.getElementById('greeting-container');
+  if (greetingContainer) {
+      greetingContainer.style.animation = 'fade-out 1s ease 3s 1 forwards';
+  }
+
+  const greetElement = document.getElementById('greet');
+  if (greetElement) {
+      greetElement.style.animation = 'greet 1s ease 0.5s 1 forwards';
+  }
+
+  const greetUserElement = document.getElementById('greet-user');
+  if (greetUserElement) {
+      greetUserElement.style.animation = 'greet 1s ease 1.5s 1 forwards';
+  }
+}
