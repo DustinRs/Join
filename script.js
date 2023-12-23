@@ -38,7 +38,6 @@ const STORAGE_TOKEN = 'QFOSCYPA967P352YSSOENCUXGKA464XWSUTNI5NT';
 const STORAGE_URL = 'https://remote-storage.developerakademie.org/item';
 
 
-
 /**
  * Logs the user's name in the sessionStorage.
  * 
@@ -194,7 +193,6 @@ async function setAllTasks(key, value) {
 }
 
 
-
 /**
  * Sets the contacts in the storage using the provided key and value,
  * after creating a contact through the contact section---->add new contact.
@@ -210,7 +208,6 @@ async function setContacts(key, value) {
     body: JSON.stringify(payload),
   }).then((res) => res.json());
 }
-
 
 
 /**
@@ -232,7 +229,6 @@ async function getContacts(key) {
       return contacts
     });
 }
-
 
 
 /**
@@ -401,7 +397,4 @@ function randomColor() {
   let colors = ["#FF7A00", "#FF5EB3", "#6E52FF", "#9327FF", "#00BEE8", "#1FD7C1", "#FF745E",
     "#FFA35E", "#FC71FF", "#FFC701", "#0038FF", "#C3FF2B", "#FFE62B", "#FF4646", "#FFBB2B"];
   let randomIndex = Math.floor(Math.random() * colors.length);
-  return colors[randomIndex];
-}
-
-
+  return colors[randomIndex];}

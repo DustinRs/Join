@@ -745,16 +745,18 @@ ul {
     /* Standard syntax */
 }
 
-    .moveButtons {
-    width: fit-content;
+.moveButtons {
+    width: 15rem;
     display: flex;
+    background-color: white;
     justify-content: flex-start !important;
     align-items: start !important;
+    flex-direction: column;
     box-shadow: 0rem 1rem 2rem 0rem rgba(0, 0, 0, 0.2);
     padding: 0.25rem;
     padding-bottom: 2rem;
     border-radius: 1rem 1rem 0rem 1rem;
-    gap: 1rem;
+    gap: .5rem;
 }
 
 .moveButtons button {
@@ -766,10 +768,25 @@ ul {
     color: #29ABE2;
 }
 
+#openMoveTaskMenu{
+    display: none;
+}
+
 .closeMoveTaskMenu {
     position: relative;
     top: 0.5rem;
     right: -11rem;
+}
+
+.moveTaskButton{
+    font-size: 1.2rem;
+    font-weight: 500;
+    width: 100%;
+    text-align: start;
+    border-bottom: 1px solid #29ABE2!important;
+}
+.moveTaskButton:last-child{
+    border-bottom: unset!important;
 }
 
 @media screen and (max-width: 960px) {
@@ -780,8 +797,16 @@ ul {
         padding-top: 2rem
     }
 
+    #openMoveTaskMenu{
+        display: block;
+    }
+
     .content {
         flex-direction: column;
+    }
+
+    #content-box {
+        height: 37rem;
     }
 
     .drag-area {
@@ -805,8 +830,10 @@ ul {
         background-color: #f8f9fa;
         gap: 1rem;
         z-index: 12;
+        top: -2rem;
         height: 12rem;
         margin-top: 0rem;
+        margin-bottom: 0;
     }
 
     .buttonAddMobile {
@@ -820,41 +847,62 @@ ul {
         display: none;
     }
 
-    #find-task-container{
-        left:1rem;
-        width: unset!important;
-        margin:auto 0;
-        bottom:-8rem;
-        right:2rem;
+    #find-task-container {
+        left: 1rem;
+        width: unset !important;
+        margin: auto 0;
+        bottom: -8rem;
+        right: 2rem;
     }
 
-    .headline>h1{
+    .headline>h1 {
         position: absolute;
-        top:1rem
+        top: 1rem
     }
 
-    .drag-headlines{
+    .drag-headlines {
         width: unset;
-        
+
     }
 
-    .drag-area{
+    .drag-area {
         overflow: scroll;
+        min-height: 5rem;
+
         &::-webkit-scrollbar {
             display: none;
-            color: transparent;
         }
     }
 
-    .todo{
+    .todo {
         height: 14rem;
         width: 15rem;
     }
 
-    .drag-area>div>.todo-content{
+    .drag-area>div>.todo-content {
         height: 2rem;
         overflow: hidden;
         white-space: nowrap;
         text-overflow: ellipsis;
+    }
+
+    #single-todo {
+        width: 93%;
+        height: 92%;
+        overflow-y: scroll !important;
+
+        &::-webkit-scrollbar {
+            display: none !important;
+        }
+    }
+
+    #close-pop-up >img{
+        width: 1.4rem;
+        height: 1.5rem;
+    }
+
+    #close-pop-up {
+        width: 2.5rem;
+        height: 2.5rem;
     }
 }

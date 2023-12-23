@@ -9,12 +9,18 @@
 body {
     margin: 0 auto !important;
     font-family: 'Inter', sans-serif !important;
-    font-size: 16px;
+    font-size: 1rem;
     background-color: #F6F7F8 !important;
     display: flex;
     flex-direction: column;
     width: 100%;
-    /* overflow-y: hidden; */
+}
+
+#main{
+        left: 14rem;
+        top: 3rem;
+        position: relative;
+        width: calc(100% - 14rem);
 }
 
 .d-none {
@@ -22,41 +28,37 @@ body {
 }
 
 #german>h1 {
-    font-size: 64px;
+    font-size: 4rem;
     font-weight: 700;
 }
 
 #german>h2 {
-    font-size: 27px;
+    font-size: 1.6875rem;
     font-weight: 700;
 }
 
 #german {
-    padding: 5%;
-    padding-top: 0;
     position: relative;
-    left: 14%;
-    max-width: 1240px;
-    width: 76%;
+    left: 3rem;
+    width: calc(100% - 8rem);
+    margin-bottom: 3rem;
 }
 
 #english>h1 {
-    font-size: 64px;
+    font-size: 4rem;
     font-weight: 700;
 }
 
 #english>h2 {
-    font-size: 27px;
+    font-size: 1.6875rem;
     font-weight: 700;
 }
 
 #english {
-    padding: 5%;
-    padding-top: 0;
     position: relative;
-    left: 14%;
-    width: 76%;
-    max-width: 1240px;
+    left: 3rem;
+    width: calc(100% - 8rem);
+    margin-bottom: 3rem;
 }
 
 .arrow {
@@ -69,25 +71,23 @@ body {
     right: 0;
     bottom: 0;
     margin: auto;
-    height: 46px;
-    width: 39px;
+    height: 2.875rem;
+    width: 2.4375rem;
 }
 
 .arrow>a>img {
     position: absolute;
-    height: 40px;
-    width: 39px;
+    height: 2.5rem;
+    width: 2.4375rem;
     inset: 0;
     margin: auto;
 }
 
 .scroll-help {
-    padding: 5%;
-    padding-top: 0;
     position: relative;
-    left: 14%;
-    width: 76%;
-    max-width: 1240px;
+    left:3rem;
+    width: calc(100% - 8rem);
+    margin-bottom: 3rem;
 }
 
 @media screen and (max-width: 5500px) {
@@ -156,6 +156,22 @@ body {
 
     :root {
         font-size: 14px;
+    }
+
+    .scroll-help {
+        width: calc(100% - 4rem);
+    }
+
+    #main{
+        left: 0;
+        width: 95%;
+    }
+
+    #english, #german {
+        position: relative;
+        left: 1rem;
+        width: 100%;
+        margin-bottom: 3rem;
     }
 }
 
