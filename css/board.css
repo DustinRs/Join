@@ -15,11 +15,11 @@ main {
     align-items: unset;
 }
 
-#assign-list li:hover{
-        background-color: rgba(0, 0, 0, 0.08);
+#assign-list li:hover {
+    background-color: rgba(0, 0, 0, 0.08);
 }
 
-#assign-list li{
+#assign-list li {
     width: 98%
 }
 
@@ -128,6 +128,7 @@ main {
     font-weight: 700;
     transition: box-shadow 0.1s ease;
 }
+
 .buttonAddMobile {
     position: absolute;
     top: 0;
@@ -167,7 +168,7 @@ main {
     margin: auto;
 }
 
-#search-btn>img{
+#search-btn>img {
     height: 1.125rem;
     width: 1.125rem;
 }
@@ -250,11 +251,11 @@ h1 {
 
 }
 
-.descriptionBoardPopUp>span{
+.descriptionBoardPopUp>span {
     width: 8rem;
 }
 
-.descriptionBoardPopUp>img{
+.descriptionBoardPopUp>img {
     height: .6rem;
     align-self: center;
     margin-left: .5rem;
@@ -282,7 +283,7 @@ h1 {
     flex-direction: row;
 }
 
-#task-container{
+#task-container {
     position: static;
 }
 
@@ -369,7 +370,7 @@ h5 {
     display: flex;
     flex-direction: column;
     padding: 2rem;
-    height:45rem;
+    height: 45rem;
     overflow-y: auto;
 
     &::-webkit-scrollbar {
@@ -392,7 +393,7 @@ h5 {
     }
 }
 
-.edit-sections>div>#prio{
+.edit-sections>div>#prio {
     width: 23rem;
 }
 
@@ -419,8 +420,8 @@ h5 {
     width: 7rem !important;
 }
 
-.prioriy-container>img{
-    width:1.3125rem
+.prioriy-container>img {
+    width: 1.3125rem
 }
 
 
@@ -454,7 +455,7 @@ h6:not(:first-of-type):not(:nth-of-type(4)) {
     position: absolute;
     margin: auto;
     bottom: 3rem;
-    width:90%;
+    width: 90%;
     left: 0;
     right: 0;
 }
@@ -575,7 +576,7 @@ h6 :hover {
 #pop-headline {
     font-size: 3rem;
     margin-bottom: 1.5rem;
-  
+
 }
 
 ul {
@@ -595,7 +596,7 @@ ul {
     overflow-y: auto !important;
 }
 
-#assignement{
+#assignement {
     height: auto;
     overflow: scroll !important;
 }
@@ -616,12 +617,12 @@ ul {
 
 #subtask-list {
     margin: 1rem 0 !important;
-    width: 90%!important;
-    max-height: none!important;
+    width: 90% !important;
+    max-height: none !important;
 }
 
-#subtask-list>li{
-    margin-block:0;
+#subtask-list>li {
+    margin-block: 0;
 }
 
 #single-todo {
@@ -639,7 +640,7 @@ ul {
     &::-webkit-scrollbar-track {
         background: white;
         border-radius: 2.1875rem;
-        margin-block:2rem
+        margin-block: 2rem
     }
 
     &::-webkit-scrollbar-thumb {
@@ -667,7 +668,7 @@ ul {
     }
 }
 
-#todo-edit-footer>button>img{
+#todo-edit-footer>button>img {
     height: 1.5rem;
 }
 
@@ -677,7 +678,7 @@ ul {
     justify-content: flex-start;
     align-items: center;
     height: 2rem;
-    gap:1rem
+    gap: 1rem
 }
 
 .sub-cb-auxiliary {
@@ -686,58 +687,62 @@ ul {
     justify-content: center
 }
 
-.sub-text{
+.sub-text {
     width: 19rem;
     display: flex;
     justify-content: flex-start;
     font-size: 0.8rem
 }
 
-.sub-checkbox{
+.sub-checkbox {
     height: 1.2rem;
 }
 
-.title{
+.title {
     margin-bottom: 2rem;
 }
 
-#title-requirement-edit{
+#title-requirement-edit {
     position: relative;
     margin: -0 0 -1.2rem .5rem;
     color: red;
     font-size: .8rem;
 }
 
-#description-requirement-edit{
+#description-requirement-edit {
     position: relative;
     margin: -0 0 -1.2rem .5rem;
     color: red;
     font-size: .8rem;
 }
 
-#date-requirement-edit{
+#date-requirement-edit {
     position: relative;
     margin: -0 0 -1.2rem .5rem;
     color: red;
     font-size: .8rem;
 }
 
-.profile-checkboxes-edit{
+.profile-checkboxes-edit {
     position: absolute;
     right: 1rem;
 }
-.single-subtask:hover{
+
+.single-subtask:hover {
     cursor: url('/assets/img/edit.png')16 16, auto;
 }
 
 
-.no-tasks{
+.no-tasks {
     position: absolute;
     width: 100%;
     text-align: center;
-    -webkit-user-select: none; /* Safari */
-    -ms-user-select: none; /* IE 10 and IE 11 */
-    user-select: none; /* Standard syntax */
+    -webkit-user-select: none;
+    /* Safari */
+    -ms-user-select: none;
+    /* IE 10 and IE 11 */
+    user-select: none;
+    /* Standard syntax */
 }
 
 
@@ -752,10 +757,12 @@ ul {
     border-radius: 1rem 1rem 0rem 1rem;
     gap: 1rem;
 }
+
 .moveButtons button {
     border: unset;
     background-color: white;
 }
+
 .moveButtons button:hover {
     color: #29ABE2;
 }
@@ -764,4 +771,91 @@ ul {
     position: relative;
     top: 0.5rem;
     right: -11rem;
+}
+
+@media screen and (max-width: 960px) {
+    main {
+        position: static;
+        width: unset;
+        padding-left: unset;
+        padding-top: 2rem
+    }
+
+    .content {
+        flex-direction: column;
+    }
+
+    .drag-area {
+        flex-direction: row;
+        gap: 1rem
+    }
+
+    .buttonAddMobile {
+        display: flex;
+        padding-left: 0.5rem;
+    }
+
+    .headline {
+        position: relative;
+        left: 0;
+        padding: 0 1rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: start;
+        background-color: #f8f9fa;
+        gap: 1rem;
+        z-index: 12;
+        height: 12rem;
+        margin-top: 0rem;
+    }
+
+    .buttonAddMobile {
+        position: absolute;
+        top: 1.5rem;
+        right: 2rem;
+        margin: 0;
+    }
+
+    .buttonAdd {
+        display: none;
+    }
+
+    #find-task-container{
+        left:1rem;
+        width: unset!important;
+        margin:auto 0;
+        bottom:-8rem;
+        right:2rem;
+    }
+
+    .headline>h1{
+        position: absolute;
+        top:1rem
+    }
+
+    .drag-headlines{
+        width: unset;
+        
+    }
+
+    .drag-area{
+        overflow: scroll;
+        &::-webkit-scrollbar {
+            display: none;
+            color: transparent;
+        }
+    }
+
+    .todo{
+        height: 14rem;
+        width: 15rem;
+    }
+
+    .drag-area>div>.todo-content{
+        height: 2rem;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
 }

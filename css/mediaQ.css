@@ -85,10 +85,7 @@
   .buttonAdd {
     display: none;
   }
-  .buttonAddMobile {
-    display: flex;
-    padding-left: 0.5rem;
-  }
+
   .scroll-help {
     left: 18%;
   }
@@ -405,25 +402,8 @@
     width: 80% !important;
     
 }
-.headline {
-  position: absolute;
-  left: 0;
-  padding: 1rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: start;
-  background-color: #f8f9fa;
-  gap: 1rem;
-  z-index: 12;
-  margin-top: 0rem;
-}
-.buttonAddMobile {
-  position: absolute;
-  top: -4rem;
-  right: 2rem;
-  padding-left: 0.5rem
-}
+
+
 .buttonAdd span {
   display: none;
 }
@@ -634,20 +614,9 @@
 .buttonsPopUp {
   display: none;
 }
-#content-box {
-  display: flex;
-  flex-direction: column;
-  height: fit-content;
-  position: relative;
-    left: 0px;
-    top: 11rem;
-}
 
-.drag-area {
-  display: flex;
-  height: fit-content;
-  width: 100%;
-}
+
+
 .drag-headlines {
   height: 20rem;
   margin-right: 0;
