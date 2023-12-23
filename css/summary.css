@@ -84,7 +84,7 @@ body{
     font-size: 4rem;
     right: 3rem;
     margin: auto 0;
-    animation: fade-out 1s ease 3s 1 forwards;
+    
 }
 
 .grid-container1{
@@ -169,7 +169,7 @@ a>span{
     font-weight: 500;
     color:var(--dark);
     opacity: 0;
-    animation: greet 1s ease 0.5s 1 forwards;
+    
 }
 
 #greet-user{
@@ -177,6 +177,18 @@ a>span{
     font-weight: 700;
     color:var(--blue);
     opacity: 0;
+    
+}
+
+.slider-greeting-container {
+    animation: fade-out 1s ease 3s 1 forwards;
+}
+
+.slider-greet {
+    animation: greet 1s ease 0.5s 1 forwards;
+}
+
+.slider-greet-user {
     animation: greet 1s ease 1.5s 1 forwards;
 }
 

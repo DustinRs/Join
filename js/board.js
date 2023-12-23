@@ -407,33 +407,37 @@ function closeMoveTaskMenu() {
     btn.classList.remove('d-none');
 }
 
-function moveTaskToFeedback(id) {
+async function moveTaskToFeedback(id) {
     let newStatus = 'Await-Feedback';
     allTasks[id].status = newStatus;
+    await setAllTasks(tasksKey, allTasks);
     closePopUp();
     updateBoard();
     hideExcessElements();
 }
 
-function moveTaskToInProgress(id) {
+async function moveTaskToInProgress(id) {
     let newStatus = 'In-Progress';
     allTasks[id].status = newStatus;
+    await setAllTasks(tasksKey, allTasks);
     closePopUp();
     updateBoard();
     hideExcessElements();
 }
 
-function moveTaskToToDo(id) {
+async function moveTaskToToDo(id) {
     let newStatus = 'To-Do';
     allTasks[id].status = newStatus;
+    await setAllTasks(tasksKey, allTasks);
     closePopUp();
     updateBoard();
     hideExcessElements();
 }
 
-function moveTaskToDone(id) {
+async function moveTaskToDone(id) {
     let newStatus = 'Done';
     allTasks[id].status = newStatus;
+    await setAllTasks(tasksKey, allTasks);
     closePopUp();
     updateBoard();
     hideExcessElements();
