@@ -391,6 +391,54 @@ function editOk(status, index, prio) {
     hideExcessElements();
 }
 
+function openMoveTaskMenu() {
+    let div = document.getElementById('moveButtons');
+    let btn = document.getElementById('openMoveTaskMenu');
+    div.classList.remove('d-none');
+    div.classList.add('d-flex');
+    btn.classList.add('d-none');
+}
+
+function closeMoveTaskMenu() {
+    let div = document.getElementById('moveButtons');
+    let btn = document.getElementById('openMoveTaskMenu');
+    div.classList.add('d-none');
+    div.classList.remove('d-flex');
+    btn.classList.remove('d-none');
+}
+
+function moveTaskToFeedback(id) {
+    let newStatus = 'Await-Feedback';
+    allTasks[id].status = newStatus;
+    closePopUp();
+    updateBoard();
+    hideExcessElements();
+}
+
+function moveTaskToInProgress(id) {
+    let newStatus = 'In-Progress';
+    allTasks[id].status = newStatus;
+    closePopUp();
+    updateBoard();
+    hideExcessElements();
+}
+
+function moveTaskToToDo(id) {
+    let newStatus = 'To-Do';
+    allTasks[id].status = newStatus;
+    closePopUp();
+    updateBoard();
+    hideExcessElements();
+}
+
+function moveTaskToDone(id) {
+    let newStatus = 'Done';
+    allTasks[id].status = newStatus;
+    closePopUp();
+    updateBoard();
+    hideExcessElements();
+}
+
 
 /**
  * Specific checkBoxClick function for sub-task boxes

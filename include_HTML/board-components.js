@@ -184,6 +184,14 @@ function renderSingleTodo(id) {
             </ul>
         </div>
         <div id="todo-edit-footer">
+            <div id="moveButtons" class="moveButtons d-none">
+            <button class="closeMoveTaskMenu" onclick="closeMoveTaskMenu()">X</button>
+            <button onclick="moveTaskToToDo('${index}')" id="moveTaskButton"> Move to 'To-Do'</button>
+            <button onclick="moveTaskToInProgress('${index}')" id="moveTaskButton"> Move to 'In-Progress'</button>
+            <button onclick="moveTaskToFeedback('${index}')" id="moveTaskButton"> Move to 'Await-Feedback'</button>
+            <button onclick="moveTaskToDone('${index}')" id="moveTaskButton"> Move to 'Done'</button>
+            </div>
+            <button id="openMoveTaskMenu" onclick="openMoveTaskMenu()">Move task to</button>
             <button onclick="deleteTask('${id}')" id="delete-todo"><img src="/assets/img/delete.png" alt=""> Delete</button>
             <button onclick="lookForSubChange(),startEdit()"><img src="/assets/img/edit.png" alt=""> Edit</button>
         </div>

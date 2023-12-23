@@ -713,3 +713,29 @@ ul {
     -ms-user-select: none; /* IE 10 and IE 11 */
     user-select: none; /* Standard syntax */
 }
+
+
+.moveButtons {
+    width: fit-content;
+    display: flex !important;
+    justify-content: flex-start !important;
+    align-items: start !important;
+    box-shadow: 0rem 1rem 2rem 0rem rgba(0, 0, 0, 0.2);
+    padding: 0.25rem;
+    padding-bottom: 2rem;
+    border-radius: 1rem 1rem 0rem 1rem;
+    gap: 1rem;
+}
+.moveButtons button {
+    border: unset;
+    background-color: white;
+}
+.moveButtons button:hover {
+    color: #29ABE2;
+}
+
+.closeMoveTaskMenu {
+    position: relative;
+    top: 0.5rem;
+    right: -11rem;
+}
