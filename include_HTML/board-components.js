@@ -191,7 +191,7 @@ function renderSingleTodo(id) {
             <button onclick="moveTaskToFeedback('${index}')" id="moveTaskButton"> Move to 'Await-Feedback'</button>
             <button onclick="moveTaskToDone('${index}')" id="moveTaskButton"> Move to 'Done'</button>
             </div>
-            <button id="openMoveTaskMenu" onclick="openMoveTaskMenu()">Move task to</button>
+            <button id="openMoveTaskMenu" onclick="openMoveTaskMenu()"><img src="/assets/img/arrow-down.png" alt=""> Move task to</button>
             <button onclick="deleteTask('${id}')" id="delete-todo"><img src="/assets/img/delete.png" alt=""> Delete</button>
             <button onclick="lookForSubChange(),startEdit()"><img src="/assets/img/edit.png" alt=""> Edit</button>
         </div>

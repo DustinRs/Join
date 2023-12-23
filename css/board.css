@@ -740,10 +740,9 @@ ul {
     user-select: none; /* Standard syntax */
 }
 
-
-.moveButtons {
+    .moveButtons {
     width: fit-content;
-    display: flex !important;
+    display: flex;
     justify-content: flex-start !important;
     align-items: start !important;
     box-shadow: 0rem 1rem 2rem 0rem rgba(0, 0, 0, 0.2);
