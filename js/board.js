@@ -390,7 +390,10 @@ function editOk(status, index, prio) {
     updateBoard();
     hideExcessElements();
 }
-
+/**
+ * Opens the popup menu for the mobile "drag and drop".
+ * 
+ */
 function openMoveTaskMenu() {
     let div = document.getElementById('moveButtons');
     let btn = document.getElementById('openMoveTaskMenu');
@@ -398,7 +401,10 @@ function openMoveTaskMenu() {
     div.classList.add('d-flex');
     btn.classList.add('d-none');
 }
-
+/**
+ * Closes the popup menu for the mobile "drag and drop".
+ * 
+ */
 function closeMoveTaskMenu() {
     let div = document.getElementById('moveButtons');
     let btn = document.getElementById('openMoveTaskMenu');
@@ -406,34 +412,54 @@ function closeMoveTaskMenu() {
     div.classList.remove('d-flex');
     btn.classList.remove('d-none');
 }
-
-function moveTaskToFeedback(id) {
+/**
+ * Moves the Task from its current status to 'Await-Feedback'.
+ * 
+ * @param {string} id = The id of the current task. 
+ */
+async function moveTaskToFeedback(id) {
     let newStatus = 'Await-Feedback';
     allTasks[id].status = newStatus;
+    await setAllTasks(tasksKey, allTasks);
     closePopUp();
     updateBoard();
     hideExcessElements();
 }
-
-function moveTaskToInProgress(id) {
+/**
+ * Moves the Task from its current status to 'In-Progress'.
+ * 
+ * @param {string} id = The id of the current task. 
+ */
+async function moveTaskToInProgress(id) {
     let newStatus = 'In-Progress';
     allTasks[id].status = newStatus;
+    await setAllTasks(tasksKey, allTasks);
     closePopUp();
     updateBoard();
     hideExcessElements();
 }
-
-function moveTaskToToDo(id) {
+/**
+ * Moves the Task from its current status to 'To-Do'.
+ * 
+ * @param {string} id = The id of the current task. 
+ */
+async function moveTaskToToDo(id) {
     let newStatus = 'To-Do';
     allTasks[id].status = newStatus;
+    await setAllTasks(tasksKey, allTasks);
     closePopUp();
     updateBoard();
     hideExcessElements();
 }
-
-function moveTaskToDone(id) {
+/**
+ * Moves the Task from its current status to 'Done'.
+ * 
+ * @param {string} id = The id of the current task. 
+ */
+async function moveTaskToDone(id) {
     let newStatus = 'Done';
     allTasks[id].status = newStatus;
+    await setAllTasks(tasksKey, allTasks);
     closePopUp();
     updateBoard();
     hideExcessElements();
@@ -556,41 +582,37 @@ function initialProgressWidth(task) {
     return width
 }
 
-// Funktion, um Elemente zu verstecken, wenn ihre Anzahl 5 übersteigt
+/**
+ * Hides the elements in the assigne container of the tasks if there are more than 5.
+ * Shows the excess elements as + and the number.
+ * 
+ */
 function hideExcessElements() {
     let containers = document.querySelectorAll('.profile-initials-container');
     let existingContacts=[];
     containers.forEach(function(container) {
-      // Extrahiere die Datenwerte und zähle die Anzahl der Elemente
+
       let dataValue = container.getAttribute('data-value');
       let elements = dataValue.split(',').map(function(item) {
         return item.trim();
       });
   
-      // Suche nach dem individuellen span-Element
       let countSpan = container.querySelector(`span[id^="hidden-elements-count"]`);
   
       if (!countSpan) {
-        // Erstelle das span-Element, wenn es nicht existiert
         countSpan = document.createElement('span');
         countSpan.id = 'hidden-elements-count' + container.id.replace('footer', '');
-        // Füge das span-Element nach dem Container ein
         container.parentNode.insertBefore(countSpan, container.nextSibling);
       }
       elements.forEach((e,i)=>{if(contacts[i] && contacts[i].id == e){if(!existingContacts.includes(e)){existingContacts.push(e)}}})
-      // Überprüfe, ob die Anzahl der Elemente größer als 5 ist
-      console.log(existingContacts)
+      
       if (existingContacts.length > 5) {
-        // Verstecke die überschüssigen Elemente
         for (let i = 5; i < elements.length; i++) {
           container.children[i].style.display = 'none';
         }
-  
-        // Zeige die Anzahl der versteckten Elemente im Text an
         let hiddenElementsCount = elements.length - 5;
         countSpan.textContent = hiddenElementsCount > 0 ? '+' + hiddenElementsCount : '';
       } else {
-        // Falls die Anzahl der Elemente nicht größer als 5 ist, setze den Text auf leer
         countSpan.textContent = '';
       }
     });

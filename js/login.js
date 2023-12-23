@@ -212,7 +212,7 @@ function logIn() {
  */
 function guestLogIn() {
   logUser(JSON.stringify(guest))
-  location.replace('/html/summary.html')
+  location.replace('/html/summary.html');
 }
 
 
