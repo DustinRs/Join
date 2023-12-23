@@ -139,23 +139,6 @@ function renderEditPopUp(){
 }
 
 
-// //Renders the add contact button for mobile devices.
-// function renderAddContactButtonMobile(){
-//     return/*html*/`
-//         <div id="mobile-add-btn">
-//             <div id="arrowContact" onclick="removeZindex()" class="arrowContact d-none"><a href=""><img
-//                         src="/assets/img/arrow-left.png" alt=""></a></div>
-//             <button id="contactButtonMobile" onclick="openPopUpAddContact()" class="contactButtonMobile">
-//                 <img src="/assets/img/person_add.png" alt="">
-//             </button>
-//             <button id="menuContactButtonMobile" onclick="removeDNone()" class="contactButtonMobile d-none">
-//                 <img src="/assets/img/menu_btn.png" alt="">
-//             </button>
-//         </div>        
-//     `
-// }
-
-
 /**
  * Opens the contact you clicked on from the register.
  * 

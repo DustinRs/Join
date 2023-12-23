@@ -405,30 +405,3 @@ function randomColor() {
 }
 
 
-
-/**
-//  * Removes an element from the screen when the screen width is below a certain threshold.
-//  *
-//  * @param {string} elementId - The ID of the element to be removed.
-//  * @param {number} screenWidthThreshold - The threshold screen width below which the element will be removed.
-//  */
-// function removeElementOnScreenWidth(elementId, screenWidthThreshold) {
-//   let elements = document.getElementsByClassName(elementId);
-//   if (elements.length > 0) {
-//     let element = elements[0];
-//     addTaskBottomSection=element
-//     function checkAndRemoveElement() {
-//       if (window.innerWidth <= screenWidthThreshold) {
-//         if (element && element.parentNode) {
-//           element.parentNode.removeChild(element);
-//           window.removeEventListener('resize', checkAndRemoveElement);
-//         }
-//       }else if(window.innerWidth > screenWidthThreshold && elements.length==1){
-//         document.getElementById('task-container').appendChild(addTaskBottomSection)
-//       }
-//     }
-//     checkAndRemoveElement();
-//     window.addEventListener('resize', checkAndRemoveElement);
-//   }
-// }
-// removeElementOnScreenWidth('add-task-bottom-section', 960);

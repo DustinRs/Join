@@ -362,57 +362,6 @@ function contactActive(id) {
 
 
 /**
-//  * Swappes the mobile Buttons of the mobile contact page.
-//  */
-// function setZindex() {
-//   let div = document.getElementById('zIndex');
-//   div.classList.add('zIndex');
-//   let arrow = document.getElementById('arrowContact');
-//   arrow.classList.remove('d-none');
-//   let button = document.getElementById('contactButtonMobile');
-//   button.classList.add('d-none');
-//   let menu = document.getElementById('menuContactButtonMobile');
-//   menu.classList.remove('d-none');
-// }
-
-
-// /**
-//  * Swappes the mobile Buttons of the mobile contact page the otherway around.
-//  */
-// function removeZindex() {
-//   let div = document.getElementById('zIndex');
-//   div.classList.remove('zIndex');
-//   let arrow = document.getElementById('arrowContact');
-//   arrow.classList.add('d-none');
-//   let menu = document.getElementById('menuContactButtonMobile');
-//   menu.classList.add('d-none');
-//   let button = document.getElementById('contactButtonMobile');
-//   button.classList.remove('d-none');
-// }
-
-
-/**
- * Adds d-none to two buttons.
-//  */
-// function removeDNone() {
-//   let button = document.getElementById('buttonsPopUpMobile');
-//   button.classList.remove('d-none');
-
-// }
-
-
-// /**
-//  * Removes d-none of two buttons.
-//  */
-// function addDNone() {
-//   let button = document.getElementById('buttonsPopUpMobile');
-//   button.classList.add('d-none');
-//   let menu = document.getElementById('menuContactButtonMobile');
-//   menu.classList.remove('d-none');
-// }
-
-
-/**
  * Clears the HTML of the inputfields in the edit contact popup.
  */
 function clearHTML() {
@@ -425,20 +374,4 @@ function clearHTML() {
     popUpTwo.parentNode.removeChild(popUpTwo);
   }
 }
-
-// document.addEventListener('click', function(event) {
-//   let zIndexDiv = document.getElementById('zIndex');
-//   let buttonsPopUpMobile = document.getElementById('buttonsPopUpMobile');
-
-//   // Überprüfen, ob das geklickte Element die DIV mit der ID "zIndex" ist
-//   if (event.target === zIndexDiv) {
-//       // Überprüfen, ob die Klasse "d-none" noch nicht zugewiesen ist
-//       if (!buttonsPopUpMobile.classList.contains('d-none')) {
-//           // Füge die Klasse "d-none" hinzu
-//           buttonsPopUpMobile.classList.add('d-none');
-//           let menu = document.getElementById('menuContactButtonMobile');
-//           menu.classList.remove('d-none');
-//       }
-//   }
-// });
 
