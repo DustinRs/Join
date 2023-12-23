@@ -97,7 +97,7 @@ section {
     display: flex;
     justify-content: space-between;
     gap: 1rem;
-    width: 27rem;
+    width: 100%;
 }
 
 .prioImgs {
@@ -237,7 +237,17 @@ label {
 
 .clearButton:hover>img{
         content: url('/assets/img/Vectorblue-cross.png');
-        margin-left:.6875rem
+        margin-left:.6875rem;
+}
+
+#cross{
+    width: .875rem;
+    height: .875rem;
+}
+
+#add-subtask{
+    width: 1.125rem;
+    height: .9375rem;
 }
 
 .span {
@@ -520,6 +530,7 @@ ul li {
     display: flex;
     padding: 0.2rem 1rem;
     text-align: left;
+    width: 25,5rem;
     font-size: 1rem !important;
     align-items: center;
     justify-content: space-between;
@@ -778,6 +789,8 @@ input[type="date"]::-webkit-calendar-picker-indicator{
 .profile-checkboxes{
     position: absolute;
     right: 1rem;
+    width:1.5625rem;
+    height:1.5625rem
 }
 .subTaskListFlex {
     display: flex;
@@ -804,7 +817,7 @@ input[type="date"]::-webkit-calendar-picker-indicator{
 }
 
 .deleteSubtaskImg {
-    width: fit-content;
+    width: 1.5rem
 }
 .deleteSubtaskImg:hover {
     cursor: pointer;

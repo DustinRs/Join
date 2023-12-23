@@ -20,7 +20,7 @@ main {
 }
 
 #assign-list li{
-    width: 95%;
+    width: 98%
 }
 
 .cloumn {
@@ -167,6 +167,11 @@ main {
     margin: auto;
 }
 
+#search-btn>img{
+    height: 1.125rem;
+    width: 1.125rem;
+}
+
 #find-task-container>.input-border {
     width: .0625rem;
     padding: 0;
@@ -277,6 +282,10 @@ h1 {
     flex-direction: row;
 }
 
+#task-container{
+    position: static;
+}
+
 h5 {
     font-weight: 700 !important;
 }
@@ -319,7 +328,7 @@ h5 {
     background-color: white;
     inset: 0;
     margin: auto;
-    height: 50rem;
+    height: 55rem;
     padding: 0 5.5em;
     width: 80%;
     border-radius: 1.875rem;
@@ -360,7 +369,7 @@ h5 {
     display: flex;
     flex-direction: column;
     padding: 2rem;
-    height:40rem;
+    height:45rem;
     overflow-y: auto;
 
     &::-webkit-scrollbar {
@@ -410,6 +419,10 @@ h5 {
     width: 7rem !important;
 }
 
+.prioriy-container>img{
+    width:1.3125rem
+}
+
 
 
 .left-section,
@@ -423,31 +436,31 @@ h5 {
 
 
 h6:not(:first-of-type):not(:nth-of-type(4)) {
-    margin: 2em 0 0.5em !important;
+    margin: 1rem 0 0.5rem !important;
 }
 
 #header-six {
-    margin: 3em 0 0.5em !important;
+    margin: 1.5rem 0 0.5rem !important;
 }
 
 #required-text {
-    font-size: .8em !important;
+    font-size: .8rem !important;
     margin: 0;
     align-self: flex-end !important;
 }
 
 
 .add-task-bottom-section {
-    width: 85% !important;
     position: absolute;
     margin: auto;
-    bottom: 10%;
-    left: 5%;
-    right: 5%;
+    bottom: 3rem;
+    width:90%;
+    left: 0;
+    right: 0;
 }
 
 .border {
-    margin: 0 2.5em
+    margin: 0 2.5rem
 }
 
 .edit-border {
@@ -654,6 +667,10 @@ ul {
     }
 }
 
+#todo-edit-footer>button>img{
+    height: 1.5rem;
+}
+
 .sub-task-board {
     margin: 0 0 0 -1rem;
     display: flex;
@@ -678,6 +695,10 @@ ul {
 
 .sub-checkbox{
     height: 1.2rem;
+}
+
+.title{
+    margin-bottom: 2rem;
 }
 
 #title-requirement-edit{
