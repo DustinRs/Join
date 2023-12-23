@@ -53,6 +53,12 @@ function renderContactPopUp(){
 function renderContactSection(){
     return/*html*/`
         <div class="contactSection">
+            <div id="mobile-edit-container">
+                <Button  class="mobile-edit">
+                <img src="/assets/img/edit.png" alt=""> Edit</Button>
+                <Button  class="mobile-edit">
+                <img src="/assets/img/delete.png" alt=""> Delete</Button>
+            </div>
             <div id="contacts-bar" class="contactsDiv">
                 <div id="addNewContact" class="contactButtonDiv">
                     <button onclick="openPopUpAddContact()" class="contactButton">
@@ -73,6 +79,9 @@ function renderContactSection(){
                 <div id="userProfile" class="userProfile">
                 </div>
             </div>
+            <button id="menuContactButtonMobile" onclick="editSlider()" class="contactButtonMobile">
+                <img src="/assets/img/menu_btn.png" alt="menu-dots">
+            </button>
         </div>  
     `
 }
@@ -168,19 +177,27 @@ function openProfile(id) {
     <a id="help-arrow" href="#" onclick="takeSlider()"><img src="/assets/img/arrow-left.png" alt=""></a>
     <div>
       <div class="topProfile">
-          <div class="profile-initials-pseudo-img" style="background-color:${e.color}">
+          <div class="profile-initials-pseudo-img " style="background-color:${e.color}">
              ${e.initials}
           </div>
-      <div class="nameProfile"><h2 class="h2">${e.fullName}</h2><div class="buttonsPopUp"><Button onclick="editProfile(${e.id})" class="buttonPopUp"><img src="/assets/img/edit.png" alt=""> Edit</Button><Button onclick="deleteContact(${e.id})" class="buttonPopUp"><img src="/assets/img/delete.png" alt=""> Delete</Button></div></div>
+      <div class="nameProfile">
+        <h2 class="h2">${e.fullName}</h2>
+            <div class="buttonsPopUp">
+                <Button onclick="editProfile(${e.id})" class="buttonPopUp">
+                <img src="/assets/img/edit.png" alt=""> Edit</Button>
+                <Button onclick="deleteContact(${e.id})" class="buttonPopUp">
+                <img src="/assets/img/delete.png" alt=""> Delete</Button>
+            </div>
+        </div>
       </div>
       <p class="pProfile">Contact Information</p>
       <p><b>Email</b></p>
       <a class="profileLink" href="#" onclick="return false;">${e.email}</a>
       <p class="pMail"><b>Phone</b></p>
       <p>${e.phoneNumber}</p>
-    </div>
-    <div id="buttonsPopUpMobile" class="buttonsPopUpMobile d-none"><Button onclick="editProfile(${e.id}); addDNone();" class="buttonPopUpMobile"><img src="/assets/img/edit.png" alt=""> Edit</Button><Button onclick="deleteContact(${e.id}); addDNone();" class="buttonPopUpMobile"><img src="/assets/img/delete.png" alt=""> Delete</Button></div>`;
-  addSlider()}
+    </div>`;
+  addSlider();
+  configureMobileEdit();}
   
 
   /**

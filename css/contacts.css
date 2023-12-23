@@ -297,6 +297,10 @@ section {
     padding-left: 3.5rem;
 }
 
+#userProfile>div a{
+    text-decoration: none;   
+}
+
 .topProfile {
     display: flex;
     justify-content: flex-start;
@@ -316,6 +320,10 @@ h2 {
 
 .nameProfile {
     gap: .5rem;
+}
+
+#mobile-edit-container {
+    display: none;
 }
 
 .profileLink {
@@ -564,7 +572,7 @@ input[type=number] {
     font-size: 3rem;
     font-weight: 400;
     color: white;
-    border: 0.125rem solid white;
+    border: 0.225rem solid white;
     box-shadow: 0px 0px 0.125rem .1875rem rgba(0, 0, 0, 0.05);
 }
 
@@ -620,6 +628,54 @@ input[type=number] {
     border-radius: 2rem;
     display: none;
 }
+
+#menuContactButtonMobile>img{
+    width: .475rem;
+}
+
+.edit-slide-out{
+    animation: edit-out .125s ease-out 0s 1 forwards;
+}
+
+.edit-slide-in{
+    animation: edit .125s ease-in 0s 1 forwards;
+}
+
+@keyframes edit-out {
+    0%{
+        transform: translateX(0%);
+    }
+    100%{
+        transform: translateX(8rem);
+    }
+    
+}
+
+@keyframes edit {
+    0%{
+        transform: translateX(8rem);
+    }
+    100%{
+        transform: translateX(0);
+    }
+    
+}
+
+.contactButtonMobile {
+    position: fixed;
+    top: auto;
+    right: 2rem;
+    bottom: 10rem;
+    background-color: #091931;
+    width: 4rem;
+    height: 4rem;
+    border: unset;
+    border-radius: 2rem;
+  }
+
+  #menuContactButtonMobile{
+    bottom:3rem;
+  }
 
 
 @media screen and (max-width: 960px) {
@@ -687,7 +743,6 @@ input[type=number] {
         flex-direction: column;
         width: 30rem;
         height: 52rem;
-        border: 1px solid;
     }
 
     section {
@@ -747,6 +802,8 @@ input[type=number] {
     #zIndex {
         width: 100%;
         z-index: 5;
+        overflow-y: scroll;
+        overflow-x: hidden;
         background-color: #F6F7F8;
 
     }
@@ -765,24 +822,31 @@ input[type=number] {
     }
 
     .contact {
-        width: 35rem;
+        width: 98%;
     }
 
     .register {
-        width: 35rem;
+        width: 100%;
+    }
+
+    .test{
+        width: 100%;
     }
 
     .contactSection {
         width: 100%;
-        height: 60rem;
+    }
+
+    .registerLineDiv{
+        width: 99%;
     }
 
     .registerLine {
-        width: 35rem;
+        width: 100%;
     }
 
-    .headlineDiv{
-        padding:2rem 0
+    .headlineDiv {
+        padding: 2rem 0
     }
 
     .headLine {
@@ -793,7 +857,67 @@ input[type=number] {
         position: relative;
         margin: 2rem 0 3rem 3rem;
         align-self: flex-start;
-        gap:unset
+        gap: unset
+    }
+
+    .buttonsPopUp{
+        display: none;
+    }
+    
+    #mobile-edit-container {
+        position: absolute;
+        z-index: 11;
+        right: 1rem;
+        width: 7rem;
+        height: 6rem;
+        bottom: 2rem;
+        display: flex;
+        padding: .5rem;
+        justify-content: center;
+        gap:.7rem;
+        align-items: center;
+        flex-direction: column;
+        border-radius: 0.9rem .9rem 0 .9rem;
+        align-items: flex-start;
+        background-color: white;
+        transform: translateX(8rem);
+    }
+
+    #mobile-edit-container>button{
+        background-color: white;
+        border-radius: 1.5rem;
+        border:none
+    }
+
+    #profile-img-div{
+        position: absolute;
+        height: 8.375rem;
+        width: 8.375rem;
+        bottom: 4rem;
+        top: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
+    }
+
+    .pProfile{
+        font-size: 1.5rem!important;
+        margin:1rem 0;
+        font-weight: 500;
+    }
+
+    #userProfile>div p{
+        font-size: 1.2rem;
+        font-weight: 400!important;
+    }
+
+    .lineContact{
+        width: 7.625rem;
+    }
+
+    #userProfile>div a{
+        font-weight: 500;
+        font-size: 1.2rem;
     }
 
     .blueLine {
