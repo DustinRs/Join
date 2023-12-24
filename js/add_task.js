@@ -245,10 +245,10 @@ function getPrioValue() {
  * @param {string} string - The current priority.
  */
 function setValue(string) {
-  let input = document.getElementById('category')
-  input.innerText = string
-  input.setAttribute('placeholder', string)
-  input.setAttribute('value', string)
+  let input = document.getElementById('category');
+  input.innerText = string;
+  input.setAttribute('placeholder', string);
+  input.setAttribute('value', string);
 }
 
 

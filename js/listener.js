@@ -59,6 +59,7 @@ function validateTitleInput() {
     } else {
         message.classList.add("d-none");
         container.style = "";
+        title.addEventListener("blur", checkAllInputs);
         return true;
     }
 }
@@ -81,6 +82,7 @@ function validateDescriptionInput() {
     } else {
         container.style = "";
         message.classList.add("d-none");
+        description.addEventListener("blur", checkAllInputs);
         return true;
     }
 }
@@ -109,6 +111,7 @@ function validateDateInput() {
     } else {
         message.classList.add("d-none");
         div.style = "";
+        input.addEventListener("blur", checkAllInputs);
         return true;
     }
 }
