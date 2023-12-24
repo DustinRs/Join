@@ -810,6 +810,7 @@ input[type=number] {
 
     #contacts-bar {
         height: 100%;
+        padding-top: 1rem;
     }
 
     .contactsDiv {
