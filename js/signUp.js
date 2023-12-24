@@ -52,16 +52,19 @@ function match(pawsswordDiv, confirmationDiv, confirm_password) {
 
 
 function formValidation() {
+  let passwordInput = document.getElementById('create_password'); // Annahme: Ihr Passwortfeld hat die ID 'password'
   let password = validatePassword();
-  if (validatePassword) {
-    if(isStrongPassword(password)){
-      enableSignUp()
-    }else{
-      password.setCustomValidity(passwordPattern);
-      disableSignUp()
+
+  if (password) {
+    if (isStrongPassword(password)) {
+      passwordInput.setCustomValidity(''); // Setzt die Custom Validity auf einen leeren String, um eventuelle vorherige Fehler zu löschen
+      enableSignUp();
+    } else {
+      passwordInput.setCustomValidity(passwordPattern);
+      disableSignUp();
     }
   } else {
-    disableSignUp()
+    disableSignUp();
   }
 }
 
