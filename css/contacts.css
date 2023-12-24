@@ -294,7 +294,7 @@ section {
     width: 29rem;
     height: 23rem;
     gap: 1.5rem;
-    padding-left: 3.5rem;
+    padding-left: 1.5rem;
 }
 
 #userProfile>div a{
@@ -855,7 +855,7 @@ input[type=number] {
         align-items: self-start;
         flex-direction: column;
         position: relative;
-        margin: 2rem 0 3rem 3rem;
+        margin: 2rem 0 3rem 2rem;
         align-self: flex-start;
         gap: unset
     }

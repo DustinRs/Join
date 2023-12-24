@@ -182,7 +182,13 @@ function setClosingAssign() {
 }
 
 
-
+/**
+ * Handles the click event for assigning a task.
+ * Closes the assignment list if the click is outside the assignment-related elements.
+ *
+ * @param {Event} event - The click event object.
+ * @returns {void}
+ */
 function handleClickAssign(event) {
     let assignContainer = document.getElementById("assign-select");
     let body = document.querySelector("body");
@@ -200,6 +206,9 @@ function handleClickAssign(event) {
     ) { closeList("assign-select", "assign", "assign-ul", "assign-icon")}
 }
 
+/**
+ * Removes eventlistener from Body
+ */
 function removeBodyHandler(){
     let body = document.querySelector("body");
     body.removeEventListener("click", handleClickAssign);
@@ -224,9 +233,15 @@ function setEditableSubtask() {
     }
 }
 
-
+/**
+ * Edits the content of a list item identified by its ID.
+ * Replaces the list item with a text input element for editing.
+ * Pressing "Enter" key finishes the editing and updates the list item content.
+ *
+ * @param {string} id - The ID of the list item to be edited.
+ * @returns {void}
+ */
 function editListItem(id) {
-    // Erstelle ein textInput-Element
     let item = document.getElementById(`${id}`);
     const textInput = document.createElement("input");
     textInput.type = "text";
@@ -234,20 +249,17 @@ function editListItem(id) {
     textInput.classList.add("subtask-input");
     textInput.classList.add("edit-input");
 
-    // Ersetze das li-Element durch das textInput-Element
     item.parentNode.replaceChild(textInput, item);
 
-    // Füge ein Eventlistener für die "Enter"-Taste hinzu, um die Bearbeitung zu beenden
     textInput.addEventListener("keydown", function (event) {
         if (event.key === "Enter") {
-            // Beende die Bearbeitung und setze den neuen Text im li-Element
+            
             item.textContent = textInput.value;
-            // Ersetze das textInput-Element durch das ursprüngliche li-Element
+           
             textInput.parentNode.replaceChild(item, textInput);
         }
     });
 
-    // Setze den Fokus auf das Texteingabefeld
     textInput.focus();
 }
 

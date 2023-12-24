@@ -15,7 +15,11 @@ function addSignUpHandler() {
   confirm_password.addEventListener('input', validatePassword);
 }
 
-
+/**
+ * Validates the password.
+ * 
+ * @returns the password value.
+ */
 function validatePassword() {
   let password = document.getElementById("create_password");
   let confirm_password = document.getElementById("confirm_password");
@@ -28,7 +32,15 @@ function validatePassword() {
   }
 }
 
-
+/**
+ * If the passwords are not matching a sign is displayed and border of inputs are red.
+ * 
+ * 
+ * @param {string} pawsswordDiv 
+ * @param {string} confirmationDiv 
+ * @param {string} confirm_password 
+ * @returns 
+ */
 function noMatch(pawsswordDiv, confirmationDiv, confirm_password) {
   document.getElementById('pw-check-reminder').classList.remove('d-none')
   confirm_password.setCustomValidity("Passwords Don't Match"),
@@ -38,7 +50,14 @@ function noMatch(pawsswordDiv, confirmationDiv, confirm_password) {
   return false
 }
 
-
+/**
+ * If the passwords are matching border of inputs are green.
+ * 
+ * @param {string} pawsswordDiv 
+ * @param {string} confirmationDiv 
+ * @param {string} confirm_password 
+ * @returns 
+ */
 function match(pawsswordDiv, confirmationDiv, confirm_password) {
   document.getElementById('pw-check-reminder').classList.add('d-none')
   pawsswordDiv.style = "border: 3px solid green!important";
@@ -50,14 +69,17 @@ function match(pawsswordDiv, confirmationDiv, confirm_password) {
 
 
 
-
+/**
+ * Validates if password matches the needed patterns.
+ * 
+ */
 function formValidation() {
-  let passwordInput = document.getElementById('create_password'); // Annahme: Ihr Passwortfeld hat die ID 'password'
+  let passwordInput = document.getElementById('create_password');
   let password = validatePassword();
 
   if (password) {
     if (isStrongPassword(password)) {
-      passwordInput.setCustomValidity(''); // Setzt die Custom Validity auf einen leeren String, um eventuelle vorherige Fehler zu löschen
+      passwordInput.setCustomValidity('');
       enableSignUp();
     } else {
       passwordInput.setCustomValidity(passwordPattern);
@@ -86,13 +108,20 @@ function enableSignUp() {
   }
 }
 
-
+/**
+ * Disables the signup button.
+ */
 function disableSignUp() {
   let button = document.getElementById('signup-btn');
   button.disabled = true
 }
 
-
+/**
+ * Shows if the signup checkbox is clicked or not.
+ * 
+ * @param {string} box 
+ * @param {string} img 
+ */
 function signUpCheckBox(box, img) {
   if (box.checked) {
     box.checked = false;
@@ -164,7 +193,11 @@ async function createAccount(name, mail, password) {
   }, 2000)
 }
 
-
+/**
+ * Makes the signup popup fly in.
+ * 
+ * @param {string} text 
+ */
 function popUpSignUp(text) {
   let popUp = document.getElementById('pop-up');
   let overlay = document.getElementById('overlay')
@@ -172,7 +205,12 @@ function popUpSignUp(text) {
   overlay.classList.remove('d-none')
 }
 
-
+/**
+ * Designs the signup popup.
+ * 
+ * @param {string} text 
+ * @param {style} width 
+ */
 function popUp(text, width) {
   let popUp = document.getElementById('info-text');
   let container = document.getElementById('info-no-mail');
@@ -184,7 +222,12 @@ function popUp(text, width) {
   }, 2000)
 }
 
-
+/**
+ * Defines the pattern of the strong password.
+ * 
+ * @param {string} password 
+ * @returns 
+ */
 function isStrongPassword(password) {
   let regex = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*\\-]).{8,}$|(?=[0-9]*.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*\\-]).{8,}$/;
   let result = regex.test(password);
