@@ -100,6 +100,7 @@ function validateDateInput() {
     let currentDate = new Date();
     let message = document.getElementById("date-requirement") || document.getElementById("date-requirement-edit");
     let btn = document.getElementById("createTaskButton") || document.getElementById("edit-ok-btn");
+    input.addEventListener("blur", checkAllInputs);
     if (selectedDate == "Invalid Date") {
         div.style = "box-shadow: inset 0 0 1px 1px #FF4646!important;";
         message.classList.remove("d-none");
@@ -111,7 +112,6 @@ function validateDateInput() {
     } else {
         message.classList.add("d-none");
         div.style = "";
-        input.addEventListener("blur", checkAllInputs);
         return true;
     }
 }
