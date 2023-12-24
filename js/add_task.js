@@ -256,9 +256,9 @@ function setValue(string) {
  * Clears the category value from the current task. 
  */
 function clearCategoryValue() {
-  let input = document.getElementById('category')
-  input.innerText = ''
-  input.setAttribute('placeholder', 'Select task category')
+  let input = document.getElementById('category');
+  input.innerText = '';
+  input.setAttribute('placeholder', 'Select task category');
   input.setAttribute('value', '');
 }
 
@@ -346,14 +346,14 @@ function pushSubTasks() {
  * Clears all input and textarea fields, clears the assignees, resets the category value, and disables the create/edit task button.
  */
 function clearAll() {
-  clearAssignees()
+  clearAssignees();
   let input = document.querySelectorAll('input');
   let textarea = document.querySelectorAll('textarea');
   for (let i = 0; i < input.length; i++) {
     input[i].value = '';}
     for (let i = 0; i < textarea.length; i++) {
       textarea[i].value = '';};
-  clearCategoryValue()
+  clearCategoryValue();
   let btn = document.getElementById('createTaskButton')||document.getElementById('edit-ok-btn');
   btn.disabled = true
 }
@@ -364,9 +364,9 @@ function clearAll() {
  */
 function clearAssignees(){
   let clickList = [];
-  clickList.push(...assignees)
+  clickList.push(...assignees);
   for(let i=0; i < clickList.length; i++){
-    addboxClick(i,checkList[i])
+    addboxClick(i,clickList[i]);
   }
 }
 
